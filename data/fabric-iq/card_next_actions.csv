@@ -1,0 +1,58 @@
+account_id,customer_id,play_type,play,recommended_product,rationale,eligibility,value_at_stake_cad,rank
+CA-1003,CUST-1003,Retain,Spend decline,Re-engagement conversation,Spend down 42% (last 3 vs prior 6 months) - possible card switch,Eligible,1195,1
+CA-1004,CUST-1004,Grow,Credit limit increase,"Limit to $15,080","Pays in full; monthly spend is 38% of the $11,600 limit",Blocked - TDS above 44% guideline (RP-013),214,1
+CA-1005,CUST-1005,Retain,Spend decline,Re-engagement conversation,Spend down 42% (last 3 vs prior 6 months) - possible card switch,Eligible,214,1
+CA-1008,CUST-1008,Retain,Spend decline,Re-engagement conversation,Spend down 44% (last 3 vs prior 6 months) - possible card switch,Eligible,1428,1
+CA-1008,CUST-1008,Retain,Fee renewal at risk,One-year fee waiver or switch within the card family,"Annual fee $120 due in 56 days; rewards earned ~$2,143; spend -44%",Eligible,1191,2
+CA-1008,CUST-1008,Grow,Credit limit increase,"Limit to $26,520","Pays in full; monthly spend is 29% of the $20,400 limit",Needs express consent (RP-020),286,3
+CA-1010,CUST-1010,Grow,Credit limit increase,"Limit to $43,680","Pays in full; monthly spend is 32% of the $33,600 limit",Needs express consent (RP-020),514,1
+CA-1012,CUST-1012,Protect,Security check-in,"Card lock, alerts and digital wallet",2 fraud alert(s) in 90 days,Eligible,0,1
+CA-1017,CUST-1017,Grow,Credit limit increase,"Limit to $16,250","Pays in full; monthly spend is 29% of the $12,500 limit",Needs express consent (RP-020),172,1
+CA-1019,CUST-1019,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$94/yr in FX fees,Eligible,134,1
+CA-1020,CUST-1020,Protect,Security check-in,"Card lock, alerts and digital wallet",3 fraud alert(s) in 90 days,Eligible,0,1
+CA-1025,CUST-1025,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,1192,1
+CA-1034,CUST-1034,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,535,1
+CA-1036,CUST-1036,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$234/yr in FX fees,Eligible,274,1
+CA-1043,CUST-1043,Protect,Security check-in,"Card lock, alerts and digital wallet",1 fraud alert(s) in 90 days,Eligible,0,1
+CA-1044,CUST-1044,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,0,1
+CA-1045,CUST-1045,Grow,Credit limit increase,"Limit to $52,000","Pays in full; monthly spend is 29% of the $40,000 limit",Eligible,564,1
+CA-1046,CUST-1046,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$152/yr in FX fees,Eligible,192,1
+CA-1046,CUST-1046,Grow,Credit limit increase,"Limit to $20,670","Pays in full; monthly spend is 23% of the $15,900 limit",Eligible,174,2
+CA-1049,CUST-1049,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%; 30 days past due,Eligible,0,1
+CA-2001,CUST-2001,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$26/yr in FX fees,Fails income minimum (RP-019),66,1
+CA-2001,CUST-2001,Grow,Credit limit increase,"Limit to $2,470","Pays in full; monthly spend is 33% of the $1,900 limit",Needs express consent (RP-020),30,2
+CA-2003,CUST-2003,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,1388,1
+CA-2005,CUST-2005,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$87/yr in FX fees,Needs marketing consent (RP-011),127,1
+CA-2007,CUST-2007,Retain,Spend decline,Re-engagement conversation,Spend down 39% (last 3 vs prior 6 months) - possible card switch,Eligible,144,1
+CA-2007,CUST-2007,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$25/yr in FX fees,Eligible,65,2
+CA-2011,CUST-2011,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,856,1
+CA-2012,CUST-2012,Protect,Security check-in,"Card lock, alerts and digital wallet",2 fraud alert(s) in 90 days,Eligible,0,1
+CA-2012,CUST-2012,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$26/yr in FX fees,Needs marketing consent (RP-011),66,2
+CA-2014,CUST-2014,Protect,Security check-in,"Card lock, alerts and digital wallet",2 fraud alert(s) in 90 days,Eligible,0,1
+CA-2014,CUST-2014,Grow,Credit limit increase,"Limit to $16,120","Pays in full; monthly spend is 29% of the $12,400 limit",Needs express consent (RP-020),174,2
+CA-2016,CUST-2016,Retain,Spend decline,Re-engagement conversation,Spend down 44% (last 3 vs prior 6 months) - possible card switch,Eligible,118,1
+CA-2017,CUST-2017,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,864,1
+CA-2017,CUST-2017,Protect,Security check-in,"Card lock, alerts and digital wallet",3 fraud alert(s) in 90 days,Eligible,0,2
+CA-2018,CUST-2018,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$41/yr in FX fees,Needs marketing consent (RP-011),81,1
+CA-2019,CUST-2019,Retain,Spend decline,Re-engagement conversation,Spend down 40% (last 3 vs prior 6 months) - possible card switch,Eligible,979,1
+CA-2019,CUST-2019,Retain,Fee renewal at risk,One-year fee waiver or switch within the card family,"Annual fee $120 due in 18 days; rewards earned ~$1,469; spend -40%",Eligible,854,2
+CA-2020,CUST-2020,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$43/yr in FX fees,Eligible,83,1
+CA-2020,CUST-2020,Grow,Credit limit increase,"Limit to $5,590","Pays in full; monthly spend is 24% of the $4,300 limit",Eligible,49,2
+CA-2021,CUST-2021,Protect,Security check-in,"Card lock, alerts and digital wallet",3 fraud alert(s) in 90 days,Eligible,0,1
+CA-2022,CUST-2022,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,240,1
+CA-2023,CUST-2023,Grow,Credit limit increase,"Limit to $29,380","Pays in full; monthly spend is 28% of the $22,600 limit",Eligible,306,1
+CA-2024,CUST-2024,Retain,Spend decline,Re-engagement conversation,Spend down 45% (last 3 vs prior 6 months) - possible card switch,Needs marketing consent (RP-011),144,1
+CA-2024,CUST-2024,Grow,Credit limit increase,"Limit to $2,990","Pays in full; monthly spend is 26% of the $2,300 limit",Needs express consent (RP-020),29,2
+CA-2025,CUST-2025,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,254,1
+CA-2026,CUST-2026,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,732,1
+CA-2027,CUST-2027,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,547,1
+CA-2028,CUST-2028,Protect,Security check-in,"Card lock, alerts and digital wallet",2 fraud alert(s) in 90 days,Eligible,0,1
+CA-2028,CUST-2028,Grow,Credit limit increase,"Limit to $10,660","Pays in full; monthly spend is 28% of the $8,200 limit",Needs express consent (RP-020),111,2
+CA-2030,CUST-2030,Grow,Credit limit increase,"Limit to $6,370","Pays in full; monthly spend is 32% of the $4,900 limit",Needs express consent (RP-020),75,1
+CA-2031,CUST-2031,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$29/yr in FX fees,Eligible,69,1
+CA-2033,CUST-2033,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,1023,1
+CA-2033,CUST-2033,Protect,Security check-in,"Card lock, alerts and digital wallet",3 fraud alert(s) in 90 days,Eligible,0,2
+CA-2034,CUST-2034,Protect,Security check-in,"Card lock, alerts and digital wallet",2 fraud alert(s) in 90 days,Eligible,0,1
+CA-2035,CUST-2035,Grow,Credit limit increase,"Limit to $6,890","Pays in full; monthly spend is 68% of the $5,300 limit",Needs express consent (RP-020),173,1
+CA-2037,CUST-2037,Grow,Upgrade fit: travel,Travel Infinite Card,14% of spend is foreign - paying ~$77/yr in FX fees,Eligible,117,1
+CA-2038,CUST-2038,Support,Persistent-debt support,Low-Rate Card or instalment plan,12 of 12 months at minimum payment; utilisation 98%,Eligible,1199,1

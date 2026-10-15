@@ -1,0 +1,252 @@
+{
+  "$schema_note": "Product-book correspondence (newcomers, insurance, security + everyday banking, borrowing, investing) for Work IQ. Same schema as emails.json; author only - seed with the same importer as seed_card_mail.py.",
+  "scenario": "Product books FY26",
+  "as_of": "2026-08-03",
+  "people": [
+    {
+      "alias": "diane.lafleur",
+      "displayName": "Diane Lafleur",
+      "title": "EVP, Personal Banking",
+      "role": "executive"
+    },
+    {
+      "alias": "raj.balakrishnan",
+      "displayName": "Raj Balakrishnan",
+      "title": "VP, Real Estate Secured Lending",
+      "role": "executive"
+    },
+    {
+      "alias": "karen.whitfield",
+      "displayName": "Karen Whitfield",
+      "title": "Chief Risk Officer",
+      "role": "executive"
+    },
+    {
+      "alias": "derek.fontaine",
+      "displayName": "Derek Fontaine",
+      "title": "Director, Mortgage Pricing",
+      "role": "pricing"
+    },
+    {
+      "alias": "marcus.delaney",
+      "displayName": "Marcus Delaney",
+      "title": "Branch Manager, Toronto Bay & Bloor (BR-101)",
+      "role": "branch_leader"
+    },
+    {
+      "alias": "sophie.tremblay",
+      "displayName": "Sophie Tremblay",
+      "title": "Branch Manager, Montreal Plateau (BR-202)",
+      "role": "branch_leader"
+    },
+    {
+      "alias": "nadia.osei",
+      "displayName": "Nadia Osei",
+      "title": "Branch Manager, Calgary Centre Street (BR-303)",
+      "role": "branch_leader"
+    },
+    {
+      "alias": "priya.raghavan",
+      "displayName": "Priya Raghavan",
+      "title": "Mortgage Advisor (ADV-012)",
+      "role": "advisor"
+    },
+    {
+      "alias": "wei.zhang",
+      "displayName": "Wei Zhang",
+      "title": "Senior Mortgage Advisor (ADV-021)",
+      "role": "advisor"
+    },
+    {
+      "alias": "fatima.haddad",
+      "displayName": "Fatima Haddad",
+      "title": "Senior Mortgage Advisor (ADV-031)",
+      "role": "advisor"
+    }
+  ],
+  "emails": [
+    {
+      "id": "EM-B01",
+      "category": "newcomer_executive_guidance",
+      "from": "diane.lafleur",
+      "to": [
+        "marcus.delaney",
+        "sophie.tremblay",
+        "nadia.osei"
+      ],
+      "cc": [
+        "raj.balakrishnan"
+      ],
+      "sentDateTime": "2026-06-18T13:20:00Z",
+      "importance": "high",
+      "subject": "Newcomers: fee-free periods and credit building - how we talk to new clients",
+      "body": "Team,\n\nOur newcomer book now has 30 clients, 15 of them new to the Bank this year. Three rules under the new newcomer policy (RP-029):\n1. Tell every client at least 30 days before their 12-month fee-free period ends, and name the lowest-cost package for how they actually use the account - even if that is Basic.\n2. A secured card moves to an unsecured card only after 12 months with every payment on time, and only with marketing consent on file. Never imply a card is needed to stay in Canada or to build credit.\n3. Offer an interpreter or translated material whenever it helps. No pressure, ever.\n\nDiane"
+    },
+    {
+      "id": "EM-B02",
+      "category": "newcomer_branch_update",
+      "from": "marcus.delaney",
+      "to": [
+        "priya.raghavan",
+        "wei.zhang"
+      ],
+      "cc": [
+        "diane.lafleur"
+      ],
+      "sentDateTime": "2026-07-22T15:40:00Z",
+      "importance": "high",
+      "subject": "Remittance scam reported at Bay & Bloor - Joseph Mendoza (NC-3012)",
+      "body": "Priya, Wei,\n\nJoseph Mendoza came into the branch yesterday. Someone posing as a relative had been asking him for urgent transfers to new recipients in the Philippines - five transfers a month lately and four new recipients in 90 days. The transfer of 2026-07-21 is held pending a call-back to a number he already had for his family.\n\nReminders (RP-030 / RP-032): scam warning before every first transfer to a new recipient, never ask for a code or password, and no product conversations while his case is open. Aarav Sharma (NC-3001) is also a frequent sender - his fee-free period ends in September, so when you call about the Basic package, include the scam-awareness message.\n\nMarcus"
+    },
+    {
+      "id": "EM-B03",
+      "category": "newcomer_advisor_feedback",
+      "from": "nadia.osei",
+      "to": [
+        "fatima.haddad"
+      ],
+      "cc": [
+        "sophie.tremblay"
+      ],
+      "sentDateTime": "2026-07-28T17:05:00Z",
+      "importance": "normal",
+      "subject": "Calgary newcomers: Olena's fee-free period, Maria's card graduation on hold",
+      "body": "Fatima,\n\nTwo Calgary newcomer files for this week:\n- Olena Kovalenko (NC-3006): fee-free period ends 2026-09. Basic is her lowest-cost fit. She also has an open new-device alert, so security first - call the verified number on file.\n- Maria Santos (NC-3002): 12 months on her secured card, every payment on time, but she has an open check on a remittance to a new recipient. The card graduation stays paused until it closes (RP-032).\n\nSophie - Kateryna Bondar (NC-3015) at Plateau is ready to graduate and has consent on file.\n\nNadia"
+    },
+    {
+      "id": "EM-B04",
+      "category": "insurance_risk_concern",
+      "from": "karen.whitfield",
+      "to": [
+        "diane.lafleur",
+        "raj.balakrishnan"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-06-30T14:00:00Z",
+      "importance": "high",
+      "subject": "Creditor insurance complaints: clients told cover was 'required'",
+      "body": "Diane, Raj,\n\nWe logged three complaints in June from mortgage clients who say they were told mortgage life cover was required at origination. It never is. Under RP-031: insurance is optional and never a condition of approving, renewing or pricing credit; every insurance marketing message must say 'insurance is optional' (the draft check blocks it otherwise); and no new cover is offered to a household above the 44% TDS guideline or to a Vulnerable client.\n\nWhere a family has dependents and a real gap at renewal, an authorised advisor can raise it - with the 30-day cooling-off and pre-existing conditions explained.\n\nKaren"
+    },
+    {
+      "id": "EM-B05",
+      "category": "insurance_branch_concern",
+      "from": "nadia.osei",
+      "to": [
+        "karen.whitfield",
+        "raj.balakrishnan"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-09T16:25:00Z",
+      "importance": "normal",
+      "subject": "Henrik Thibault (CV-1025) - mortgage life lapsed after being told it was 'required'",
+      "body": "Karen, Raj,\n\nHenrik Thibault is one of the June complaints. His mortgage life cover lapsed on 2026-06-09 when he stopped paying - his budget is stretched and he renews this autumn. He was told at origination the cover was required.\n\nPlan: we confirm the lapse was what he intended, tell him clearly that insurance is optional, and we do NOT re-offer cover - his household is above the affordability guideline. The renewal conversation is about the payment, nothing else.\n\nNadia"
+    },
+    {
+      "id": "EM-B06",
+      "category": "insurance_advisor_feedback",
+      "from": "wei.zhang",
+      "to": [
+        "sophie.tremblay"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-27T18:10:00Z",
+      "importance": "normal",
+      "subject": "Lapsed policies - checking they were intended",
+      "body": "Sophie,\n\nFive policies lapsed in the last 90 days across the book. For Plateau: Simone Marchetti (CV-1021) - mortgage disability, and Noah Singh (CV-2014) - card balance protection. I'm using the service script: 'Your cover ended on <date>. If you meant to cancel, there's nothing more to do. This insurance is optional and is never a condition of your credit.' No reinstatement push.\n\nWei"
+    },
+    {
+      "id": "EM-B07",
+      "category": "security_alert",
+      "from": "sophie.tremblay",
+      "to": [
+        "diane.lafleur",
+        "karen.whitfield"
+      ],
+      "cc": [
+        "priya.raghavan"
+      ],
+      "sentDateTime": "2026-06-17T13:35:00Z",
+      "importance": "high",
+      "subject": "Hold-and-verify worked - $7,160 e-Transfer stopped",
+      "body": "Diane, Karen,\n\nOn 2026-06-15 an older client at Plateau, Callum Singh (63), tried to send a $7,160 e-Transfer to a new payee. The caller claimed to be a bank investigator and told him to move his money 'to keep it safe'. The transfer was held, we called him back on his verified number, and he cancelled it.\n\nHe has no trusted contact person on file - I'll offer one at the scam-coaching conversation (RP-032). No sales conversations with him while we follow up.\n\nSophie"
+    },
+    {
+      "id": "EM-B08",
+      "category": "security_executive_guidance",
+      "from": "karen.whitfield",
+      "to": [
+        "marcus.delaney",
+        "sophie.tremblay",
+        "nadia.osei"
+      ],
+      "cc": [
+        "priya.raghavan",
+        "wei.zhang",
+        "fatima.haddad"
+      ],
+      "sentDateTime": "2026-07-15T12:30:00Z",
+      "importance": "high",
+      "subject": "July phishing wave - texts impersonating the Bank",
+      "body": "All,\n\nTen clients across all three branches have reported texts impersonating the Bank since 2026-07-05. Until further notice:\n1. Contact clients only through verified channels. If a client's email changed during a security event, call the number on file - do not email.\n2. Every security message includes: 'We will never ask for your PIN, passcode or password.'\n3. No offers of any kind while a client has an open security event - in any book (RP-032).\n\nKaren"
+    },
+    {
+      "id": "EM-B09",
+      "category": "security_advisor_feedback",
+      "from": "priya.raghavan",
+      "to": [
+        "marcus.delaney"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-30T19:45:00Z",
+      "importance": "normal",
+      "subject": "Farah Leclair (SC-1018) - new device + payee added, email changed",
+      "body": "Marcus,\n\nFarah Leclair's account showed a new device login and a payee added on 2026-07-24, and her email address was changed the same week. The email draft is blocked, so I called the verified number on file. She did not recognise the device; payees are frozen while the case is open.\n\nHer line of credit protection also lapsed in May - I'll check that was intended, but only after the case is closed.\n\nPriya"
+    },
+    {
+      "id": "EM-B10",
+      "category": "banking_pricing_note",
+      "from": "derek.fontaine",
+      "to": [
+        "diane.lafleur",
+        "raj.balakrishnan"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-10T15:15:00Z",
+      "importance": "normal",
+      "subject": "Package fit: recommend the cheaper package even when fees fall",
+      "body": "Diane, Raj,\n\nThe everyday-banking book shows about $3,800 a year in fees that clients would save on the lowest-cost package for their actual usage. RP-023 is clear that we recommend it even though fee revenue falls - switching is free and they keep their account number. I'd rather lose the fee than the primary relationship: 13 clients are already flagged with payroll moving out.\n\nDerek"
+    },
+    {
+      "id": "EM-B11",
+      "category": "borrowing_risk_note",
+      "from": "raj.balakrishnan",
+      "to": [
+        "marcus.delaney",
+        "sophie.tremblay",
+        "nadia.osei"
+      ],
+      "cc": [
+        "karen.whitfield"
+      ],
+      "sentDateTime": "2026-07-16T14:50:00Z",
+      "importance": "normal",
+      "subject": "Prime-rate notices and debt consolidation - service first",
+      "body": "Team,\n\nWe carry about $742k on variable lines priced off prime. If the Bank of Canada moves, every client gets a notice within 30 days with the new payment (RP-026) - a 25bp move is roughly $155 a month across the book. Those notices are service messages: no offers.\n\nOn consolidation (RP-025): 20 card balances could move to a cheaper facility. Show both ways - the cost at the card minimum and the new payment and total interest - never say 'pre-approved', and Vulnerable clients go to Client Assistance.\n\nRaj"
+    },
+    {
+      "id": "EM-B12",
+      "category": "investing_advisor_feedback",
+      "from": "fatima.haddad",
+      "to": [
+        "nadia.osei"
+      ],
+      "cc": [
+        "wei.zhang"
+      ],
+      "sentDateTime": "2026-07-24T16:00:00Z",
+      "importance": "normal",
+      "subject": "KYC refreshes before GIC maturity conversations",
+      "body": "Nadia,\n\n14 investing clients have KYC older than 36 months, and about $552k of GICs mature in the next 90 days. I'm booking KYC refreshes first - no recommendation until the profile is current (RP-027). In client copy we say 'GIC', never 'guaranteed', and no return projections. Reminder that the FHSA is for renters only - our mortgage clients are not eligible.\n\nFatima"
+    }
+  ]
+}

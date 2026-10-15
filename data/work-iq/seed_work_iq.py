@@ -93,6 +93,8 @@ from azure.identity import AzureCliCredential, ClientSecretCredential, DeviceCod
 GRAPH = "https://graph.microsoft.com/v1.0"
 GRAPH_BETA = "https://graph.microsoft.com/beta"
 HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE.parents[1] / "tools" / "brand"))
+from bank_profile import rebrand, rebrand_text  # noqa: E402  - names the deployed bank
 
 TENANT_ID = os.getenv("WORKIQ_TENANT_ID", "")
 CLIENT_ID = os.getenv("WORKIQ_CLIENT_ID", "")
@@ -259,7 +261,7 @@ def restore_users(g: Graph) -> None:
 
 
 def load(name: str) -> dict:
-    return json.loads((HERE / name).read_text(encoding="utf-8"))
+    return rebrand(json.loads((HERE / name).read_text(encoding="utf-8")))
 
 
 def html_body(text: str) -> str:
@@ -538,10 +540,12 @@ def seed_files(g: Graph, onedrive_alias: str | None) -> None:
     for drive_path, label in targets:
         print(f"  -> {label}")
         for f in docs:
-            upload(g, drive_path, f"{LIBRARY_FOLDER}/Meetings/{f.name}", f.read_bytes())
+            body = rebrand_text(f.read_text(encoding="utf-8")).encode("utf-8")
+            upload(g, drive_path, f"{LIBRARY_FOLDER}/Meetings/{f.name}", body)
             print(f"     {LIBRARY_FOLDER}/Meetings/{f.name}")
         for f in extra:
-            upload(g, drive_path, f"{LIBRARY_FOLDER}/Source/{f.name}", f.read_bytes())
+            body = rebrand_text(f.read_text(encoding="utf-8")).encode("utf-8")
+            upload(g, drive_path, f"{LIBRARY_FOLDER}/Source/{f.name}", body)
             print(f"     {LIBRARY_FOLDER}/Source/{f.name}")
 
 

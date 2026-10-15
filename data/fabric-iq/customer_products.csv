@@ -1,0 +1,165 @@
+account_id,customer_id,household_id,product_id,product_name,category,balance_cad,status,opened_year
+ACC-1001-01,CUST-1001,HH-1001,PRD-MTG,Mortgage,Lending,536040.0,Active,2009
+ACC-1001-02,CUST-1001,HH-1001,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,6540.0,Active,2010
+ACC-1001-03,CUST-1001,HH-1001,PRD-TFSA,Tax-Free Savings Account,Registered investing,91330.0,Active,2011
+ACC-1001-04,CUST-1001,HH-1001,PRD-RSP,Retirement Savings Plan,Registered investing,105460.0,Active,2012
+ACC-1002-01,CUST-1002,HH-1002,PRD-MTG,Mortgage,Lending,353530.0,Active,2025
+ACC-1002-02,CUST-1002,HH-1002,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,3910.0,Active,2026
+ACC-1002-03,CUST-1002,HH-1002,PRD-NEW,Newcomer Banking Package,Day-to-day banking,2860.0,Active,2027
+ACC-1003-01,CUST-1003,HH-1003,PRD-MTG,Mortgage,Lending,357620.0,Active,2008
+ACC-1003-02,CUST-1003,HH-1003,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,13460.0,Active,2009
+ACC-1003-03,CUST-1003,HH-1003,PRD-CRD,Credit Card,Day-to-day banking,2170.0,Active,2010
+ACC-1004-01,CUST-1004,HH-1004,PRD-MTG,Mortgage,Lending,688790.0,Active,2017
+ACC-1004-02,CUST-1004,HH-1004,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,4500.0,Active,2018
+ACC-1004-03,CUST-1004,HH-1004,PRD-BIZ,Small Business Banking Package,Business banking,43140.0,Active,2019
+ACC-1004-04,CUST-1004,HH-1004,PRD-CRD,Credit Card,Day-to-day banking,2180.0,Active,2020
+ACC-1005-01,CUST-1005,HH-1005,PRD-MTG,Mortgage,Lending,304190.0,Active,2018
+ACC-1005-02,CUST-1005,HH-1005,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,4580.0,Active,2019
+ACC-1005-03,CUST-1005,HH-1005,PRD-CRD,Credit Card,Day-to-day banking,3200.0,Active,2020
+ACC-1006-01,CUST-1006,HH-1006,PRD-MTG,Mortgage,Lending,194260.0,Active,2020
+ACC-1007-01,CUST-1007,HH-1007,PRD-MTG,Mortgage,Lending,352440.0,Active,2018
+ACC-1007-02,CUST-1007,HH-1007,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,3610.0,Active,2019
+ACC-1008-01,CUST-1008,HH-1008,PRD-MTG,Mortgage,Lending,376090.0,Active,2017
+ACC-1008-02,CUST-1008,HH-1008,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,6630.0,Active,2018
+ACC-1008-03,CUST-1008,HH-1008,PRD-TFSA,Tax-Free Savings Account,Registered investing,86640.0,Active,2019
+ACC-1008-04,CUST-1008,HH-1008,PRD-CRD,Credit Card,Day-to-day banking,1700.0,Active,2020
+ACC-1008-05,CUST-1008,HH-1008,PRD-SAV,High-Interest Savings Account,Day-to-day banking,28090.0,Active,2021
+ACC-1008-06,CUST-1008,HH-1008,PRD-RSP,Retirement Savings Plan,Registered investing,133180.0,Active,2022
+ACC-1009-01,CUST-1009,HH-1009,PRD-MTG,Mortgage,Lending,381120.0,Active,2014
+ACC-1010-01,CUST-1010,HH-1010,PRD-MTG,Mortgage,Lending,1087380.0,Active,2006
+ACC-1010-02,CUST-1010,HH-1010,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,21190.0,Active,2007
+ACC-1010-03,CUST-1010,HH-1010,PRD-TFSA,Tax-Free Savings Account,Registered investing,220080.0,Active,2008
+ACC-1010-04,CUST-1010,HH-1010,PRD-SAV,High-Interest Savings Account,Day-to-day banking,104750.0,Active,2009
+ACC-1010-05,CUST-1010,HH-1010,PRD-RSP,Retirement Savings Plan,Registered investing,359220.0,Active,2010
+ACC-1010-06,CUST-1010,HH-1010,PRD-CRD,Credit Card,Day-to-day banking,3250.0,Active,2011
+ACC-1010-07,CUST-1010,HH-1010,PRD-INV,Managed Investment Portfolio,Investing,763180.0,Active,2012
+ACC-1011-01,CUST-1011,HH-1011,PRD-MTG,Mortgage,Lending,234080.0,Active,2012
+ACC-1011-02,CUST-1011,HH-1011,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,4210.0,Active,2013
+ACC-1012-01,CUST-1012,HH-1012,PRD-MTG,Mortgage,Lending,336890.0,Active,2009
+ACC-1012-02,CUST-1012,HH-1012,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,6990.0,Active,2010
+ACC-1012-03,CUST-1012,HH-1012,PRD-TFSA,Tax-Free Savings Account,Registered investing,61160.0,Active,2011
+ACC-1012-04,CUST-1012,HH-1012,PRD-CRD,Credit Card,Day-to-day banking,2410.0,Active,2012
+ACC-1012-05,CUST-1012,HH-1012,PRD-SAV,High-Interest Savings Account,Day-to-day banking,39210.0,Active,2013
+ACC-1012-06,CUST-1012,HH-1012,PRD-RSP,Retirement Savings Plan,Registered investing,100680.0,Active,2014
+ACC-1013-01,CUST-1013,HH-1013,PRD-MTG,Mortgage,Lending,864420.0,Active,2013
+ACC-1013-02,CUST-1013,HH-1013,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,10600.0,Active,2014
+ACC-1013-03,CUST-1013,HH-1013,PRD-TFSA,Tax-Free Savings Account,Registered investing,77750.0,Active,2015
+ACC-1014-01,CUST-1014,HH-1014,PRD-MTG,Mortgage,Lending,781780.0,Active,2015
+ACC-1014-02,CUST-1014,HH-1014,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,12760.0,Active,2016
+ACC-1014-03,CUST-1014,HH-1014,PRD-TFSA,Tax-Free Savings Account,Registered investing,93710.0,Active,2017
+ACC-1014-04,CUST-1014,HH-1014,PRD-CRD,Credit Card,Day-to-day banking,3240.0,Active,2018
+ACC-1015-01,CUST-1015,HH-1015,PRD-MTG,Mortgage,Lending,552690.0,Active,2020
+ACC-1015-02,CUST-1015,HH-1015,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,2430.0,Active,2021
+ACC-1015-03,CUST-1015,HH-1015,PRD-BIZ,Small Business Banking Package,Business banking,61400.0,Active,2022
+ACC-1016-01,CUST-1016,HH-1016,PRD-MTG,Mortgage,Lending,344040.0,Active,2018
+ACC-1016-02,CUST-1016,HH-1016,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,4530.0,Active,2019
+ACC-1017-01,CUST-1017,HH-1017,PRD-MTG,Mortgage,Lending,363850.0,Active,2018
+ACC-1017-02,CUST-1017,HH-1017,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,6530.0,Active,2019
+ACC-1017-03,CUST-1017,HH-1017,PRD-TFSA,Tax-Free Savings Account,Registered investing,99120.0,Active,2020
+ACC-1017-04,CUST-1017,HH-1017,PRD-CRD,Credit Card,Day-to-day banking,2000.0,Active,2021
+ACC-1018-01,CUST-1018,HH-1018,PRD-MTG,Mortgage,Lending,696790.0,Active,2012
+ACC-1018-02,CUST-1018,HH-1018,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,18090.0,Active,2013
+ACC-1018-03,CUST-1018,HH-1018,PRD-TFSA,Tax-Free Savings Account,Registered investing,153450.0,Active,2014
+ACC-1018-04,CUST-1018,HH-1018,PRD-SAV,High-Interest Savings Account,Day-to-day banking,73810.0,Active,2015
+ACC-1019-01,CUST-1019,HH-1019,PRD-MTG,Mortgage,Lending,428060.0,Active,2017
+ACC-1019-02,CUST-1019,HH-1019,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,5510.0,Active,2018
+ACC-1019-03,CUST-1019,HH-1019,PRD-CRD,Credit Card,Day-to-day banking,1440.0,Active,2019
+ACC-1020-01,CUST-1020,HH-1020,PRD-MTG,Mortgage,Lending,294720.0,Active,2023
+ACC-1020-02,CUST-1020,HH-1020,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,3550.0,Active,2024
+ACC-1020-03,CUST-1020,HH-1020,PRD-CRD,Credit Card,Day-to-day banking,2540.0,Active,2025
+ACC-1020-04,CUST-1020,HH-1020,PRD-SAV,High-Interest Savings Account,Day-to-day banking,19240.0,Active,2026
+ACC-1021-01,CUST-1021,HH-1021,PRD-MTG,Mortgage,Lending,433770.0,Active,2012
+ACC-1021-02,CUST-1021,HH-1021,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,1570.0,Active,2013
+ACC-1021-03,CUST-1021,HH-1021,PRD-SAV,High-Interest Savings Account,Day-to-day banking,7230.0,Active,2014
+ACC-1022-01,CUST-1022,HH-1022,PRD-MTG,Mortgage,Lending,579640.0,Active,2012
+ACC-1023-01,CUST-1023,HH-1023,PRD-MTG,Mortgage,Lending,692680.0,Active,2018
+ACC-1023-02,CUST-1023,HH-1023,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,2820.0,Active,2019
+ACC-1023-03,CUST-1023,HH-1023,PRD-BIZ,Small Business Banking Package,Business banking,30600.0,Active,2020
+ACC-1024-01,CUST-1024,HH-1024,PRD-MTG,Mortgage,Lending,1102290.0,Active,2006
+ACC-1024-02,CUST-1024,HH-1024,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,27060.0,Active,2007
+ACC-1024-03,CUST-1024,HH-1024,PRD-TFSA,Tax-Free Savings Account,Registered investing,256450.0,Active,2008
+ACC-1024-04,CUST-1024,HH-1024,PRD-SAV,High-Interest Savings Account,Day-to-day banking,59530.0,Active,2009
+ACC-1025-01,CUST-1025,HH-1025,PRD-MTG,Mortgage,Lending,510580.0,Active,2019
+ACC-1025-02,CUST-1025,HH-1025,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,5070.0,Active,2020
+ACC-1025-03,CUST-1025,HH-1025,PRD-CRD,Credit Card,Day-to-day banking,2510.0,Active,2021
+ACC-1026-01,CUST-1026,HH-1026,PRD-MTG,Mortgage,Lending,493120.0,Active,2024
+ACC-1026-02,CUST-1026,HH-1026,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,5060.0,Active,2025
+ACC-1027-01,CUST-1027,HH-1027,PRD-MTG,Mortgage,Lending,470290.0,Active,2014
+ACC-1027-02,CUST-1027,HH-1027,PRD-BIZ,Small Business Banking Package,Business banking,65640.0,Active,2015
+ACC-1027-03,CUST-1027,HH-1027,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,3990.0,Active,2016
+ACC-1028-01,CUST-1028,HH-1028,PRD-MTG,Mortgage,Lending,477070.0,Active,2025
+ACC-1029-01,CUST-1029,HH-1029,PRD-MTG,Mortgage,Lending,404030.0,Active,2022
+ACC-1029-02,CUST-1029,HH-1029,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,4450.0,Active,2023
+ACC-1030-01,CUST-1030,HH-1030,PRD-MTG,Mortgage,Lending,1000770.0,Active,2009
+ACC-1030-02,CUST-1030,HH-1030,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,13690.0,Active,2010
+ACC-1030-03,CUST-1030,HH-1030,PRD-CRD,Credit Card,Day-to-day banking,3560.0,Active,2011
+ACC-1031-01,CUST-1031,HH-1031,PRD-MTG,Mortgage,Lending,728590.0,Active,2014
+ACC-1031-02,CUST-1031,HH-1031,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,6420.0,Active,2015
+ACC-1031-03,CUST-1031,HH-1031,PRD-TFSA,Tax-Free Savings Account,Registered investing,66720.0,Active,2016
+ACC-1031-04,CUST-1031,HH-1031,PRD-CRD,Credit Card,Day-to-day banking,3030.0,Active,2017
+ACC-1031-05,CUST-1031,HH-1031,PRD-RSP,Retirement Savings Plan,Registered investing,154650.0,Active,2018
+ACC-1031-06,CUST-1031,HH-1031,PRD-SAV,High-Interest Savings Account,Day-to-day banking,32200.0,Active,2019
+ACC-1032-01,CUST-1032,HH-1032,PRD-MTG,Mortgage,Lending,198350.0,Active,2025
+ACC-1032-02,CUST-1032,HH-1032,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,4300.0,Active,2026
+ACC-1032-03,CUST-1032,HH-1032,PRD-NEW,Newcomer Banking Package,Day-to-day banking,2180.0,Active,2027
+ACC-1033-01,CUST-1033,HH-1033,PRD-MTG,Mortgage,Lending,529520.0,Active,2012
+ACC-1033-02,CUST-1033,HH-1033,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,1640.0,Active,2013
+ACC-1034-01,CUST-1034,HH-1034,PRD-MTG,Mortgage,Lending,352520.0,Active,2013
+ACC-1034-02,CUST-1034,HH-1034,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,1400.0,Active,2014
+ACC-1034-03,CUST-1034,HH-1034,PRD-SAV,High-Interest Savings Account,Day-to-day banking,7140.0,Active,2015
+ACC-1034-04,CUST-1034,HH-1034,PRD-CRD,Credit Card,Day-to-day banking,3060.0,Active,2016
+ACC-1035-01,CUST-1035,HH-1035,PRD-MTG,Mortgage,Lending,216420.0,Active,2019
+ACC-1035-02,CUST-1035,HH-1035,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,5090.0,Active,2020
+ACC-1036-01,CUST-1036,HH-1036,PRD-MTG,Mortgage,Lending,670530.0,Active,2012
+ACC-1036-02,CUST-1036,HH-1036,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,14230.0,Active,2013
+ACC-1036-03,CUST-1036,HH-1036,PRD-CRD,Credit Card,Day-to-day banking,1470.0,Active,2014
+ACC-1036-04,CUST-1036,HH-1036,PRD-TFSA,Tax-Free Savings Account,Registered investing,61280.0,Active,2015
+ACC-1036-05,CUST-1036,HH-1036,PRD-RSP,Retirement Savings Plan,Registered investing,85420.0,Active,2016
+ACC-1037-01,CUST-1037,HH-1037,PRD-MTG,Mortgage,Lending,263890.0,Active,2025
+ACC-1037-02,CUST-1037,HH-1037,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,5290.0,Active,2026
+ACC-1037-03,CUST-1037,HH-1037,PRD-NEW,Newcomer Banking Package,Day-to-day banking,1690.0,Active,2027
+ACC-1038-01,CUST-1038,HH-1038,PRD-MTG,Mortgage,Lending,1109800.0,Active,2007
+ACC-1038-02,CUST-1038,HH-1038,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,15790.0,Active,2008
+ACC-1038-03,CUST-1038,HH-1038,PRD-CRD,Credit Card,Day-to-day banking,1790.0,Active,2009
+ACC-1038-04,CUST-1038,HH-1038,PRD-TFSA,Tax-Free Savings Account,Registered investing,131070.0,Active,2010
+ACC-1038-05,CUST-1038,HH-1038,PRD-RSP,Retirement Savings Plan,Registered investing,213270.0,Active,2011
+ACC-1038-06,CUST-1038,HH-1038,PRD-SAV,High-Interest Savings Account,Day-to-day banking,107300.0,Active,2012
+ACC-1038-07,CUST-1038,HH-1038,PRD-INV,Managed Investment Portfolio,Investing,875410.0,Active,2013
+ACC-1039-01,CUST-1039,HH-1039,PRD-MTG,Mortgage,Lending,452350.0,Active,2021
+ACC-1040-01,CUST-1040,HH-1040,PRD-MTG,Mortgage,Lending,311330.0,Active,2023
+ACC-1041-01,CUST-1041,HH-1041,PRD-MTG,Mortgage,Lending,839420.0,Active,2009
+ACC-1041-02,CUST-1041,HH-1041,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,10760.0,Active,2010
+ACC-1041-03,CUST-1041,HH-1041,PRD-TFSA,Tax-Free Savings Account,Registered investing,97290.0,Active,2011
+ACC-1041-04,CUST-1041,HH-1041,PRD-SAV,High-Interest Savings Account,Day-to-day banking,28240.0,Active,2012
+ACC-1041-05,CUST-1041,HH-1041,PRD-RSP,Retirement Savings Plan,Registered investing,140620.0,Active,2013
+ACC-1041-06,CUST-1041,HH-1041,PRD-CRD,Credit Card,Day-to-day banking,2570.0,Active,2014
+ACC-1042-01,CUST-1042,HH-1042,PRD-MTG,Mortgage,Lending,220730.0,Active,2014
+ACC-1042-02,CUST-1042,HH-1042,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,5670.0,Active,2015
+ACC-1043-01,CUST-1043,HH-1043,PRD-MTG,Mortgage,Lending,206030.0,Active,2014
+ACC-1043-02,CUST-1043,HH-1043,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,3920.0,Active,2015
+ACC-1043-03,CUST-1043,HH-1043,PRD-CRD,Credit Card,Day-to-day banking,3120.0,Active,2016
+ACC-1043-04,CUST-1043,HH-1043,PRD-SAV,High-Interest Savings Account,Day-to-day banking,14770.0,Active,2017
+ACC-1044-01,CUST-1044,HH-1044,PRD-MTG,Mortgage,Lending,543170.0,Active,2013
+ACC-1044-02,CUST-1044,HH-1044,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,1290.0,Active,2014
+ACC-1044-03,CUST-1044,HH-1044,PRD-CRD,Credit Card,Day-to-day banking,2820.0,Active,2015
+ACC-1045-01,CUST-1045,HH-1045,PRD-MTG,Mortgage,Lending,482300.0,Active,2009
+ACC-1045-02,CUST-1045,HH-1045,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,15000.0,Active,2010
+ACC-1045-03,CUST-1045,HH-1045,PRD-CRD,Credit Card,Day-to-day banking,2990.0,Active,2011
+ACC-1045-04,CUST-1045,HH-1045,PRD-TFSA,Tax-Free Savings Account,Registered investing,49650.0,Active,2012
+ACC-1045-05,CUST-1045,HH-1045,PRD-SAV,High-Interest Savings Account,Day-to-day banking,25950.0,Active,2013
+ACC-1046-01,CUST-1046,HH-1046,PRD-MTG,Mortgage,Lending,409150.0,Active,2016
+ACC-1046-02,CUST-1046,HH-1046,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,11140.0,Active,2017
+ACC-1046-03,CUST-1046,HH-1046,PRD-TFSA,Tax-Free Savings Account,Registered investing,76960.0,Active,2018
+ACC-1046-04,CUST-1046,HH-1046,PRD-CRD,Credit Card,Day-to-day banking,3480.0,Active,2019
+ACC-1046-05,CUST-1046,HH-1046,PRD-SAV,High-Interest Savings Account,Day-to-day banking,36360.0,Active,2020
+ACC-1046-06,CUST-1046,HH-1046,PRD-RSP,Retirement Savings Plan,Registered investing,186960.0,Active,2021
+ACC-1047-01,CUST-1047,HH-1047,PRD-MTG,Mortgage,Lending,718630.0,Active,2024
+ACC-1047-02,CUST-1047,HH-1047,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,4070.0,Active,2025
+ACC-1047-03,CUST-1047,HH-1047,PRD-NEW,Newcomer Banking Package,Day-to-day banking,2410.0,Active,2026
+ACC-1048-01,CUST-1048,HH-1048,PRD-MTG,Mortgage,Lending,589340.0,Active,2022
+ACC-1048-02,CUST-1048,HH-1048,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,2620.0,Active,2023
+ACC-1049-01,CUST-1049,HH-1049,PRD-MTG,Mortgage,Lending,253020.0,Active,2012
+ACC-1049-02,CUST-1049,HH-1049,PRD-CHQ,Everyday Chequing Account,Day-to-day banking,3600.0,Active,2013
+ACC-1049-03,CUST-1049,HH-1049,PRD-SAV,High-Interest Savings Account,Day-to-day banking,10070.0,Active,2014
+ACC-1049-04,CUST-1049,HH-1049,PRD-CRD,Credit Card,Day-to-day banking,2650.0,Active,2015
+ACC-1050-01,CUST-1050,HH-1050,PRD-MTG,Mortgage,Lending,555580.0,Active,2025

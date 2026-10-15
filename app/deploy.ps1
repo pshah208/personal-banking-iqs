@@ -18,21 +18,25 @@
     # one-time
     python infra\provision_app_registrations.py --spa-redirect http://localhost:5173
 
-    .\deploy.ps1 -ResourceGroup rg-scotia-iqs `
+    .\deploy.ps1 -ResourceGroup rg-mtgrenewal-dev-eastus-001 `
                  -AadClientId <bff-client-id> `
                  -AadClientSecret <secret> `
-                 -AadApiScope api://<bff-client-id>/access_as_user `
-                 -FoundryProjectEndpoint https://mortgage-iqs.services.ai.azure.com/api/projects/proj-conceirge
+                 -AadApiScope api://<bff-client-id>/access_as_user
 
-    .\deploy.ps1 -ResourceGroup rg-scotia-iqs -Only images   # rebuild + redeploy code only
+    .\deploy.ps1 -ResourceGroup rg-mtgrenewal-dev-eastus-001 -Only images   # rebuild + redeploy code only
+
+    The Foundry endpoint and account default to the outputs of the root
+    deploy.ps1 (deployment 'main' in the same resource group). The web image
+    carries whatever brand pack app/src/web/public/brand/brands.json selects -
+    run ..\deploy.ps1 -Only brand -Bank "<bank name>" first to change it.
 #>
 
 [CmdletBinding()]
 param(
-    [string]$ResourceGroup = 'rg-scotia-iqs',
+    [string]$ResourceGroup = $(if ($env:MRC_RESOURCE_GROUP) { $env:MRC_RESOURCE_GROUP } else { 'rg-mtgrenewal-dev-eastus-001' }),
     [string]$NamePrefix = 'mrc',
-    # The app tier is deployed in eastus2, not the eastus of the Foundry tier -
-    # Container Apps quota was unavailable in eastus when the estate was stood up.
+    # The reference estate runs the app tier in eastus2, not the eastus of the
+    # Foundry tier - Container Apps quota was unavailable in eastus at the time.
     [string]$Location = 'eastus2',
 
     [string]$AadClientId,
@@ -40,9 +44,10 @@ param(
     [string]$AadApiScope,
     [string]$AadTenantId,
 
-    [string]$FoundryProjectEndpoint = 'https://mortgage-iqs.services.ai.azure.com/api/projects/proj-conceirge',
-    [string]$FoundryAccountName = 'mortgage-iqs',
+    [string]$FoundryProjectEndpoint,
+    [string]$FoundryAccountName,
     [string]$FoundryAgentName = 'mortgage-renewal-concierge',
+    [string]$BankName,
 
     [ValidateSet('infra', 'images', 'all')]
     [string]$Only = 'all',
@@ -88,6 +93,20 @@ try {
 
     if (-not $AadTenantId) { $AadTenantId = az account show --query tenantId -o tsv }
 
+    if (-not ($FoundryProjectEndpoint -and $FoundryAccountName)) {
+        $core = az deployment group show -g $ResourceGroup -n main `
+            --query properties.outputs -o json 2>$null | ConvertFrom-Json
+        if ($core) {
+            if (-not $FoundryProjectEndpoint) { $FoundryProjectEndpoint = $core.foundryProjectEndpoint.value }
+            if (-not $FoundryAccountName)     { $FoundryAccountName     = $core.foundryAccountName.value }
+        }
+    }
+    if (-not $BankName) {
+        $BankName = (python (Join-Path $root '..\tools\brand\bank_profile.py') | ConvertFrom-Json).name
+    }
+    Write-Host "bank         : $BankName"
+    Write-Host "foundry      : $FoundryProjectEndpoint"
+
     # ------------------------------------------------------------- infra ---
     if ($Only -in @('infra', 'all')) {
         Stage 1 'Azure infrastructure (Bicep)'
@@ -99,6 +118,9 @@ Missing Entra parameters. Create the app registrations first:
 
 then pass -AadClientId, -AadClientSecret and -AadApiScope.
 '@
+        }
+        if (-not $FoundryProjectEndpoint) {
+            throw 'Foundry project endpoint unknown - run the root deploy.ps1 first, or pass -FoundryProjectEndpoint.'
         }
 
         $verb = $WhatIf ? 'what-if' : 'create'
@@ -116,6 +138,7 @@ then pass -AadClientId, -AadClientSecret and -AadApiScope.
                 foundryProjectEndpoint=$FoundryProjectEndpoint `
                 foundryAccountName=$FoundryAccountName `
                 foundryAgentName=$FoundryAgentName `
+                bankName=$BankName `
             -o table
         if ($LASTEXITCODE -ne 0) { throw 'Bicep deployment failed.' }
         if ($WhatIf) { Write-Host "`nwhat-if only." -ForegroundColor Yellow; return }

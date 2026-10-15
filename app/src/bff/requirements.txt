@@ -10,3 +10,5 @@ azure-identity==1.19.0
 # NOTE: azure-ai-agents is deliberately NOT used. Portal-created Foundry agents
 # are "prompt agents" invoked through the OpenAI-compatible Responses API; the
 # assistants SDK does not list or run them. See agent_client.py.
+
+python-docx==1.1.2

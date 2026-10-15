@@ -1,16 +1,7 @@
 # Infrastructure — Mortgage Renewal Concierge
 
-> **SYNTHETIC DEMO DATA.** CFC Bank is a fictional institution used only as a
-> branding label. Nothing in this solution reflects a real bank's customers,
-> pricing, policy or systems.
-
-> **Resource names predate the rebrand.** The live estate was stood up before
-> the app was rebranded to CFC Bank, so several Azure resources still carry
-> `scotia` in their names — `rg-scotia-iqs`, `kvrgscotiaiqsa7d3b8`,
-> `airgscotiaiqsa7d3b8` and the storage account `bnsiqs`. These are the actual
-> deployed resource names. They are left as-is deliberately: renaming them here
-> would make every template and script in this repo point at resources that do
-> not exist. Rename the resources in Azure first if you want them changed.
+> **SYNTHETIC DEMO DATA.** CFC Bank is used only as a branding label. Nothing in
+> this solution reflects real CFC Bank customers, pricing, policy or systems.
 
 ## What Bicep covers — and what it can't
 
@@ -103,18 +94,20 @@ az ad signed-in-user show --query id -o tsv
 Always what-if before applying:
 
 ```powershell
-az deployment group what-if -g rg-scotia-iqs `
+az deployment group what-if -g <resource-group> `
   --template-file infra/main.bicep --parameters infra/main.parameters.json
 
-az deployment group create -g rg-scotia-iqs `
+az deployment group create -g <resource-group> `
   --template-file infra/main.bicep --parameters infra/main.parameters.json
 ```
 
 Or run the whole stack, Bicep through agent:
 
 ```powershell
-.\deploy.ps1 -ResourceGroup rg-scotia-iqs -FabricCapacity fabcap26 -WhatIf
-.\deploy.ps1 -ResourceGroup rg-scotia-iqs -FabricCapacity fabcap26
+.\deploy.ps1 -Bank "<bank name>" -ResourceGroup rg-mtgrenewal-dev-eastus-001 -WhatIf   # greenfield
+.\deploy.ps1 -Bank "<bank name>" -ResourceGroup rg-mtgrenewal-dev-eastus-001
+# the original reference estate:
+.\deploy.ps1 -ResourceGroup rg-scotia-iqs -ParametersFile infra/main.parameters.json -FabricCapacity fabcap26
 .\deploy.ps1 -Only agent          # single stage
 ```
 

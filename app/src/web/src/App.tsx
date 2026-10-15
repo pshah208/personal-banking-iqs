@@ -1,20 +1,54 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import {
   fetchConfig, fetchIQs, fetchMe, fetchStory, runDiagnostics, streamChat,
 } from "./api";
 import { account, authEnabled, login, logout } from "./auth";
+import { applyBrand, brandOrder, getBrand, initialBrand, rebrand, type BrandId } from "./brand";
 import { ChatPanel, SuggestionButton } from "./components/ChatPanel";
+import { SplitHandle, SplitRail, useChatSplit } from "./components/ChatSplit";
+import { FabricCapacityControl } from "./components/FabricCapacityControl";
+import { ProductMenu, isProductMode } from "./components/ProductMenu";
 import { IQPanel } from "./components/IQPanel";
 import { StoryPanel } from "./components/StoryPanel";
+import { BookView } from "./books/BookView";
+import { CardsView } from "./cards/CardsView";
+import { Dashboard } from "./dashboard/Dashboard";
+import { ScenariosView } from "./scenarios/ScenariosView";
 import type {
   AppConfig, ChatMessage, Citation, IQId, IQMeta, IQState, Me, Story,
 } from "./types";
 
-type Mode = "story" | "chat";
+type Mode = "story" | "chat" | "dashboard" | "cards" | "banking" | "borrowing" | "investing" | "newcomers" | "insurance" | "security" | "scenarios";
+
+/** Views that own the page (and their own arrow keys) instead of the Guided/Explore layout. */
+const ownsPage = (m: Mode) => m === "scenarios" || isProductMode(m);
+
+function BrandPicker({ value, onChange, variant }: {
+  value: BrandId; onChange: (id: BrandId) => void; variant: "topbar" | "signin";
+}) {
+  const ids = brandOrder();
+  // A single deployed bank needs no switcher.
+  if (ids.length < 2) return null;
+  return (
+    <label className={`brand-picker brand-picker-${variant}`}>
+      <span className="brand-picker-label">Bank</span>
+      <select value={value} onChange={(e) => onChange(e.target.value as BrandId)} aria-label="Bank branding">
+        {ids.map((id) => <option key={id} value={id}>{getBrand(id).name}</option>)}
+      </select>
+    </label>
+  );
+}
 
 export default function App() {
-  const [config, setConfig] = useState<AppConfig | null>(null);
-  const [story, setStory] = useState<Story | null>(null);
+  const [brandId, setBrandId] = useState<BrandId>(initialBrand);
+  const brand = getBrand(brandId);
+  useEffect(() => { applyBrand(brandId); }, [brandId]);
+  const [rawConfig, setConfig] = useState<AppConfig | null>(null);
+  const [rawStory, setStory] = useState<Story | null>(null);
+  const config = useMemo(() => (rawConfig ? { ...rebrand(rawConfig, brandId), bank: brand.name } : null),
+    [rawConfig, brandId, brand.name]);
+  const story = useMemo(() => (rawStory ? rebrand(rawStory, brandId) : null), [rawStory, brandId]);
   const [iqMeta, setIqMeta] = useState<IQMeta[]>([]);
   const [iqs, setIqs] = useState<IQState[]>([]);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -26,7 +60,8 @@ export default function App() {
   const [me, setMe] = useState<Me | null>(null);
   const [bootError, setBootError] = useState("");
   const [diag, setDiag] = useState<unknown>(null);
-  const [chatWidth, setChatWidth] = useState(42);
+  const chat = useChatSplit("pbi.chat", 42, 25, 65);
+  const layoutRef = useRef<HTMLElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
   const signedIn = !authEnabled || Boolean(account());
@@ -57,6 +92,7 @@ export default function App() {
   const send = useCallback(async (question: string) => {
     if (busy) return;
     setMode("chat");
+    chat.setOpen(true);
     setMessages((prev) => [...prev, { role: "user", content: question }]);
     resetIQs();
     setBusy(true);
@@ -151,6 +187,8 @@ export default function App() {
   /* Keyboard navigation: arrows, space */
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
+      // Product books and scenarios own their arrow handling (tables, menus, sliders, splitter).
+      if (ownsPage(mode)) return;
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
       if (e.key === "ArrowRight") {
@@ -163,7 +201,7 @@ export default function App() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [story]);
+  }, [story, mode]);
 
   /**
    * The persona card describes whoever is actually signed in.
@@ -217,9 +255,10 @@ export default function App() {
     return (
       <div className="signin">
         <div className="signin-card">
-          <img className="signin-mark" src="/brand/cfc-bank-logo.png" alt={config.bank} />
-          <h1>Mortgage Renewal Concierge</h1>
-          <p className="signin-sub">{config.bank} · FY26 renewal campaign</p>
+          <BrandPicker value={brandId} onChange={setBrandId} variant="signin" />
+          <img className="signin-mark" src={brand.assets.lockup} alt={config.bank} />
+          <h1>Personal Banking Intelligence</h1>
+          <p className="signin-sub">{config.bank} · Mortgage renewals, customers and financial wellness</p>
           <p className="signin-why">
             Sign in with your work account. The concierge answers using
             <strong> your</strong> email, Teams and document context — so it must
@@ -238,25 +277,36 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">
-          <img className="brand-mark" src="/brand/cfc-bank-logo-white.png" alt="" aria-hidden />
+          <img className="brand-mark" src={brand.assets.mark} alt="" aria-hidden />
           <span className="brand-name">{config.bank}</span>
           <span className="brand-divider" />
-          <span className="brand-app">Mortgage Renewal Concierge</span>
+          <span className="brand-app">Personal Banking Intelligence</span>
         </div>
 
         <div className="topbar-right">
-          <div className="mode-toggle" role="tablist">
+          {signedIn && <FabricCapacityControl />}
+          <BrandPicker value={brandId} onChange={setBrandId} variant="topbar" />
+          <nav className="mode-toggle" aria-label="Views">
             <button
+              type="button"
               className={mode === "story" ? "on" : ""}
               onClick={() => setMode("story")}
-              role="tab"
+              aria-current={mode === "story" ? "page" : undefined}
             >Guided</button>
             <button
+              type="button"
               className={mode === "chat" ? "on" : ""}
               onClick={() => setMode("chat")}
-              role="tab"
+              aria-current={mode === "chat" ? "page" : undefined}
             >Explore</button>
-          </div>
+            <ProductMenu mode={mode} onSelect={setMode} />
+            <button
+              type="button"
+              className={mode === "scenarios" ? "on" : ""}
+              onClick={() => setMode("scenarios")}
+              aria-current={mode === "scenarios" ? "page" : undefined}
+            >Scenarios</button>
+          </nav>
           {config.mockMode && <span className="pill pill-warn">MOCK MODE</span>}
           {me && (
             <div className="who" title={me.upn}>
@@ -277,9 +327,26 @@ export default function App() {
 
       <div className="disclaimer-strip">{config.disclaimer}</div>
 
+      {/* Mounted in every mode so dashboard selection, filters and local
+          conversations survive switching to Guided or Explore and back. */}
+      <Dashboard active={mode === "dashboard"} />
+      <CardsView active={mode === "cards"} bankName={brand.name} />
+      <BookView book="banking" active={mode === "banking"} bankName={brand.name} />
+      <BookView book="borrowing" active={mode === "borrowing"} bankName={brand.name} />
+      <BookView book="investing" active={mode === "investing"} bankName={brand.name} />
+      <BookView book="newcomers" active={mode === "newcomers"} bankName={brand.name} />
+      <BookView book="insurance" active={mode === "insurance"} bankName={brand.name} />
+      <BookView book="security" active={mode === "security"} bankName={brand.name} />
+      <ScenariosView active={mode === "scenarios"} bankName={brand.name} />
+
       <main
-        className={`layout layout-${mode}`}
-        style={{ "--chat-width": `${chatWidth}vw` } as React.CSSProperties}
+        id="main-content"
+        ref={layoutRef}
+        className={`layout layout-${mode}${chat.open ? "" : " chat-collapsed"}`}
+        style={{
+          "--split-w": `${chat.width}%`,
+          ...(ownsPage(mode) ? { display: "none" } : {}),
+        } as CSSProperties}
       >
         {mode === "story" ? (
           <StoryPanel
@@ -317,26 +384,14 @@ export default function App() {
           </section>
         )}
 
-        {/* Resizable divider */}
-        <div
-          className="resize-divider"
-          role="separator"
-          aria-label="Resize chat panel"
-          aria-orientation="vertical"
-          tabIndex={0}
-          onPointerDown={(e) => {
-            (e.target as HTMLElement).setPointerCapture(e.pointerId);
-          }}
-          onPointerMove={(e) => {
-            if (!(e.target as HTMLElement).hasPointerCapture(e.pointerId)) return;
-            const w = ((window.innerWidth - e.clientX) / window.innerWidth) * 100;
-            setChatWidth(Math.min(60, Math.max(28, w)));
-          }}
-        >
-          <span className="resize-divider-bar" />
-        </div>
+        {chat.open
+          ? <SplitHandle split={chat} container={layoutRef} controls="app-chat" />
+          : <SplitRail split={chat} controls="app-chat" />}
 
         <ChatPanel
+          id="app-chat"
+          hidden={!chat.open}
+          onCollapse={() => chat.setOpen(false)}
           messages={messages}
           busy={busy}
           status={status}

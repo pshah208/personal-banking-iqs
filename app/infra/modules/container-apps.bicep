@@ -30,6 +30,7 @@ param foundryProjectEndpoint string
 param foundryAccountName string = ''
 param foundryAgentName string = 'mortgage-renewal-concierge'
 param mockMode bool = false
+param bankName string = 'CFC Bank'
 
 resource uami 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: 'id-${namePrefix}'
@@ -124,6 +125,7 @@ resource bff 'Microsoft.App/containerApps@2024-03-01' = {
             { name: 'FOUNDRY_PROJECT_ENDPOINT', value: foundryProjectEndpoint }
             { name: 'FOUNDRY_AGENT_NAME', value: foundryAgentName }
             { name: 'MOCK_MODE', value: string(mockMode) }
+            { name: 'BANK_NAME', value: bankName }
             { name: 'AZURE_CLIENT_ID', value: uami.properties.clientId }
             { name: 'APPLICATIONINSIGHTS_CONNECTION_STRING', value: appInsightsConnectionString }
           ]

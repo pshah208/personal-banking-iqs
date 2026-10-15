@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.42.1.51946",
-      "templateHash": "3426253857473745609"
+      "templateHash": "4238949035560135685"
     }
   },
   "parameters": {
@@ -94,6 +94,13 @@
       "defaultValue": false,
       "metadata": {
         "description": "Run the BFF without Azure calls. UI development only."
+      }
+    },
+    "bankName": {
+      "type": "string",
+      "defaultValue": "CFC Bank",
+      "metadata": {
+        "description": "Display name of the bank this deployment is branded as (see tools/brand/fetch_brand.py)."
       }
     }
   },
@@ -339,6 +346,9 @@
           },
           "mockMode": {
             "value": "[parameters('mockMode')]"
+          },
+          "bankName": {
+            "value": "[parameters('bankName')]"
           }
         },
         "template": {
@@ -348,7 +358,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.42.1.51946",
-              "templateHash": "1189332022167275078"
+              "templateHash": "10526718847559044925"
             }
           },
           "parameters": {
@@ -408,6 +418,10 @@
             "mockMode": {
               "type": "bool",
               "defaultValue": false
+            },
+            "bankName": {
+              "type": "string",
+              "defaultValue": "CFC Bank"
             }
           },
           "variables": {
@@ -541,6 +555,10 @@
                           "value": "[string(parameters('mockMode'))]"
                         },
                         {
+                          "name": "BANK_NAME",
+                          "value": "[parameters('bankName')]"
+                        },
+                        {
                           "name": "AZURE_CLIENT_ID",
                           "value": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', format('id-{0}', parameters('namePrefix'))), '2023-01-31').clientId]"
                         },
@@ -627,7 +645,7 @@
                       "env": [
                         {
                           "name": "BFF_URL",
-                          "value": "[format('https://{0}', reference(resourceId('Microsoft.App/containerApps', format('ca-{0}-bff', parameters('namePrefix'))), '2024-03-01').configuration.ingress.fqdn)]"
+                          "value": "[format('http://{0}', format('ca-{0}-bff', parameters('namePrefix')))]"
                         }
                       ]
                     }

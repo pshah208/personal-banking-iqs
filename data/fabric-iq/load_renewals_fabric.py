@@ -9,13 +9,39 @@
 #               Files/renewals/, create a Notebook attached to it, paste this file,
 #               Run all.
 #
+# EVERGREEN DATES
+#   The CSVs are one fixed snapshot dated 2026-08-03. deploy_fabric.py inlines
+#   app/src/bff/app/evergreen.py above this cell, and the load below moves every
+#   date forward by whole weeks to the current week before writing the tables -
+#   the same rule the app uses, so the agent and the app agree on "today".
+#   deploy_fabric.py also schedules this notebook, so the tables roll forward on
+#   their own. Pasted manually without the inlined module, dates load unshifted.
+#
 # WHY TABLES AND NOT VIEWS
 #   Spark SQL views live only in the Spark metastore. They are NOT visible through
 #   the SQL analytics endpoint and cannot back a Direct Lake semantic model. The
 #   curated layer is therefore materialised as Delta *tables*, so the same objects
 #   serve the SQL endpoint, the semantic model and the agent's Fabric IQ tool.
 
+import os
+from datetime import datetime, timedelta, timezone
+
+try:
+    shift_text, offset_days, BASE  # noqa: B018 - inlined by deploy_fabric.py
+except NameError:
+    from datetime import date as _date
+
+    BASE = _date(2026, 8, 3)
+
+    def offset_days():
+        return 0
+
+    def shift_text(text, days=None):
+        return text
+
 SOURCE = "Files/renewals"
+CURRENT = "Files/renewals_current"
+MOUNT = "/lakehouse/default"
 
 BASE_TABLES = {
     "customers": "customers.csv",
@@ -23,17 +49,68 @@ BASE_TABLES = {
     "renewal_risk_scores": "renewal_risk_scores.csv",
     "retention_offers": "retention_offers.csv",
     "branch_performance": "branch_performance.csv",
+    # Personal-banking expansion (generate_pb_tables.py)
+    "households": "households.csv",
+    "credit_capacity": "credit_capacity.csv",
+    "customer_products": "customer_products.csv",
+    "financial_signals_monthly": "financial_signals_monthly.csv",
+    "life_events": "life_events.csv",
+    "consent_preferences": "consent_preferences.csv",
+    "financial_wellness": "financial_wellness.csv",
+    "next_best_actions": "next_best_actions.csv",
+    "rate_scenario_presets": "rate_scenario_presets.csv",
+    "renewal_scenario_sensitivity": "renewal_scenario_sensitivity.csv",
+    # Cards book (generate_cards_tables.py)
+    "card_products": "card_products.csv",
+    "card_accounts": "card_accounts.csv",
+    "card_spend_monthly": "card_spend_monthly.csv",
+    "card_next_actions": "card_next_actions.csv",
+    "deposit_accounts": "deposit_accounts.csv",
+    "deposit_flows_monthly": "deposit_flows_monthly.csv",
+    "banking_next_actions": "banking_next_actions.csv",
+    "credit_facilities": "credit_facilities.csv",
+    "debt_consolidation_candidates": "debt_consolidation_candidates.csv",
+    "borrowing_next_actions": "borrowing_next_actions.csv",
+    "investment_accounts": "investment_accounts.csv",
+    "registered_room": "registered_room.csv",
+    "investing_next_actions": "investing_next_actions.csv",
+    "newcomer_journey": "newcomer_journey.csv",
+    "transfers_out_monthly": "transfers_out_monthly.csv",
+    "newcomers_next_actions": "newcomers_next_actions.csv",
+    "insurance_policies": "insurance_policies.csv",
+    "coverage_gaps": "coverage_gaps.csv",
+    "insurance_next_actions": "insurance_next_actions.csv",
+    "security_events": "security_events.csv",
+    "customer_security_posture": "customer_security_posture.csv",
+    "security_next_actions": "security_next_actions.csv",
 }
+
+DAYS = offset_days()
+os.makedirs(f"{MOUNT}/{CURRENT}", exist_ok=True)
+for filename in BASE_TABLES.values():
+    with open(f"{MOUNT}/{SOURCE}/{filename}", encoding="utf-8") as fh:
+        text = fh.read()
+    with open(f"{MOUNT}/{CURRENT}/{filename}", "w", encoding="utf-8") as fh:
+        fh.write(shift_text(text, DAYS))
+print(f"evergreen: snapshot {BASE} -> {(BASE + timedelta(days=DAYS))} (+{DAYS} days)")
 
 for table, filename in BASE_TABLES.items():
     df = (
         spark.read.option("header", "true")
         .option("inferSchema", "true")
-        .csv(f"{SOURCE}/{filename}")
+        .csv(f"{CURRENT}/{filename}")
     )
     df.write.mode("overwrite").option("overwriteSchema", "true") \
         .format("delta").saveAsTable(table)
     print(f"{table:<24} {df.count():>4} rows")
+
+# One row recording which week the tables represent, so a stale load (capacity
+# paused through a scheduled run) is visible from the SQL endpoint.
+spark.createDataFrame(
+    [(BASE.isoformat(), (BASE + timedelta(days=DAYS)).isoformat(), DAYS,
+      datetime.now(timezone.utc).isoformat(timespec="seconds"))],
+    "snapshot_base_date string, as_of_date string, offset_days int, loaded_utc string",
+).write.mode("overwrite").option("overwriteSchema", "true").format("delta").saveAsTable("data_as_of")
 
 # --------------------------------------------------------------------------- #
 # Curated fact table - one row per renewal maturing within 180 days, with the

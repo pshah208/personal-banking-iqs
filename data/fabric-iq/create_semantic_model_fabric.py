@@ -48,6 +48,38 @@ TABLES = [
     "renewal_segment_summary",
     "retention_offers",
     "branch_performance",
+    "households",
+    "credit_capacity",
+    "customer_products",
+    "financial_signals_monthly",
+    "life_events",
+    "consent_preferences",
+    "financial_wellness",
+    "next_best_actions",
+    "rate_scenario_presets",
+    "renewal_scenario_sensitivity",
+    "card_products",
+    "card_accounts",
+    "card_spend_monthly",
+    "card_next_actions",
+    "deposit_accounts",
+    "deposit_flows_monthly",
+    "banking_next_actions",
+    "credit_facilities",
+    "debt_consolidation_candidates",
+    "borrowing_next_actions",
+    "investment_accounts",
+    "registered_room",
+    "investing_next_actions",
+    "newcomer_journey",
+    "transfers_out_monthly",
+    "newcomers_next_actions",
+    "insurance_policies",
+    "coverage_gaps",
+    "insurance_next_actions",
+    "security_events",
+    "customer_security_posture",
+    "security_next_actions",
 ]
 
 try:
@@ -185,21 +217,136 @@ try:
          f"'{FACT}'[payment_shock_band] = \"Above 60 pct\")", '"CAD "#,0',
          "Maturing balance facing a payment increase above 60 percent - required by the "
          "CRO monthly pack (RP-009)."),
+        # --- Personal banking: wellness, affordability, consent ---------------- #
+        ("Vulnerable Clients",
+         "CALCULATE(COUNTROWS(financial_wellness), financial_wellness[vulnerability_flag] = \"Y\")", "0",
+         "Clients in the Vulnerable wellness band - support-first, sales suppressed (RP-012)."),
+        ("Avg Wellness Score", "AVERAGE(financial_wellness[wellness_score])", "0.0",
+         "Average financial-wellness score (0-100, higher is healthier)."),
+        ("Renewals Above TDS Guideline",
+         "CALCULATE(COUNTROWS(credit_capacity), credit_capacity[tds_renewal_pct] > 44)", "0",
+         "Renewals whose TDS on the renewal payment exceeds the 44% guideline (RP-013)."),
+        ("Clients With Deposit Flight",
+         "CALCULATE(COUNTROWS(financial_wellness), financial_wellness[competitor_outflow_share_pct] >= 10)", "0",
+         "Clients moving 10%+ of payroll to another institution (RP-018)."),
+        ("Email Marketing Consent Pct",
+         "DIVIDE(CALCULATE(COUNTROWS(consent_preferences), consent_preferences[channel] = \"Email\", consent_preferences[consent_status] = \"Granted\"), CALCULATE(COUNTROWS(consent_preferences), consent_preferences[channel] = \"Email\")) * 100", "0.0",
+         "Share of clients with Granted email marketing consent (RP-011)."),
+        # --- Cards book ------------------------------------------------------- #
+        ("Card Balances", "SUM(card_accounts[balance])", "#,0", "Outstanding card balances (CAD)."),
+        ("Card Utilization Pct", "DIVIDE(SUM(card_accounts[balance]), SUM(card_accounts[credit_limit])) * 100", "0.0",
+         "Balances as a share of credit limits."),
+        ("Card Spend 12m", "SUM(card_spend_monthly[spend])", "#,0", "Card purchase volume over the last 12 months (CAD)."),
+        ("Persistent Debt Accounts",
+         "CALCULATE(COUNTROWS(card_accounts), card_accounts[behaviour] = \"Persistent debt\")", "0",
+         "Accounts at or near minimum payment for 6+ of 12 months - support first (RP-021)."),
+        ("Card Plays Blocked",
+         "CALCULATE(COUNTROWS(card_next_actions), card_next_actions[eligibility] <> \"Eligible\")", "0",
+         "Card plays blocked by consent, suitability, express-consent or support-first rules."),
+        # --- Product books: Everyday banking, Borrowing, Investing ------------ #
+        ("Deposit Balances",
+         "SUM(deposit_accounts[avg_chequing_balance]) + SUM(deposit_accounts[savings_balance])", "#,0",
+         "Average chequing plus savings balances across everyday-banking clients (CAD)."),
+        ("Primary Banking At Risk",
+         "CALCULATE(COUNTROWS(banking_next_actions), banking_next_actions[play] = \"Primary banking at risk\")", "0",
+         "Clients with 10%+ of payroll moving out 2 months running, or payroll falling (RP-018)."),
+        ("Package Fee Savings Available",
+         "SUMX(FILTER(deposit_accounts, deposit_accounts[best_fit_package] <> deposit_accounts[package] && "
+         "deposit_accounts[package_cost_12m] - deposit_accounts[best_fit_cost_12m] >= 120), "
+         "deposit_accounts[package_cost_12m] - deposit_accounts[best_fit_cost_12m])", "#,0",
+         "Annual fees overpaying clients (saving of $120+/yr) would save on the lowest-cost package for their usage (RP-023)."),
+        ("Consolidation Interest Saved",
+         "SUM(debt_consolidation_candidates[interest_saved_annual_cad])", "#,0",
+         "Annual interest clients would save moving card balances to a cheaper facility, before gates (RP-025)."),
+        ("Variable Rate Balances",
+         "CALCULATE(SUM(credit_facilities[balance_cad]), credit_facilities[rate_type] = \"Variable\")", "#,0",
+         "Line balances priced off prime - each needs a rate-change notice within 30 days (RP-026)."),
+        ("GICs Maturing 90d",
+         "CALCULATE(SUM(investment_accounts[market_value_cad]), investment_accounts[holding_type] = \"GIC\", "
+         "investment_accounts[days_to_maturity] <= 90, NOT ISBLANK(investment_accounts[days_to_maturity]))", "#,0",
+         "GIC value maturing in the next 90 days (CAD)."),
+        ("RESP Grant Missed",
+         "SUM(registered_room[cesg_missed_per_year_cad])", "#,0",
+         "Canada Education Savings Grant not collected per year by families with no RESP (RP-028)."),
+        ("Book Plays Blocked",
+         "CALCULATE(COUNTROWS(banking_next_actions), banking_next_actions[eligibility] <> \"Eligible\") + "
+         "CALCULATE(COUNTROWS(borrowing_next_actions), borrowing_next_actions[eligibility] <> \"Eligible\") + "
+         "CALCULATE(COUNTROWS(investing_next_actions), investing_next_actions[eligibility] <> \"Eligible\")", "0",
+         "Banking, borrowing and investing plays blocked by consent, support-first, affordability, LTV or KYC rules."),
+        # --- Product books: Newcomers, Insurance, Security -------------------- #
+        ("Newcomer Packages Expiring 60d",
+         "CALCULATE(COUNTROWS(newcomer_journey), newcomer_journey[newcomer_package_active] = \"Y\", "
+         "newcomer_journey[days_to_package_expiry] <= 60)", "0",
+         "Newcomer fee-free periods ending within 60 days - explain the next package (RP-029)."),
+        ("Transfer Cost 12m",
+         "SUM(transfers_out_monthly[total_cost_cad])", "#,0",
+         "What clients paid to send money abroad: fees plus FX margin (RP-030)."),
+        ("Transfer Saving Available",
+         "SUMX(FILTER(newcomer_journey, newcomer_journey[transfer_provider] = \"Other provider\"), "
+         "newcomer_journey[transfer_cost_12m_cad] - newcomer_journey[bank_equivalent_cost_12m_cad])", "#,0",
+         "Annual saving for clients using another provider at the Bank's fee and FX margin (RP-030)."),
+        ("Life Cover Gap",
+         "SUMX(FILTER(coverage_gaps, coverage_gaps[linked_mortgage] = \"Y\" && coverage_gaps[dependents] > 0), coverage_gaps[gap_amount_cad])", "#,0",
+         "Mortgage balance not covered by mortgage life insurance for families with dependents (RP-031)."),
+        ("Optional Premiums Monthly",
+         "SUM(coverage_gaps[optional_premiums_monthly_cad])", "#,0.00",
+         "Monthly optional creditor-insurance premiums (mortgage life / disability, line and card protection)."),
+        ("Lapsed Policies 90d",
+         "CALCULATE(COUNTROWS(insurance_policies), insurance_policies[status] = \"Lapsed\", insurance_policies[days_since_lapse] <= 90)", "0",
+         "Policies lapsed in the last 90 days - confirm the lapse was intended (RP-031)."),
+        ("Open Security Events",
+         "CALCULATE(COUNTROWS(security_events), security_events[status] = \"Open\")", "0",
+         "Open security events - sales are paused for these clients (RP-032)."),
+        ("Clients Without 2-Step",
+         "CALCULATE(COUNTROWS(customer_security_posture), customer_security_posture[two_step_verification] = \"N\")", "0",
+         "Clients with a security event and no 2-step verification (RP-022)."),
+        ("Security Amount At Risk",
+         "SUM(customer_security_posture[amount_at_risk_cad])", "#,0",
+         "Disputed or held amounts in open security events (CAD)."),
     ]
 
     with connect_semantic_model(dataset=DATASET, readonly=False) as tom:
-        for from_col, to_table, to_col in (
-            ("recommended_offer_id", "retention_offers", "offer_id"),
-            ("branch_id", "branch_performance", "branch_id"),
+        for from_table, from_col, to_table, to_col in (
+            (FACT, "recommended_offer_id", "retention_offers", "offer_id"),
+            (FACT, "branch_id", "branch_performance", "branch_id"),
+            # Personal-banking tables hang off the renewal fact by customer.
+            ("households", "primary_customer_id", FACT, "customer_id"),
+            ("credit_capacity", "customer_id", FACT, "customer_id"),
+            ("customer_products", "customer_id", FACT, "customer_id"),
+            ("financial_signals_monthly", "customer_id", FACT, "customer_id"),
+            ("life_events", "customer_id", FACT, "customer_id"),
+            ("consent_preferences", "customer_id", FACT, "customer_id"),
+            ("financial_wellness", "customer_id", FACT, "customer_id"),
+            ("next_best_actions", "customer_id", FACT, "customer_id"),
+            ("renewal_scenario_sensitivity", "customer_id", FACT, "customer_id"),
+            # Cards book: its own star (card-only clients have no renewal).
+            ("card_spend_monthly", "account_id", "card_accounts", "account_id"),
+            ("card_next_actions", "account_id", "card_accounts", "account_id"),
+            ("card_accounts", "product_id", "card_products", "product_id"),
+            # Product books: each its own star keyed by account_id. Accounts carry
+            # customer_id but are NOT related to the renewal fact (card-only clients
+            # CUST-20xx have no renewal).
+            ("deposit_flows_monthly", "account_id", "deposit_accounts", "account_id"),
+            ("banking_next_actions", "account_id", "deposit_accounts", "account_id"),
+            ("borrowing_next_actions", "account_id", "credit_facilities", "account_id"),
+            ("debt_consolidation_candidates", "attach_account_id", "credit_facilities", "account_id"),
+            ("investing_next_actions", "account_id", "investment_accounts", "account_id"),
+            ("investment_accounts", "customer_id", "registered_room", "customer_id"),
+            ("transfers_out_monthly", "account_id", "newcomer_journey", "account_id"),
+            ("newcomers_next_actions", "account_id", "newcomer_journey", "account_id"),
+            ("insurance_policies", "customer_id", "coverage_gaps", "customer_id"),
+            ("insurance_next_actions", "account_id", "coverage_gaps", "account_id"),
+            ("security_events", "customer_id", "customer_security_posture", "customer_id"),
+            ("security_next_actions", "account_id", "customer_security_posture", "account_id"),
         ):
             try:
                 tom.add_relationship(
-                    from_table=FACT, from_column=from_col,
+                    from_table=from_table, from_column=from_col,
                     to_table=to_table, to_column=to_col,
                     from_cardinality="Many", to_cardinality="One",
                     cross_filtering_behavior="OneDirection", is_active=True,
                 )
-                log(f"+ relationship {FACT} -> {to_table}")
+                log(f"+ relationship {from_table} -> {to_table}")
             except Exception as exc:  # noqa: BLE001
                 log(f"= relationship {to_table} skipped: {exc}")
 

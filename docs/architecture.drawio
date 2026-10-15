@@ -35,7 +35,7 @@
           vertex="1" parent="1"><mxGeometry x="88" y="540" width="244" height="58" as="geometry" /></mxCell>
 
         <mxCell id="obonote" value="On-Behalf-Of&#10;the user's token is exchanged for a&#10;downstream token — the agent and every&#10;data source see the real person"
-          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF4FB;strokeColor=#034694;fontSize=10;fontColor=#012A5E;align=left;spacingLeft=8;arcSize=8;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EC111A;fontSize=10;fontColor=#7F1D1D;align=left;spacingLeft=8;arcSize=8;"
           vertex="1" parent="1"><mxGeometry x="88" y="614" width="244" height="72" as="geometry" /></mxCell>
 
         <!-- ================= ZONE 2 : EDGE + ACA ================= -->
@@ -127,7 +127,7 @@
           vertex="1" parent="1"><mxGeometry x="1412" y="205" width="268" height="58" as="geometry" /></mxCell>
 
         <mxCell id="worknote" value="Delegated — returns only what the signed-in user can see"
-          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF4FB;strokeColor=#034694;fontSize=10;fontColor=#012A5E;align=center;arcSize=8;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#EC111A;fontSize=10;fontColor=#7F1D1D;align=center;arcSize=8;"
           vertex="1" parent="1"><mxGeometry x="1330" y="300" width="350" height="26" as="geometry" /></mxCell>
 
         <!-- Fabric IQ -->
@@ -206,7 +206,7 @@
         <!-- ================= EDGES ================= -->
         <mxCell id="e1" value="1 · sign in (PKCE)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#71717A;strokeWidth=2;fontSize=10;fontColor=#52525B;endArrow=block;endFill=1;" edge="1" parent="1" source="user" target="browser"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <mxCell id="e2" value="2 · token" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#034694;strokeWidth=2;dashed=1;fontSize=10;fontColor=#012A5E;endArrow=block;endFill=1;" edge="1" parent="1" source="browser" target="entra"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="2 · token" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#EC111A;strokeWidth=2;dashed=1;fontSize=10;fontColor=#7F1D1D;endArrow=block;endFill=1;" edge="1" parent="1" source="browser" target="entra"><mxGeometry relative="1" as="geometry" /></mxCell>
 
         <mxCell id="e3" value="3 · HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0078D4;strokeWidth=2;fontSize=10;fontColor=#1F4E79;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="browser" target="apim"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="382" y="323" /><mxPoint x="382" y="198" /></Array></mxGeometry></mxCell>
 
@@ -214,7 +214,7 @@
 
         <mxCell id="e5" value="5 · /api proxied&#10;inside the environment" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0078D4;strokeWidth=2;fontSize=10;fontColor=#1F4E79;endArrow=block;endFill=1;" edge="1" parent="1" source="web" target="bff"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <mxCell id="e6" value="6 · On-Behalf-Of exchange" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#034694;strokeWidth=2;dashed=1;fontSize=10;fontColor=#012A5E;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="bff" target="entra"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="645" y="490" /><mxPoint x="382" y="490" /><mxPoint x="382" y="451" /></Array></mxGeometry></mxCell>
+        <mxCell id="e6" value="6 · On-Behalf-Of exchange" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#EC111A;strokeWidth=2;dashed=1;fontSize=10;fontColor=#7F1D1D;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="bff" target="entra"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="645" y="490" /><mxPoint x="382" y="490" /><mxPoint x="382" y="451" /></Array></mxGeometry></mxCell>
 
         <mxCell id="e7" value="7 · run agent as the user" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#B45309;strokeWidth=3;fontSize=11;fontColor=#8A5A12;endArrow=block;endFill=1;" edge="1" parent="1" source="bff" target="foundry"><mxGeometry relative="1" as="geometry" /></mxCell>
 
@@ -236,8 +236,8 @@
           vertex="1" parent="1"><mxGeometry x="60" y="770" width="700" height="120" as="geometry" /></mxCell>
 
         <mxCell id="lg1" value="Identity / On-Behalf-Of — the user's own permissions apply downstream"
-          style="text;html=1;fontSize=11;fontColor=#012A5E;align=left;" vertex="1" parent="1"><mxGeometry x="110" y="800" width="480" height="18" as="geometry" /></mxCell>
-        <mxCell id="lgl1" style="endArrow=none;html=1;strokeColor=#034694;strokeWidth=2;dashed=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="78" y="809" as="sourcePoint" /><mxPoint x="103" y="809" as="targetPoint" /></mxGeometry></mxCell>
+          style="text;html=1;fontSize=11;fontColor=#7F1D1D;align=left;" vertex="1" parent="1"><mxGeometry x="110" y="800" width="480" height="18" as="geometry" /></mxCell>
+        <mxCell id="lgl1" style="endArrow=none;html=1;strokeColor=#EC111A;strokeWidth=2;dashed=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="78" y="809" as="sourcePoint" /><mxPoint x="103" y="809" as="targetPoint" /></mxGeometry></mxCell>
 
         <mxCell id="lg2" value="Request path — browser → APIM → web → BFF → agent"
           style="text;html=1;fontSize=11;fontColor=#1F4E79;align=left;" vertex="1" parent="1"><mxGeometry x="110" y="826" width="480" height="18" as="geometry" /></mxCell>

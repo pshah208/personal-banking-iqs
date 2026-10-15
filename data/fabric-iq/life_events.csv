@@ -1,0 +1,32 @@
+event_id,customer_id,event_type,event_date,source,confidence,implication
+LE-1002-1,CUST-1002,Relocation,2026-04-11,Customer stated,High,Neutral
+LE-1009-1,CUST-1009,Medical leave,2026-04-27,Customer stated,High,Support
+LE-1010-1,CUST-1010,Child starting university,2026-04-15,Customer stated,High,Deepen
+LE-1011-1,CUST-1011,Reduced hours,2026-06-13,Payroll change,High,Support
+LE-1012-1,CUST-1012,Child starting university,2026-06-19,Customer stated,High,Deepen
+LE-1013-1,CUST-1013,Marriage,2026-03-20,Customer stated,High,Deepen
+LE-1014-1,CUST-1014,Relocation,2026-05-26,Customer stated,High,Neutral
+LE-1016-1,CUST-1016,Separation,2026-04-17,Advisor note,Medium,Support
+LE-1017-1,CUST-1017,Retirement approaching,2026-05-26,Advisor note,Medium,Deepen
+LE-1018-1,CUST-1018,Job change,2026-03-23,Payroll change,Medium,Neutral
+LE-1019-1,CUST-1019,Child starting university,2026-03-13,Customer stated,High,Deepen
+LE-1020-1,CUST-1020,Retirement approaching,2026-03-24,Advisor note,Medium,Deepen
+LE-1021-1,CUST-1021,Inheritance received,2026-03-24,Transaction pattern,Medium,Deepen
+LE-1022-1,CUST-1022,Inheritance received,2026-03-13,Transaction pattern,Medium,Deepen
+LE-1023-1,CUST-1023,Medical leave,2026-05-27,Customer stated,High,Support
+LE-1026-1,CUST-1026,Job change,2026-02-26,Payroll change,Medium,Neutral
+LE-1028-1,CUST-1028,Inheritance received,2026-04-10,Transaction pattern,Medium,Deepen
+LE-1029-1,CUST-1029,Job change,2026-07-23,Payroll change,Medium,Neutral
+LE-1030-1,CUST-1030,Relocation,2026-07-25,Customer stated,High,Neutral
+LE-1032-1,CUST-1032,Separation,2026-05-26,Advisor note,Medium,Support
+LE-1034-1,CUST-1034,Marriage,2026-03-14,Customer stated,High,Deepen
+LE-1035-1,CUST-1035,Relocation,2026-03-10,Customer stated,High,Neutral
+LE-1037-1,CUST-1037,Reduced hours,2026-04-23,Payroll change,High,Support
+LE-1040-1,CUST-1040,Child starting university,2026-06-22,Customer stated,High,Deepen
+LE-1042-1,CUST-1042,New baby,2026-04-21,Transaction pattern,Medium,Support
+LE-1044-1,CUST-1044,Marriage,2026-04-11,Customer stated,High,Deepen
+LE-1045-1,CUST-1045,Retirement approaching,2026-07-25,Advisor note,Medium,Deepen
+LE-1046-1,CUST-1046,Relocation,2026-02-20,Customer stated,High,Neutral
+LE-1047-1,CUST-1047,Separation,2026-04-24,Advisor note,Medium,Support
+LE-1049-1,CUST-1049,Separation,2026-06-15,Advisor note,Medium,Support
+LE-1050-1,CUST-1050,Home renovation,2026-07-13,Transaction pattern,Medium,Deepen

@@ -1,0 +1,7 @@
+product_id,product_name,tier,annual_fee,purchase_apr,rewards,fx_fee,min_income,welcome_bonus_points
+CRD-GOLD,Gold Rewards Card,Premium rewards,120,21.99,"5x groceries and dining, 3x streaming, 1x everything else",2.5%,12000,50000
+CRD-TRVL,Travel Infinite Card,Premium travel,150,20.99,"3x groceries and dining, 2x transit, lounge passes",none,60000,40000
+CRD-CASH,Cash Back Card,Cash back,39,20.99,"4% groceries and recurring bills, 1% everything else",2.5%,12000,0
+CRD-NOFEE,No-Fee Rewards Card,Everyday,0,19.99,"2x groceries and dining, 1x everything else",2.5%,12000,5000
+CRD-LOW,Low-Rate Card,Low rate,29,12.99,none - lower interest,2.5%,12000,0
+CRD-STU,Student Card,Starter,0,19.99,1x everything,2.5%,0,0

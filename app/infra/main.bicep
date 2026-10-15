@@ -60,6 +60,9 @@ param foundryAgentName string = 'mortgage-renewal-concierge'
 @description('Run the BFF without Azure calls. UI development only.')
 param mockMode bool = false
 
+@description('Display name of the bank this deployment is branded as (see tools/brand/fetch_brand.py).')
+param bankName string = 'CFC Bank'
+
 var tags = union({
   workload: namePrefix
   solution: 'mortgage-renewal-concierge'
@@ -99,6 +102,7 @@ module apps 'modules/container-apps.bicep' = {
     foundryAccountName: foundryAccountName
     foundryAgentName: foundryAgentName
     mockMode: mockMode
+    bankName: bankName
   }
 }
 

@@ -1,0 +1,186 @@
+customer_id,rank,action_type,product_id,product_name,score,rationale,eligibility
+CUST-1001,1,Retain,PRD-MTG,Mortgage,89.0,Renewal in 63 days; attrition medium (0.63),Eligible
+CUST-1001,2,Deepen,PRD-HEL,Home Equity Line of Credit,45.7,Equity available (LTV under 65%),Needs marketing consent (RP-011)
+CUST-1001,3,Deepen,PRD-INS,Creditor and Home Insurance,45.1,Mortgage not protected,Needs marketing consent (RP-011)
+CUST-1001,4,Deepen,PRD-CRD,Credit Card,39.2,No credit card with the Bank,Needs marketing consent (RP-011)
+CUST-1002,1,Retain,PRD-MTG,Mortgage,84.4,Renewal in 30 days; attrition medium (0.48),Eligible
+CUST-1002,2,Deepen,PRD-TFSA,Tax-Free Savings Account,49.0,No TFSA; savings capacity,Eligible
+CUST-1002,3,Deepen,PRD-INS,Creditor and Home Insurance,44.6,Mortgage not protected,Eligible
+CUST-1002,4,Deepen,PRD-RSP,Retirement Savings Plan,42.7,No retirement plan,Eligible
+CUST-1003,1,Retain,PRD-MTG,Mortgage,82.0,Renewal in 110 days; attrition medium (0.40),Eligible
+CUST-1003,2,Deepen,PRD-TFSA,Tax-Free Savings Account,46.3,No TFSA; savings capacity,Eligible
+CUST-1003,3,Deepen,PRD-RSP,Retirement Savings Plan,42.7,No retirement plan,Eligible
+CUST-1003,4,Deepen,PRD-INS,Creditor and Home Insurance,38.5,Mortgage not protected,Eligible
+CUST-1004,1,Retain,PRD-MTG,Mortgage,86.3,Renewal in 164 days; attrition medium (0.54),Eligible
+CUST-1004,2,Deepen,PRD-TFSA,Tax-Free Savings Account,45.9,No TFSA; savings capacity,Eligible
+CUST-1004,3,Deepen,PRD-HEL,Home Equity Line of Credit,43.9,Equity available (LTV under 65%),Eligible
+CUST-1004,4,Deepen,PRD-RSP,Retirement Savings Plan,40.2,No retirement plan,Eligible
+CUST-1005,1,Retain,PRD-MTG,Mortgage,81.4,Renewal in 165 days; attrition low (0.38),Eligible
+CUST-1005,2,Deepen,PRD-TFSA,Tax-Free Savings Account,49.3,No TFSA; savings capacity,Eligible
+CUST-1005,3,Deepen,PRD-INS,Creditor and Home Insurance,45.1,Mortgage not protected,Eligible
+CUST-1005,4,Deepen,PRD-RSP,Retirement Savings Plan,36.7,No retirement plan,Eligible
+CUST-1006,1,Retain,PRD-MTG,Mortgage,86.0,Renewal in 147 days; attrition medium (0.53),Eligible
+CUST-1006,2,Deepen,PRD-HEL,Home Equity Line of Credit,40.6,Equity available (LTV under 65%),Eligible
+CUST-1006,3,Deepen,PRD-TFSA,Tax-Free Savings Account,40.4,No TFSA; savings capacity,Eligible
+CUST-1006,4,Deepen,PRD-INS,Creditor and Home Insurance,39.2,Mortgage not protected,Eligible
+CUST-1007,1,Retain,PRD-MTG,Mortgage,86.1,Renewal in 92 days; attrition medium (0.54),Eligible
+CUST-1007,2,Deepen,PRD-TFSA,Tax-Free Savings Account,48.4,No TFSA; savings capacity,Eligible
+CUST-1007,3,Deepen,PRD-RSP,Retirement Savings Plan,37.9,No retirement plan,Eligible
+CUST-1007,4,Deepen,PRD-INS,Creditor and Home Insurance,36.6,Mortgage not protected,Eligible
+CUST-1008,1,Retain,PRD-MTG,Mortgage,93.5,Renewal in 22 days; attrition high (0.79),Eligible
+CUST-1008,2,Deepen,PRD-INS,Creditor and Home Insurance,37.1,Mortgage not protected,Eligible
+CUST-1009,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1009,2,Retain,PRD-MTG,Mortgage,94.4,Renewal in 72 days; attrition high (0.81),Eligible
+CUST-1009,3,Deepen,PRD-TFSA,Tax-Free Savings Account,46.9,No TFSA; savings capacity,Suppressed - vulnerable customer (RP-012)
+CUST-1009,4,Deepen,PRD-INS,Creditor and Home Insurance,44.5,Mortgage not protected,Suppressed - vulnerable customer (RP-012)
+CUST-1010,1,Retain,PRD-MTG,Mortgage,85.4,Renewal in 149 days; attrition medium (0.51),Eligible
+CUST-1010,2,Deepen,PRD-INS,Creditor and Home Insurance,61.5,Mortgage not protected; life event: child starting university,Needs marketing consent (RP-011)
+CUST-1010,3,Deepen,PRD-HEL,Home Equity Line of Credit,56.9,Equity available (LTV under 65%); life event: child starting university,Needs marketing consent (RP-011)
+CUST-1011,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1011,2,Retain,PRD-MTG,Mortgage,91.2,Renewal in 16 days; attrition high (0.70),Eligible
+CUST-1011,3,Deepen,PRD-TFSA,Tax-Free Savings Account,46.1,No TFSA; savings capacity,Suppressed - vulnerable customer (RP-012)
+CUST-1011,4,Deepen,PRD-INS,Creditor and Home Insurance,44.0,Mortgage not protected,Suppressed - vulnerable customer (RP-012)
+CUST-1012,1,Retain,PRD-MTG,Mortgage,85.0,Renewal in 119 days; attrition medium (0.50),Eligible
+CUST-1012,2,Deepen,PRD-INS,Creditor and Home Insurance,63.8,Mortgage not protected; life event: child starting university,Eligible
+CUST-1013,1,Retain,PRD-MTG,Mortgage,83.7,Renewal in 100 days; attrition medium (0.46),Eligible
+CUST-1013,2,Deepen,PRD-INS,Creditor and Home Insurance,62.1,Mortgage not protected; life event: marriage,Eligible
+CUST-1013,3,Deepen,PRD-RSP,Retirement Savings Plan,54.9,No retirement plan; life event: marriage,Eligible
+CUST-1013,4,Deepen,PRD-CRD,Credit Card,31.6,No credit card with the Bank,Eligible
+CUST-1014,1,Retain,PRD-MTG,Mortgage,90.4,Renewal in 41 days; attrition high (0.68),Eligible
+CUST-1014,2,Deepen,PRD-INS,Creditor and Home Insurance,40.3,Mortgage not protected,Needs marketing consent (RP-011)
+CUST-1014,3,Deepen,PRD-RSP,Retirement Savings Plan,36.3,No retirement plan,Needs marketing consent (RP-011)
+CUST-1015,1,Retain,PRD-MTG,Mortgage,85.0,Renewal in 43 days; attrition medium (0.50),Eligible
+CUST-1015,2,Deepen,PRD-TFSA,Tax-Free Savings Account,43.7,No TFSA; savings capacity,Needs marketing consent (RP-011)
+CUST-1015,3,Deepen,PRD-INS,Creditor and Home Insurance,42.9,Mortgage not protected,Needs marketing consent (RP-011)
+CUST-1015,4,Deepen,PRD-HEL,Home Equity Line of Credit,42.9,Equity available (LTV under 65%),Needs marketing consent (RP-011)
+CUST-1016,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1016,2,Retain,PRD-MTG,Mortgage,89.4,Renewal in 46 days; attrition medium (0.65),Eligible
+CUST-1016,3,Deepen,PRD-TFSA,Tax-Free Savings Account,48.0,No TFSA; savings capacity,Suppressed - vulnerable customer (RP-012)
+CUST-1016,4,Deepen,PRD-INS,Creditor and Home Insurance,40.0,Mortgage not protected,Suppressed - vulnerable customer (RP-012)
+CUST-1017,1,Retain,PRD-MTG,Mortgage,84.9,Renewal in 174 days; attrition medium (0.50),Eligible
+CUST-1017,2,Deepen,PRD-HEL,Home Equity Line of Credit,62.0,Equity available (LTV under 65%); life event: retirement approaching,Eligible
+CUST-1017,3,Deepen,PRD-RSP,Retirement Savings Plan,59.6,No retirement plan; life event: retirement approaching,Eligible
+CUST-1017,4,Deepen,PRD-INS,Creditor and Home Insurance,55.5,Mortgage not protected; life event: retirement approaching,Eligible
+CUST-1018,1,Retain,PRD-MTG,Mortgage,80.5,Renewal in 138 days; attrition low (0.35),Eligible
+CUST-1018,2,Deepen,PRD-RSP,Retirement Savings Plan,43.6,No retirement plan,Eligible
+CUST-1018,3,Deepen,PRD-INS,Creditor and Home Insurance,42.6,Mortgage not protected,Eligible
+CUST-1018,4,Deepen,PRD-HEL,Home Equity Line of Credit,39.2,Equity available (LTV under 65%),Eligible
+CUST-1019,1,Retain,PRD-MTG,Mortgage,81.0,Renewal in 37 days; attrition low (0.37),Eligible
+CUST-1019,2,Deepen,PRD-TFSA,Tax-Free Savings Account,63.9,No TFSA; savings capacity; life event: child starting university,Eligible
+CUST-1019,3,Deepen,PRD-INS,Creditor and Home Insurance,62.1,Mortgage not protected; life event: child starting university,Eligible
+CUST-1019,4,Deepen,PRD-RSP,Retirement Savings Plan,54.6,No retirement plan; life event: child starting university,Eligible
+CUST-1020,1,Retain,PRD-MTG,Mortgage,80.8,Renewal in 77 days; attrition low (0.36),Eligible
+CUST-1020,2,Deepen,PRD-HEL,Home Equity Line of Credit,64.8,Equity available (LTV under 65%); life event: retirement approaching,Needs marketing consent (RP-011)
+CUST-1020,3,Deepen,PRD-TFSA,Tax-Free Savings Account,64.6,No TFSA; savings capacity; life event: retirement approaching,Needs marketing consent (RP-011)
+CUST-1020,4,Deepen,PRD-INS,Creditor and Home Insurance,61.3,Mortgage not protected; life event: retirement approaching,Needs marketing consent (RP-011)
+CUST-1021,1,Retain,PRD-MTG,Mortgage,96.7,Renewal in 18 days; attrition high (0.89),Eligible
+CUST-1021,2,Retain,PRD-CHQ,Everyday Chequing Account,72,14.3% of payroll moving to another institution,Eligible
+CUST-1021,3,Deepen,PRD-TFSA,Tax-Free Savings Account,66.1,No TFSA; savings capacity; life event: inheritance received,Needs marketing consent (RP-011)
+CUST-1021,4,Deepen,PRD-HEL,Home Equity Line of Credit,57.4,Equity available (LTV under 65%); life event: inheritance received,Needs marketing consent (RP-011)
+CUST-1022,1,Retain,PRD-MTG,Mortgage,87.8,Renewal in 136 days; attrition medium (0.59),Eligible
+CUST-1022,2,Deepen,PRD-TFSA,Tax-Free Savings Account,67.3,No TFSA; savings capacity; life event: inheritance received,Needs marketing consent (RP-011)
+CUST-1022,3,Deepen,PRD-INS,Creditor and Home Insurance,61.9,Mortgage not protected; life event: inheritance received,Needs marketing consent (RP-011)
+CUST-1022,4,Deepen,PRD-RSP,Retirement Savings Plan,59.4,No retirement plan; life event: inheritance received,Needs marketing consent (RP-011)
+CUST-1023,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1023,2,Retain,PRD-MTG,Mortgage,82.5,Renewal in 111 days; attrition medium (0.42),Eligible
+CUST-1023,3,Deepen,PRD-INS,Creditor and Home Insurance,43.1,Mortgage not protected,Suppressed - vulnerable customer (RP-012)
+CUST-1023,4,Deepen,PRD-RSP,Retirement Savings Plan,43.0,No retirement plan,Suppressed - vulnerable customer (RP-012)
+CUST-1024,1,Retain,PRD-MTG,Mortgage,83.3,Renewal in 132 days; attrition medium (0.44),Eligible
+CUST-1024,2,Deepen,PRD-HEL,Home Equity Line of Credit,42.2,Equity available (LTV under 65%),Eligible
+CUST-1024,3,Deepen,PRD-RSP,Retirement Savings Plan,41.9,No retirement plan,Eligible
+CUST-1024,4,Deepen,PRD-INS,Creditor and Home Insurance,39.4,Mortgage not protected,Eligible
+CUST-1025,1,Retain,PRD-MTG,Mortgage,84.8,Renewal in 75 days; attrition medium (0.49),Eligible
+CUST-1025,2,Deepen,PRD-TFSA,Tax-Free Savings Account,49.9,No TFSA; savings capacity,Eligible
+CUST-1025,3,Deepen,PRD-RSP,Retirement Savings Plan,43.9,No retirement plan,Eligible
+CUST-1025,4,Deepen,PRD-INS,Creditor and Home Insurance,43.5,Mortgage not protected,Eligible
+CUST-1026,1,Retain,PRD-MTG,Mortgage,88.0,Renewal in 162 days; attrition medium (0.60),Eligible
+CUST-1026,2,Deepen,PRD-HEL,Home Equity Line of Credit,45.0,Equity available (LTV under 65%),Eligible
+CUST-1026,3,Deepen,PRD-TFSA,Tax-Free Savings Account,40.0,No TFSA; savings capacity,Eligible
+CUST-1026,4,Deepen,PRD-INS,Creditor and Home Insurance,40.0,Mortgage not protected,Eligible
+CUST-1027,1,Retain,PRD-MTG,Mortgage,85.5,Renewal in 111 days; attrition medium (0.52),Eligible
+CUST-1027,2,Deepen,PRD-TFSA,Tax-Free Savings Account,48.2,No TFSA; savings capacity,Eligible
+CUST-1027,3,Deepen,PRD-INS,Creditor and Home Insurance,40.0,Mortgage not protected,Eligible
+CUST-1027,4,Deepen,PRD-RSP,Retirement Savings Plan,37.5,No retirement plan,Eligible
+CUST-1028,1,Retain,PRD-MTG,Mortgage,99.1,Renewal in 46 days; attrition high (0.97),Eligible
+CUST-1028,2,Retain,PRD-CHQ,Everyday Chequing Account,72,16.5% of payroll moving to another institution,Eligible
+CUST-1028,3,Deepen,PRD-TFSA,Tax-Free Savings Account,65.2,No TFSA; savings capacity; life event: inheritance received,Eligible
+CUST-1028,4,Deepen,PRD-INS,Creditor and Home Insurance,62.1,Mortgage not protected; life event: inheritance received,Eligible
+CUST-1029,1,Retain,PRD-MTG,Mortgage,85.5,Renewal in 99 days; attrition medium (0.52),Eligible
+CUST-1029,2,Deepen,PRD-INS,Creditor and Home Insurance,42.6,Mortgage not protected,Needs marketing consent (RP-011)
+CUST-1029,3,Deepen,PRD-HEL,Home Equity Line of Credit,42.5,Equity available (LTV under 65%),Needs marketing consent (RP-011)
+CUST-1029,4,Deepen,PRD-TFSA,Tax-Free Savings Account,40.1,No TFSA; savings capacity,Needs marketing consent (RP-011)
+CUST-1030,1,Retain,PRD-MTG,Mortgage,86.1,Renewal in 51 days; attrition medium (0.54),Eligible
+CUST-1030,2,Deepen,PRD-TFSA,Tax-Free Savings Account,45.9,No TFSA; savings capacity,Eligible
+CUST-1030,3,Deepen,PRD-INS,Creditor and Home Insurance,41.6,Mortgage not protected,Eligible
+CUST-1030,4,Deepen,PRD-RSP,Retirement Savings Plan,40.6,No retirement plan,Eligible
+CUST-1031,1,Retain,PRD-MTG,Mortgage,85.4,Renewal in 111 days; attrition medium (0.51),Eligible
+CUST-1031,2,Deepen,PRD-HEL,Home Equity Line of Credit,44.6,Equity available (LTV under 65%),Eligible
+CUST-1031,3,Deepen,PRD-INS,Creditor and Home Insurance,40.8,Mortgage not protected,Eligible
+CUST-1032,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1032,2,Retain,PRD-MTG,Mortgage,85.3,Renewal in 56 days; attrition medium (0.51),Eligible
+CUST-1032,3,Deepen,PRD-TFSA,Tax-Free Savings Account,44.5,No TFSA; savings capacity,Suppressed - vulnerable customer (RP-012)
+CUST-1032,4,Deepen,PRD-INS,Creditor and Home Insurance,43.5,Mortgage not protected,Suppressed - vulnerable customer (RP-012)
+CUST-1033,1,Retain,PRD-MTG,Mortgage,97.7,Renewal in 37 days; attrition high (0.92),Eligible
+CUST-1033,2,Retain,PRD-CHQ,Everyday Chequing Account,72,16.3% of payroll moving to another institution,Eligible
+CUST-1033,3,Deepen,PRD-INS,Creditor and Home Insurance,42.1,Mortgage not protected,Eligible
+CUST-1033,4,Deepen,PRD-HEL,Home Equity Line of Credit,41.6,Equity available (LTV under 65%),Eligible
+CUST-1034,1,Retain,PRD-MTG,Mortgage,96.0,Renewal in 134 days; attrition high (0.86),Eligible
+CUST-1034,2,Retain,PRD-CHQ,Everyday Chequing Account,72,14.0% of payroll moving to another institution,Eligible
+CUST-1034,3,Deepen,PRD-TFSA,Tax-Free Savings Account,63.4,No TFSA; savings capacity; life event: marriage,Eligible
+CUST-1034,4,Deepen,PRD-HEL,Home Equity Line of Credit,59.7,Equity available (LTV under 65%); life event: marriage,Eligible
+CUST-1035,1,Retain,PRD-MTG,Mortgage,88.9,Renewal in 180 days; attrition medium (0.63),Eligible
+CUST-1035,2,Deepen,PRD-INS,Creditor and Home Insurance,44.6,Mortgage not protected,Eligible
+CUST-1035,3,Deepen,PRD-RSP,Retirement Savings Plan,43.0,No retirement plan,Eligible
+CUST-1035,4,Deepen,PRD-TFSA,Tax-Free Savings Account,41.3,No TFSA; savings capacity,Eligible
+CUST-1036,1,Retain,PRD-MTG,Mortgage,82.5,Renewal in 143 days; attrition medium (0.42),Eligible
+CUST-1036,2,Deepen,PRD-INS,Creditor and Home Insurance,42.5,Mortgage not protected,Eligible
+CUST-1037,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1037,2,Retain,PRD-MTG,Mortgage,86.0,Renewal in 86 days; attrition medium (0.53),Eligible
+CUST-1037,3,Deepen,PRD-TFSA,Tax-Free Savings Account,42.4,No TFSA; savings capacity,Suppressed - vulnerable customer (RP-012)
+CUST-1037,4,Deepen,PRD-RSP,Retirement Savings Plan,42.0,No retirement plan,Suppressed - vulnerable customer (RP-012)
+CUST-1038,1,Retain,PRD-MTG,Mortgage,81.1,Renewal in 80 days; attrition low (0.37),Eligible
+CUST-1038,2,Deepen,PRD-INS,Creditor and Home Insurance,36.7,Mortgage not protected,Needs marketing consent (RP-011)
+CUST-1039,1,Retain,PRD-MTG,Mortgage,87.2,Renewal in 175 days; attrition medium (0.57),Eligible
+CUST-1039,2,Deepen,PRD-TFSA,Tax-Free Savings Account,42.5,No TFSA; savings capacity,Eligible
+CUST-1039,3,Deepen,PRD-CRD,Credit Card,38.9,No credit card with the Bank,Eligible
+CUST-1039,4,Deepen,PRD-INS,Creditor and Home Insurance,37.2,Mortgage not protected,Eligible
+CUST-1040,1,Retain,PRD-MTG,Mortgage,96.2,Renewal in 11 days; attrition high (0.87),Eligible
+CUST-1040,2,Retain,PRD-CHQ,Everyday Chequing Account,72,14.8% of payroll moving to another institution,Eligible
+CUST-1040,3,Deepen,PRD-TFSA,Tax-Free Savings Account,67.0,No TFSA; savings capacity; life event: child starting university,Eligible
+CUST-1040,4,Deepen,PRD-HEL,Home Equity Line of Credit,64.5,Equity available (LTV under 65%); life event: child starting university,Eligible
+CUST-1041,1,Retain,PRD-MTG,Mortgage,87.7,Renewal in 110 days; attrition medium (0.59),Eligible
+CUST-1041,2,Deepen,PRD-INS,Creditor and Home Insurance,41.0,Mortgage not protected,Eligible
+CUST-1042,1,Retain,PRD-MTG,Mortgage,92.7,Renewal in 102 days; attrition high (0.76),Eligible
+CUST-1042,2,Deepen,PRD-INS,Creditor and Home Insurance,44.3,Mortgage not protected,Eligible
+CUST-1042,3,Deepen,PRD-TFSA,Tax-Free Savings Account,43.8,No TFSA; savings capacity,Eligible
+CUST-1042,4,Deepen,PRD-CRD,Credit Card,40.0,No credit card with the Bank,Eligible
+CUST-1043,1,Retain,PRD-MTG,Mortgage,82.8,Renewal in 83 days; attrition medium (0.43),Eligible
+CUST-1043,2,Deepen,PRD-TFSA,Tax-Free Savings Account,45.5,No TFSA; savings capacity,Eligible
+CUST-1043,3,Deepen,PRD-RSP,Retirement Savings Plan,43.2,No retirement plan,Eligible
+CUST-1043,4,Deepen,PRD-INS,Creditor and Home Insurance,41.6,Mortgage not protected,Eligible
+CUST-1044,1,Retain,PRD-MTG,Mortgage,94.6,Renewal in 26 days; attrition high (0.82),Eligible
+CUST-1044,2,Retain,PRD-CHQ,Everyday Chequing Account,72,16.4% of payroll moving to another institution,Eligible
+CUST-1044,3,Deepen,PRD-TFSA,Tax-Free Savings Account,64.4,No TFSA; savings capacity; life event: marriage,Eligible
+CUST-1044,4,Deepen,PRD-RSP,Retirement Savings Plan,61.9,No retirement plan; life event: marriage,Eligible
+CUST-1045,1,Retain,PRD-MTG,Mortgage,85.6,Renewal in 166 days; attrition medium (0.52),Eligible
+CUST-1045,2,Deepen,PRD-INS,Creditor and Home Insurance,60.4,Mortgage not protected; life event: retirement approaching,Eligible
+CUST-1045,3,Deepen,PRD-HEL,Home Equity Line of Credit,58.1,Equity available (LTV under 65%); life event: retirement approaching,Eligible
+CUST-1045,4,Deepen,PRD-RSP,Retirement Savings Plan,57.5,No retirement plan; life event: retirement approaching,Eligible
+CUST-1046,1,Retain,PRD-MTG,Mortgage,84.3,Renewal in 127 days; attrition medium (0.48),Eligible
+CUST-1046,2,Deepen,PRD-INS,Creditor and Home Insurance,40.3,Mortgage not protected,Eligible
+CUST-1047,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1047,2,Retain,PRD-MTG,Mortgage,92.1,Renewal in 56 days; attrition high (0.74),Eligible
+CUST-1047,3,Deepen,PRD-TFSA,Tax-Free Savings Account,48.8,No TFSA; savings capacity,Suppressed - vulnerable customer (RP-012)
+CUST-1047,4,Deepen,PRD-HEL,Home Equity Line of Credit,46.2,Equity available (LTV under 65%),Suppressed - vulnerable customer (RP-012)
+CUST-1048,1,Retain,PRD-MTG,Mortgage,85.7,Renewal in 94 days; attrition medium (0.52),Eligible
+CUST-1048,2,Deepen,PRD-TFSA,Tax-Free Savings Account,44.6,No TFSA; savings capacity,Eligible
+CUST-1048,3,Deepen,PRD-RSP,Retirement Savings Plan,42.2,No retirement plan,Eligible
+CUST-1048,4,Deepen,PRD-INS,Creditor and Home Insurance,38.8,Mortgage not protected,Eligible
+CUST-1049,1,Support,PRD-REL,Amortization and Payment Relief Review,100,Amortization relief review (RP-006),Eligible
+CUST-1049,2,Retain,PRD-MTG,Mortgage,81.9,Renewal in 121 days; attrition low (0.40),Eligible
+CUST-1049,3,Deepen,PRD-TFSA,Tax-Free Savings Account,48.8,No TFSA; savings capacity,Suppressed - vulnerable customer (RP-012)
+CUST-1049,4,Deepen,PRD-INS,Creditor and Home Insurance,45.8,Mortgage not protected,Suppressed - vulnerable customer (RP-012)
+CUST-1050,1,Retain,PRD-MTG,Mortgage,97.7,Renewal in 52 days; attrition high (0.92),Eligible
+CUST-1050,2,Retain,PRD-CHQ,Everyday Chequing Account,72,15.3% of payroll moving to another institution,Eligible
+CUST-1050,3,Deepen,PRD-INS,Creditor and Home Insurance,60.4,Mortgage not protected; life event: home renovation,Eligible
+CUST-1050,4,Deepen,PRD-TFSA,Tax-Free Savings Account,59.7,No TFSA; savings capacity; life event: home renovation,Eligible

@@ -58,6 +58,8 @@ from pathlib import Path
 from typing import Any
 
 HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE.parent / "tools" / "brand"))
+from bank_profile import rebrand, rebrand_text  # noqa: E402  - names the deployed bank
 DATA = HERE.parent / "data"
 
 AGENT_NAME = os.getenv("AGENT_NAME", "mortgage-renewal-concierge")
@@ -85,7 +87,7 @@ DEMO_QUESTIONS = [
 
 
 def instructions() -> str:
-    md = (HERE / "agent_instructions.md").read_text(encoding="utf-8")
+    md = rebrand_text((HERE / "agent_instructions.md").read_text(encoding="utf-8"))
     m = re.search(r"<!-- INSTRUCTIONS-START -->(.*?)<!-- INSTRUCTIONS-END -->", md, re.S)
     return (m.group(1) if m else md).strip()
 
@@ -180,7 +182,7 @@ def _work_corpus() -> list[dict]:
         docs.append({"type": "meeting", "id": f.stem, "category": "meeting",
                      "subject": f.stem, "from": "Meeting record",
                      "date": f.stem[:10], "text": f.read_text(encoding="utf-8")})
-    return docs
+    return rebrand(docs)
 
 
 _STOP = {"the", "and", "for", "with", "from", "that", "this", "are", "was", "our",
@@ -240,7 +242,7 @@ def query_renewal_analytics(question: str, segment: str = "", risk_band: str = "
     return json.dumps({
         "source": "Fabric IQ (OneLake)",
         "mode": mode,
-        "population": "renewals maturing within 180 days as at 2026-08-03",
+        "population": "renewals maturing within 180 days of the as_of_date in the data",
         "question": question,
         "portfolio_measures": result.get("measures"),
         "segment_summary": result.get("segment_summary") or _segment_summary(),
@@ -535,8 +537,8 @@ def _policy_search(query: str, category: str) -> list[dict] | None:
 
 @functools.lru_cache(maxsize=1)
 def _policies() -> list[dict]:
-    return json.loads((DATA / "foundry-iq" / "renewal_policies.json")
-                      .read_text(encoding="utf-8"))
+    return rebrand(json.loads((DATA / "foundry-iq" / "renewal_policies.json")
+                              .read_text(encoding="utf-8")))
 
 
 def _policy_local(query: str, category: str) -> list[dict]:

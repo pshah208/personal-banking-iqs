@@ -6,8 +6,10 @@ Creates, end to end and idempotently:
   2. lakehouse   lh_mortgage_renewals
   3. OneLake     Files/renewals/*.csv        (the five synthetic CSVs)
   4. notebook    nb_load_renewals            (runs load_renewals_fabric.py logic:
-                                              5 Delta tables + 2 curated views)
-  5. semantic    sm_mortgage_renewals        Direct Lake model over the SQL
+                                              5 Delta tables + 2 curated views,
+                                              dates moved to the current week)
+  5. schedule    nb_load_renewals runs daily so the dates stay evergreen
+  6. semantic    sm_mortgage_renewals        Direct Lake model over the SQL
      model                                   analytics endpoint, with measures
 
 Auth uses the Azure CLI login (`az login`) - no secrets. The signed-in user must
@@ -33,6 +35,8 @@ from typing import Any
 import requests
 
 HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE.parents[1] / "tools" / "brand"))
+from bank_profile import rebrand_text  # noqa: E402  - names the deployed bank
 
 FABRIC_API = "https://api.fabric.microsoft.com/v1"
 ONELAKE_DFS = "https://onelake.dfs.fabric.microsoft.com"
@@ -40,8 +44,16 @@ ONELAKE_DFS = "https://onelake.dfs.fabric.microsoft.com"
 WORKSPACE = "ws-mortgage-renewals-demo"
 LAKEHOUSE = "lh_mortgage_renewals"
 NOTEBOOK = "nb_load_renewals"
+LOAD_SOURCE = "load_renewals_fabric.py"
 SEMANTIC_NOTEBOOK = "nb_create_semantic_model"
 SEMANTIC_MODEL = "sm_mortgage_renewals"
+
+# The app's date-shift module, inlined into the load notebook so Fabric IQ and the
+# app move the snapshot forward by exactly the same rule.
+EVERGREEN = HERE.parents[1] / "app" / "src" / "bff" / "app" / "evergreen.py"
+# UTC run times for the load notebook. The offset only changes on the snapshot
+# weekday, but a capacity paused through one run catches up at the next.
+REFRESH_TIMES = ["00:20", "12:20"]
 
 WORKSPACE_DESC = (
     "SYNTHETIC DEMO DATA - Mortgage Renewal Concierge. CFC Bank is used only as "
@@ -55,6 +67,38 @@ CSVS = [
     "renewal_risk_scores.csv",
     "retention_offers.csv",
     "branch_performance.csv",
+    "households.csv",
+    "credit_capacity.csv",
+    "customer_products.csv",
+    "financial_signals_monthly.csv",
+    "life_events.csv",
+    "consent_preferences.csv",
+    "financial_wellness.csv",
+    "next_best_actions.csv",
+    "rate_scenario_presets.csv",
+    "renewal_scenario_sensitivity.csv",
+    "card_products.csv",
+    "card_accounts.csv",
+    "card_spend_monthly.csv",
+    "card_next_actions.csv",
+    "deposit_accounts.csv",
+    "deposit_flows_monthly.csv",
+    "banking_next_actions.csv",
+    "credit_facilities.csv",
+    "debt_consolidation_candidates.csv",
+    "borrowing_next_actions.csv",
+    "investment_accounts.csv",
+    "registered_room.csv",
+    "investing_next_actions.csv",
+    "newcomer_journey.csv",
+    "transfers_out_monthly.csv",
+    "newcomers_next_actions.csv",
+    "insurance_policies.csv",
+    "coverage_gaps.csv",
+    "insurance_next_actions.csv",
+    "security_events.csv",
+    "customer_security_posture.csv",
+    "security_next_actions.csv",
 ]
 
 
@@ -196,7 +240,7 @@ def ensure_lakehouse(ws_id: str) -> dict:
 def upload_csvs(ws_id: str, lh_id: str) -> None:
     print("  uploading CSVs to Files/renewals/")
     for name in CSVS:
-        content = (HERE / name).read_bytes()
+        content = rebrand_text((HERE / name).read_text(encoding="utf-8")).encode("utf-8")
         path = f"/{ws_id}/{lh_id}/Files/renewals/{name}"
         lake.call("PUT", f"{ONELAKE_DFS}{path}", params={"resource": "file"},
                   ok=(201, 202))
@@ -216,6 +260,8 @@ def upload_csvs(ws_id: str, lh_id: str) -> None:
 # --------------------------------------------------------------------------- #
 def notebook_payload(ws_id: str, lh_id: str, source: str) -> str:
     code = (HERE / source).read_text(encoding="utf-8")
+    if source == LOAD_SOURCE:
+        code = evergreen_source() + "\n\n" + code
     # %pip magics must sit in their own cell and run first
     lines = code.splitlines(keepends=True)
     magic, body, cells = [], [], []
@@ -304,6 +350,31 @@ def run_notebook(ws_id: str, nb_id: str) -> None:
     raise RuntimeError("notebook run timed out")
 
 
+def evergreen_source() -> str:
+    """evergreen.py as notebook code: the future import must be a file's first
+    statement, which it no longer is once inlined, and nothing needs it at runtime."""
+    src = EVERGREEN.read_text(encoding="utf-8")
+    return "\n".join(ln for ln in src.splitlines() if ln.strip() != "from __future__ import annotations")
+
+
+def ensure_schedule(ws_id: str, nb_id: str) -> None:
+    """Run the load notebook on a timer so the tables roll forward each week."""
+    base = f"/workspaces/{ws_id}/items/{nb_id}/jobs/RunNotebook/schedules"
+    start = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + 300))
+    end = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(time.time() + 5 * 365 * 86400))
+    body = {"enabled": True,
+            "configuration": {"type": "Daily", "times": REFRESH_TIMES, "localTimeZoneId": "UTC",
+                              "startDateTime": start, "endDateTime": end}}
+    existing = (fab.call("GET", base) or {}).get("value", [])
+    if existing:
+        sid = existing[0]["id"]
+        fab.call("PATCH", f"{base}/{sid}", json_body=body, ok=(200,))
+        print(f"= schedule {sid}: daily at {', '.join(REFRESH_TIMES)} UTC")
+        return
+    created = fab.call("POST", base, json_body=body, ok=(200, 201))
+    print(f"+ schedule {(created or {}).get('id')}: daily at {', '.join(REFRESH_TIMES)} UTC")
+
+
 # --------------------------------------------------------------------------- #
 # 5. semantic model (Direct Lake)
 # --------------------------------------------------------------------------- #
@@ -373,7 +444,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--capacity", default="fabcap26")
     ap.add_argument("--only", choices=["workspace", "lakehouse", "upload",
-                                       "notebook", "semantic-model"])
+                                       "notebook", "schedule", "semantic-model"])
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--skip-run", action="store_true",
                     help="create the notebook but do not execute it")
@@ -384,7 +455,7 @@ def main() -> None:
         return
 
     steps = [args.only] if args.only else ["workspace", "lakehouse", "upload",
-                                           "notebook", "semantic-model"]
+                                           "notebook", "schedule", "semantic-model"]
 
     ws_id = ensure_workspace(args.capacity) if "workspace" in steps else \
         (get_workspace() or sys.exit("workspace not found - run --only workspace"))["id"]
@@ -397,10 +468,14 @@ def main() -> None:
         upload_csvs(ws_id, lh["id"])
 
     if "notebook" in steps:
-        nb_id = ensure_notebook(ws_id, lh["id"], NOTEBOOK, "load_renewals_fabric.py",
-                                "Loads the renewal CSVs into Delta tables.")
+        nb_id = ensure_notebook(ws_id, lh["id"], NOTEBOOK, LOAD_SOURCE,
+                                "Loads the renewal CSVs into Delta tables, dates moved to the current week.")
         if not args.skip_run:
             run_notebook(ws_id, nb_id)
+
+    if "schedule" in steps:
+        nb = get_item(ws_id, NOTEBOOK, "Notebook") or sys.exit("notebook not found - run --only notebook")
+        ensure_schedule(ws_id, nb["id"])
 
     if "semantic-model" in steps:
         ensure_semantic_model(ws_id, lh["id"])

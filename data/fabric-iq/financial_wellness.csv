@@ -1,0 +1,51 @@
+customer_id,wellness_score,wellness_band,vulnerability_flag,primary_driver,drivers,support_pathway,sales_suppressed,competitor_outflow_share_pct,as_of_date
+CUST-1001,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1002,91,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1003,91,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1004,79,Stretched,N,TDS at renewal 45.8% (above 44% guideline),TDS at renewal 45.8% (above 44% guideline),Budgeting and renewal planning session,N,0.0,2026-08-03
+CUST-1005,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1006,92,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1007,92,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1008,88,Stable,N,TDS at renewal 41.1%,TDS at renewal 41.1%,None,N,0.0,2026-08-03
+CUST-1009,37,Vulnerable,Y,Payroll down 25% vs prior 6 months,Payroll down 25% vs prior 6 months; 22 overdraft days in 3 months; 2 NSF item(s); Card utilisation 74%; TDS at renewal 58.7% (above 44% guideline); Savings down 61%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1010,91,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1011,43,Vulnerable,Y,33 overdraft days in 3 months,33 overdraft days in 3 months; 2 NSF item(s); Card utilisation 86%; TDS at renewal 60.8% (above 44% guideline); Savings down 61%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1012,92,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1013,87,Stable,N,TDS at renewal 43.2%,TDS at renewal 43.2%,None,N,0.0,2026-08-03
+CUST-1014,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1015,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1016,43,Vulnerable,Y,21 overdraft days in 3 months,21 overdraft days in 3 months; 2 NSF item(s); Card utilisation 93%; TDS at renewal 59.2% (above 44% guideline); Savings down 57%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1017,90,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1018,87,Stable,N,TDS at renewal 42.8%,TDS at renewal 42.8%,None,N,0.0,2026-08-03
+CUST-1019,89,Stable,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1020,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1021,85,Stretched,N,14% of payroll moving to another institution,14% of payroll moving to another institution,Budgeting and renewal planning session,N,14.3,2026-08-03
+CUST-1022,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1023,46,Vulnerable,Y,26 overdraft days in 3 months,26 overdraft days in 3 months; 2 NSF item(s); TDS at renewal 55.6% (above 44% guideline); Savings down 58%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1024,87,Stable,N,TDS at renewal 41.4%,TDS at renewal 41.4%,None,N,0.0,2026-08-03
+CUST-1025,83,Stretched,N,TDS at renewal 44.8% (above 44% guideline),TDS at renewal 44.8% (above 44% guideline),Budgeting and renewal planning session,N,0.0,2026-08-03
+CUST-1026,89,Stable,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1027,87,Stretched,N,TDS at renewal 44.1% (above 44% guideline),TDS at renewal 44.1% (above 44% guideline),Budgeting and renewal planning session,N,0.0,2026-08-03
+CUST-1028,80,Stretched,N,16% of payroll moving to another institution,16% of payroll moving to another institution,Budgeting and renewal planning session,N,16.5,2026-08-03
+CUST-1029,88,Stable,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1030,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1031,90,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1032,43,Vulnerable,Y,Payroll down 11% vs prior 6 months,Payroll down 11% vs prior 6 months; 33 overdraft days in 3 months; 1 NSF item(s); Card utilisation 85%; TDS at renewal 58.1% (above 44% guideline); Savings down 58%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1033,71,Stretched,N,TDS at renewal 45.7% (above 44% guideline),TDS at renewal 45.7% (above 44% guideline); 16% of payroll moving to another institution,Budgeting and renewal planning session,N,16.3,2026-08-03
+CUST-1034,81,Stretched,N,14% of payroll moving to another institution,14% of payroll moving to another institution,Budgeting and renewal planning session,N,14.0,2026-08-03
+CUST-1035,90,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1036,90,Thriving,N,TDS at renewal 40.8%,TDS at renewal 40.8%,None,N,0.0,2026-08-03
+CUST-1037,29,Vulnerable,Y,Payroll down 27% vs prior 6 months,Payroll down 27% vs prior 6 months; 24 overdraft days in 3 months; 1 NSF item(s); Card utilisation 96%; TDS at renewal 60.6% (above 44% guideline); Savings down 60%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1038,93,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1039,84,Stretched,N,TDS at renewal 45.7% (above 44% guideline),TDS at renewal 45.7% (above 44% guideline),Budgeting and renewal planning session,N,0.0,2026-08-03
+CUST-1040,84,Stretched,N,TDS at renewal 40.5%,TDS at renewal 40.5%; 15% of payroll moving to another institution,Budgeting and renewal planning session,N,14.8,2026-08-03
+CUST-1041,89,Stable,N,TDS at renewal 43.1%,TDS at renewal 43.1%,None,N,0.0,2026-08-03
+CUST-1042,88,Stable,N,TDS at renewal 41.2%,TDS at renewal 41.2%,None,N,0.0,2026-08-03
+CUST-1043,92,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1044,82,Stretched,N,16% of payroll moving to another institution,16% of payroll moving to another institution,Budgeting and renewal planning session,N,16.4,2026-08-03
+CUST-1045,91,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1046,91,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1047,27,Vulnerable,Y,Payroll down 26% vs prior 6 months,Payroll down 26% vs prior 6 months; 24 overdraft days in 3 months; 1 missed payment(s); 1 NSF item(s); Card utilisation 80%; TDS at renewal 60.2% (above 44% guideline); Savings down 65%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1048,92,Thriving,N,No adverse signals,,None,N,0.0,2026-08-03
+CUST-1049,46,Vulnerable,Y,20 overdraft days in 3 months,20 overdraft days in 3 months; 2 NSF item(s); Card utilisation 76%; TDS at renewal 58.1% (above 44% guideline); Savings down 65%,Amortization relief review (RP-006),Y,0.0,2026-08-03
+CUST-1050,86,Stretched,N,15% of payroll moving to another institution,15% of payroll moving to another institution,Budgeting and renewal planning session,N,15.3,2026-08-03

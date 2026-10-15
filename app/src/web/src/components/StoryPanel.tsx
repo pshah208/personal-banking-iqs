@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Chapter, Persona, Story } from "../types";
 import { FlowScene } from "./FlowScene";
+import { useBrand } from "../useBrand";
 import { IQPanel } from "./IQPanel";
 import { IQDiagram } from "./IQDiagram";
 import { DIAGRAMS } from "../lib/iqDiagram";
@@ -49,6 +50,7 @@ function fillChapter(ch: Chapter, firstName: string): Chapter {
 }
 
 function PersonaSlide({ persona, ch }: { persona: Persona; ch: Chapter }) {
+  const brand = useBrand();
   const points = persona.points ?? ch.points ?? [];
   return (
     <div className="slide slide-persona slide-transition">
@@ -56,7 +58,7 @@ function PersonaSlide({ persona, ch }: { persona: Persona; ch: Chapter }) {
         <div className="persona-brand-panel">
           <img
             className="persona-brand-logo"
-            src="/brand/cfc-bank-logo-white.png"
+            src={brand.assets.mark}
             alt=""
             aria-hidden
           />

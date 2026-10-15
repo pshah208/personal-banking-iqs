@@ -49,6 +49,7 @@ from .iq import (
     iq_event,
     is_invocation,
     message_event,
+    sse,
     status_event,
     summarise_call,
     token_event,
@@ -173,9 +174,18 @@ def _extract_text(payload: dict) -> str:
     return "".join(parts)
 
 
+def _tool_call_event(item: dict) -> str:
+    """One frame per tool invocation, for the mission harness trace (iq_active only fires once per layer)."""
+    name, payload = _tool_label(item)
+    return sse("tool_call", {"iq": classify(name, payload), "tool": item.get("server_label") or item.get("name") or item.get("type", ""),
+                             "detail": summarise_call(name, payload), "error": _item_error(item)})
+
+
 async def run_agent(user: User, question: str,
-                    thread_id: str | None = None) -> AsyncGenerator[str, None]:
-    """Yield SSE frames for one question."""
+                    thread_id: str | None = None,
+                    agent_name: str | None = None,
+                    trace: bool = False) -> AsyncGenerator[str, None]:
+    """Yield SSE frames for one question. `trace` adds a `tool_call` frame for every tool invocation."""
     if settings.mock_mode:
         async for frame in _mock(question):
             yield frame
@@ -196,7 +206,7 @@ async def run_agent(user: User, question: str,
         # omitting it returns 400 invalid_payload.
         "agent_reference": {
             "type": "agent_reference",
-            "name": settings.agent_name,
+            "name": agent_name or settings.agent_name,
         },
         "input": question,
         "stream": True,
@@ -209,6 +219,7 @@ async def run_agent(user: User, question: str,
 
     active: set[str] = set()
     seen_calls: set[str] = set()
+    traced: set[str] = set()
     text_acc = ""
     citations: list[dict] = []
     response_id = thread_id
@@ -224,7 +235,7 @@ async def run_agent(user: User, question: str,
                 if resp.status_code >= 400:
                     raw = (await resp.aread()).decode("utf-8", "replace")
                     async for frame in _fallback_nonstreaming(
-                        client, headers, body, active, raw
+                        client, headers, body, active, raw, trace
                     ):
                         yield frame
                     return
@@ -278,6 +289,10 @@ async def run_agent(user: User, question: str,
                                 tool_errors.append(err)
                                 logger.warning("tool failed for %s: %s", user.upn, err)
                             key = item.get("id") or json.dumps(item)[:80]
+                            # `.done` carries the final arguments; `.added` often has none yet.
+                            if trace and etype.endswith("output_item.done") and key not in traced:
+                                traced.add(key)
+                                yield _tool_call_event(item)
                             if key not in seen_calls:
                                 seen_calls.add(key)
                                 name, payload = _tool_label(item)
@@ -334,7 +349,7 @@ async def run_agent(user: User, question: str,
 
 async def _fallback_nonstreaming(client: httpx.AsyncClient, headers: dict,
                                  body: dict, active: set[str],
-                                 stream_error: str) -> AsyncGenerator[str, None]:
+                                 stream_error: str, trace: bool = False) -> AsyncGenerator[str, None]:
     """If streaming is rejected, retry once without it before giving up."""
     logger.warning("stream rejected, retrying without stream: %s", stream_error[:300])
     payload = dict(body)
@@ -357,6 +372,8 @@ async def _fallback_nonstreaming(client: httpx.AsyncClient, headers: dict,
     for item in data.get("output", []) or []:
         if not isinstance(item, dict) or not is_invocation(item.get("type", "")):
             continue
+        if trace:
+            yield _tool_call_event(item)
         name, arg = _tool_label(item)
         iq = classify(name, arg)
         if iq and iq not in active:

@@ -1,0 +1,94 @@
+account_id,customer_id,customer_name,segment,branch_id,branch,province,linked_mortgage,linked_cards,facility_type,rate_type,rate_pct,prime_spread_pct,limit_or_original_cad,balance_cad,utilisation_pct,monthly_payment_cad,term_months,maturity_date,days_to_maturity,combined_ltv_pct,days_past_due,wellness_band,email_consent,tds_renewal_pct,as_of_date
+LN-5001,CUST-1001,Sana Mehta,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,N,Secured line of credit (home equity),Variable,5.58,0.63,164000.0,43700.0,26.6,203.21,,,,58.3,0,Thriving,Withdrawn,37.5,2026-08-03
+LN-5002,CUST-1001,Sana Mehta,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,N,Auto loan,Fixed,8.84,,22200.0,700.0,3.2,355.38,84,2026-10-03,61,,0,Thriving,Withdrawn,37.5,2026-08-03
+LN-5003,CUST-1002,Bruno Castellanos,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Auto loan,Fixed,7.89,,48100.0,35120.0,73.0,840.77,72,2030-09-03,1492,,0,Thriving,Granted,32.6,2026-08-03
+LN-5004,CUST-1002,Bruno Castellanos,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Personal loan,Fixed,10.95,,17000.0,9190.0,54.1,556.16,36,2028-02-03,549,,0,Thriving,Granted,32.6,2026-08-03
+LN-5005,CUST-1003,Rahul Park,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Auto loan,Fixed,7.38,,41400.0,2450.0,5.9,827.21,60,2026-11-03,92,,0,Thriving,Granted,32.4,2026-08-03
+LN-5006,CUST-1003,Rahul Park,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Personal loan,Fixed,10.78,,14900.0,13100.0,87.9,383.51,48,2030-01-03,1249,,0,Thriving,Granted,32.4,2026-08-03
+LN-5007,CUST-1005,Aiden Larsen,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Unsecured line of credit,Variable,10.6,5.65,16000.0,8150.0,50.9,244.5,,,,,0,Thriving,Granted,38.1,2026-08-03
+LN-5008,CUST-1006,Andre Cardoso,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Secured line of credit (home equity),Variable,5.51,0.56,50000.0,2590.0,5.2,11.89,,,,71.9,0,Thriving,Granted,29.3,2026-08-03
+LN-5009,CUST-1006,Andre Cardoso,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Auto loan,Fixed,7.37,,42700.0,17280.0,40.5,652.21,84,2029-01-03,884,,0,Thriving,Granted,29.3,2026-08-03
+LN-5010,CUST-1008,Simone Fitzgerald,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Unsecured line of credit,Variable,9.5,4.55,17000.0,4580.0,26.9,137.4,,,,,0,Stable,Granted,41.1,2026-08-03
+LN-5011,CUST-1009,Valeria Guerrero,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Auto loan,Fixed,7.63,,50200.0,870.0,1.7,871.13,72,2026-09-03,31,,0,Vulnerable,Granted,58.7,2026-08-03
+LN-5012,CUST-1010,Gustav Haddadi,High Net Worth,BR-101,Toronto Bay & Bloor,ON,Y,Y,Auto loan,Fixed,8.66,,39700.0,26640.0,67.1,708.93,72,2030-04-03,1339,,0,Thriving,Not captured,37.2,2026-08-03
+LN-5013,CUST-1011,Amara Lachance,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Personal loan,Fixed,10.18,,11300.0,4620.0,40.9,241.09,60,2028-05-03,639,,0,Vulnerable,Granted,60.8,2026-08-03
+LN-5014,CUST-1013,Ayesha Novak,Mass Affluent,BR-303,Calgary Centre Street,AB,Y,N,Secured line of credit (home equity),Variable,5.75,0.8,59000.0,24700.0,41.9,118.35,,,,73.0,0,Stable,Granted,43.2,2026-08-03
+LN-5015,CUST-1013,Ayesha Novak,Mass Affluent,BR-303,Calgary Centre Street,AB,Y,N,Auto loan,Fixed,7.93,,40800.0,11010.0,27.0,825.91,60,2027-10-03,426,,0,Stable,Granted,43.2,2026-08-03
+LN-5016,CUST-1014,Josephine Novak,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Secured line of credit (home equity),Variable,5.94,0.99,30000.0,2130.0,7.1,10.54,,,,74.7,0,Thriving,Not captured,35.7,2026-08-03
+LN-5017,CUST-1015,Naomi Iyer,Self-Employed,BR-101,Toronto Bay & Bloor,ON,Y,N,Secured line of credit (home equity),Variable,5.6,0.65,142000.0,2820.0,2.0,13.16,,,,69.3,0,Thriving,Withdrawn,32.4,2026-08-03
+LN-5018,CUST-1015,Naomi Iyer,Self-Employed,BR-101,Toronto Bay & Bloor,ON,Y,N,Auto loan,Fixed,7.54,,49800.0,29060.0,58.4,862.01,72,2029-10-03,1157,,0,Thriving,Withdrawn,32.4,2026-08-03
+LN-5019,CUST-1018,Farah Leclair,High Net Worth,BR-101,Toronto Bay & Bloor,ON,Y,N,Unsecured line of credit,Variable,10.97,6.02,11000.0,4650.0,42.3,139.5,,,,,0,Stable,Granted,42.8,2026-08-03
+LN-5020,CUST-1019,Yuki Karim,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,Y,Personal loan,Fixed,11.23,,17800.0,13890.0,78.0,584.69,36,2028-11-03,823,,0,Stable,Granted,35.7,2026-08-03
+LN-5021,CUST-1020,Nikhil Petrov,Mass Market,BR-303,Calgary Centre Street,AB,Y,Y,Unsecured line of credit,Variable,11.1,6.15,18000.0,3230.0,17.9,96.9,,,,,0,Thriving,Not captured,34.3,2026-08-03
+LN-5022,CUST-1020,Nikhil Petrov,Mass Market,BR-303,Calgary Centre Street,AB,Y,Y,Personal loan,Fixed,12.39,,22300.0,13580.0,60.9,500.46,60,2029-04-03,974,,0,Thriving,Not captured,34.3,2026-08-03
+LN-5023,CUST-1021,Simone Marchetti,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Unsecured line of credit,Variable,12.91,7.96,15000.0,11280.0,75.2,338.4,,,,,0,Stretched,Withdrawn,34.4,2026-08-03
+LN-5024,CUST-1021,Simone Marchetti,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Personal loan,Fixed,12.35,,10500.0,4550.0,43.3,278.31,48,2028-02-03,549,,0,Stretched,Withdrawn,34.4,2026-08-03
+LN-5025,CUST-1022,Omar Kowalski,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Auto loan,Fixed,7.78,,55300.0,2210.0,4.0,1115.47,60,2026-10-03,61,,0,Thriving,Withdrawn,30.1,2026-08-03
+LN-5026,CUST-1023,Felix Benali,Self-Employed,BR-101,Toronto Bay & Bloor,ON,Y,N,Secured line of credit (home equity),Variable,5.49,0.54,22000.0,12950.0,58.9,59.25,,,,75.5,0,Vulnerable,Granted,55.6,2026-08-03
+LN-5027,CUST-1023,Felix Benali,Self-Employed,BR-101,Toronto Bay & Bloor,ON,Y,N,Personal loan,Fixed,10.5,,15800.0,13710.0,86.8,339.6,60,2030-10-03,1522,,30,Vulnerable,Granted,55.6,2026-08-03
+LN-5028,CUST-1024,Simone Siddiqui,High Net Worth,BR-101,Toronto Bay & Bloor,ON,Y,N,Secured line of credit (home equity),Variable,5.86,0.9099999999999999,154000.0,25970.0,16.9,126.82,,,,53.2,0,Stable,Granted,41.4,2026-08-03
+LN-5029,CUST-1025,Henrik Thibault,Self-Employed,BR-303,Calgary Centre Street,AB,Y,Y,Unsecured line of credit,Variable,11.53,6.58,18000.0,12450.0,69.2,373.5,,,,,0,Stretched,Granted,44.8,2026-08-03
+LN-5030,CUST-1025,Henrik Thibault,Self-Employed,BR-303,Calgary Centre Street,AB,Y,Y,Auto loan,Fixed,8.82,,22500.0,1060.0,4.7,359.95,84,2026-11-03,92,,0,Stretched,Granted,44.8,2026-08-03
+LN-5031,CUST-1027,Simone Aziz,Self-Employed,BR-303,Calgary Centre Street,AB,Y,N,Unsecured line of credit,Variable,12.38,7.43,19000.0,11380.0,59.9,341.4,,,,,0,Stretched,Granted,44.1,2026-08-03
+LN-5032,CUST-1028,Lucas Aziz,New to Canada,BR-101,Toronto Bay & Bloor,ON,Y,N,Secured line of credit (home equity),Variable,5.93,0.98,86000.0,49720.0,57.8,245.7,,,,63.1,0,Stretched,Granted,30.0,2026-08-03
+LN-5033,CUST-1028,Lucas Aziz,New to Canada,BR-101,Toronto Bay & Bloor,ON,Y,N,Auto loan,Fixed,7.89,,38400.0,34970.0,91.1,671.22,72,2031-12-03,1948,,0,Stretched,Granted,30.0,2026-08-03
+LN-5034,CUST-1028,Lucas Aziz,New to Canada,BR-101,Toronto Bay & Bloor,ON,Y,N,Personal loan,Fixed,9.66,,29500.0,26630.0,90.3,947.18,36,2029-04-03,974,,0,Stretched,Granted,30.0,2026-08-03
+LN-5035,CUST-1030,Felix Solberg,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Unsecured line of credit,Variable,10.72,5.77,9000.0,1480.0,16.4,50.0,,,,,0,Thriving,Granted,33.4,2026-08-03
+LN-5036,CUST-1030,Felix Solberg,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Auto loan,Fixed,7.62,,55700.0,7480.0,13.4,857.64,84,2027-05-03,273,,0,Thriving,Granted,33.4,2026-08-03
+LN-5037,CUST-1031,Valeria Okonkwo,Mass Affluent,BR-303,Calgary Centre Street,AB,Y,Y,Secured line of credit (home equity),Variable,5.73,0.78,85000.0,11180.0,13.2,53.38,,,,51.5,0,Thriving,Granted,31.2,2026-08-03
+LN-5038,CUST-1032,Leila Beaulieu,New to Canada,BR-202,Montreal Plateau,QC,Y,N,Secured line of credit (home equity),Variable,5.71,0.76,28000.0,20140.0,71.9,95.83,,,,77.0,0,Vulnerable,Granted,58.1,2026-08-03
+LN-5039,CUST-1033,Mateo Bergeron,Mass Market,BR-303,Calgary Centre Street,AB,Y,N,Secured line of credit (home equity),Variable,5.92,0.97,59000.0,45930.0,77.8,226.59,,,,68.2,0,Stretched,Granted,45.7,2026-08-03
+LN-5040,CUST-1033,Mateo Bergeron,Mass Market,BR-303,Calgary Centre Street,AB,Y,N,Personal loan,Fixed,9.91,,10700.0,8960.0,83.7,226.87,60,2030-08-03,1461,,0,Stretched,Granted,45.7,2026-08-03
+LN-5041,CUST-1034,Samuel Sinclair,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Secured line of credit (home equity),Variable,5.62,0.67,91000.0,49410.0,54.3,231.4,,,,69.3,0,Stretched,Granted,31.4,2026-08-03
+LN-5042,CUST-1036,Bruno Cardoso,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Secured line of credit (home equity),Variable,5.69,0.74,55000.0,9990.0,18.2,47.37,,,,73.8,0,Thriving,Granted,40.8,2026-08-03
+LN-5043,CUST-1036,Bruno Cardoso,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Personal loan,Fixed,12.85,,13100.0,12460.0,95.1,297.06,60,2031-04-03,1704,,0,Thriving,Granted,40.8,2026-08-03
+LN-5044,CUST-1037,Sana Sinclair,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Secured line of credit (home equity),Variable,5.61,0.66,54000.0,33690.0,62.4,157.5,,,,76.5,0,Vulnerable,Granted,60.6,2026-08-03
+LN-5045,CUST-1037,Sana Sinclair,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Personal loan,Fixed,11.28,,24000.0,8140.0,33.9,623.56,48,2027-10-03,426,,0,Vulnerable,Granted,60.6,2026-08-03
+LN-5046,CUST-1039,Aiden Rossi,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Unsecured line of credit,Variable,11.32,6.37,20000.0,15990.0,80.0,479.7,,,,,0,Stretched,Granted,45.7,2026-08-03
+LN-5047,CUST-1039,Aiden Rossi,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Personal loan,Fixed,12.78,,26800.0,16810.0,62.7,606.77,60,2029-05-03,1004,,0,Stretched,Granted,45.7,2026-08-03
+LN-5048,CUST-1041,Caleb Yusuf,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Auto loan,Fixed,8.21,,48600.0,1960.0,4.0,990.32,60,2026-10-03,61,,0,Stable,Granted,43.1,2026-08-03
+LN-5049,CUST-1042,Lucas Petrov,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Secured line of credit (home equity),Variable,5.52,0.5700000000000001,21000.0,6210.0,29.6,28.57,,,,70.0,0,Stable,Granted,41.2,2026-08-03
+LN-5050,CUST-1043,Andre Ellsworth,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Unsecured line of credit,Variable,10.05,5.1,13000.0,7480.0,57.5,224.4,,,,,0,Thriving,Granted,31.3,2026-08-03
+LN-5051,CUST-1043,Andre Ellsworth,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Auto loan,Fixed,7.34,,28300.0,5170.0,18.3,487.12,72,2027-07-03,334,,0,Thriving,Granted,31.3,2026-08-03
+LN-5052,CUST-1043,Andre Ellsworth,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Personal loan,Fixed,11.16,,9200.0,4470.0,48.6,301.89,36,2027-12-03,487,,0,Thriving,Granted,31.3,2026-08-03
+LN-5053,CUST-1044,Tariq Marchetti,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Unsecured line of credit,Variable,12.47,7.52,5000.0,4230.0,84.6,126.9,,,,,0,Stretched,Granted,33.1,2026-08-03
+LN-5054,CUST-1045,Dmitri Iyer,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Secured line of credit (home equity),Variable,5.67,0.72,132000.0,52720.0,39.9,249.1,,,,67.2,0,Thriving,Granted,33.8,2026-08-03
+LN-5055,CUST-1046,Bruno Kowalski,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Secured line of credit (home equity),Variable,5.92,0.97,47000.0,6500.0,13.8,32.07,,,,72.6,0,Thriving,Granted,39.2,2026-08-03
+LN-5056,CUST-1046,Bruno Kowalski,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Auto loan,Fixed,8.04,,45600.0,920.0,2.0,925.48,60,2026-09-03,31,,0,Thriving,Granted,39.2,2026-08-03
+LN-5057,CUST-1047,Hassan Kowalski,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Secured line of credit (home equity),Variable,5.45,0.5,153000.0,89200.0,58.3,405.12,,,,53.6,0,Vulnerable,Not captured,60.2,2026-08-03
+LN-5058,CUST-1047,Hassan Kowalski,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Auto loan,Fixed,7.37,,30300.0,19500.0,64.4,605.28,60,2029-08-03,1096,,0,Vulnerable,Not captured,60.2,2026-08-03
+LN-5059,CUST-1047,Hassan Kowalski,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Personal loan,Fixed,11.65,,28900.0,23570.0,81.6,637.76,60,2030-06-03,1400,,30,Vulnerable,Not captured,60.2,2026-08-03
+LN-5060,CUST-1048,Grace Dufresne,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Secured line of credit (home equity),Variable,5.91,0.96,71000.0,13080.0,18.4,64.42,,,,68.7,0,Thriving,Granted,32.2,2026-08-03
+LN-5061,CUST-1049,Sana Moreau,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,Y,Unsecured line of credit,Variable,11.35,6.4,16000.0,13360.0,83.5,400.8,,,,,30,Vulnerable,Granted,58.1,2026-08-03
+LN-5062,CUST-2002,Bianca Roy,Mass Market,BR-202,Montreal Plateau,QC,N,Y,Auto loan,Fixed,8.67,,54500.0,15520.0,28.5,973.49,72,2028-01-03,518,,0,Thriving,Not captured,,2026-08-03
+LN-5063,CUST-2003,Callum Singh,High Net Worth,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,11.9,6.95,14000.0,10700.0,76.4,321.0,,,,,0,Vulnerable,Withdrawn,,2026-08-03
+LN-5064,CUST-2004,Dev Fortin,New to Canada,BR-101,Toronto Bay & Bloor,ON,N,Y,Auto loan,Fixed,8.69,,36600.0,17520.0,47.9,583.12,84,2029-06-03,1035,,0,Thriving,Granted,,2026-08-03
+LN-5065,CUST-2005,Elena Haddad,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,N,Y,Auto loan,Fixed,7.06,,36900.0,1450.0,3.9,731.71,60,2026-10-03,61,,0,Thriving,Withdrawn,,2026-08-03
+LN-5066,CUST-2006,Felix Chen,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,9.69,4.74,16000.0,9370.0,58.6,281.1,,,,,0,Stable,Granted,,2026-08-03
+LN-5067,CUST-2010,Jun Pelletier,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,10.77,5.82,23000.0,13570.0,59.0,407.1,,,,,0,Stable,Granted,,2026-08-03
+LN-5068,CUST-2011,Kiran Ito,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,N,Y,Unsecured line of credit,Variable,11.45,6.5,6000.0,3810.0,63.5,114.3,,,,,0,Stretched,Granted,,2026-08-03
+LN-5069,CUST-2012,Lucas Roy,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Unsecured line of credit,Variable,10.77,5.82,18000.0,11560.0,64.2,346.8,,,,,0,Thriving,Not captured,,2026-08-03
+LN-5070,CUST-2012,Lucas Roy,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Personal loan,Fixed,11.5,,24100.0,16790.0,69.7,628.75,48,2029-03-03,943,,0,Thriving,Not captured,,2026-08-03
+LN-5071,CUST-2013,Maya Singh,Mass Affluent,BR-303,Calgary Centre Street,AB,N,Y,Unsecured line of credit,Variable,10.8,5.85,10000.0,3840.0,38.4,115.2,,,,,0,Thriving,Withdrawn,,2026-08-03
+LN-5072,CUST-2014,Noah Singh,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Auto loan,Fixed,8.7,,50000.0,40190.0,80.4,796.86,84,2031-11-03,1918,,0,Thriving,Granted,,2026-08-03
+LN-5073,CUST-2015,Olivia Singh,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Unsecured line of credit,Variable,10.96,6.01,12000.0,5770.0,48.1,173.1,,,,,0,Stable,Not captured,,2026-08-03
+LN-5074,CUST-2015,Olivia Singh,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Personal loan,Fixed,12.04,,26000.0,11380.0,43.8,578.88,60,2028-06-03,670,,0,Stable,Not captured,,2026-08-03
+LN-5075,CUST-2017,Quinn Singh,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,11.83,6.88,6000.0,3520.0,58.7,105.6,,,,,0,Vulnerable,Granted,,2026-08-03
+LN-5076,CUST-2017,Quinn Singh,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Auto loan,Fixed,7.79,,23200.0,13170.0,56.8,359.18,84,2030-02-03,1280,,0,Vulnerable,Granted,,2026-08-03
+LN-5077,CUST-2019,Samir Ellis,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Auto loan,Fixed,8.76,,28300.0,6690.0,23.6,584.17,60,2027-08-03,365,,0,Thriving,Granted,,2026-08-03
+LN-5078,CUST-2020,Tara Tremblay,New to Canada,BR-202,Montreal Plateau,QC,N,Y,Auto loan,Fixed,7.41,,33300.0,1010.0,3.0,509.29,84,2026-10-03,61,,0,Stable,Granted,,2026-08-03
+LN-5079,CUST-2021,Uma Desrosiers,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,11.07,6.12,20000.0,11010.0,55.0,330.3,,,,,0,Thriving,Granted,,2026-08-03
+LN-5080,CUST-2022,Victor Zhang,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Unsecured line of credit,Variable,12.45,7.5,6000.0,4060.0,67.7,121.8,,,,,0,Stretched,Granted,,2026-08-03
+LN-5081,CUST-2023,Wen Fortin,High Net Worth,BR-202,Montreal Plateau,QC,N,Y,Auto loan,Fixed,7.95,,25500.0,14210.0,55.7,396.81,84,2030-01-03,1249,,0,Thriving,Granted,,2026-08-03
+LN-5082,CUST-2025,Yara Nguyen,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,12.72,7.77,9000.0,8250.0,91.7,247.5,,,,,0,Vulnerable,Withdrawn,,2026-08-03
+LN-5083,CUST-2025,Yara Nguyen,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Personal loan,Fixed,11.39,,23500.0,14510.0,61.7,611.83,48,2028-11-03,823,,0,Vulnerable,Withdrawn,,2026-08-03
+LN-5084,CUST-2026,Zane Haddad,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,11.15,6.2,20000.0,18370.0,91.8,551.1,,,,,15,Stretched,Granted,,2026-08-03
+LN-5085,CUST-2027,Ana Nguyen,Mass Market,BR-303,Calgary Centre Street,AB,N,Y,Unsecured line of credit,Variable,12.06,7.11,18000.0,13930.0,77.4,417.9,,,,,15,Stretched,Not captured,,2026-08-03
+LN-5086,CUST-2029,Chloe Ueda,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Personal loan,Fixed,10.96,,27100.0,8540.0,31.5,699.89,48,2027-09-03,396,,0,Thriving,Not captured,,2026-08-03
+LN-5087,CUST-2030,Diego Vasquez,New to Canada,BR-303,Calgary Centre Street,AB,N,Y,Auto loan,Fixed,7.36,,45800.0,28730.0,62.7,914.69,60,2029-07-03,1065,,0,Stretched,Granted,,2026-08-03
+LN-5088,CUST-2030,Diego Vasquez,New to Canada,BR-303,Calgary Centre Street,AB,N,Y,Personal loan,Fixed,10.48,,22400.0,6740.0,30.1,481.24,60,2027-11-03,457,,0,Stretched,Granted,,2026-08-03
+LN-5089,CUST-2033,Gia Walsh,Mass Affluent,BR-303,Calgary Centre Street,AB,N,Y,Unsecured line of credit,Variable,12.77,7.82,18000.0,10850.0,60.3,325.5,,,,,0,Stretched,Granted,,2026-08-03
+LN-5090,CUST-2033,Gia Walsh,Mass Affluent,BR-303,Calgary Centre Street,AB,N,Y,Personal loan,Fixed,10.55,,27800.0,17610.0,63.3,712.45,48,2028-12-03,853,,0,Stretched,Granted,,2026-08-03
+LN-5091,CUST-2036,Jonah Bouchard,Student / Young professional,BR-101,Toronto Bay & Bloor,ON,N,Y,Unsecured line of credit,Variable,10.63,5.68,17000.0,3690.0,21.7,110.7,,,,,0,Thriving,Granted,,2026-08-03
+LN-5092,CUST-2038,Liam Gill,High Net Worth,BR-202,Montreal Plateau,QC,N,Y,Unsecured line of credit,Variable,11.98,7.03,12000.0,8420.0,70.2,252.6,,,,,0,Vulnerable,Granted,,2026-08-03
+LN-5093,CUST-2038,Liam Gill,High Net Worth,BR-202,Montreal Plateau,QC,N,Y,Auto loan,Fixed,6.68,,36400.0,21010.0,57.7,615.01,72,2029-10-03,1157,,0,Vulnerable,Granted,,2026-08-03

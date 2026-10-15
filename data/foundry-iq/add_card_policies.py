@@ -1,0 +1,21 @@
+import json, pathlib
+P = pathlib.Path("renewal_policies.json")
+NEW = [
+ {"id": "RP-019", "category": "approval_requirement", "effective_date": "2026-06-01", "owner": "Head of Card Products",
+  "title": "Credit Card Product Suitability, Upgrades and Product Switches",
+  "content": "SCOPE. Applies to recommending, upgrading or switching a client's credit card.\n\nRULE 1 - FIT TO USE. A card recommendation must be justified by the client's recorded spending (categories, foreign spend, annual spend) and must show the expected value net of the annual fee. A premium card is not suitable where expected rewards are below the fee.\n\nRULE 2 - ELIGIBILITY. Published income minimums apply (premium travel: CAD 60,000 personal or CAD 100,000 household). Clients who do not meet them may not be offered the product.\n\nRULE 3 - SWITCH, DON'T CLOSE. When a fee-paying client is unlikely to renew, offer a switch within the card family or a one-time fee waiver before the account closes. Advisors may waive one annual fee up to CAD 150 per 12 months; larger or repeated waivers need Branch Manager approval.\n\nRULE 4 - CONSENT AND CONDUCT. Promotional card offers follow RP-011 consent rules and the Code of Conduct for the Credit and Debit Card Industry in Canada."},
+ {"id": "RP-020", "category": "regulatory_reference", "effective_date": "2026-06-01", "owner": "Chief Compliance Officer - Retail",
+  "title": "Credit Limit Increases - Express Consent",
+  "content": "SCOPE. Applies to every increase of a credit card or line-of-credit limit.\n\nRULE 1 - EXPRESS CONSENT. A limit may be increased only with the client's express consent recorded before the increase. Silence, pre-checked boxes or implied consent are not consent. This reflects the Financial Consumer Protection Framework under the Bank Act.\n\nRULE 2 - AFFORDABILITY. No limit increase may be offered where the household's TDS exceeds 44% (RP-013), where the account has been 30+ days past due in the last 12 months, or where the client is in the Vulnerable wellness band (RP-012).\n\nRULE 3 - NO UNSOLICITED INCREASES. Marketing a limit increase follows RP-011; the confirmation must state the new limit, the interest rate and how to decline."},
+ {"id": "RP-021", "category": "risk_consideration", "effective_date": "2026-06-01", "owner": "Head of Collections and Client Assistance",
+  "title": "Persistent Card Debt and Minimum-Payment Clients",
+  "content": "SCOPE. Applies to card clients who paid only the minimum (or close to it) in 6 or more of the last 12 months, or who are 30+ days past due.\n\nRULE 1 - SUPPORT FIRST. Contact must offer ways to reduce the cost of the debt: a lower-rate card, an instalment plan, consolidation into a lower-rate line of credit where affordable (RP-013), or free budgeting support. No rewards upgrade, limit increase or new credit product may be offered (RP-012, RP-020).\n\nRULE 2 - SHOW THE COST. Communications must show how long repayment takes at the minimum payment and the interest cost, in plain language.\n\nRULE 3 - HARDSHIP. Clients reporting hardship are routed to Client Assistance; interest relief of up to three months may be approved by a Branch Manager (see RP-014)."},
+ {"id": "RP-022", "category": "risk_consideration", "effective_date": "2026-06-01", "owner": "Head of Fraud Management - Retail",
+  "title": "Card Fraud Alerts and Security Outreach",
+  "content": "SCOPE. Applies to clients with fraud alerts, disputed transactions or account-takeover signals.\n\nRULE 1 - SECURITY BEFORE SALES. A client with an open fraud alert receives a security check-in (card lock, alerts, digital wallet, password hygiene) before any marketing contact.\n\nRULE 2 - NEVER ASK FOR SECRETS. Staff and communications never ask a client for a PIN, full card number, one-time passcode or online banking password. Every outreach must say so.\n\nRULE 3 - CHANNEL. Security contact is made through the app or a verified phone number on file - never a link in an unsolicited email or SMS."},
+]
+docs = json.loads(P.read_text(encoding="utf-8"))
+docs = [d for d in docs if d["id"] not in {n["id"] for n in NEW}] + [{k: d[k] for k in ("id", "title", "category", "effective_date", "owner", "content")} for d in NEW]
+docs.sort(key=lambda d: d["id"])
+P.write_text(json.dumps(docs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+print(len(docs))

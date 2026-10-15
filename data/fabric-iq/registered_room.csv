@@ -1,0 +1,89 @@
+customer_id,customer_name,age,homeowner,tfsa_room_unused_cad,rrsp_room_unused_cad,fhsa_eligible,fhsa_opened,fhsa_room_unused_cad,dependents,has_resp,cesg_missed_per_year_cad,savings_balance_cad,kyc_status,wellness_band,email_consent,as_of_date
+CUST-1001,Sana Mehta,43,Y,31400.0,151600.0,N,N,0,1,Y,0,0.0,Current,Thriving,Withdrawn,2026-08-03
+CUST-1002,Bruno Castellanos,32,Y,14000.0,132100.0,N,N,0,2,N,1000,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1003,Rahul Park,60,Y,109000.0,148100.0,N,N,0,0,N,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1004,Beatrice Karim,33,Y,109000.0,152100.0,N,N,0,0,N,0,0.0,Stale,Stretched,Granted,2026-08-03
+CUST-1005,Aiden Larsen,40,Y,109000.0,68600.0,N,N,0,0,N,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1006,Andre Cardoso,33,Y,109000.0,114000.0,N,N,0,2,Y,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1007,Beatrice Mehta,37,Y,109000.0,142100.0,N,N,0,1,N,500,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1008,Simone Fitzgerald,41,Y,35400.0,17000.0,N,N,0,0,N,0,28090.0,Current,Stable,Granted,2026-08-03
+CUST-1009,Valeria Guerrero,32,Y,105000.0,29600.0,N,N,0,0,N,0,0.0,Current,Vulnerable,Granted,2026-08-03
+CUST-1010,Gustav Haddadi,63,Y,0,3100.0,N,N,0,0,N,0,104750.0,Stale,Thriving,Not captured,2026-08-03
+CUST-1011,Amara Lachance,40,Y,109000.0,18700.0,N,N,0,1,N,500,0.0,Current,Vulnerable,Granted,2026-08-03
+CUST-1012,Rosa Bergeron,32,Y,53000.0,155300.0,N,N,0,0,N,0,39210.0,Current,Thriving,Granted,2026-08-03
+CUST-1013,Ayesha Novak,43,Y,42900.0,48300.0,N,N,0,1,N,500,0.0,Current,Stable,Granted,2026-08-03
+CUST-1014,Josephine Novak,47,Y,29300.0,177800.0,N,N,0,2,N,1000,0.0,Current,Thriving,Not captured,2026-08-03
+CUST-1015,Naomi Iyer,36,Y,109000.0,116300.0,N,N,0,1,N,500,0.0,Current,Thriving,Withdrawn,2026-08-03
+CUST-1016,Farah Thibault,57,Y,109000.0,155700.0,N,N,0,0,N,0,0.0,Current,Vulnerable,Granted,2026-08-03
+CUST-1017,Ravi Sokolov,32,Y,20700.0,63800.0,N,N,0,2,N,1000,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1018,Farah Leclair,55,Y,0,137800.0,N,N,0,0,N,0,73810.0,Stale,Stable,Granted,2026-08-03
+CUST-1019,Yuki Karim,38,Y,109000.0,142000.0,N,N,0,1,Y,0,0.0,Current,Stable,Granted,2026-08-03
+CUST-1020,Nikhil Petrov,54,Y,109000.0,108000.0,N,N,0,0,N,0,19240.0,Current,Thriving,Not captured,2026-08-03
+CUST-1021,Simone Marchetti,48,Y,109000.0,199100.0,N,N,0,2,Y,0,7230.0,Current,Stretched,Withdrawn,2026-08-03
+CUST-1022,Omar Kowalski,35,Y,109000.0,123800.0,N,N,0,0,N,0,0.0,Stale,Thriving,Withdrawn,2026-08-03
+CUST-1023,Felix Benali,31,Y,98000.0,113200.0,N,N,0,1,N,500,0.0,Current,Vulnerable,Granted,2026-08-03
+CUST-1024,Simone Siddiqui,44,Y,0,98300.0,N,N,0,1,Y,0,59530.0,Stale,Stable,Granted,2026-08-03
+CUST-1025,Henrik Thibault,36,Y,109000.0,152100.0,N,N,0,1,N,500,0.0,Current,Stretched,Granted,2026-08-03
+CUST-1026,Nadia Silva,33,Y,21000.0,44200.0,N,N,0,0,N,0,0.0,Current,Stable,Granted,2026-08-03
+CUST-1027,Simone Aziz,50,Y,109000.0,158400.0,N,N,0,1,Y,0,0.0,Current,Stretched,Granted,2026-08-03
+CUST-1028,Lucas Aziz,38,Y,14000.0,154800.0,N,N,0,1,Y,0,0.0,Current,Stretched,Granted,2026-08-03
+CUST-1029,Ayesha Haddadi,39,Y,35000.0,122500.0,N,N,0,2,N,1000,0.0,Stale,Stable,Not captured,2026-08-03
+CUST-1030,Felix Solberg,52,Y,109000.0,182100.0,N,N,0,0,N,0,0.0,Stale,Thriving,Granted,2026-08-03
+CUST-1031,Valeria Okonkwo,42,Y,52300.0,38700.0,N,N,0,2,Y,0,32200.0,Current,Thriving,Granted,2026-08-03
+CUST-1032,Leila Beaulieu,35,Y,14000.0,28800.0,N,N,0,2,N,1000,0.0,Current,Vulnerable,Granted,2026-08-03
+CUST-1033,Mateo Bergeron,49,Y,109000.0,58700.0,N,N,0,2,N,1000,0.0,Stale,Stretched,Granted,2026-08-03
+CUST-1034,Samuel Sinclair,43,Y,109000.0,117600.0,N,N,0,1,N,500,7140.0,Current,Stretched,Granted,2026-08-03
+CUST-1035,Andre Petrov,33,Y,109000.0,35800.0,N,N,0,2,Y,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1036,Bruno Cardoso,45,Y,56900.0,41100.0,N,N,0,1,N,500,0.0,Stale,Thriving,Granted,2026-08-03
+CUST-1037,Sana Sinclair,40,Y,14000.0,103400.0,N,N,0,0,N,0,0.0,Current,Vulnerable,Granted,2026-08-03
+CUST-1038,Rahul Castellanos,64,Y,0,97500.0,N,N,0,0,N,0,107300.0,Current,Thriving,Not captured,2026-08-03
+CUST-1039,Aiden Rossi,37,Y,109000.0,68100.0,N,N,0,1,N,500,0.0,Current,Stretched,Granted,2026-08-03
+CUST-1040,Clara Thibault,55,Y,109000.0,148800.0,N,N,0,0,N,0,0.0,Stale,Stretched,Granted,2026-08-03
+CUST-1041,Caleb Yusuf,47,Y,26300.0,144100.0,N,N,0,2,N,1000,28240.0,Current,Stable,Granted,2026-08-03
+CUST-1042,Lucas Petrov,48,Y,109000.0,23500.0,N,N,0,1,Y,0,0.0,Current,Stable,Granted,2026-08-03
+CUST-1043,Andre Ellsworth,38,Y,109000.0,35700.0,N,N,0,0,N,0,14770.0,Current,Thriving,Granted,2026-08-03
+CUST-1044,Tariq Marchetti,48,Y,109000.0,55800.0,N,N,0,1,Y,0,0.0,Current,Stretched,Granted,2026-08-03
+CUST-1045,Dmitri Iyer,46,Y,66800.0,40200.0,N,N,0,0,N,0,25950.0,Current,Thriving,Granted,2026-08-03
+CUST-1046,Bruno Kowalski,45,Y,43600.0,45400.0,N,N,0,0,N,0,36360.0,Current,Thriving,Granted,2026-08-03
+CUST-1047,Hassan Kowalski,33,Y,21000.0,70200.0,N,N,0,1,N,500,0.0,Current,Vulnerable,Not captured,2026-08-03
+CUST-1048,Grace Dufresne,36,Y,35000.0,106600.0,N,N,0,1,Y,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-1049,Sana Moreau,51,Y,109000.0,32200.0,N,N,0,1,Y,0,10070.0,Stale,Vulnerable,Granted,2026-08-03
+CUST-1050,Marta Park,43,Y,14000.0,120600.0,N,N,0,0,N,0,0.0,Current,Stretched,Granted,2026-08-03
+CUST-2001,Amara Ueda,21,N,25500.0,28900.0,Y,N,16000,0,N,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-2002,Bianca Roy,54,N,109000.0,20100.0,Y,N,16000,0,N,0,0.0,Current,Thriving,Not captured,2026-08-03
+CUST-2003,Callum Singh,63,N,56600.0,116000.0,Y,N,16000,1,N,500,0.0,Stale,Vulnerable,Withdrawn,2026-08-03
+CUST-2004,Dev Fortin,39,N,2800.0,32800.0,Y,N,16000,2,N,1000,0.0,Current,Thriving,Granted,2026-08-03
+CUST-2005,Elena Haddad,28,N,59300.0,89300.0,Y,N,16000,1,N,500,0.0,Current,Thriving,Withdrawn,2026-08-03
+CUST-2006,Felix Chen,45,N,101600.0,87300.0,Y,N,16000,1,Y,0,6400.0,Current,Stable,Granted,2026-08-03
+CUST-2007,Grace Ito,40,N,28000.0,41200.0,Y,N,16000,0,N,0,5500.0,Current,Thriving,Granted,2026-08-03
+CUST-2008,Hamza Desrosiers,22,N,22800.0,11500.0,Y,N,16000,0,N,0,9100.0,Current,Thriving,Granted,2026-08-03
+CUST-2009,Isla Nguyen,29,N,61000.0,28000.0,Y,N,16000,2,Y,0,0.0,Stale,Thriving,Withdrawn,2026-08-03
+CUST-2010,Jun Pelletier,20,N,13700.0,10100.0,Y,N,16000,0,N,0,0.0,Current,Stable,Granted,2026-08-03
+CUST-2011,Kiran Ito,33,N,109000.0,53000.0,Y,N,16000,1,N,500,31600.0,Current,Stretched,Granted,2026-08-03
+CUST-2012,Lucas Roy,20,N,17300.0,28700.0,Y,N,16000,0,N,0,0.0,Current,Thriving,Not captured,2026-08-03
+CUST-2013,Maya Singh,28,N,77000.0,136700.0,Y,N,16000,2,N,1000,0.0,Current,Thriving,Withdrawn,2026-08-03
+CUST-2014,Noah Singh,38,N,109000.0,139500.0,Y,N,16000,2,N,1000,42800.0,Current,Thriving,Granted,2026-08-03
+CUST-2015,Olivia Singh,20,N,11900.0,27100.0,Y,N,16000,0,N,0,0.0,Stale,Stable,Not captured,2026-08-03
+CUST-2016,Pierre Fortin,24,N,38000.0,26200.0,Y,N,16000,0,N,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-2017,Quinn Singh,38,N,103000.0,94200.0,Y,Y,12000.0,1,N,500,0.0,Stale,Vulnerable,Granted,2026-08-03
+CUST-2018,Rosa Zhang,32,N,21000.0,15200.0,Y,N,16000,1,N,500,10200.0,Stale,Thriving,Withdrawn,2026-08-03
+CUST-2019,Samir Ellis,45,N,59100.0,164500.0,Y,N,16000,1,Y,0,10600.0,Current,Thriving,Granted,2026-08-03
+CUST-2020,Tara Tremblay,24,N,21000.0,48700.0,Y,Y,2300.0,1,N,500,0.0,Stale,Stable,Granted,2026-08-03
+CUST-2021,Uma Desrosiers,60,N,95300.0,105400.0,Y,N,16000,1,N,500,0.0,Current,Thriving,Granted,2026-08-03
+CUST-2022,Victor Zhang,20,N,21000.0,6900.0,Y,N,16000,0,N,0,8300.0,Current,Stretched,Granted,2026-08-03
+CUST-2023,Wen Fortin,43,N,109000.0,132900.0,Y,N,16000,1,Y,0,0.0,Current,Thriving,Granted,2026-08-03
+CUST-2024,Ximena Haddad,20,N,21000.0,23700.0,Y,N,16000,0,N,0,0.0,Current,Thriving,Not captured,2026-08-03
+CUST-2025,Yara Nguyen,21,N,19200.0,28600.0,Y,N,16000,0,N,0,2300.0,Current,Vulnerable,Withdrawn,2026-08-03
+CUST-2026,Zane Haddad,48,N,109000.0,122000.0,Y,N,16000,1,Y,0,41800.0,Stale,Stretched,Granted,2026-08-03
+CUST-2027,Ana Nguyen,35,N,87700.0,75000.0,Y,N,16000,0,N,0,23400.0,Stale,Stretched,Not captured,2026-08-03
+CUST-2028,Ben Ellis,39,N,50800.0,73200.0,Y,N,16000,0,N,0,18100.0,Stale,Stretched,Granted,2026-08-03
+CUST-2029,Chloe Ueda,21,N,28000.0,26900.0,Y,N,16000,0,N,0,0.0,Stale,Thriving,Not captured,2026-08-03
+CUST-2030,Diego Vasquez,31,N,4300.0,77900.0,Y,N,16000,0,N,0,20500.0,Current,Stretched,Granted,2026-08-03
+CUST-2031,Emma Lavoie,26,N,21000.0,21500.0,Y,N,16000,0,N,0,19000.0,Current,Thriving,Granted,2026-08-03
+CUST-2032,Farid Jansen,54,N,93400.0,39900.0,Y,N,16000,2,N,1000,0.0,Current,Stable,Granted,2026-08-03
+CUST-2033,Gia Walsh,48,N,109000.0,120200.0,Y,N,16000,0,N,0,45900.0,Current,Stretched,Granted,2026-08-03
+CUST-2034,Hugo Singh,25,N,56000.0,11100.0,Y,N,16000,0,N,0,6200.0,Current,Stable,Withdrawn,2026-08-03
+CUST-2035,Ines Pelletier,44,N,109000.0,37800.0,Y,N,16000,1,N,500,32600.0,Current,Thriving,Granted,2026-08-03
+CUST-2036,Jonah Bouchard,19,N,14000.0,47700.0,Y,N,16000,0,N,0,13600.0,Stale,Thriving,Granted,2026-08-03
+CUST-2037,Keira Khan,24,N,40400.0,20800.0,Y,N,16000,0,N,0,5900.0,Current,Thriving,Granted,2026-08-03
+CUST-2038,Liam Gill,65,N,109000.0,127000.0,Y,N,16000,2,N,1000,24200.0,Stale,Vulnerable,Granted,2026-08-03

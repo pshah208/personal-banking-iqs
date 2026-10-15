@@ -8,6 +8,9 @@ azure-identity==1.19.0
 # Fabric deployment + Graph seeding (REST over requests)
 requests>=2.32.0
 
+# Bank branding - tools/brand/fetch_brand.py
+pillow>=10.4
+
 # Foundry IQ - AI Search index creation and querying
 azure-search-documents==11.5.2
 

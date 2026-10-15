@@ -21,6 +21,10 @@ from __future__ import annotations
 import json
 import os
 import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "tools" / "brand"))
+from bank_profile import rebrand  # noqa: E402  - names the deployed bank
 
 from azure.search.documents import SearchClient
 from azure.search.documents.indexes import SearchIndexClient
@@ -84,7 +88,7 @@ def build_index() -> None:
 
 def upload_docs() -> None:
     path = pathlib.Path(__file__).with_name("renewal_policies.json")
-    docs = json.loads(path.read_text(encoding="utf-8"))
+    docs = rebrand(json.loads(path.read_text(encoding="utf-8")))
     result = SearchClient(ENDPOINT, INDEX_NAME, CRED).upload_documents(documents=docs)
     ok = sum(1 for r in result if r.succeeded)
     print(f"Uploaded {ok}/{len(docs)} policy documents.")

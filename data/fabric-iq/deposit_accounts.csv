@@ -1,0 +1,89 @@
+account_id,customer_id,customer_name,segment,branch_id,branch,province,linked_mortgage,linked_cards,package,monthly_fee,fee_waiver_min_balance,avg_monthly_transactions,avg_chequing_balance,savings_balance,has_hisa,has_card,overdraft_protection,primary_banking,package_cost_12m,best_fit_package,best_fit_cost_12m,fees_charged_12m,nsf_3m,overdraft_days_3m,outflow_share_pct,wellness_band,email_consent,tds_renewal_pct,as_of_date
+DA-1001,CUST-1001,Sana Mehta,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,N,Ultimate,30.95,6000,12,6460.0,0.0,N,N,Y,Y,92.85,Preferred,0.0,97.85,0,0,0.0,Thriving,Withdrawn,37.5,2026-08-03
+DA-1002,CUST-1002,Bruno Castellanos,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Basic,4.95,,31,3840.0,0.0,N,N,Y,Y,344.4,Preferred,118.65,354.4,0,0,0.0,Thriving,Granted,32.6,2026-08-03
+DA-1003,CUST-1003,Rahul Park,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Preferred,16.95,4000,9,13340.0,0.0,N,Y,Y,Y,0.0,Preferred,0.0,5.0,0,0,0.0,Thriving,Granted,32.4,2026-08-03
+DA-1004,CUST-1004,Beatrice Karim,Self-Employed,BR-303,Calgary Centre Street,AB,Y,Y,Basic,4.95,,22,3140.0,0.0,N,Y,Y,Y,209.4,Preferred,203.4,209.4,0,0,0.0,Stretched,Granted,45.8,2026-08-03
+DA-1005,CUST-1005,Aiden Larsen,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Ultimate,30.95,6000,15,4740.0,0.0,N,Y,Y,Y,371.4,Preferred,0.0,381.4,0,0,0.0,Thriving,Granted,38.1,2026-08-03
+DA-1006,CUST-1006,Andre Cardoso,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Ultimate,30.95,6000,9,5790.0,0.0,N,N,Y,Y,216.65,Preferred,0.0,221.65,0,0,0.0,Thriving,Granted,29.3,2026-08-03
+DA-1007,CUST-1007,Beatrice Mehta,Self-Employed,BR-303,Calgary Centre Street,AB,Y,N,Basic,4.95,,30,3550.0,0.0,N,N,N,Y,329.4,Preferred,203.4,329.4,0,0,0.0,Thriving,Granted,31.5,2026-08-03
+DA-1008,CUST-1008,Simone Fitzgerald,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Preferred,16.95,4000,20,6250.0,28090.0,Y,Y,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Stable,Granted,41.1,2026-08-03
+DA-1009,CUST-1009,Valeria Guerrero,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Basic,4.95,,25,1990.0,0.0,N,N,Y,Y,254.4,Preferred,203.4,475.4,2,22,0.0,Vulnerable,Granted,58.7,2026-08-03
+DA-1010,CUST-1010,Gustav Haddadi,High Net Worth,BR-101,Toronto Bay & Bloor,ON,Y,Y,Ultimate,30.95,6000,9,20710.0,104750.0,Y,Y,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Not captured,37.2,2026-08-03
+DA-1011,CUST-1011,Amara Lachance,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Preferred,16.95,4000,18,2170.0,0.0,N,N,Y,Y,203.4,Basic,149.4,479.4,2,33,0.0,Vulnerable,Granted,60.8,2026-08-03
+DA-1012,CUST-1012,Rosa Bergeron,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Ultimate,30.95,6000,12,7110.0,39210.0,Y,Y,Y,Y,0.0,Preferred,0.0,5.0,0,1,0.0,Thriving,Granted,38.1,2026-08-03
+DA-1013,CUST-1013,Ayesha Novak,Mass Affluent,BR-303,Calgary Centre Street,AB,Y,N,Preferred,16.95,4000,13,10220.0,0.0,N,N,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Stable,Granted,43.2,2026-08-03
+DA-1014,CUST-1014,Josephine Novak,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Ultimate,30.95,6000,13,12550.0,0.0,N,Y,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Not captured,35.7,2026-08-03
+DA-1015,CUST-1015,Naomi Iyer,Self-Employed,BR-101,Toronto Bay & Bloor,ON,Y,N,Ultimate,30.95,6000,22,2490.0,0.0,N,N,N,Y,371.4,Preferred,203.4,371.4,0,1,0.0,Thriving,Withdrawn,32.4,2026-08-03
+DA-1016,CUST-1016,Farah Thibault,Self-Employed,BR-303,Calgary Centre Street,AB,Y,N,Basic,4.95,,24,2670.0,0.0,N,N,Y,Y,239.4,Preferred,186.45,455.4,2,21,0.0,Vulnerable,Granted,59.2,2026-08-03
+DA-1017,CUST-1017,Ravi Sokolov,Mass Affluent,BR-303,Calgary Centre Street,AB,Y,Y,Preferred,16.95,4000,25,6440.0,0.0,N,Y,Y,Y,0.0,Preferred,0.0,10.0,0,0,0.0,Thriving,Granted,38.0,2026-08-03
+DA-1018,CUST-1018,Farah Leclair,High Net Worth,BR-101,Toronto Bay & Bloor,ON,Y,N,Ultimate,30.95,6000,22,18840.0,73810.0,Y,N,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Stable,Granted,42.8,2026-08-03
+DA-1019,CUST-1019,Yuki Karim,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,Y,Basic,4.95,,31,5460.0,0.0,N,Y,Y,Y,344.4,Preferred,0.0,359.4,0,0,0.0,Stable,Granted,35.7,2026-08-03
+DA-1020,CUST-1020,Nikhil Petrov,Mass Market,BR-303,Calgary Centre Street,AB,Y,Y,Preferred,16.95,4000,9,3600.0,19240.0,Y,Y,N,Y,169.5,Basic,59.4,169.5,0,0,0.0,Thriving,Not captured,34.3,2026-08-03
+DA-1021,CUST-1021,Simone Marchetti,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Basic,4.95,,17,1550.0,7230.0,Y,N,N,Y,134.4,Basic,134.4,134.4,0,1,14.3,Stretched,Withdrawn,34.4,2026-08-03
+DA-1022,CUST-1022,Omar Kowalski,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Ultimate,30.95,6000,17,6610.0,0.0,N,N,N,Y,61.9,Preferred,0.0,61.9,0,1,0.0,Thriving,Withdrawn,30.1,2026-08-03
+DA-1023,CUST-1023,Felix Benali,Self-Employed,BR-101,Toronto Bay & Bloor,ON,Y,N,Basic,4.95,,24,1820.0,0.0,N,N,N,Y,239.4,Preferred,203.4,335.4,2,26,0.0,Vulnerable,Granted,55.6,2026-08-03
+DA-1024,CUST-1024,Simone Siddiqui,High Net Worth,BR-101,Toronto Bay & Bloor,ON,Y,N,Ultimate,30.95,6000,20,29040.0,59530.0,Y,N,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Stable,Granted,41.4,2026-08-03
+DA-1025,CUST-1025,Henrik Thibault,Self-Employed,BR-303,Calgary Centre Street,AB,Y,Y,Basic,4.95,,9,3050.0,0.0,N,Y,Y,Y,59.4,Basic,59.4,64.4,0,0,0.0,Stretched,Granted,44.8,2026-08-03
+DA-1026,CUST-1026,Nadia Silva,New to Canada,BR-202,Montreal Plateau,QC,Y,N,Preferred,16.95,4000,9,5010.0,0.0,N,N,Y,Y,0.0,Preferred,0.0,5.0,0,1,0.0,Stable,Granted,38.1,2026-08-03
+DA-1027,CUST-1027,Simone Aziz,Self-Employed,BR-303,Calgary Centre Street,AB,Y,N,Preferred,16.95,4000,28,2980.0,0.0,N,N,Y,Y,203.4,Preferred,203.4,203.4,0,0,0.0,Stretched,Granted,44.1,2026-08-03
+DA-1028,CUST-1028,Lucas Aziz,New to Canada,BR-101,Toronto Bay & Bloor,ON,Y,N,Basic,4.95,,24,3150.0,0.0,N,N,N,Y,239.4,Preferred,203.4,239.4,0,0,16.5,Stretched,Granted,30.0,2026-08-03
+DA-1029,CUST-1029,Ayesha Haddadi,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Preferred,16.95,4000,26,4360.0,0.0,N,N,Y,Y,50.85,Preferred,50.85,50.85,0,0,0.0,Stable,Not captured,29.3,2026-08-03
+DA-1030,CUST-1030,Felix Solberg,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Preferred,16.95,4000,6,13750.0,0.0,N,Y,N,Y,0.0,Preferred,0.0,0.0,0,1,0.0,Thriving,Granted,33.4,2026-08-03
+DA-1031,CUST-1031,Valeria Okonkwo,Mass Affluent,BR-303,Calgary Centre Street,AB,Y,Y,Ultimate,30.95,6000,12,6410.0,32200.0,Y,Y,N,Y,92.85,Preferred,0.0,92.85,0,0,0.0,Thriving,Granted,31.2,2026-08-03
+DA-1032,CUST-1032,Leila Beaulieu,New to Canada,BR-202,Montreal Plateau,QC,Y,N,Preferred,16.95,4000,26,2120.0,0.0,N,N,Y,Y,203.4,Preferred,203.4,441.4,1,33,0.0,Vulnerable,Granted,58.1,2026-08-03
+DA-1033,CUST-1033,Mateo Bergeron,Mass Market,BR-303,Calgary Centre Street,AB,Y,N,Preferred,16.95,4000,18,1590.0,0.0,N,N,N,Y,203.4,Basic,149.4,203.4,0,0,16.3,Stretched,Granted,45.7,2026-08-03
+DA-1034,CUST-1034,Samuel Sinclair,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Basic,4.95,,11,1390.0,7140.0,Y,Y,N,Y,59.4,Basic,59.4,59.4,0,0,14.0,Stretched,Granted,31.4,2026-08-03
+DA-1035,CUST-1035,Andre Petrov,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Preferred,16.95,4000,8,5130.0,0.0,N,N,Y,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Granted,31.8,2026-08-03
+DA-1036,CUST-1036,Bruno Cardoso,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Ultimate,30.95,6000,21,14060.0,0.0,N,Y,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Granted,40.8,2026-08-03
+DA-1037,CUST-1037,Sana Sinclair,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Preferred,16.95,4000,11,2590.0,0.0,N,N,N,Y,203.4,Basic,59.4,251.4,1,24,0.0,Vulnerable,Granted,60.6,2026-08-03
+DA-1038,CUST-1038,Rahul Castellanos,High Net Worth,BR-303,Calgary Centre Street,AB,Y,Y,Ultimate,30.95,6000,14,16630.0,107300.0,Y,Y,N,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Not captured,38.2,2026-08-03
+DA-1039,CUST-1039,Aiden Rossi,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Preferred,16.95,4000,12,3210.0,0.0,N,N,N,Y,203.4,Basic,59.4,203.4,0,0,0.0,Stretched,Granted,45.7,2026-08-03
+DA-1040,CUST-1040,Clara Thibault,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,N,Basic,4.95,,11,2690.0,0.0,N,N,N,Y,59.4,Basic,59.4,59.4,0,1,14.8,Stretched,Granted,40.5,2026-08-03
+DA-1041,CUST-1041,Caleb Yusuf,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Preferred,16.95,4000,20,10940.0,28240.0,Y,Y,Y,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Stable,Granted,43.1,2026-08-03
+DA-1042,CUST-1042,Lucas Petrov,Mass Market,BR-202,Montreal Plateau,QC,Y,N,Basic,4.95,,17,5590.0,0.0,N,N,Y,Y,134.4,Preferred,0.0,134.4,0,0,0.0,Stable,Granted,41.2,2026-08-03
+DA-1043,CUST-1043,Andre Ellsworth,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Basic,4.95,,27,4110.0,14770.0,Y,Y,Y,Y,284.4,Preferred,67.8,284.4,0,0,0.0,Thriving,Granted,31.3,2026-08-03
+DA-1044,CUST-1044,Tariq Marchetti,Mass Market,BR-202,Montreal Plateau,QC,Y,Y,Preferred,16.95,4000,16,1370.0,0.0,N,Y,Y,Y,203.4,Basic,119.4,213.4,0,1,16.4,Stretched,Granted,33.1,2026-08-03
+DA-1045,CUST-1045,Dmitri Iyer,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,Y,Y,Preferred,16.95,4000,20,14850.0,25950.0,Y,Y,Y,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Granted,33.8,2026-08-03
+DA-1046,CUST-1046,Bruno Kowalski,Mass Affluent,BR-202,Montreal Plateau,QC,Y,Y,Ultimate,30.95,6000,26,11410.0,36360.0,Y,Y,Y,Y,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Granted,39.2,2026-08-03
+DA-1047,CUST-1047,Hassan Kowalski,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Basic,4.95,,27,1790.0,0.0,N,N,Y,Y,284.4,Preferred,203.4,482.4,1,24,0.0,Vulnerable,Not captured,60.2,2026-08-03
+DA-1048,CUST-1048,Grace Dufresne,New to Canada,BR-303,Calgary Centre Street,AB,Y,N,Preferred,16.95,4000,20,2560.0,0.0,N,N,N,Y,203.4,Basic,179.4,203.4,0,0,0.0,Thriving,Granted,32.2,2026-08-03
+DA-1049,CUST-1049,Sana Moreau,Mass Market,BR-101,Toronto Bay & Bloor,ON,Y,Y,Basic,4.95,,24,1900.0,10070.0,Y,Y,Y,Y,239.4,Preferred,203.4,445.4,2,20,0.0,Vulnerable,Granted,58.1,2026-08-03
+DA-1050,CUST-1050,Marta Park,New to Canada,BR-101,Toronto Bay & Bloor,ON,Y,N,Preferred,16.95,4000,23,3530.0,0.0,N,N,Y,Y,169.5,Preferred,169.5,169.5,0,0,15.3,Stretched,Granted,36.2,2026-08-03
+DA-2001,CUST-2001,Amara Ueda,Student / Young professional,BR-101,Toronto Bay & Bloor,ON,N,Y,Basic,4.95,,21,1250.0,0.0,N,Y,N,N,194.4,Student,0.0,194.4,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2002,CUST-2002,Bianca Roy,Mass Market,BR-202,Montreal Plateau,QC,N,Y,Preferred,16.95,4000,25,2200.0,0.0,N,Y,N,Y,203.4,Preferred,203.4,203.4,0,0,0.0,Thriving,Not captured,,2026-08-03
+DA-2003,CUST-2003,Callum Singh,High Net Worth,BR-202,Montreal Plateau,QC,N,Y,Ultimate,30.95,6000,29,2570.0,0.0,N,Y,N,Y,371.4,Preferred,203.4,467.4,2,20,0.0,Vulnerable,Withdrawn,,2026-08-03
+DA-2004,CUST-2004,Dev Fortin,New to Canada,BR-101,Toronto Bay & Bloor,ON,N,Y,Preferred,16.95,4000,22,3540.0,0.0,N,Y,N,Y,186.45,Preferred,186.45,186.45,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2005,CUST-2005,Elena Haddad,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,N,Y,Preferred,16.95,4000,14,8740.0,0.0,N,Y,Y,Y,0.0,Preferred,0.0,15.0,0,0,0.0,Thriving,Withdrawn,,2026-08-03
+DA-2006,CUST-2006,Felix Chen,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Preferred,16.95,4000,14,3850.0,6400.0,Y,Y,Y,N,135.6,Basic,89.4,140.6,0,0,0.0,Stable,Granted,,2026-08-03
+DA-2007,CUST-2007,Grace Ito,New to Canada,BR-202,Montreal Plateau,QC,N,Y,Basic,4.95,,10,3060.0,5500.0,Y,Y,N,Y,59.4,Basic,59.4,59.4,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2008,CUST-2008,Hamza Desrosiers,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Student,0.0,,29,2290.0,9100.0,Y,Y,N,Y,0.0,Student,0.0,0.0,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2009,CUST-2009,Isla Nguyen,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,N,Y,Preferred,16.95,4000,15,4390.0,0.0,N,Y,Y,N,33.9,Preferred,33.9,43.9,0,0,0.0,Thriving,Withdrawn,,2026-08-03
+DA-2010,CUST-2010,Jun Pelletier,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Student,0.0,,24,1660.0,0.0,N,Y,Y,Y,0.0,Student,0.0,5.0,0,0,0.0,Stable,Granted,,2026-08-03
+DA-2011,CUST-2011,Kiran Ito,Mass Affluent,BR-101,Toronto Bay & Bloor,ON,N,Y,Preferred,16.95,4000,27,2950.0,31600.0,Y,Y,Y,Y,203.4,Preferred,203.4,203.4,0,0,0.0,Stretched,Granted,,2026-08-03
+DA-2012,CUST-2012,Lucas Roy,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Student,0.0,,9,680.0,0.0,N,Y,N,N,0.0,Student,0.0,0.0,0,1,0.0,Thriving,Not captured,,2026-08-03
+DA-2013,CUST-2013,Maya Singh,Mass Affluent,BR-303,Calgary Centre Street,AB,N,Y,Preferred,16.95,4000,16,4230.0,0.0,N,Y,N,Y,50.85,Preferred,50.85,67.8,0,0,0.0,Thriving,Withdrawn,,2026-08-03
+DA-2014,CUST-2014,Noah Singh,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Preferred,16.95,4000,6,5360.0,42800.0,Y,Y,Y,N,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2015,CUST-2015,Olivia Singh,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Student,0.0,,14,1580.0,0.0,N,Y,Y,Y,0.0,Student,0.0,5.0,0,0,0.0,Stable,Not captured,,2026-08-03
+DA-2016,CUST-2016,Pierre Fortin,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Student,0.0,,23,570.0,0.0,N,Y,Y,Y,0.0,Student,0.0,5.0,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2017,CUST-2017,Quinn Singh,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Preferred,16.95,4000,14,1200.0,0.0,N,Y,Y,Y,203.4,Basic,89.4,526.4,1,21,0.0,Vulnerable,Granted,,2026-08-03
+DA-2018,CUST-2018,Rosa Zhang,New to Canada,BR-101,Toronto Bay & Bloor,ON,N,Y,Preferred,16.95,4000,11,3400.0,10200.0,Y,Y,N,Y,203.4,Basic,59.4,203.4,0,0,0.0,Thriving,Withdrawn,,2026-08-03
+DA-2019,CUST-2019,Samir Ellis,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Ultimate,30.95,6000,25,12960.0,10600.0,Y,Y,N,N,0.0,Preferred,0.0,0.0,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2020,CUST-2020,Tara Tremblay,New to Canada,BR-202,Montreal Plateau,QC,N,Y,Preferred,16.95,4000,10,2770.0,0.0,N,Y,N,Y,203.4,Basic,59.4,203.4,0,0,0.0,Stable,Granted,,2026-08-03
+DA-2021,CUST-2021,Uma Desrosiers,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Preferred,16.95,4000,6,4300.0,0.0,N,Y,N,Y,84.75,Basic,59.4,84.75,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2022,CUST-2022,Victor Zhang,Student / Young professional,BR-303,Calgary Centre Street,AB,N,Y,Student,0.0,,16,1100.0,8300.0,Y,Y,Y,Y,0.0,Student,0.0,326.0,2,17,0.0,Stretched,Granted,,2026-08-03
+DA-2023,CUST-2023,Wen Fortin,High Net Worth,BR-202,Montreal Plateau,QC,N,Y,Ultimate,30.95,6000,29,33170.0,0.0,N,Y,Y,N,0.0,Preferred,0.0,5.0,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2024,CUST-2024,Ximena Haddad,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Student,0.0,,20,1770.0,0.0,N,Y,N,Y,0.0,Student,0.0,0.0,0,0,0.0,Thriving,Not captured,,2026-08-03
+DA-2025,CUST-2025,Yara Nguyen,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Student,0.0,,13,400.0,2300.0,Y,Y,N,Y,0.0,Student,0.0,48.0,1,16,0.0,Vulnerable,Withdrawn,,2026-08-03
+DA-2026,CUST-2026,Zane Haddad,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Ultimate,30.95,6000,21,3440.0,41800.0,Y,Y,N,Y,371.4,Basic,194.4,371.4,0,0,0.0,Stretched,Granted,,2026-08-03
+DA-2027,CUST-2027,Ana Nguyen,Mass Market,BR-303,Calgary Centre Street,AB,N,Y,Basic,4.95,,10,1420.0,23400.0,Y,Y,Y,N,59.4,Basic,59.4,345.4,2,16,0.0,Stretched,Not captured,,2026-08-03
+DA-2028,CUST-2028,Ben Ellis,Mass Affluent,BR-303,Calgary Centre Street,AB,N,Y,Ultimate,30.95,6000,17,3570.0,18100.0,Y,Y,Y,Y,371.4,Basic,134.4,376.4,0,0,0.0,Stretched,Granted,,2026-08-03
+DA-2029,CUST-2029,Chloe Ueda,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Student,0.0,,15,1440.0,0.0,N,Y,N,Y,0.0,Student,0.0,0.0,0,0,0.0,Thriving,Not captured,,2026-08-03
+DA-2030,CUST-2030,Diego Vasquez,New to Canada,BR-303,Calgary Centre Street,AB,N,Y,Basic,4.95,,14,2610.0,20500.0,Y,Y,N,Y,89.4,Basic,89.4,89.4,0,0,0.0,Stretched,Granted,,2026-08-03
+DA-2031,CUST-2031,Emma Lavoie,New to Canada,BR-202,Montreal Plateau,QC,N,Y,Preferred,16.95,4000,20,1430.0,19000.0,Y,Y,N,N,203.4,Basic,179.4,203.4,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2032,CUST-2032,Farid Jansen,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Ultimate,30.95,6000,9,10260.0,0.0,N,Y,Y,N,0.0,Preferred,0.0,10.0,0,0,0.0,Stable,Granted,,2026-08-03
+DA-2033,CUST-2033,Gia Walsh,Mass Affluent,BR-303,Calgary Centre Street,AB,N,Y,Ultimate,30.95,6000,31,3520.0,45900.0,Y,Y,N,N,371.4,Preferred,203.4,371.4,0,0,0.0,Stretched,Granted,,2026-08-03
+DA-2034,CUST-2034,Hugo Singh,Student / Young professional,BR-202,Montreal Plateau,QC,N,Y,Student,0.0,,22,1730.0,6200.0,Y,Y,N,Y,0.0,Student,0.0,0.0,0,0,0.0,Stable,Withdrawn,,2026-08-03
+DA-2035,CUST-2035,Ines Pelletier,Mass Affluent,BR-202,Montreal Plateau,QC,N,Y,Ultimate,30.95,6000,7,2820.0,32600.0,Y,Y,N,Y,371.4,Basic,59.4,371.4,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2036,CUST-2036,Jonah Bouchard,Student / Young professional,BR-101,Toronto Bay & Bloor,ON,N,Y,Student,0.0,,25,920.0,13600.0,Y,Y,N,Y,0.0,Student,0.0,0.0,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2037,CUST-2037,Keira Khan,Mass Market,BR-303,Calgary Centre Street,AB,N,Y,Preferred,16.95,4000,19,4080.0,5900.0,Y,Y,Y,N,84.75,Preferred,84.75,89.75,0,0,0.0,Thriving,Granted,,2026-08-03
+DA-2038,CUST-2038,Liam Gill,High Net Worth,BR-202,Montreal Plateau,QC,N,Y,Ultimate,30.95,6000,30,1520.0,24200.0,Y,Y,N,Y,371.4,Preferred,203.4,419.4,1,18,0.0,Vulnerable,Granted,,2026-08-03

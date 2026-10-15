@@ -150,7 +150,7 @@
       "body": "Before touching a number, {firstName} wants to know what their own organisation has already told them. Six weeks of branch escalations, advisor feedback and executive direction — reconciled, not just listed.",
       "stakes": "Without Work IQ, six weeks of correspondence goes unread and the campaign gets planned around whoever emailed most recently. The signal already exists; nobody has time to read it.",
       "note": "This runs under {firstName}'s identity. They see what they can see; nothing more.",
-      "prompt": "Summarise what branch leaders, advisors and executives have said about the FY26 renewal campaign over the last six weeks. Group it as branch leader concerns, advisor feedback, escalations on renewal rates, and executive guidance. Where people contradict each other, name the disagreement rather than smoothing it over.",
+      "prompt": "Summarise what branch leaders, advisors and executives have said about the FY26 renewal campaign since it launched in June. Group it as branch leader concerns, advisor feedback, escalations on renewal rates, and executive guidance. Where people contradict each other, name the disagreement rather than smoothing it over.",
       "expect": [
         "BR-101 advisor capacity — Marcus Delaney, 18 maturities against two advisors",
         "BR-202 competitor pricing in Québec — claimed 30 to 40 bps below our floor",
@@ -270,6 +270,14 @@
     {
       "iq": "all",
       "text": "Walk me through the RNW-5014 rate escalation — what was requested, what was approved, and on what conditions?"
+    },
+    {
+      "iq": "fabric",
+      "text": "Which households are showing financial stress ahead of renewal, and why?"
+    },
+    {
+      "iq": "foundry",
+      "text": "What relief options can we offer a client who cannot afford the renewal payment, and who approves them?"
     }
   ]
 }

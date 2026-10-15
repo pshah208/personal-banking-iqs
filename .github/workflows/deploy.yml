@@ -1,0 +1,239 @@
+name: Deploy for a bank
+
+# Brands the demo for any bank and deploys it into your own Azure subscription.
+#
+#   Actions -> "Deploy for a bank" -> Run workflow -> enter the bank name.
+#
+# One-time setup (see docs/deploy-for-your-bank.md):
+#   * an Entra app registration with a federated credential for this
+#     repository (OIDC - no client secret stored), granted Owner (or
+#     Contributor + User Access Administrator) on the subscription;
+#   * repository secrets AZURE_CLIENT_ID, AZURE_TENANT_ID, AZURE_SUBSCRIPTION_ID;
+#   * for the web app stage: AAD_CLIENT_ID, AAD_CLIENT_SECRET, AAD_API_SCOPE,
+#     printed by app/infra/provision_app_registrations.py.
+#
+# The brand stage needs no Azure access at all: run with stages=brand to
+# preview the resolved logo and colours (downloadable "brand-pack" artifact)
+# before deploying anything.
+
+on:
+  workflow_dispatch:
+    inputs:
+      bank_name:
+        description: "Bank to brand the demo as (e.g. Royal Bank of Canada)"
+        required: true
+        type: string
+      bank_domain:
+        description: "Bank website, only if the name alone does not resolve (e.g. rbc.com)"
+        required: false
+        type: string
+      bank_short:
+        description: "Short name used in narrative copy (e.g. RBC) - optional"
+        required: false
+        type: string
+      stages:
+        description: "What to run"
+        required: true
+        default: brand
+        type: choice
+        options:
+          - brand
+          - preflight
+          - core
+          - core+app
+          - app
+      resource_group:
+        description: "Resource group (created if missing)"
+        required: true
+        default: rg-mtgrenewal-dev-eastus-001
+        type: string
+      location:
+        description: "Region for the AI / data tier"
+        required: true
+        default: eastus
+        type: string
+      app_location:
+        description: "Region for the Container Apps tier"
+        required: true
+        default: eastus2
+        type: string
+      include_fabric:
+        description: "Deploy Fabric IQ (needs a Fabric-enabled tenant and SP access to Fabric APIs)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-${{ inputs.resource_group }}
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: "1"
+
+jobs:
+  brand:
+    name: Resolve bank branding
+    runs-on: ubuntu-latest
+    outputs:
+      bank_id: ${{ steps.fetch.outputs.bank_id }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install brand tooling
+        run: pip install "requests>=2.32.0" "pillow>=10.4"
+
+      - name: Fetch brand
+        id: fetch
+        env:
+          BANK_NAME_INPUT: ${{ inputs.bank_name }}
+          BANK_DOMAIN_INPUT: ${{ inputs.bank_domain }}
+          BANK_SHORT_INPUT: ${{ inputs.bank_short }}
+        run: |
+          args=(--bank "$BANK_NAME_INPUT" --exclusive)
+          if [ -n "$BANK_DOMAIN_INPUT" ]; then args+=(--domain "$BANK_DOMAIN_INPUT"); fi
+          if [ -n "$BANK_SHORT_INPUT" ]; then args+=(--short "$BANK_SHORT_INPUT"); fi
+          bank_id=$(python tools/brand/fetch_brand.py "${args[@]}" | tail -n1)
+          echo "bank_id=$bank_id" >> "$GITHUB_OUTPUT"
+          python tools/brand/summarize_brand.py "$bank_id" >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: brand-pack
+          path: app/src/web/public/brand/
+          retention-days: 14
+
+  preflight:
+    name: Pre-flight governance checks
+    needs: brand
+    if: inputs.stages != 'brand'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Policy, role and allow-list report
+        env:
+          RG: ${{ inputs.resource_group }}
+          LOCATION: ${{ inputs.location }}
+          APP_LOCATION: ${{ inputs.app_location }}
+          CALLER_APP_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        shell: pwsh
+        run: ./tools/preflight.ps1 -ResourceGroup $env:RG -Locations $env:LOCATION,$env:APP_LOCATION -CallerAppId $env:CALLER_APP_ID -SummaryPath $env:GITHUB_STEP_SUMMARY
+
+      - uses: actions/setup-python@v5
+        if: inputs.stages != 'app'
+        with:
+          python-version: "3.12"
+
+      - uses: actions/download-artifact@v4
+        if: inputs.stages != 'app'
+        with:
+          name: brand-pack
+          path: app/src/web/public/brand/
+
+      - name: Bicep what-if (core)
+        if: inputs.stages != 'app'
+        env:
+          RG: ${{ inputs.resource_group }}
+          LOCATION: ${{ inputs.location }}
+        shell: pwsh
+        run: |
+          if ((az group exists -n $env:RG) -ne 'true') {
+            "Resource group $env:RG does not exist yet - what-if skipped; the core job creates it." |
+              Out-File -Append $env:GITHUB_STEP_SUMMARY
+            return
+          }
+          ./deploy.ps1 -Only bicep -ResourceGroup $env:RG -Location $env:LOCATION -WhatIf
+
+  core:
+    name: Deploy core (Bicep, Foundry IQ, agent, optional Fabric IQ)
+    needs: [brand, preflight]
+    if: inputs.stages == 'core' || inputs.stages == 'core+app'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: brand-pack
+          path: app/src/web/public/brand/
+
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: deploy.ps1
+        env:
+          RG: ${{ inputs.resource_group }}
+          LOCATION: ${{ inputs.location }}
+          INCLUDE_FABRIC: ${{ inputs.include_fabric }}
+          BANK_ID: ${{ needs.brand.outputs.bank_id }}
+        shell: pwsh
+        run: |
+          # Work IQ seeding writes into Microsoft 365 mailboxes and needs a
+          # delegated sign-in for Teams messages - run it from a workstation.
+          $skip = @('work-iq')
+          if ($env:INCLUDE_FABRIC -ne 'true') { $skip += 'fabric' }
+          ./deploy.ps1 -ResourceGroup $env:RG -Location $env:LOCATION -Skip $skip
+
+  app:
+    name: Deploy web app (Container Apps)
+    needs: [brand, preflight, core]
+    if: >-
+      always() && needs.brand.result == 'success' && needs.preflight.result == 'success' &&
+      (inputs.stages == 'app' || (inputs.stages == 'core+app' && needs.core.result == 'success'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: brand-pack
+          path: app/src/web/public/brand/
+
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: app/deploy.ps1
+        env:
+          RG: ${{ inputs.resource_group }}
+          APP_LOCATION: ${{ inputs.app_location }}
+          AAD_CLIENT_ID: ${{ secrets.AAD_CLIENT_ID }}
+          AAD_CLIENT_SECRET: ${{ secrets.AAD_CLIENT_SECRET }}
+          AAD_API_SCOPE: ${{ secrets.AAD_API_SCOPE }}
+        shell: pwsh
+        run: |
+          if (-not ($env:AAD_CLIENT_ID -and $env:AAD_CLIENT_SECRET -and $env:AAD_API_SCOPE)) {
+            throw 'Set the AAD_CLIENT_ID, AAD_CLIENT_SECRET and AAD_API_SCOPE secrets (python app/infra/provision_app_registrations.py prints them).'
+          }
+          ./app/deploy.ps1 -ResourceGroup $env:RG -Location $env:APP_LOCATION `
+            -AadClientId $env:AAD_CLIENT_ID -AadClientSecret $env:AAD_CLIENT_SECRET -AadApiScope $env:AAD_API_SCOPE

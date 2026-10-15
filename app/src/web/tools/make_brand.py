@@ -12,7 +12,9 @@ a solid blob.
 
     python tools/make_brand.py
 
-Writes public/brand/cfc-bank-logo.png, cfc-bank-logo-white.png and favicon.png.
+Writes the fictional default brand pack: public/brand/cfc/{lockup,mark,favicon}.png
+(plus the neutral public/brand/favicon.png). Real banks are fetched with
+tools/brand/fetch_brand.py at deploy time.
 """
 
 from __future__ import annotations
@@ -89,12 +91,15 @@ def render(colour: tuple[int, int, int, int]) -> Image.Image:
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+    pack = OUT / "cfc"
+    pack.mkdir(parents=True, exist_ok=True)
     blue = render(BRAND)
-    blue.save(OUT / "cfc-bank-logo.png")
-    render(WHITE).save(OUT / "cfc-bank-logo-white.png")
-    blue.resize((64, 64), Image.LANCZOS).save(OUT / "favicon.png")
-    print(f"wrote 3 files to {OUT}")
+    blue.save(pack / "lockup.png")
+    render(WHITE).save(pack / "mark.png")
+    favicon = blue.resize((64, 64), Image.LANCZOS)
+    favicon.save(pack / "favicon.png")
+    favicon.save(OUT / "favicon.png")
+    print(f"wrote the CFC Bank pack to {pack} (brand.json is hand-maintained)")
 
 
 if __name__ == "__main__":

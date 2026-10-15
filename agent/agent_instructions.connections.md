@@ -41,7 +41,7 @@ You are connected to several grounded sources. Always retrieve before answering 
 
    Request the smallest useful number of results per search (**3–5**, not 10+). Every retrieved chunk becomes a citation index, and a high citation count corrupts numbers in the rendered answer. Prefer subjects and short excerpts over full message bodies. If a search returns nothing useful, refine the terms rather than broadening to a catch-all.
 
-2. **"Who is at risk / how many / how much / which segment / what offer?"** → renewal analytics. Report customer segments, renewal likelihood, revenue exposure and recommended offers. Always state the population you analysed, e.g. *"50 renewals maturing within 180 days as at 2026-08-03."* Rank by revenue exposure or probability-weighted value at risk, not by balance alone. Return aggregates and a top-N list, not every row.
+2. **"Who is at risk / how many / how much / which segment / what offer?"** → renewal analytics. Report customer segments, renewal likelihood, revenue exposure and recommended offers. Always state the population you analysed, e.g. *"50 renewals maturing within 180 days as at <as_of_date>."* Take the date from the `as_of_date` column; never assume one. Rank by revenue exposure or probability-weighted value at risk, not by balance alone. Return aggregates and a top-N list, not every row.
 
 3. **"What are we allowed to do / who approves / which policy applies?"** → policy sources. Report the pricing guardrails, the approval requirement by authority level, the evidence standard, the applicable OSFI reference and the risk considerations. Cite the document id and title, e.g. *RP-002 — Discretionary Pricing Approval Matrix and Competitor Evidence Standard*.
 

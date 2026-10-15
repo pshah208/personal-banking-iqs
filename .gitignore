@@ -41,3 +41,10 @@ Thumbs.db
 desktop.ini
 .vscode/settings.json
 .vscode/launch.json
+
+# --- Bank brand packs ---
+# Only the fictional CFC Bank pack ships with the repo. Real bank packs are
+# fetched at deploy time by tools/brand/fetch_brand.py and stay local.
+app/src/web/public/brand/*
+!app/src/web/public/brand/cfc/
+!app/src/web/public/brand/favicon.png

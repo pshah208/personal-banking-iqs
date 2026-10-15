@@ -78,5 +78,197 @@
     "effective_date": "2026-07-22",
     "owner": "VP, Real Estate Secured Lending",
     "content": "WHEN TO ESCALATE. An advisor escalates where the discount required exceeds the advisor's authority under RP-002, where an approved offer under RP-003 does not fit the client's segment, where amortization relief falls outside the RP-006 fast path, or where a client raises a conduct, complaint or vulnerability concern.\n\nWHAT AN ESCALATION MUST CONTAIN. Incomplete escalations are returned, and the service standard clock restarts.\n1. Renewal identifier, balance, product, term and days to maturity.\n2. Client tenure, products held, and household deposit or investment balances relied upon.\n3. Attrition band and the principal risk drivers.\n4. The guardrail floor for the profile and the discount sought, in basis points.\n5. Competitor evidence at the standard required for the discount sought (RP-002).\n6. Any competitor offer expiry date driving urgency.\n7. Recorded rationale.\n\nSERVICE STANDARDS. Branch Manager decisions: same day. Regional Director: one business day. Pricing Committee: two business days, with out-of-cycle sessions convened where a competitor commitment expires sooner. Credit Risk fast-path amortization: two business days.\n\nDECISION RECORDING. Every escalation outcome - approved, approved with conditions, approved at a reduced amount, or declined - is recorded against the file with the approver, the amount approved and any conditions. Conditions must be monitored for the life of the term; breach of a condition triggers review of the discount at the next anniversary.\n\nPATTERN ESCALATION. Where an advisor or branch escalates three or more files of substantially the same shape within a quarter, the escalation is raised as a pattern to the Renewal Council rather than decided file by file. This is the entry point to a regional grid review under RP-008 or a product change.\n\nPROHIBITED SHORTCUTS. Splitting a single discount request across two approvers, granting amortization relief to avoid a pricing escalation, or presenting an unapproved offer pending escalation are each control breaches and are reportable to Risk."
+  },
+  {
+    "id": "RP-011",
+    "title": "Marketing Consent and Channel Use (CASL)",
+    "category": "regulatory_reference",
+    "effective_date": "2026-05-01",
+    "owner": "Chief Compliance Officer - Retail",
+    "content": "SCOPE. Applies to every promotional message about a product the client does not already hold, by email, SMS or outbound phone, including renewal flyers that carry a cross-sell offer.\n\nRULE 1 - CONSENT BEFORE PROMOTION. A promotional message may be sent only on a channel where the client's marketing consent is recorded as Granted in the consent register (Fabric table consent_preferences). Withdrawn or Not captured means no promotional content on that channel. Express consent does not expire; implied consent is valid for two years from the last transaction and must be re-confirmed after that.\n\nRULE 2 - SERVICE IS NOT MARKETING. Renewal reminders, payment-change notices and hardship outreach are service communications and may be sent without marketing consent, provided they contain NO promotional call to action. Adding a product offer to a service message turns it into a promotional message under Rule 1.\n\nRULE 3 - IDENTIFICATION AND UNSUBSCRIBE. Every promotional email or SMS must identify the Bank, include a working unsubscribe mechanism and be honoured within 10 business days.\n\nCONTROL. The outreach approval step checks the register before a draft is generated. Drafts that fail are blocked, not edited silently. Canada's Anti-Spam Legislation (CASL) is the statutory anchor."
+  },
+  {
+    "id": "RP-012",
+    "title": "Vulnerable Clients - Support-First Treatment",
+    "category": "risk_consideration",
+    "effective_date": "2026-05-01",
+    "owner": "Head of Client Care and Fair Treatment",
+    "content": "SCOPE. Applies to any client whose financial-wellness band is Vulnerable (Fabric table financial_wellness) or who discloses a circumstance such as job loss, illness, separation or bereavement.\n\nRULE 1 - SUPPORT FIRST. The first contact with a vulnerable client must be a support conversation: affordability, relief options under RP-006 or RP-014, and signposting to free budgeting help. No product sale, cross-sell or upgrade may be proposed while the flag is active.\n\nRULE 2 - SALES SUPPRESSION. Next-best-action engines must suppress every Deepen action for a vulnerable client. A retention rate offer on the maturing mortgage is permitted because it lowers the client's cost, but it must not be bundled with a product requirement.\n\nRULE 3 - LANGUAGE. Communications must be plain, empathetic and non-coercive. Never use urgency or scarcity framing, and never describe the client as vulnerable in client-facing content.\n\nRULE 4 - HUMAN APPROVAL. Any outbound draft to a vulnerable client requires Branch Manager approval before sending. Financial Consumer Agency of Canada (FCAC) fair-treatment expectations are the regulatory anchor."
+  },
+  {
+    "id": "RP-013",
+    "title": "Affordability and Suitability for Household Recommendations",
+    "category": "risk_consideration",
+    "effective_date": "2026-05-01",
+    "owner": "VP Real Estate Secured Lending",
+    "content": "SCOPE. Applies to every renewal decision and every product recommendation made to a household.\n\nRULE 1 - AFFORDABILITY GUIDELINE. The Bank's internal guideline is a Gross Debt Service (GDS) ratio of at most 39% and a Total Debt Service (TDS) ratio of at most 44%, measured on the renewal payment. A renewal above either limit is not refused - straight renewals do not require re-qualification under OSFI B-20 (see RP-004) - but it must be routed to an affordability conversation before any product is recommended.\n\nRULE 2 - NO NEW CREDIT ABOVE THE GUIDELINE. A HELOC, credit-limit increase or new card may not be recommended to a household whose renewal TDS exceeds 44%.\n\nRULE 3 - NOT PRE-APPROVED. A recommendation is never an approval. Language such as 'pre-approved' or 'guaranteed' is prohibited unless adjudication is complete.\n\nRULE 4 - JOINT BORROWERS. Where a co-borrower exists, both parties must be represented in the conversation and in any written summary."
+  },
+  {
+    "id": "RP-014",
+    "title": "Hardship Relief - Payment Deferral, Skip-a-Payment and Escalation",
+    "category": "approval_requirement",
+    "effective_date": "2026-05-01",
+    "owner": "Head of Collections and Client Assistance",
+    "content": "SCOPE. Applies to clients who cannot meet the renewal payment and do not qualify for the RP-006 amortization fast path.\n\nRULE 1 - OPTIONS. Available relief, in order of preference: (a) amortization extension under RP-006; (b) a payment deferral of up to three months with interest capitalised; (c) a temporary interest-only period of up to six months; (d) referral to the Client Assistance specialist team.\n\nRULE 2 - APPROVAL. Option (b) up to two months: Branch Manager. Option (b) three months or option (c): Regional Director. Option (d) is a referral, not an approval.\n\nRULE 3 - TRIGGERS. Relief requires a documented trigger: payroll reduction of 10% or more, a missed payment, two or more NSF items in three months, or a client-stated hardship event.\n\nRULE 4 - FOLLOW-UP. Every relief case is reviewed at 30 days. A client in relief remains sales-suppressed under RP-012."
+  },
+  {
+    "id": "RP-015",
+    "title": "Rate Scenario Use, Model Limits and Disclosure",
+    "category": "regulatory_reference",
+    "effective_date": "2026-06-01",
+    "owner": "Chief Risk Officer - Retail",
+    "content": "SCOPE. Applies to the renewal scenario engine and every decision informed by it.\n\nRULE 1 - DECISION SUPPORT ONLY. Scenario outputs (payment shock, affordability, delinquency and attrition probabilities, value at risk) prioritise outreach and inform committee discussion. They do not set individual pricing and are never used to decline a renewal.\n\nRULE 2 - GOVERNED INPUTS. Factor shocks come from the governed preset library or a documented custom run. Live web information may only select a severity band for a governed world-event preset; it never sets a number. Risks proposed from the web that are not in the library are proxies and must be labelled as such.\n\nRULE 3 - ASSUMPTIONS DISCLOSED. Any committee paper using a scenario must state the factor values, the affordability limits used (RP-013) and the known limitations of the attrition model (RP-005).\n\nRULE 4 - HOUSE VIEW. The Retail Risk Committee's current house view is that fixed renewal rates track the GoC 5-year yield with roughly 90% pass-through, and that payment shock is the primary driver of both attrition and early delinquency in the FY26 book. OSFI Guideline E-23 is the model-risk anchor."
+  },
+  {
+    "id": "RP-016",
+    "title": "Client Communications - Required Disclosures and Prohibited Claims",
+    "category": "pricing_guardrail",
+    "effective_date": "2026-05-01",
+    "owner": "Head of Retail Marketing Compliance",
+    "content": "SCOPE. Applies to flyers, emails, SMS, call scripts and letters sent to clients about renewals or products.\n\nRULE 1 - RATE STATEMENTS. Any rate shown must state the term, the product type, that it is subject to approval and the date the offer expires. Payment illustrations must state the amortization and frequency assumed.\n\nRULE 2 - COMPETITOR CLAIMS. Comparisons with other lenders require dated, documented evidence (see RP-002) and may not name a competitor in client-facing material.\n\nRULE 3 - PROHIBITED WORDS. 'Guaranteed', 'pre-approved', 'risk-free', 'best rate in Canada' and urgency such as 'act now or lose' are prohibited.\n\nRULE 4 - INTERNAL DATA. Client-facing content must never expose internal scores, wellness bands, attrition probabilities, approval tiers or staff notes.\n\nRULE 5 - REVIEW. Every client-facing draft passes the compliance review step before it can be saved or sent. A blocked draft cannot be overridden by the drafter."
+  },
+  {
+    "id": "RP-017",
+    "title": "Privacy, Purpose Limitation and Recordkeeping",
+    "category": "regulatory_reference",
+    "effective_date": "2026-05-01",
+    "owner": "Chief Privacy Officer",
+    "content": "SCOPE. Applies to the use of client data in analytics, AI assistants and call notes.\n\nRULE 1 - PURPOSE. Client data may be used only for the servicing or advisory purpose for which it was collected. Transaction-pattern inferences (for example a likely life event) may inform a conversation but must not be stated to the client as a fact about them.\n\nRULE 2 - MINIMISATION. Outbound drafts include only the data needed for the message. Household members' data is never disclosed to another member without their consent.\n\nRULE 3 - NOTES. Call notes separate facts from the system of record, what the client said, and AI-generated summaries, which must be labelled as such. Work IQ content may inform preparation but never overrides the system of record.\n\nRULE 4 - RETENTION. Notes and drafts are retained per the records schedule; nothing is sent automatically by any AI assistant. The Personal Information Protection and Electronic Documents Act (PIPEDA) is the statutory anchor."
+  },
+  {
+    "id": "RP-018",
+    "title": "Next-Best-Action Governance and Primary-Banking Retention",
+    "category": "approval_requirement",
+    "effective_date": "2026-06-01",
+    "owner": "VP Personal Banking Distribution",
+    "content": "SCOPE. Applies to ranked next-best actions shown to advisors and to deposit-retention outreach.\n\nRULE 1 - ORDER OF PRIORITY. Support (RP-012/RP-014) outranks Retain, which outranks Deepen. An action that fails a gate (consent RP-011, vulnerability RP-012, affordability RP-013) is shown as blocked with its reason - never hidden and never re-labelled as eligible.\n\nRULE 2 - PRIMARY BANKING. When 10% or more of a client's payroll moves to another institution for two consecutive months, the advisor should hold a relationship review within 30 days. Fee waivers on the operating account up to 12 months may be approved by the advisor; longer waivers need Branch Manager approval.\n\nRULE 3 - ADVISOR JUDGEMENT. Actions are recommendations. The advisor records the outcome and reason; outcomes feed the quarterly model review under RP-005.\n\nRULE 4 - FAIRNESS. Rankings must not use protected characteristics or proxies for them."
+  },
+  {
+    "id": "RP-019",
+    "title": "Credit Card Product Suitability, Upgrades and Product Switches",
+    "category": "approval_requirement",
+    "effective_date": "2026-06-01",
+    "owner": "Head of Card Products",
+    "content": "SCOPE. Applies to recommending, upgrading or switching a client's credit card.\n\nRULE 1 - FIT TO USE. A card recommendation must be justified by the client's recorded spending (categories, foreign spend, annual spend) and must show the expected value net of the annual fee. A premium card is not suitable where expected rewards are below the fee.\n\nRULE 2 - ELIGIBILITY. Published income minimums apply (premium travel: CAD 60,000 personal or CAD 100,000 household). Clients who do not meet them may not be offered the product.\n\nRULE 3 - SWITCH, DON'T CLOSE. When a fee-paying client is unlikely to renew, offer a switch within the card family or a one-time fee waiver before the account closes. Advisors may waive one annual fee up to CAD 150 per 12 months; larger or repeated waivers need Branch Manager approval.\n\nRULE 4 - CONSENT AND CONDUCT. Promotional card offers follow RP-011 consent rules and the Code of Conduct for the Credit and Debit Card Industry in Canada."
+  },
+  {
+    "id": "RP-020",
+    "title": "Credit Limit Increases - Express Consent",
+    "category": "regulatory_reference",
+    "effective_date": "2026-06-01",
+    "owner": "Chief Compliance Officer - Retail",
+    "content": "SCOPE. Applies to every increase of a credit card or line-of-credit limit.\n\nRULE 1 - EXPRESS CONSENT. A limit may be increased only with the client's express consent recorded before the increase. Silence, pre-checked boxes or implied consent are not consent. This reflects the Financial Consumer Protection Framework under the Bank Act.\n\nRULE 2 - AFFORDABILITY. No limit increase may be offered where the household's TDS exceeds 44% (RP-013), where the account has been 30+ days past due in the last 12 months, or where the client is in the Vulnerable wellness band (RP-012).\n\nRULE 3 - NO UNSOLICITED INCREASES. Marketing a limit increase follows RP-011; the confirmation must state the new limit, the interest rate and how to decline."
+  },
+  {
+    "id": "RP-021",
+    "title": "Persistent Card Debt and Minimum-Payment Clients",
+    "category": "risk_consideration",
+    "effective_date": "2026-06-01",
+    "owner": "Head of Collections and Client Assistance",
+    "content": "SCOPE. Applies to card clients who paid only the minimum (or close to it) in 6 or more of the last 12 months, or who are 30+ days past due.\n\nRULE 1 - SUPPORT FIRST. Contact must offer ways to reduce the cost of the debt: a lower-rate card, an instalment plan, consolidation into a lower-rate line of credit where affordable (RP-013), or free budgeting support. No rewards upgrade, limit increase or new credit product may be offered (RP-012, RP-020).\n\nRULE 2 - SHOW THE COST. Communications must show how long repayment takes at the minimum payment and the interest cost, in plain language.\n\nRULE 3 - HARDSHIP. Clients reporting hardship are routed to Client Assistance; interest relief of up to three months may be approved by a Branch Manager (see RP-014)."
+  },
+  {
+    "id": "RP-022",
+    "title": "Card Fraud Alerts and Security Outreach",
+    "category": "risk_consideration",
+    "effective_date": "2026-06-01",
+    "owner": "Head of Fraud Management - Retail",
+    "content": "SCOPE. Applies to clients with fraud alerts, disputed transactions or account-takeover signals.\n\nRULE 1 - SECURITY BEFORE SALES. A client with an open fraud alert receives a security check-in (card lock, alerts, digital wallet, password hygiene) before any marketing contact.\n\nRULE 2 - NEVER ASK FOR SECRETS. Staff and communications never ask a client for a PIN, full card number, one-time passcode or online banking password. Every outreach must say so.\n\nRULE 3 - CHANNEL. Security contact is made through the app or a verified phone number on file - never a link in an unsolicited email or SMS."
+  },
+  {
+    "id": "RP-023",
+    "title": "Account Packages, Fees and Switching",
+    "category": "pricing_guardrail",
+    "effective_date": "2026-08-01",
+    "owner": "Head of Everyday Banking Products",
+    "content": "SCOPE. Applies to every chequing package (Basic, Preferred, Ultimate, Student) and to any conversation about account fees.\n\nRULE 1 - FEE DISCLOSURE. Every package recommendation must state the monthly fee, the minimum-balance waiver (if any), the included transactions and the fee for extra transactions, in plain language and before the client agrees.\n\nRULE 2 - LOWEST-COST FIT. Advisors must recommend the lowest-cost package that fits the client's recorded usage over the last 12 months (transactions, balance, products held), even where this lowers the Bank's fee revenue. Show the expected annual saving.\n\nRULE 3 - NO SWITCH FEES. Changing package within the Bank carries no fee and no loss of account number. Fees already charged in the current month are not refunded unless approved under RP-018 Rule 2.\n\nRULE 4 - REGULATORY ANCHOR. Fee disclosure follows the Financial Consumer Agency of Canada (FCAC) guidance and the Bank Act disclosure requirements. A package upgrade that is promotional follows RP-011 consent rules."
+  },
+  {
+    "id": "RP-024",
+    "title": "Overdraft Protection and NSF Support",
+    "category": "risk_consideration",
+    "effective_date": "2026-08-01",
+    "owner": "Head of Client Care and Fair Treatment",
+    "content": "SCOPE. Applies to clients with non-sufficient-funds (NSF) items, frequent overdraft use, or in the Vulnerable wellness band.\n\nRULE 1 - SUPPORT FIRST. A client with any NSF item, or 10 or more overdraft days in the last 3 months, or in the Vulnerable band (RP-012), is offered support before anything else: a budgeting conversation, payment-date alignment and alerts. No product sale may be bundled into this contact.\n\nRULE 2 - FEE REFUNDS. An advisor may refund up to 2 NSF or overdraft fees per client per rolling 12 months without further approval. More refunds need Branch Manager approval and a documented hardship trigger (RP-014).\n\nRULE 3 - EXPRESS CONSENT. Overdraft protection may be added, or its limit raised, only with the client's express consent recorded before the change. Silence or a pre-checked box is not consent. Any message that mentions overdraft protection must say it is added only with the client's consent.\n\nRULE 4 - TONE. Communications are factual and non-judgemental and never mention internal wellness bands or scores (RP-016)."
+  },
+  {
+    "id": "RP-025",
+    "title": "Debt Consolidation and Secured Lending Offers",
+    "category": "approval_requirement",
+    "effective_date": "2026-08-01",
+    "owner": "VP Personal Lending",
+    "content": "SCOPE. Applies to consolidating card or other unsecured debt into a line of credit or loan, and to home-equity line re-advances.\n\nRULE 1 - SHOW BOTH WAYS. Any consolidation proposal must show, side by side, the total interest and the time to repay at the current minimum payment and under the proposed facility, and the new monthly payment.\n\nRULE 2 - AFFORDABILITY. A mortgage client may be offered consolidation or a re-advance only if the household TDS on the renewal payment is 44% or less (RP-013). A client without a mortgage may be offered consolidation only where the new monthly payment is lower than the current required payment.\n\nRULE 3 - SECURED LIMITS. A home-equity re-advance requires a combined loan-to-value (mortgage plus line limit) of 65% or less and is subject to adjudication.\n\nRULE 4 - NO PRESSURE. Never describe credit as pre-approved, never use urgency, and never make consolidation a condition of any other service. A client in the Vulnerable band (RP-012) or reporting hardship is routed to Client Assistance as a support conversation (RP-014) - no new credit is marketed."
+  },
+  {
+    "id": "RP-026",
+    "title": "Variable-Rate Credit - Rate Change Notices",
+    "category": "regulatory_reference",
+    "effective_date": "2026-08-01",
+    "owner": "Chief Compliance Officer - Retail",
+    "content": "SCOPE. Applies to every variable-rate line of credit and loan priced off the Bank's prime rate.\n\nRULE 1 - NOTICE WITHIN 30 DAYS. When the prime rate changes, every affected client is notified within 30 days with the new rate and the new or estimated monthly payment.\n\nRULE 2 - SHOW THE IMPACT. Notices show the effect of the change in dollars per month. Advisors may also show the effect of a further 25 basis-point move either way as illustration only - never as a forecast.\n\nRULE 3 - SERVICE, NOT SALES. A rate-change notice is a service communication (RP-011 Rule 2). It must contain no promotional offer, product recommendation or call to switch products.\n\nRULE 4 - HELP. Notices tell the client how to reach an advisor if the new payment is hard to manage; such contacts follow RP-014."
+  },
+  {
+    "id": "RP-027",
+    "title": "Investment Suitability and KYC Refresh",
+    "category": "regulatory_reference",
+    "effective_date": "2026-08-01",
+    "owner": "Head of Wealth Compliance",
+    "content": "SCOPE. Applies to every investment recommendation, including GIC renewals, registered-plan contributions and fund purchases.\n\nRULE 1 - CURRENT KYC. Know-your-client information (objectives, time horizon, risk tolerance, financial circumstances) must have been updated within the last 36 months. If it is older, every recommendation is paused until it is refreshed; only a KYC refresh contact may be made.\n\nRULE 2 - SUITABILITY. A recommendation must match the client's recorded risk profile (Conservative, Balanced or Growth) and put the client's interest first, consistent with the Client Focused Reforms.\n\nRULE 3 - LICENSED ADVISOR. Investment recommendations are made only by a licensed advisor. Other staff may refer and book appointments but may not recommend a specific investment.\n\nRULE 4 - NO RETURN PROMISES. Communications never promise or project returns, never call an investment risk-free, and never use the word guaranteed except as part of the product name of a guaranteed investment certificate in its disclosure (RP-016). Use 'GIC' in client copy."
+  },
+  {
+    "id": "RP-028",
+    "title": "Registered Plans - TFSA, RRSP, FHSA, RESP",
+    "category": "approval_requirement",
+    "effective_date": "2026-08-01",
+    "owner": "Head of Registered Plans",
+    "content": "SCOPE. Applies to recommending, opening or contributing to a TFSA, RRSP, FHSA or RESP.\n\nRULE 1 - ELIGIBILITY. FHSA: Canadian resident aged 18 to 70 who is a first-time home buyer (has not lived in a home they owned in the current or previous four calendar years) - clients who hold a mortgage on their home are NOT eligible. RESP: the beneficiary must be a child with a Social Insurance Number. TFSA: 18 or older with room available.\n\nRULE 2 - GRANT MECHANICS. The Canada Education Savings Grant (CESG) pays 20% of the first CAD 2,500 contributed per child per year (up to CAD 500), with lifetime limits; unused grant room carries forward one year at a time. Show the grant the family is not collecting, not a projected return.\n\nRULE 3 - OVER-CONTRIBUTION. Contributions above available room are taxed at 1% per month. Recommendations must use the room on record and remind the client to confirm it with their CRA account.\n\nRULE 4 - CONSENT AND SUITABILITY. Promotional registered-plan messages follow RP-011 consent rules and are suppressed for Vulnerable clients (RP-012). Any investment inside the plan requires current KYC (RP-027)."
+  },
+  {
+    "id": "RP-029",
+    "title": "Newcomer Banking - Packages and Credit Building",
+    "category": "approval_requirement",
+    "effective_date": "2026-08-01",
+    "owner": "Head of Newcomer Banking",
+    "content": "SCOPE. Applies to clients who arrived in Canada within the last 60 months (permanent residents, work-permit and study-permit holders), the newcomer banking package and newcomer credit-building products.\n\nRULE 1 - FEE-FREE PERIOD DISCLOSURE. The newcomer package's fee-free period and its end date are disclosed at opening and again at least 30 days before it ends, together with the monthly fee of the package that will apply next. Advisors recommend the lowest-cost package that fits the client's recorded usage (RP-023); changing package carries no fee.\n\nRULE 2 - STATUS-BASED ELIGIBILITY. Eligibility is based on the client's immigration status and identification documents only (e.g. permanent resident card, work or study permit). Never ask for information not needed for the product, and never make an account conditional on buying another product.\n\nRULE 3 - CREDIT BUILDING. A client with a secured card held for 12 months or more and every payment made on time may be offered an unsecured card, subject to adjudication; the security deposit is returned on graduation. Offers follow RP-011 consent, are suppressed for Vulnerable clients (RP-012) and are paused during an open fraud case (RP-032). Mortgage conversations require permanent-resident status or an eligible program, a credit file of at least 24 months and an affordability review (RP-013).\n\nRULE 4 - PLAIN LANGUAGE AND NO PRESSURE. Communications use plain language; multilingual support and interpreters are offered on request. Never use urgency or imply that a product is required to stay in Canada or to build credit."
+  },
+  {
+    "id": "RP-030",
+    "title": "International Money Transfers - Cost Disclosure and Scam Protection",
+    "category": "regulatory_reference",
+    "effective_date": "2026-08-01",
+    "owner": "Head of Payments and International Transfers",
+    "content": "SCOPE. Applies to every international money transfer and to any communication that compares transfer costs.\n\nRULE 1 - TOTAL COST BEFORE SENDING. Before a client confirms a transfer, show the transfer fee, the exchange rate and the exchange-rate (FX) margin applied, the total cost in Canadian dollars, the amount the recipient will receive and the expected delivery time. Any cost comparison must show fees plus FX margin as one total cost - never the fee alone.\n\nRULE 2 - NO SECRETS. Staff and Bank communications never ask for a PIN, passcode, password or one-time code, and never ask a client to move money to keep it safe.\n\nRULE 3 - SCAM WARNINGS. A scam warning is shown before the first transfer to any new recipient. Clients who send frequently to new recipients on a corridor named in a current fraud bulletin receive scam-awareness education and recipient verification (RP-022) - as a service conversation, never combined with a sales offer.\n\nRULE 4 - FAIR TREATMENT. Scam-risk outreach is driven by transaction behaviour and current fraud bulletins, never by a client's nationality or origin alone."
+  },
+  {
+    "id": "RP-031",
+    "title": "Creditor and Optional Insurance Sales",
+    "category": "approval_requirement",
+    "effective_date": "2026-08-01",
+    "owner": "Head of Creditor Insurance",
+    "content": "SCOPE. Applies to mortgage life and disability insurance, line of credit protection, card balance protection and any other optional insurance offered alongside credit, plus home and travel insurance discussions.\n\nRULE 1 - OPTIONAL, NEVER A CONDITION. Insurance is optional and is never a condition of approving, renewing or pricing any credit. Every insurance marketing message must say 'insurance is optional'. Never describe cover as required, mandatory or compulsory.\n\nRULE 2 - SUITABILITY AND DISCLOSURE. Before a client buys cover, explain what is and is not covered, the premium and how it changes, the effect of pre-existing conditions (health questions are assessed at claim time for some products), and compare it with cover the client may already have. Premiums must be affordable: do not market new cover to a household above the 44% TDS guideline (RP-013) or to a Vulnerable client (RP-012).\n\nRULE 3 - COOLING-OFF. The client may cancel within 30 days of purchase for a full refund. After that, cancellation is always free and takes effect at the client's instruction - the Bank never cancels cover on the client's behalf to save premiums, and reviews it with the client instead.\n\nRULE 4 - NO BUNDLING PRESSURE, AUTHORISED STAFF. No bundling pressure or tied selling. Only licensed or authorised staff discuss insurance; other staff may refer. Lapses are followed up to confirm they were intended. Travel-cover reminders are information only."
+  },
+  {
+    "id": "RP-032",
+    "title": "Fraud Prevention, Scam Response and Elder/Vulnerable Client Protection",
+    "category": "risk_consideration",
+    "effective_date": "2026-08-01",
+    "owner": "Chief Fraud Officer",
+    "content": "SCOPE. Applies to every contact about fraud alerts, scams, suspicious transfers, account takeover and security settings, and to every client with an open security event.\n\nRULE 1 - VERIFIED CHANNELS ONLY. Contact the client only through verified channels: the phone number and email on file before the event. If contact details changed during a security event, do not email - call the verified number on file. Ask the client to call the number on the back of their card or on the official website, never a number or link from a text or email.\n\nRULE 2 - NEVER ASK FOR SECRETS. Every security message says: 'We will never ask for your PIN, passcode or password.' Staff never ask for a one-time code and never ask a client to move money to keep it safe.\n\nRULE 3 - OLDER AND VULNERABLE CLIENTS. Offer a trusted contact person the Bank may reach if it suspects financial abuse. For large transfers to a new payee, use hold-and-verify: pause the transfer and confirm it with the client by a verified call-back before release. Stretched and Vulnerable clients with a scam-type event receive scam coaching (RP-012).\n\nRULE 4 - SECURITY BEFORE SALES. No marketing or product offer in any security communication. While a client has an open security event, promotional outreach in every book is paused until the event is resolved."
+  },
+  {
+    "id": "RP-033",
+    "category": "regulatory_reference",
+    "effective_date": "2026-10-01",
+    "owner": "Chief Data and AI Officer",
+    "title": "AI Agents in Client Decisions - Harness, Guardrails and Human Approval",
+    "content": "SCOPE. Applies to every AI agent that prepares a client decision, client communication or case file in personal banking, including the mission agent, the Compliance Reviewer and the Scenario Analyst. Aligned with OSFI Guideline E-23 (model risk) and the Bank's responsible-AI standard.\n\nRULE 1 - PREPARE, NEVER ACT. An agent may research, reconcile and draft. It may never send a communication, approve or decline credit, set or promise a price, freeze or release funds, cancel cover, or contact a client. Any output that claims such an action is rejected.\n\nRULE 2 - GOVERNED DATA IS AUTHORITATIVE. The agent works from a governed packet assembled from the system of record (Fabric IQ). Colleague correspondence (Work IQ) and the public web (Web IQ) may change the decision but never overwrite a governed figure. Every figure the agent uses must be traceable to the governed packet or cited with its source; untraced figures are flagged for the human reviewer.\n\nRULE 3 - DETERMINISTIC GUARDRAILS, THEN REVIEW. Before any human sees a client message, deterministic checks run in code (consent RP-011, support-first RP-012, affordability RP-013, prohibited claims and internal data RP-016, privacy RP-017, security RP-032) and the Compliance Reviewer agent reviews it. A guardrail block cannot be overridden by the agent or the reviewer; the human may approve the plan but not blocked client copy.\n\nRULE 4 - HUMAN DECISION AND AUDIT. A named employee approves, sends back or escalates every agent recommendation. The decision, the run identifier, the guardrail verdict and the reviewer verdict are logged and retained under RP-017. Agents are tested against a fixed case set before each instruction change, and recovery actions (for example a retry after a tool failure) are visible in the run trace."
+  },
+  {
+    "id": "RP-034",
+    "category": "risk_consideration",
+    "effective_date": "2026-10-01",
+    "owner": "Chief Fraud Officer",
+    "title": "Payroll and Direct-Deposit Changes - Verification Before Retention",
+    "content": "SCOPE. Applies when a client's payroll or other recurring deposit stops, falls, or is redirected to another institution, and to any request to change direct-deposit details.\n\nRULE 1 - RULE OUT FRAUD FIRST. A payroll redirect in the same 30 days as a new-device login, a contact-detail change or a new payee is treated as possible account takeover or payroll-diversion fraud (RP-032), not as attrition. Verify with the client by the verified phone number on file before any retention or relationship outreach.\n\nRULE 2 - THEN UNDERSTAND THE REASON. Once fraud is ruled out, a payroll move is a relationship conversation (RP-018): new employer, fees (RP-023), a competitor offer, or financial strain (RP-012, RP-014). One relationship conversation replaces separate product calls.\n\nRULE 3 - NO PRESSURE. Never imply that keeping payroll with the Bank is a condition of a mortgage rate, renewal or other service unless it is a written, approved pricing condition (RP-002), and never use the client's deposit data in client copy beyond what the client already knows."
   }
 ]

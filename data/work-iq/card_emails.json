@@ -1,0 +1,171 @@
+{
+  "$schema_note": "Card-book correspondence for Work IQ. Same schema as emails.json; seeded by seed_card_mail.py.",
+  "scenario": "Cards book FY26",
+  "as_of": "2026-08-03",
+  "people": [
+    {
+      "alias": "diane.lafleur",
+      "displayName": "Diane Lafleur",
+      "title": "EVP, Personal Banking",
+      "role": "executive"
+    },
+    {
+      "alias": "raj.balakrishnan",
+      "displayName": "Raj Balakrishnan",
+      "title": "VP, Real Estate Secured Lending",
+      "role": "executive"
+    },
+    {
+      "alias": "karen.whitfield",
+      "displayName": "Karen Whitfield",
+      "title": "Chief Risk Officer",
+      "role": "executive"
+    },
+    {
+      "alias": "derek.fontaine",
+      "displayName": "Derek Fontaine",
+      "title": "Director, Mortgage Pricing",
+      "role": "pricing"
+    },
+    {
+      "alias": "marcus.delaney",
+      "displayName": "Marcus Delaney",
+      "title": "Branch Manager, Toronto Bay & Bloor (BR-101)",
+      "role": "branch_leader"
+    },
+    {
+      "alias": "sophie.tremblay",
+      "displayName": "Sophie Tremblay",
+      "title": "Branch Manager, Montreal Plateau (BR-202)",
+      "role": "branch_leader"
+    },
+    {
+      "alias": "nadia.osei",
+      "displayName": "Nadia Osei",
+      "title": "Branch Manager, Calgary Centre Street (BR-303)",
+      "role": "branch_leader"
+    },
+    {
+      "alias": "priya.raghavan",
+      "displayName": "Priya Raghavan",
+      "title": "Mortgage Advisor (ADV-012)",
+      "role": "advisor"
+    },
+    {
+      "alias": "wei.zhang",
+      "displayName": "Wei Zhang",
+      "title": "Senior Mortgage Advisor (ADV-021)",
+      "role": "advisor"
+    },
+    {
+      "alias": "fatima.haddad",
+      "displayName": "Fatima Haddad",
+      "title": "Senior Mortgage Advisor (ADV-031)",
+      "role": "advisor"
+    }
+  ],
+  "emails": [
+    {
+      "id": "EM-C01",
+      "category": "card_executive_guidance",
+      "from": "diane.lafleur",
+      "to": [
+        "marcus.delaney",
+        "sophie.tremblay",
+        "nadia.osei"
+      ],
+      "cc": [
+        "karen.whitfield"
+      ],
+      "sentDateTime": "2026-06-22T14:10:00Z",
+      "importance": "high",
+      "subject": "Cards: limit increases need express consent - campaign paused",
+      "body": "Team,\n\nEffective today the summer credit-limit-increase campaign is paused. Compliance found pre-filled consent wording in two branch scripts. Under our policy (RP-020) a limit can only go up with the client's express, recorded consent - silence or a pre-ticked box is not consent.\n\nThree rules until further notice:\n1. No limit increase unless express consent is on file before the increase.\n2. No increase for any household above the 44% TDS guideline or anyone in the Vulnerable wellness band.\n3. Advisors may raise it in conversation only when the client asks.\n\nI would rather grow slower than explain this to the regulator.\n\nDiane"
+    },
+    {
+      "id": "EM-C02",
+      "category": "card_risk_concern",
+      "from": "karen.whitfield",
+      "to": [
+        "diane.lafleur",
+        "raj.balakrishnan"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-08T16:30:00Z",
+      "importance": "normal",
+      "subject": "Persistent card debt is rising in the same households as the renewal stress",
+      "body": "Diane, Raj,\n\nThe July risk pack shows 13 card accounts at or near minimum payment for six or more of the last twelve months. Several of them are mortgage clients whose renewal payment jumps this autumn - CA-1025, CA-1034, CA-1044 and CA-1049 are all at 98% utilisation.\n\nI want these handled support-first under RP-021: lower-rate card or instalment plan, show the cost of minimum payments, budgeting help. Absolutely no upgrades, rewards offers or limit increases to these clients.\n\nKaren"
+    },
+    {
+      "id": "EM-C03",
+      "category": "card_branch_concern",
+      "from": "marcus.delaney",
+      "to": [
+        "raj.balakrishnan"
+      ],
+      "cc": [
+        "derek.fontaine"
+      ],
+      "sentDateTime": "2026-07-14T13:45:00Z",
+      "importance": "normal",
+      "subject": "Gold Rewards annual-fee complaints - can advisors waive?",
+      "body": "Raj,\n\nWe've had a run of complaints this month from Gold Rewards clients whose annual fee is coming up. A few have said they'll just cancel and take a competitor's welcome bonus instead. Most of them are not earning enough points to cover the fee.\n\nCan you confirm advisors can waive one annual fee up to $150 (RP-019), and that we should offer a switch within the card family before the account closes? I'd like a consistent answer for the team before the September fee cycle.\n\nMarcus"
+    },
+    {
+      "id": "EM-C04",
+      "category": "card_fraud_alert",
+      "from": "sophie.tremblay",
+      "to": [
+        "marcus.delaney",
+        "nadia.osei"
+      ],
+      "cc": [
+        "raj.balakrishnan"
+      ],
+      "sentDateTime": "2026-07-21T15:05:00Z",
+      "importance": "normal",
+      "subject": "Phishing texts impersonating us - security check-ins before anything else",
+      "body": "Hi both,\n\nWe have had ten clients across the three branches with fraud alerts in the last 90 days, most after a text that claimed to be from us and asked them to 'confirm' a one-time passcode.\n\nPlease make sure every advisor leads with a security check-in (card lock, alerts, digital wallet) before any other conversation with these clients - RP-022 says security comes before sales. And every message we send must say we will never ask for a PIN, passcode or password.\n\nSophie"
+    },
+    {
+      "id": "EM-C05",
+      "category": "card_advisor_feedback",
+      "from": "wei.zhang",
+      "to": [
+        "nadia.osei"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-24T19:20:00Z",
+      "importance": "normal",
+      "subject": "Travel clients paying FX fees on the wrong card",
+      "body": "Nadia,\n\nA handful of my clients travel a lot and are paying the 2.5% foreign-transaction fee on everyday cards - one is spending close to a fifth of their card spend abroad. The Travel Infinite card would suit them better, but two of them withdrew email marketing consent and one doesn't meet the income minimum.\n\nI assume I can raise it if they bring it up in a meeting, but not email them? Want to get this right.\n\nWei"
+    },
+    {
+      "id": "EM-C06",
+      "category": "card_advisor_feedback",
+      "from": "priya.raghavan",
+      "to": [
+        "marcus.delaney"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-29T17:40:00Z",
+      "importance": "normal",
+      "subject": "Mortgage client maxing her card - support or retention?",
+      "body": "Marcus,\n\nOne of my renewal clients is now at the limit on her card and paying only the minimum, and the attrition model still flags her as a retention case for the mortgage. I don't want to pitch a rate offer and a rewards card at the same time as she is clearly struggling.\n\nCan we treat her as support-first across both - relief options on the renewal, lower-rate card or instalments on the card? Happy to bring it to Thursday's huddle.\n\nPriya"
+    },
+    {
+      "id": "EM-C07",
+      "category": "card_market_signal",
+      "from": "derek.fontaine",
+      "to": [
+        "diane.lafleur",
+        "raj.balakrishnan"
+      ],
+      "cc": [],
+      "sentDateTime": "2026-07-31T12:15:00Z",
+      "importance": "normal",
+      "subject": "Competitor card welcome bonuses and our spend decline",
+      "body": "Diane, Raj,\n\nTwo competitors are running 50,000-point welcome offers on their premium cards through the fall. At the same time six of our transactor accounts show spend down more than a third over the last three months - classic early switching.\n\nI'd suggest a re-engagement conversation for those clients where we have consent, and a fee-renewal review rather than matching bonuses. Happy to share the list.\n\nDerek"
+    }
+  ]
+}

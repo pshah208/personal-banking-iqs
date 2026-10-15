@@ -29,14 +29,15 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useOfferCatalogue } from "../lib/offers";
+import { cssVar, currentBrand, rebrandText } from "../brand";
+import { useBrand } from "../useBrand";
 import type { CatalogueOffer, FlyerSpec, FlyerLine } from "../types";
 
 const W = 1080;
 const H = 1350;
 const SCALE = 2;
 
-const BRAND = "#034694";
-const DANGER = "#b91c1c";
+let RED = "#ec111a";
 const INK = "#1a1a1c";
 
 export type Verdict = "ok" | "exceeds" | "segment" | "unknown";
@@ -207,7 +208,7 @@ export function daysUntil(text: string | undefined, now = new Date()): number | 
 
 /** Urgency colour. Inside a month is the point at which this stops being admin. */
 function urgencyOf(days: number): { ring: string; label: string } {
-  if (days <= 30) return { ring: DANGER, label: "Renewing very soon" };
+  if (days <= 30) return { ring: RED, label: "Renewing very soon" };
   if (days <= 90) return { ring: "#b45309", label: "Renewal window open" };
   return { ring: "#0f766e", label: "Plenty of time to plan" };
 }
@@ -256,7 +257,7 @@ function drawCountdown(
   }
 
   c.textAlign = "center";
-  c.fillStyle = overdue ? DANGER : INK;
+  c.fillStyle = overdue ? RED : INK;
   c.font = `800 ${overdue ? 30 : 52}px 'Segoe UI', Arial, sans-serif`;
   c.fillText(overdue ? "DUE" : String(days), cx, cy + (overdue ? 10 : 12));
   if (!overdue) {
@@ -351,10 +352,27 @@ function drawBundle(
   return y + h;
 }
 
+/** The rotated stamp across the artwork, so a screenshot cannot lose the caveat. */
+function stamp(
+  c: CanvasRenderingContext2D, heading: string, sub: string, tint: string,
+) {
+  c.save();
+  c.translate(W / 2, H / 2);
+  c.rotate(-Math.PI / 9);
+  c.fillStyle = tint;
+  c.font = `800 ${heading.length > 13 ? 96 : 116}px 'Segoe UI', Arial, sans-serif`;
+  c.textAlign = "center";
+  c.fillText(heading, 0, 0);
+  c.font = "700 40px 'Segoe UI', Arial, sans-serif";
+  c.fillText(sub, 0, 66);
+  c.restore();
+}
+
 function draw(
   canvas: HTMLCanvasElement, spec: FlyerSpec,
   lines: CheckedLine[], logo: HTMLImageElement | null, compliant: boolean,
   bundle: (CheckedLine & { action: string }) | null,
+  now: Date, draft: string | undefined,
 ) {
   const c = canvas.getContext("2d");
   if (!c) return;
@@ -367,7 +385,7 @@ function draw(
   c.fillRect(0, 0, W, H);
 
   /* ---- header ---- */
-  c.fillStyle = BRAND;
+  c.fillStyle = RED;
   c.fillRect(0, 0, W, 300);
 
   if (logo) {
@@ -406,16 +424,16 @@ function draw(
     const bad = line.verdict !== "ok";
     const rowH = 108;
 
-    c.fillStyle = bad ? "#fff5f5" : "#f6f8fb";
+    c.fillStyle = bad ? "#fff5f5" : "#faf8f6";
     roundRect(c, 72, y, W - 144, rowH, 14);
     c.fill();
 
-    c.fillStyle = bad ? DANGER : BRAND;
+    c.fillStyle = bad ? "#b00d14" : RED;
     roundRect(c, 72, y, 6, rowH, 3);
     c.fill();
 
     // Status glyph: a tick for an approved line, a warning for a breach.
-    c.fillStyle = bad ? DANGER : "#0f766e";
+    c.fillStyle = bad ? "#b00d14" : "#0f766e";
     c.font = "800 34px 'Segoe UI', Arial, sans-serif";
     c.fillText(bad ? "!" : "✓", 108, y + 56);
 
@@ -423,7 +441,7 @@ function draw(
     c.font = "700 34px 'Segoe UI', Arial, sans-serif";
     c.fillText(line.headline, 158, y + 50);
 
-    c.fillStyle = bad ? DANGER : "#71717a";
+    c.fillStyle = bad ? "#b00d14" : "#71717a";
     c.font = "400 23px 'Segoe UI', Arial, sans-serif";
     c.fillText(bad ? line.reason : (line.detail || line.reason), 158, y + 84);
 
@@ -436,7 +454,7 @@ function draw(
      customer cannot act on it, and naming an internal committee on customer
      artwork invites questions no branch wants to field. The approver is still
      carried on the spec and shown to staff in the breach panel. */
-  const days = daysUntil(spec.expiry);
+  const days = daysUntil(spec.expiry, now);
 
   y += 24;
   if (days !== null) {
@@ -472,40 +490,51 @@ function draw(
   c.fillStyle = "#a1a1aa";
   c.font = "400 17px 'Segoe UI', Arial, sans-serif";
   c.fillText(
-    "Synthetic demonstration material. Not a real CFC Bank offer, rate or product.",
+    rebrandText("Synthetic demonstration material. Not a real CFC Bank offer, rate or product.", currentBrand()),
     72, H - 44,
   );
 
   /* ---- non-compliance watermark ----
      Drawn last and across the artwork, so a breaching flyer cannot be screenshot
-     and passed off as approved. */
+     and passed off as approved. A draft stamp is drawn on the same terms: an
+     internally generated draft leaving the building as a PNG has to carry the
+     fact that nobody has approved the price on it. */
   if (!compliant) {
-    c.save();
-    c.translate(W / 2, H / 2);
-    c.rotate(-Math.PI / 9);
-    c.fillStyle = "rgba(176,13,20,.13)";
-    c.font = "800 116px 'Segoe UI', Arial, sans-serif";
-    c.textAlign = "center";
-    c.fillText("NOT APPROVED", 0, 0);
-    c.font = "700 40px 'Segoe UI', Arial, sans-serif";
-    c.fillText("BREACHES RP-003", 0, 66);
-    c.restore();
+    stamp(c, "NOT APPROVED", "BREACHES RP-003", "rgba(176,13,20,.13)");
+  } else if (draft) {
+    stamp(c, "DRAFT", draft, "rgba(26,26,28,.10)");
   }
 }
 
 /* ------------------------------------------------------------- component --- */
 
-export function Flyer({ spec }: { spec: FlyerSpec }) {
+/**
+ * The flyer.
+ *
+ * `catalogue`, `now` and `draft` are all optional and all default to the
+ * behaviour this component already had. They exist for the snapshot dashboard,
+ * which must not make a request (`catalogue`), must measure the countdown from
+ * its snapshot date rather than the wall clock (`now`), and produces a flyer
+ * explicitly for internal review rather than for a customer (`draft`).
+ */
+export function Flyer({ spec, catalogue: supplied, now, draft }: {
+  spec: FlyerSpec;
+  catalogue?: CatalogueOffer[];
+  now?: Date;
+  draft?: string;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const catalogue = useOfferCatalogue();
+  const catalogue = useOfferCatalogue(supplied);
   const [logo, setLogo] = useState<HTMLImageElement | null>(null);
+  const brand = useBrand();
+  RED = cssVar("--brand", "#ec111a");
 
   useEffect(() => {
     const img = new Image();
     img.onload = () => setLogo(img);
     img.onerror = () => setLogo(null);
-    img.src = "/brand/cfc-bank-logo-white.png";
-  }, []);
+    img.src = brand.assets.mark;
+  }, [brand]);
 
   const lines = useMemo(
     () => (spec.offers ?? []).map((l) => checkLine(l, catalogue, spec.segment)),
@@ -535,9 +564,9 @@ export function Flyer({ spec }: { spec: FlyerSpec }) {
 
   useEffect(() => {
     if (canvasRef.current) {
-      draw(canvasRef.current, spec, lines, logo, compliant, bundle);
+      draw(canvasRef.current, spec, lines, logo, compliant, bundle, now ?? new Date(), draft);
     }
-  }, [spec, lines, logo, compliant, bundle]);
+  }, [spec, lines, logo, compliant, bundle, now, draft]);
 
   function download() {
     canvasRef.current?.toBlob((blob) => {
@@ -546,7 +575,8 @@ export function Flyer({ spec }: { spec: FlyerSpec }) {
       const a = document.createElement("a");
       const who = (spec.customer ?? "renewal-offer").replace(/[^a-z0-9]+/gi, "-");
       a.href = url;
-      a.download = `${who.toLowerCase()}-flyer${compliant ? "" : "-NOT-APPROVED"}.png`;
+      a.download = `${who.toLowerCase()}-flyer${
+        compliant ? (draft ? "-DRAFT" : "") : "-NOT-APPROVED"}.png`;
       a.click();
       URL.revokeObjectURL(url);
     }, "image/png");
@@ -557,7 +587,9 @@ export function Flyer({ spec }: { spec: FlyerSpec }) {
       <div className="flyer-bar">
         <span className={`flyer-status ${compliant ? "ok" : "bad"}`}>
           {catalogue.length === 0 ? "Checking against RP-003…"
-            : compliant ? "✓ Within the RP-003 offer catalogue"
+            : compliant ? (draft
+              ? "✓ Within the RP-003 offer catalogue · draft for review, not approved pricing"
+              : "✓ Within the RP-003 offer catalogue")
             : `${breaches.length} breach${breaches.length > 1 ? "es" : ""} of RP-003`}
         </span>
         <button className="flyer-download" onClick={download}>

@@ -1,0 +1,26 @@
+{
+  "name": "CFC Bank",
+  "short": "CFC Bank",
+  "aliases": [
+    "cfc bank",
+    "cfc"
+  ],
+  "colors": {
+    "brand": "#034694",
+    "brandDeep": "#012a5e",
+    "brandTint": "#e7eef7",
+    "brandLine": "#c3d3e8",
+    "brandInk": "#011d40",
+    "accent": "#333333",
+    "accentInk": "#333333",
+    "accentFg": "#ffffff"
+  },
+  "assets": {
+    "lockup": "lockup.png",
+    "mark": "mark.png",
+    "favicon": "favicon.png"
+  },
+  "source": {
+    "note": "Fictional bank. Default brand shipped with the repo; safe to redistribute."
+  }
+}

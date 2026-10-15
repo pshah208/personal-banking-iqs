@@ -1,0 +1,85 @@
+scenario_id,scenario_name,group,factor,value,note,as_of_date
+base,Today's renewal book,market,boc_bp,0.0,Offered renewal rates as at 2026-08-03; no shock.,2026-08-03
+base,Today's renewal book,market,goc5_bp,0.0,Offered renewal rates as at 2026-08-03; no shock.,2026-08-03
+base,Today's renewal book,market,spread_bp,0.0,Offered renewal rates as at 2026-08-03; no shock.,2026-08-03
+base,Today's renewal book,market,competitor_gap_bp,0.0,Offered renewal rates as at 2026-08-03; no shock.,2026-08-03
+base,Today's renewal book,market,unemployment_pp,0.0,Offered renewal rates as at 2026-08-03; no shock.,2026-08-03
+base,Today's renewal book,market,inflation_pp,0.0,Offered renewal rates as at 2026-08-03; no shock.,2026-08-03
+base,Today's renewal book,market,house_price_pct,0.0,Offered renewal rates as at 2026-08-03; no shock.,2026-08-03
+soft-landing,Soft landing,market,boc_bp,-50,BoC eases gradually; jobs hold; housing firms.,2026-08-03
+soft-landing,Soft landing,market,goc5_bp,-25,BoC eases gradually; jobs hold; housing firms.,2026-08-03
+soft-landing,Soft landing,market,spread_bp,0.0,BoC eases gradually; jobs hold; housing firms.,2026-08-03
+soft-landing,Soft landing,market,competitor_gap_bp,0.0,BoC eases gradually; jobs hold; housing firms.,2026-08-03
+soft-landing,Soft landing,market,unemployment_pp,-0.25,BoC eases gradually; jobs hold; housing firms.,2026-08-03
+soft-landing,Soft landing,market,inflation_pp,0.0,BoC eases gradually; jobs hold; housing firms.,2026-08-03
+soft-landing,Soft landing,market,house_price_pct,3,BoC eases gradually; jobs hold; housing firms.,2026-08-03
+sticky-inflation,Sticky inflation,market,boc_bp,50,No cuts; yields and living costs higher for longer.,2026-08-03
+sticky-inflation,Sticky inflation,market,goc5_bp,40,No cuts; yields and living costs higher for longer.,2026-08-03
+sticky-inflation,Sticky inflation,market,spread_bp,10,No cuts; yields and living costs higher for longer.,2026-08-03
+sticky-inflation,Sticky inflation,market,competitor_gap_bp,0.0,No cuts; yields and living costs higher for longer.,2026-08-03
+sticky-inflation,Sticky inflation,market,unemployment_pp,0.0,No cuts; yields and living costs higher for longer.,2026-08-03
+sticky-inflation,Sticky inflation,market,inflation_pp,1.5,No cuts; yields and living costs higher for longer.,2026-08-03
+sticky-inflation,Sticky inflation,market,house_price_pct,0.0,No cuts; yields and living costs higher for longer.,2026-08-03
+housing-correction,Housing correction,market,boc_bp,0.0,Prices fall; spreads widen; modest job losses.,2026-08-03
+housing-correction,Housing correction,market,goc5_bp,-10,Prices fall; spreads widen; modest job losses.,2026-08-03
+housing-correction,Housing correction,market,spread_bp,20,Prices fall; spreads widen; modest job losses.,2026-08-03
+housing-correction,Housing correction,market,competitor_gap_bp,0.0,Prices fall; spreads widen; modest job losses.,2026-08-03
+housing-correction,Housing correction,market,unemployment_pp,1,Prices fall; spreads widen; modest job losses.,2026-08-03
+housing-correction,Housing correction,market,inflation_pp,0.0,Prices fall; spreads widen; modest job losses.,2026-08-03
+housing-correction,Housing correction,market,house_price_pct,-15,Prices fall; spreads widen; modest job losses.,2026-08-03
+recession,Recession watch,market,boc_bp,-100,Unemployment jumps; BoC cuts hard; collateral falls.,2026-08-03
+recession,Recession watch,market,goc5_bp,-50,Unemployment jumps; BoC cuts hard; collateral falls.,2026-08-03
+recession,Recession watch,market,spread_bp,35,Unemployment jumps; BoC cuts hard; collateral falls.,2026-08-03
+recession,Recession watch,market,competitor_gap_bp,0.0,Unemployment jumps; BoC cuts hard; collateral falls.,2026-08-03
+recession,Recession watch,market,unemployment_pp,2.5,Unemployment jumps; BoC cuts hard; collateral falls.,2026-08-03
+recession,Recession watch,market,inflation_pp,-0.5,Unemployment jumps; BoC cuts hard; collateral falls.,2026-08-03
+recession,Recession watch,market,house_price_pct,-10,Unemployment jumps; BoC cuts hard; collateral falls.,2026-08-03
+price-war,Competitor price war,market,boc_bp,0.0,Big-bank and broker channel undercut renewals.,2026-08-03
+price-war,Competitor price war,market,goc5_bp,0.0,Big-bank and broker channel undercut renewals.,2026-08-03
+price-war,Competitor price war,market,spread_bp,-15,Big-bank and broker channel undercut renewals.,2026-08-03
+price-war,Competitor price war,market,competitor_gap_bp,35,Big-bank and broker channel undercut renewals.,2026-08-03
+price-war,Competitor price war,market,unemployment_pp,0.0,Big-bank and broker channel undercut renewals.,2026-08-03
+price-war,Competitor price war,market,inflation_pp,0.0,Big-bank and broker channel undercut renewals.,2026-08-03
+price-war,Competitor price war,market,house_price_pct,0.0,Big-bank and broker channel undercut renewals.,2026-08-03
+boc-easing,Bank of Canada easing,world,boc_bp,-50,Rate cuts continue: variable payments ease and fixed rates drift lower.,2026-08-03
+boc-easing,Bank of Canada easing,world,goc5_bp,-20,Rate cuts continue: variable payments ease and fixed rates drift lower.,2026-08-03
+boc-easing,Bank of Canada easing,world,spread_bp,0.0,Rate cuts continue: variable payments ease and fixed rates drift lower.,2026-08-03
+boc-easing,Bank of Canada easing,world,competitor_gap_bp,0.0,Rate cuts continue: variable payments ease and fixed rates drift lower.,2026-08-03
+boc-easing,Bank of Canada easing,world,unemployment_pp,0.0,Rate cuts continue: variable payments ease and fixed rates drift lower.,2026-08-03
+boc-easing,Bank of Canada easing,world,inflation_pp,-0.25,Rate cuts continue: variable payments ease and fixed rates drift lower.,2026-08-03
+boc-easing,Bank of Canada easing,world,house_price_pct,0.0,Rate cuts continue: variable payments ease and fixed rates drift lower.,2026-08-03
+fixed-rates-rise,Fixed mortgage rates rising,world,boc_bp,0.0,Bond yields push 5-year fixed rates up ahead of renewal.,2026-08-03
+fixed-rates-rise,Fixed mortgage rates rising,world,goc5_bp,40,Bond yields push 5-year fixed rates up ahead of renewal.,2026-08-03
+fixed-rates-rise,Fixed mortgage rates rising,world,spread_bp,10,Bond yields push 5-year fixed rates up ahead of renewal.,2026-08-03
+fixed-rates-rise,Fixed mortgage rates rising,world,competitor_gap_bp,0.0,Bond yields push 5-year fixed rates up ahead of renewal.,2026-08-03
+fixed-rates-rise,Fixed mortgage rates rising,world,unemployment_pp,0.0,Bond yields push 5-year fixed rates up ahead of renewal.,2026-08-03
+fixed-rates-rise,Fixed mortgage rates rising,world,inflation_pp,0.0,Bond yields push 5-year fixed rates up ahead of renewal.,2026-08-03
+fixed-rates-rise,Fixed mortgage rates rising,world,house_price_pct,0.0,Bond yields push 5-year fixed rates up ahead of renewal.,2026-08-03
+cost-of-living,Cost-of-living pressure,world,boc_bp,25,"Grocery, rent and utility inflation squeezes household budgets.",2026-08-03
+cost-of-living,Cost-of-living pressure,world,goc5_bp,0.0,"Grocery, rent and utility inflation squeezes household budgets.",2026-08-03
+cost-of-living,Cost-of-living pressure,world,spread_bp,0.0,"Grocery, rent and utility inflation squeezes household budgets.",2026-08-03
+cost-of-living,Cost-of-living pressure,world,competitor_gap_bp,0.0,"Grocery, rent and utility inflation squeezes household budgets.",2026-08-03
+cost-of-living,Cost-of-living pressure,world,unemployment_pp,0.0,"Grocery, rent and utility inflation squeezes household budgets.",2026-08-03
+cost-of-living,Cost-of-living pressure,world,inflation_pp,1.25,"Grocery, rent and utility inflation squeezes household budgets.",2026-08-03
+cost-of-living,Cost-of-living pressure,world,house_price_pct,0.0,"Grocery, rent and utility inflation squeezes household budgets.",2026-08-03
+jobs-softening,Labour market softening,world,boc_bp,-25,"Hiring slows and unemployment ticks up, especially for newer workers.",2026-08-03
+jobs-softening,Labour market softening,world,goc5_bp,0.0,"Hiring slows and unemployment ticks up, especially for newer workers.",2026-08-03
+jobs-softening,Labour market softening,world,spread_bp,0.0,"Hiring slows and unemployment ticks up, especially for newer workers.",2026-08-03
+jobs-softening,Labour market softening,world,competitor_gap_bp,0.0,"Hiring slows and unemployment ticks up, especially for newer workers.",2026-08-03
+jobs-softening,Labour market softening,world,unemployment_pp,1.0,"Hiring slows and unemployment ticks up, especially for newer workers.",2026-08-03
+jobs-softening,Labour market softening,world,inflation_pp,0.0,"Hiring slows and unemployment ticks up, especially for newer workers.",2026-08-03
+jobs-softening,Labour market softening,world,house_price_pct,0.0,"Hiring slows and unemployment ticks up, especially for newer workers.",2026-08-03
+housing-cooling,Housing market cooling,world,boc_bp,0.0,Sales slow and prices soften in major Canadian markets.,2026-08-03
+housing-cooling,Housing market cooling,world,goc5_bp,0.0,Sales slow and prices soften in major Canadian markets.,2026-08-03
+housing-cooling,Housing market cooling,world,spread_bp,5,Sales slow and prices soften in major Canadian markets.,2026-08-03
+housing-cooling,Housing market cooling,world,competitor_gap_bp,0.0,Sales slow and prices soften in major Canadian markets.,2026-08-03
+housing-cooling,Housing market cooling,world,unemployment_pp,0.0,Sales slow and prices soften in major Canadian markets.,2026-08-03
+housing-cooling,Housing market cooling,world,inflation_pp,0.0,Sales slow and prices soften in major Canadian markets.,2026-08-03
+housing-cooling,Housing market cooling,world,house_price_pct,-6,Sales slow and prices soften in major Canadian markets.,2026-08-03
+lender-promotions,Lender rate promotions,world,boc_bp,0.0,Other lenders and brokers advertise sharp renewal and switch rates.,2026-08-03
+lender-promotions,Lender rate promotions,world,goc5_bp,0.0,Other lenders and brokers advertise sharp renewal and switch rates.,2026-08-03
+lender-promotions,Lender rate promotions,world,spread_bp,-5,Other lenders and brokers advertise sharp renewal and switch rates.,2026-08-03
+lender-promotions,Lender rate promotions,world,competitor_gap_bp,30,Other lenders and brokers advertise sharp renewal and switch rates.,2026-08-03
+lender-promotions,Lender rate promotions,world,unemployment_pp,0.0,Other lenders and brokers advertise sharp renewal and switch rates.,2026-08-03
+lender-promotions,Lender rate promotions,world,inflation_pp,0.0,Other lenders and brokers advertise sharp renewal and switch rates.,2026-08-03
+lender-promotions,Lender rate promotions,world,house_price_pct,0.0,Other lenders and brokers advertise sharp renewal and switch rates.,2026-08-03

@@ -151,3 +151,14 @@ export interface AppConfig {
   bank: string;
   disclaimer: string;
 }
+
+export interface FabricCapacity {
+  configured: boolean;
+  name?: string;
+  sku?: string;
+  region?: string;
+  rawState?: string;
+  state: "active" | "paused" | "resuming" | "pausing" | "unknown";
+  canOperate: boolean;
+  error?: string;
+}

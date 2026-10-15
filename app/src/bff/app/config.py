@@ -25,6 +25,9 @@ class Settings:
 
     # --- Foundry ---
     project_endpoint: str = os.getenv("FOUNDRY_PROJECT_ENDPOINT", "")
+    scenario_agent_name: str = os.getenv("SCENARIO_AGENT_NAME", "pb-scenario-analyst")
+    compliance_agent_name: str = os.getenv("COMPLIANCE_AGENT_NAME", "pb-compliance-reviewer")
+    mission_agent_name: str = os.getenv("MISSION_AGENT_NAME", "pb-mission-agent")
     agent_name: str = os.getenv("FOUNDRY_AGENT_NAME", "mortgage-renewal-concierge")
     agent_id: str = os.getenv("FOUNDRY_AGENT_ID", "")
 
@@ -36,6 +39,8 @@ class Settings:
         os.getenv("ALLOW_APP_IDENTITY_FALLBACK", "false").lower() == "true"
     )
     mock_mode: bool = os.getenv("MOCK_MODE", "false").lower() == "true"
+    # Display name of the deployed bank; the SPA relabels authored copy itself.
+    bank_name: str = os.getenv("BANK_NAME", "CFC Bank")
 
     cors_origins: list[str] = field(
         default_factory=lambda: _split(

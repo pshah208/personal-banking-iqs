@@ -56,7 +56,9 @@ For UI-only work without Azure, set `MOCK_MODE=true` in the BFF and skip the `VI
 - `app/src/web/` — React/Vite/MSAL frontend.
 - `infra/` — Bicep resources and Azure control-plane wiring.
 - `docs/products/mortgage-iq/` — living documentation / product notes.
-- `deploy.ps1` — end-to-end orchestration entry point.
+- `deploy.ps1` — end-to-end orchestration entry point (`-Bank "<name>"` brands the deployment).
+- `tools/brand/` — `fetch_brand.py` (bank name → brand pack + `brands.json`) and `bank_profile.py` (deployed bank for Python scripts).
+- `.github/workflows/` — `deploy.yml` ("Deploy for a bank", workflow_dispatch) and `ci.yml`.
 
 ## Conventions
 
@@ -65,6 +67,8 @@ For UI-only work without Azure, set `MOCK_MODE=true` in the BFF and skip the `VI
 - Use user-delegated identity for Work IQ and Fabric access rather than app-only access.
 - Bicep covers Azure control plane only; Python scripts create the data-plane objects (Fabric, AI Search, M365 content, agent).
 - Prefer repo docs and existing scripts over creating alternate deployment or architecture flows.
+- The repo is bank-neutral: author copy for the fictional "CFC Bank" and never hard-code a real bank. The web app relabels it via `app/src/web/src/brand.ts`; scripts that push content (agent, Fabric, AI Search, Microsoft 365) must pass it through `bank_profile.rebrand()`.
+- Only `app/src/web/public/brand/cfc/` is committed; real bank packs are fetched at deploy time and git-ignored.
 
 ## Land mines
 
@@ -72,7 +76,7 @@ For UI-only work without Azure, set `MOCK_MODE=true` in the BFF and skip the `VI
 - The root README currently references a missing `mortgage-iq-app/README.md` path; verify before linking or citing it.
 - Work IQ and Fabric access are identity-sensitive; changes to auth or OBO logic can silently break grounded answers.
 - Agent behavior is defined by `agent/agent_instructions.md` and the BFF call flow; do not assume the Foundry playground behavior matches this app.
-- There is no formal API contract or automated test suite in the repo baseline; verify manually with smoke checks before relying on changes.
+- CI (`.github/workflows/ci.yml`) covers the web build + `dashboard.test.mjs`, Python byte-compile, generator `--check`s, offline brand tooling and Bicep build; there is no formal API contract, so still smoke-test grounded answers manually.
 
 ## Don't
 

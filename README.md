@@ -4,17 +4,46 @@ A complete, ready-to-load synthetic dataset and upload runbook for building a
 **Mortgage Renewal Concierge** agent in Azure AI Foundry, grounded across three
 Microsoft intelligence layers.
 
-Scenario: **CFC Bank**, FY26 180-day mortgage renewal campaign, three pilot
-branches, as at **2026-08-03**.
+Scenario: a retail bank's FY26 180-day mortgage renewal campaign, three pilot
+branches, as at **2026-08-03**. The repository is **bank-neutral**: its copy is
+written for the fictional **CFC Bank**, and every deployment is branded for the
+bank you name at deploy time (see [Deploy it for your bank](#deploy-it-for-your-bank)).
 
-> ⚠️ **Everything in this dataset is synthetic and illustrative.** CFC Bank is a
-> **fictional institution** invented as a branding label for a demo. No person,
-> customer, branch, balance,
-> rate, internal policy, pricing guardrail, approval limit or governance decision
-> here reflects any actual bank's data, product, process or position — all of
-> it was generated for this demo. OSFI guideline numbers (B-20, B-21, E-21, E-23)
-> are real public guidelines cited by name only; the policy text around them is
-> invented. Do not present this as real bank information.
+> ⚠️ **Everything in this dataset is synthetic and illustrative.** The bank name
+> and marks are used only as a branding label for a demo. No person, customer,
+> branch, balance, rate, internal policy, pricing guardrail, approval limit or
+> governance decision here reflects any actual bank's data, product, process or
+> position — all of it was generated for this demo. OSFI guideline numbers
+> (B-20, B-21, E-21, E-23) are real public guidelines cited by name only; the
+> policy text around them is invented. Do not present this as real bank
+> information.
+
+---
+
+## Deploy it for your bank
+
+Give the deployment a bank name and it picks up that bank's public branding —
+official name, short name, logo, icon and colours — from Wikidata, Wikimedia
+Commons and the bank's own website. The web app, the Foundry agent's
+instructions, and the content seeded into Fabric IQ, Foundry IQ and Work IQ all
+name that bank.
+
+**From GitHub (no local tooling):** fork the repo, add the OIDC secrets, then
+*Actions → Deploy for a bank → Run workflow*, enter the bank name and pick the
+stages. Start with `stages = brand` to preview the logo and colours.
+
+**From a workstation:**
+
+```powershell
+pip install -r requirements.txt
+az login
+.\deploy.ps1 -Bank "Royal Bank of Canada" -ResourceGroup rg-mtgrenewal-dev-eastus-001 -WhatIf
+.\deploy.ps1 -Bank "Royal Bank of Canada" -ResourceGroup rg-mtgrenewal-dev-eastus-001
+.\app\deploy.ps1 -ResourceGroup rg-mtgrenewal-dev-eastus-001 -AadClientId ... -AadClientSecret ... -AadApiScope ...
+```
+
+Full walkthrough, prerequisites and overrides (`-BankDomain`, `-BankShort`,
+`--logo`, `--primary`): **[docs/deploy-for-your-bank.md](docs/deploy-for-your-bank.md)**.
 
 ---
 
@@ -33,8 +62,13 @@ branches, as at **2026-08-03**.
 ```
 mortgage-renewal-concierge/
 ├── README.md                     ← you are here
-├── deploy.ps1                    end-to-end orchestration (Bicep → data → agent)
+├── deploy.ps1                    end-to-end orchestration (brand → Bicep → data → agent)
 ├── requirements.txt              Python dependencies
+├── .github/workflows/            deploy.yml (Deploy for a bank) · ci.yml (build + checks)
+├── tools/
+│   ├── brand/fetch_brand.py            bank name → brand pack (logo, colours, names)
+│   ├── brand/bank_profile.py           the deployed bank, for the Python scripts
+│   └── preflight.ps1                   policy / RBAC / allow-list report before deploying
 ├── infra/                        → Azure control plane (Bicep)
 │   ├── README.md                       what Bicep can and cannot cover
 │   ├── main.bicep · main.json          orchestrator + compiled ARM

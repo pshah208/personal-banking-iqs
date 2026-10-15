@@ -6,6 +6,39 @@ async function authHeaders(): Promise<Record<string, string>> {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
+export async function apiGet<T>(path: string): Promise<T> {
+  const r = await fetch(path, { headers: await authHeaders() });
+  if (!r.ok) throw new Error(`${path} ${r.status}`);
+  return r.json();
+}
+
+export async function apiPost<T>(path: string, body: unknown): Promise<T> {
+  const r = await fetch(path, {
+    method: "POST",
+    headers: { ...(await authHeaders()), "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!r.ok) throw new Error(`${path} ${r.status}`);
+  return r.json();
+}
+
+/** POST and save the response as a file (Word drafts). */
+export async function apiDownload(path: string, body: unknown, fallbackName: string): Promise<void> {
+  const r = await fetch(path, {
+    method: "POST",
+    headers: { ...(await authHeaders()), "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!r.ok) throw new Error(`${path} ${r.status}`);
+  const name = /filename="([^"]+)"/.exec(r.headers.get("Content-Disposition") ?? "")?.[1] ?? fallbackName;
+  const url = URL.createObjectURL(await r.blob());
+  const a = Object.assign(document.createElement("a"), { href: url, download: name });
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 export async function fetchConfig(): Promise<AppConfig> {
   const r = await fetch("/api/config");
   if (!r.ok) throw new Error(`config ${r.status}`);
@@ -43,6 +76,8 @@ export interface StreamHandlers {
   onMessage?: (text: string, citations: Citation[]) => void;
   onError?: (text: string, detail: string) => void;
   onDone?: (payload: Record<string, unknown>) => void;
+  /** Any other named event (mission harness steps, tool calls, reviewer stream). */
+  onEvent?: (event: string, payload: any) => void;
 }
 
 /**
@@ -57,10 +92,20 @@ export async function streamChat(
   handlers: StreamHandlers,
   signal?: AbortSignal,
 ): Promise<void> {
-  const res = await fetch("/api/chat", {
+  return streamSSE("/api/chat", { question, threadId }, handlers, signal);
+}
+
+/** POST `body` to any SSE endpoint (chat, scenario brief, compliance review) and dispatch frames. */
+export async function streamSSE(
+  path: string,
+  body: unknown,
+  handlers: StreamHandlers,
+  signal?: AbortSignal,
+): Promise<void> {
+  const res = await fetch(path, {
     method: "POST",
     headers: { "Content-Type": "application/json", ...(await authHeaders()) },
-    body: JSON.stringify({ question, threadId }),
+    body: JSON.stringify(body),
     signal,
   });
 
@@ -125,6 +170,7 @@ export async function streamChat(
           handlers.onDone?.(payload);
           break;
         default:
+          handlers.onEvent?.(event, payload);
           break;
       }
     }

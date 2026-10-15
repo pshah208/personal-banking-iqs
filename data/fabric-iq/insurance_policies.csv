@@ -1,0 +1,119 @@
+policy_id,customer_id,customer_name,policy_type,optional_creditor,status,covered_amount_cad,monthly_premium_cad,premium_when_active_cad,start_date,lapse_date,days_since_lapse,linked_account_id,as_of_date
+IN-8001,CUST-1001,Sana Mehta,Mortgage life,Y,Active,736000.0,131.01,131.01,2025-10-10,,,RNW-5001,2026-08-03
+IN-8002,CUST-1001,Sana Mehta,Home,N,Active,926200.0,182.62,182.62,2024-06-03,,,RNW-5001,2026-08-03
+IN-8003,CUST-1002,Bruno Castellanos,Mortgage life,Y,Active,511000.0,57.23,57.23,2023-09-18,,,RNW-5002,2026-08-03
+IN-8004,CUST-1002,Bruno Castellanos,Mortgage disability,Y,Active,3700.0,223.87,223.87,2023-09-18,,,RNW-5002,2026-08-03
+IN-8005,CUST-1003,Rahul Park,Mortgage life,Y,Active,549000.0,153.72,153.72,2021-12-17,,,RNW-5003,2026-08-03
+IN-8006,CUST-1003,Rahul Park,Card balance protection,Y,Active,2600.0,25.54,25.54,2025-01-03,,,CA-1003,2026-08-03
+IN-8007,CUST-1003,Rahul Park,Travel (card benefit),N,Active,1000000,0,0,2025-01-15,,,CA-1003,2026-08-03
+IN-8008,CUST-1004,Beatrice Karim,Mortgage life,Y,Active,671000.0,79.18,79.18,2022-02-09,,,RNW-5004,2026-08-03
+IN-8009,CUST-1005,Aiden Larsen,Mortgage life,Y,Active,213000.0,34.08,34.08,2026-01-20,,,RNW-5005,2026-08-03
+IN-8010,CUST-1005,Aiden Larsen,Mortgage disability,Y,Active,1000.0,60.14,60.14,2026-01-20,,,RNW-5005,2026-08-03
+IN-8011,CUST-1005,Aiden Larsen,Home,N,Active,167300.0,106.73,106.73,2026-01-03,,,RNW-5005,2026-08-03
+IN-8012,CUST-1005,Aiden Larsen,Card balance protection,Y,Active,400.0,3.96,3.96,2023-10-03,,,CA-1005,2026-08-03
+IN-8013,CUST-1006,Andre Cardoso,Mortgage life,Y,Active,300000.0,35.4,35.4,2022-01-23,,,RNW-5006,2026-08-03
+IN-8014,CUST-1006,Andre Cardoso,Mortgage disability,Y,Active,1300.0,79.62,79.62,2022-01-23,,,RNW-5006,2026-08-03
+IN-8015,CUST-1009,Valeria Guerrero,Mortgage life,Y,Active,145500.0,16.3,16.3,2025-10-19,,,RNW-5009,2026-08-03
+IN-8016,CUST-1009,Valeria Guerrero,Mortgage disability,Y,Active,1600.0,94.94,94.94,2025-10-19,,,RNW-5009,2026-08-03
+IN-8017,CUST-1010,Gustav Haddadi,Mortgage life,Y,Declined,0,0.0,0.0,2022-01-25,,,RNW-5010,2026-08-03
+IN-8018,CUST-1010,Gustav Haddadi,Mortgage disability,Y,Active,4700.0,283.2,283.2,2022-01-25,,,RNW-5010,2026-08-03
+IN-8019,CUST-1010,Gustav Haddadi,Travel (card benefit),N,Active,1000000,0,0,2023-01-15,,,CA-1010,2026-08-03
+IN-8020,CUST-1011,Amara Lachance,Home,N,Active,184700.0,108.47,108.47,2024-09-03,,,RNW-5011,2026-08-03
+IN-8021,CUST-1012,Rosa Bergeron,Travel (card benefit),N,Active,1000000,0,0,2024-01-15,,,CA-1012,2026-08-03
+IN-8022,CUST-1013,Ayesha Novak,Mortgage life,Y,Active,711000.0,126.56,126.56,2023-11-27,,,RNW-5013,2026-08-03
+IN-8023,CUST-1013,Ayesha Novak,Mortgage disability,Y,Lapsed,4000.0,0.0,238.14,2023-11-27,2026-04-10,115,RNW-5013,2026-08-03
+IN-8024,CUST-1014,Josephine Novak,Mortgage life,Y,Active,612000.0,123.62,123.62,2021-10-09,,,RNW-5014,2026-08-03
+IN-8025,CUST-1014,Josephine Novak,Mortgage disability,Y,Active,2500.0,150.22,150.22,2021-10-09,,,RNW-5014,2026-08-03
+IN-8026,CUST-1014,Josephine Novak,Home,N,Active,515300.0,141.53,141.53,2024-08-03,,,RNW-5014,2026-08-03
+IN-8027,CUST-1014,Josephine Novak,Travel (card benefit),N,Active,1000000,0,0,2025-01-15,,,CA-1014,2026-08-03
+IN-8028,CUST-1015,Naomi Iyer,Mortgage life,Y,Declined,0,0.0,0.0,2021-10-11,,,RNW-5015,2026-08-03
+IN-8029,CUST-1015,Naomi Iyer,Mortgage disability,Y,Active,4300.0,260.3,260.3,2021-10-11,,,RNW-5015,2026-08-03
+IN-8030,CUST-1016,Farah Thibault,Mortgage life,Y,Active,433000.0,113.45,113.45,2021-10-14,,,RNW-5016,2026-08-03
+IN-8031,CUST-1017,Ravi Sokolov,Mortgage life,Y,Active,544000.0,60.93,60.93,2022-02-19,,,RNW-5017,2026-08-03
+IN-8032,CUST-1017,Ravi Sokolov,Travel (card benefit),N,Active,1000000,0,0,2019-01-15,,,CA-1017,2026-08-03
+IN-8033,CUST-1018,Farah Leclair,Mortgage life,Y,Lapsed,941000.0,0.0,235.25,2022-01-14,2026-03-17,139,RNW-5018,2026-08-03
+IN-8034,CUST-1018,Farah Leclair,Line of credit protection,Y,Lapsed,4600.0,0.0,41.85,2026-03-03,2026-05-08,87,LN-5019,2026-08-03
+IN-8035,CUST-1019,Yuki Karim,Mortgage life,Y,Declined,0,0.0,0.0,2021-10-05,,,RNW-5019,2026-08-03
+IN-8036,CUST-1020,Nikhil Petrov,Mortgage life,Y,Active,394000.0,96.14,96.14,2023-11-04,,,RNW-5020,2026-08-03
+IN-8037,CUST-1020,Nikhil Petrov,Home,N,Active,542200.0,144.22,144.22,2024-01-03,,,RNW-5020,2026-08-03
+IN-8038,CUST-1021,Simone Marchetti,Mortgage life,Y,Lapsed,465000.0,0.0,96.72,2021-09-16,2026-02-26,158,RNW-5021,2026-08-03
+IN-8039,CUST-1021,Simone Marchetti,Mortgage disability,Y,Lapsed,3400.0,0.0,206.83,2021-09-16,2026-06-23,41,RNW-5021,2026-08-03
+IN-8040,CUST-1021,Simone Marchetti,Line of credit protection,Y,Lapsed,11300.0,0.0,101.52,2023-01-03,2026-01-18,197,LN-5023,2026-08-03
+IN-8041,CUST-1022,Omar Kowalski,Mortgage life,Y,Active,444000.0,57.72,57.72,2025-12-22,,,RNW-5022,2026-08-03
+IN-8042,CUST-1023,Felix Benali,Mortgage life,Y,Active,719000.0,76.21,76.21,2021-12-18,,,RNW-5023,2026-08-03
+IN-8043,CUST-1023,Felix Benali,Line of credit protection,Y,Active,13000.0,116.55,116.55,2023-06-03,,,LN-5026,2026-08-03
+IN-8044,CUST-1024,Simone Siddiqui,Mortgage life,Y,Active,1299000.0,239.02,239.02,2023-12-29,,,RNW-5024,2026-08-03
+IN-8045,CUST-1024,Simone Siddiqui,Home,N,Active,1637600.0,253.76,253.76,2025-07-03,,,RNW-5024,2026-08-03
+IN-8046,CUST-1024,Simone Siddiqui,Line of credit protection,Y,Active,26000.0,233.73,233.73,2022-09-03,,,LN-5028,2026-08-03
+IN-8047,CUST-1025,Henrik Thibault,Mortgage life,Y,Lapsed,753000.0,0.0,102.41,2021-11-12,2026-06-09,55,RNW-5025,2026-08-03
+IN-8048,CUST-1025,Henrik Thibault,Home,N,Active,743200.0,164.32,164.32,2024-07-03,,,RNW-5025,2026-08-03
+IN-8049,CUST-1026,Nadia Silva,Home,N,Active,683800.0,158.38,158.38,2026-06-03,,,RNW-5026,2026-08-03
+IN-8050,CUST-1027,Simone Aziz,Mortgage life,Y,Active,662000.0,145.64,145.64,2021-12-18,,,RNW-5027,2026-08-03
+IN-8051,CUST-1027,Simone Aziz,Mortgage disability,Y,Active,4400.0,264.85,264.85,2021-12-18,,,RNW-5027,2026-08-03
+IN-8052,CUST-1027,Simone Aziz,Line of credit protection,Y,Active,11400.0,102.42,102.42,2025-09-03,,,LN-5031,2026-08-03
+IN-8053,CUST-1028,Lucas Aziz,Mortgage life,Y,Declined,0,0.0,0.0,2021-10-14,,,RNW-5028,2026-08-03
+IN-8054,CUST-1029,Ayesha Haddadi,Mortgage life,Y,Declined,0,0.0,0.0,2021-12-06,,,RNW-5029,2026-08-03
+IN-8055,CUST-1030,Felix Solberg,Home,N,Active,545700.0,144.57,144.57,2024-05-03,,,RNW-5030,2026-08-03
+IN-8056,CUST-1030,Felix Solberg,Line of credit protection,Y,Active,1500.0,13.32,13.32,2025-12-03,,,LN-5035,2026-08-03
+IN-8057,CUST-1031,Valeria Okonkwo,Home,N,Active,705400.0,160.54,160.54,2026-04-03,,,RNW-5031,2026-08-03
+IN-8058,CUST-1032,Leila Beaulieu,Mortgage life,Y,Declined,0,0.0,0.0,2025-10-03,,,RNW-5032,2026-08-03
+IN-8059,CUST-1032,Leila Beaulieu,Mortgage disability,Y,Active,1400.0,85.73,85.73,2025-10-03,,,RNW-5032,2026-08-03
+IN-8060,CUST-1033,Mateo Bergeron,Mortgage life,Y,Declined,0,0.0,0.0,2021-10-05,,,RNW-5033,2026-08-03
+IN-8061,CUST-1033,Mateo Bergeron,Line of credit protection,Y,Lapsed,45900.0,0.0,413.37,2024-03-03,2026-01-21,194,LN-5039,2026-08-03
+IN-8062,CUST-1034,Samuel Sinclair,Mortgage life,Y,Active,254000.0,45.21,45.21,2023-12-31,,,RNW-5034,2026-08-03
+IN-8063,CUST-1034,Samuel Sinclair,Home,N,Active,298800.0,119.88,119.88,2025-04-03,,,RNW-5034,2026-08-03
+IN-8064,CUST-1034,Samuel Sinclair,Line of credit protection,Y,Active,49400.0,444.69,444.69,2023-09-03,,,LN-5041,2026-08-03
+IN-8065,CUST-1035,Andre Petrov,Mortgage life,Y,Active,254000.0,29.97,29.97,2026-02-04,,,RNW-5035,2026-08-03
+IN-8066,CUST-1035,Andre Petrov,Mortgage disability,Y,Active,1200.0,74.11,74.11,2026-02-04,,,RNW-5035,2026-08-03
+IN-8067,CUST-1035,Andre Petrov,Home,N,Active,201300.0,110.13,110.13,2024-10-03,,,RNW-5035,2026-08-03
+IN-8068,CUST-1036,Bruno Cardoso,Mortgage life,Y,Active,657000.0,124.83,124.83,2022-01-19,,,RNW-5036,2026-08-03
+IN-8069,CUST-1036,Bruno Cardoso,Mortgage disability,Y,Active,2600.0,156.78,156.78,2022-01-19,,,RNW-5036,2026-08-03
+IN-8070,CUST-1037,Sana Sinclair,Mortgage life,Y,Active,475000.0,76.0,76.0,2021-11-23,,,RNW-5037,2026-08-03
+IN-8071,CUST-1037,Sana Sinclair,Line of credit protection,Y,Lapsed,33700.0,0.0,303.21,2024-10-03,2026-03-10,146,LN-5044,2026-08-03
+IN-8072,CUST-1038,Rahul Castellanos,Card balance protection,Y,Active,6000.0,59.4,59.4,2025-08-03,,,CA-1038,2026-08-03
+IN-8073,CUST-1038,Rahul Castellanos,Travel (card benefit),N,Active,1000000,0,0,2013-01-15,,,CA-1038,2026-08-03
+IN-8074,CUST-1039,Aiden Rossi,Mortgage life,Y,Active,444000.0,63.05,63.05,2025-02-04,,,RNW-5039,2026-08-03
+IN-8075,CUST-1039,Aiden Rossi,Mortgage disability,Y,Lapsed,2200.0,0.0,134.3,2025-02-04,2026-06-29,35,RNW-5039,2026-08-03
+IN-8076,CUST-1039,Aiden Rossi,Line of credit protection,Y,Active,16000.0,143.91,143.91,2021-08-03,,,LN-5046,2026-08-03
+IN-8077,CUST-1040,Clara Thibault,Mortgage life,Y,Active,343000.0,85.75,85.75,2025-08-19,,,RNW-5040,2026-08-03
+IN-8078,CUST-1041,Caleb Yusuf,Mortgage life,Y,Active,725000.0,146.45,146.45,2021-12-17,,,RNW-5041,2026-08-03
+IN-8079,CUST-1041,Caleb Yusuf,Travel (card benefit),N,Active,1000000,0,0,2016-01-15,,,CA-1041,2026-08-03
+IN-8080,CUST-1042,Lucas Petrov,Mortgage life,Y,Active,212000.0,44.1,44.1,2021-12-09,,,RNW-5042,2026-08-03
+IN-8081,CUST-1042,Lucas Petrov,Home,N,Active,199800.0,109.98,109.98,2024-01-03,,,RNW-5042,2026-08-03
+IN-8082,CUST-1042,Lucas Petrov,Line of credit protection,Y,Lapsed,6200.0,0.0,55.89,2022-12-03,2026-01-18,197,LN-5049,2026-08-03
+IN-8083,CUST-1043,Andre Ellsworth,Mortgage life,Y,Declined,0,0.0,0.0,2021-11-20,,,RNW-5043,2026-08-03
+IN-8084,CUST-1043,Andre Ellsworth,Mortgage disability,Y,Active,2200.0,132.39,132.39,2021-11-20,,,RNW-5043,2026-08-03
+IN-8085,CUST-1043,Andre Ellsworth,Line of credit protection,Y,Active,7500.0,67.32,67.32,2024-07-03,,,LN-5050,2026-08-03
+IN-8086,CUST-1043,Andre Ellsworth,Card balance protection,Y,Active,4800.0,48.02,48.02,2025-05-03,,,CA-1043,2026-08-03
+IN-8087,CUST-1044,Tariq Marchetti,Mortgage life,Y,Active,418000.0,86.94,86.94,2023-09-14,,,RNW-5044,2026-08-03
+IN-8088,CUST-1044,Tariq Marchetti,Line of credit protection,Y,Active,4200.0,38.07,38.07,2025-04-03,,,LN-5053,2026-08-03
+IN-8089,CUST-1045,Dmitri Iyer,Mortgage life,Y,Declined,0,0.0,0.0,2022-02-11,,,RNW-5045,2026-08-03
+IN-8090,CUST-1045,Dmitri Iyer,Card balance protection,Y,Lapsed,11400.0,0.0,113.36,2024-09-03,2026-04-30,95,CA-1045,2026-08-03
+IN-8091,CUST-1046,Bruno Kowalski,Home,N,Active,463300.0,136.33,136.33,2026-01-03,,,RNW-5046,2026-08-03
+IN-8092,CUST-1047,Hassan Kowalski,Mortgage disability,Y,Active,3000.0,181.42,181.42,2021-10-24,,,RNW-5047,2026-08-03
+IN-8093,CUST-1048,Grace Dufresne,Mortgage life,Y,Active,450000.0,61.2,61.2,2025-11-10,,,RNW-5048,2026-08-03
+IN-8094,CUST-1048,Grace Dufresne,Mortgage disability,Y,Active,3400.0,201.78,201.78,2025-11-10,,,RNW-5048,2026-08-03
+IN-8095,CUST-1048,Grace Dufresne,Line of credit protection,Y,Active,13100.0,117.72,117.72,2025-06-03,,,LN-5060,2026-08-03
+IN-8096,CUST-1049,Sana Moreau,Mortgage life,Y,Active,264000.0,59.66,59.66,2021-12-28,,,RNW-5049,2026-08-03
+IN-8097,CUST-1049,Sana Moreau,Line of credit protection,Y,Active,13400.0,120.24,120.24,2022-03-03,,,LN-5061,2026-08-03
+IN-8098,CUST-1050,Marta Park,Mortgage life,Y,Lapsed,445000.0,0.0,79.21,2021-10-20,2026-03-07,149,RNW-5050,2026-08-03
+IN-8099,CUST-2003,Callum Singh,Travel (card benefit),N,Active,1000000,0,0,2013-01-15,,,CA-2003,2026-08-03
+IN-8100,CUST-2005,Elena Haddad,Card balance protection,Y,Active,2000.0,19.5,19.5,2023-02-03,,,CA-2005,2026-08-03
+IN-8101,CUST-2006,Felix Chen,Line of credit protection,Y,Active,9400.0,84.33,84.33,2024-12-03,,,LN-5066,2026-08-03
+IN-8102,CUST-2006,Felix Chen,Card balance protection,Y,Active,1800.0,17.92,17.92,2023-12-03,,,CA-2006,2026-08-03
+IN-8103,CUST-2006,Felix Chen,Travel (card benefit),N,Active,1000000,0,0,2021-01-15,,,CA-2006,2026-08-03
+IN-8104,CUST-2011,Kiran Ito,Card balance protection,Y,Lapsed,9500.0,0.0,94.15,2022-07-03,2026-01-30,185,CA-2011,2026-08-03
+IN-8105,CUST-2012,Lucas Roy,Card balance protection,Y,Active,500.0,5.05,5.05,2025-06-03,,,CA-2012,2026-08-03
+IN-8106,CUST-2013,Maya Singh,Travel (card benefit),N,Active,1000000,0,0,2020-01-15,,,CA-2013,2026-08-03
+IN-8107,CUST-2014,Noah Singh,Card balance protection,Y,Lapsed,3600.0,0.0,35.64,2024-12-03,2026-05-25,70,CA-2014,2026-08-03
+IN-8108,CUST-2014,Noah Singh,Travel (card benefit),N,Active,1000000,0,0,2021-01-15,,,CA-2014,2026-08-03
+IN-8109,CUST-2015,Olivia Singh,Line of credit protection,Y,Active,5800.0,51.93,51.93,2024-11-03,,,LN-5073,2026-08-03
+IN-8110,CUST-2021,Uma Desrosiers,Line of credit protection,Y,Lapsed,11000.0,0.0,99.09,2022-01-03,2026-02-23,161,LN-5079,2026-08-03
+IN-8111,CUST-2021,Uma Desrosiers,Card balance protection,Y,Active,2800.0,27.23,27.23,2023-09-03,,,CA-2021,2026-08-03
+IN-8112,CUST-2021,Uma Desrosiers,Travel (card benefit),N,Active,1000000,0,0,2024-01-15,,,CA-2021,2026-08-03
+IN-8113,CUST-2023,Wen Fortin,Travel (card benefit),N,Active,1000000,0,0,2019-01-15,,,CA-2023,2026-08-03
+IN-8114,CUST-2025,Yara Nguyen,Line of credit protection,Y,Active,8200.0,74.25,74.25,2024-09-03,,,LN-5082,2026-08-03
+IN-8115,CUST-2025,Yara Nguyen,Card balance protection,Y,Active,3600.0,35.94,35.94,2023-03-03,,,CA-2025,2026-08-03
+IN-8116,CUST-2026,Zane Haddad,Card balance protection,Y,Active,8100.0,80.49,80.49,2023-06-03,,,CA-2026,2026-08-03
+IN-8117,CUST-2027,Ana Nguyen,Line of credit protection,Y,Active,13900.0,125.37,125.37,2023-08-03,,,LN-5085,2026-08-03
+IN-8118,CUST-2038,Liam Gill,Travel (card benefit),N,Active,1000000,0,0,2020-01-15,,,CA-2038,2026-08-03

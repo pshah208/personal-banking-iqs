@@ -1,0 +1,73 @@
+event_id,customer_id,customer_name,account_id,event_date,days_ago,event_type,severity,status,channel,amount_cad,note
+SE-9001,CUST-1003,Rahul Park,DA-1003,2026-07-11,23,Large e-Transfer to new payee,High,Resolved,Online banking,9070.0,"Held and verified - client confirmed a scam, transfer cancelled"
+SE-9002,CUST-1006,Andre Cardoso,DA-1006,2026-05-25,70,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9003,CUST-1010,Gustav Haddadi,DA-1010,2026-06-07,57,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9004,CUST-1012,Rosa Bergeron,CA-1012,2026-07-30,4,Card fraud alert,Medium,Open,Card monitoring,750.0,Card blocked and reissued; disputed charges under review
+SE-9005,CUST-1012,Rosa Bergeron,CA-1012,2026-07-06,28,Card fraud alert,Medium,Resolved,Card monitoring,860.0,Client confirmed; charges reversed
+SE-9006,CUST-1017,Ravi Sokolov,DA-1017,2026-07-10,24,Large e-Transfer to new payee,High,Resolved,Online banking,11690.0,"Held and verified - legitimate payee, released"
+SE-9007,CUST-1018,Farah Leclair,DA-1018,2026-07-24,10,New device login + payee added,High,Open,Mobile app,0,Device not recognised; payee additions frozen pending verification
+SE-9008,CUST-1019,Yuki Karim,DA-1019,2026-07-09,25,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9009,CUST-1020,Nikhil Petrov,CA-1020,2026-07-07,27,Card fraud alert,High,Open,Card monitoring,450.0,Card blocked and reissued; disputed charges under review
+SE-9010,CUST-1020,Nikhil Petrov,CA-1020,2026-06-04,60,Card fraud alert,Medium,Resolved,Card monitoring,1480.0,Client confirmed; charges reversed
+SE-9011,CUST-1020,Nikhil Petrov,CA-1020,2026-06-03,61,Card fraud alert,Low,Resolved,Card monitoring,1410.0,Client confirmed; charges reversed
+SE-9012,CUST-1026,Nadia Silva,DA-1026,2026-07-03,31,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9013,CUST-1028,Lucas Aziz,DA-1028,2026-06-16,48,Large e-Transfer to new payee,High,Resolved,Online banking,11560.0,"Held and verified - legitimate payee, released"
+SE-9014,CUST-1028,Lucas Aziz,DA-1028,2026-05-12,83,New device login + payee added,High,Resolved,Mobile app,0,Client confirmed new phone
+SE-9015,CUST-1035,Andre Petrov,DA-1035,2026-06-15,49,Large e-Transfer to new payee,High,Resolved,Online banking,5690.0,"Held and verified - legitimate payee, released"
+SE-9016,CUST-1038,Rahul Castellanos,DA-1038,2026-06-21,43,Large e-Transfer to new payee,High,Resolved,Online banking,3790.0,"Held and verified - client confirmed a scam, transfer cancelled"
+SE-9017,CUST-1040,Clara Thibault,DA-1040,2026-07-31,3,New device login + payee added,High,Open,Mobile app,0,Device not recognised; payee additions frozen pending verification
+SE-9018,CUST-1041,Caleb Yusuf,DA-1041,2026-06-25,39,Large e-Transfer to new payee,High,Resolved,Online banking,9300.0,"Held and verified - legitimate payee, released"
+SE-9019,CUST-1042,Lucas Petrov,DA-1042,2026-07-12,22,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9020,CUST-1043,Andre Ellsworth,CA-1043,2026-07-10,24,Card fraud alert,Medium,Open,Card monitoring,110.0,Card blocked and reissued; disputed charges under review
+SE-9021,CUST-2001,Amara Ueda,DA-2001,2026-07-13,21,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9022,CUST-2003,Callum Singh,DA-2003,2026-06-15,49,Large e-Transfer to new payee,High,Resolved,Online banking,7160.0,"Held and verified - client confirmed a scam, transfer cancelled"
+SE-9023,CUST-2006,Felix Chen,DA-2006,2026-07-26,8,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9024,CUST-2010,Jun Pelletier,DA-2010,2026-07-15,19,New device login + payee added,High,Open,Mobile app,0,Device not recognised; payee additions frozen pending verification
+SE-9025,CUST-2012,Lucas Roy,CA-2012,2026-07-21,13,Card fraud alert,Medium,Open,Card monitoring,1140.0,Card blocked and reissued; disputed charges under review
+SE-9027,CUST-2012,Lucas Roy,DA-2012,2026-07-18,16,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9026,CUST-2012,Lucas Roy,CA-2012,2026-07-04,30,Card fraud alert,Medium,Resolved,Card monitoring,1410.0,Client confirmed; charges reversed
+SE-9028,CUST-2014,Noah Singh,CA-2014,2026-06-30,34,Card fraud alert,Medium,Resolved,Card monitoring,600.0,Client confirmed; charges reversed
+SE-9029,CUST-2014,Noah Singh,CA-2014,2026-05-19,76,Card fraud alert,Medium,Resolved,Card monitoring,1000.0,Client confirmed; charges reversed
+SE-9030,CUST-2017,Quinn Singh,CA-2017,2026-07-28,6,Card fraud alert,High,Open,Card monitoring,1390.0,Card blocked and reissued; disputed charges under review
+SE-9031,CUST-2017,Quinn Singh,CA-2017,2026-07-05,29,Card fraud alert,Medium,Resolved,Card monitoring,950.0,Client confirmed; charges reversed
+SE-9032,CUST-2017,Quinn Singh,CA-2017,2026-05-20,75,Card fraud alert,Low,Resolved,Card monitoring,1000.0,Client confirmed; charges reversed
+SE-9033,CUST-2019,Samir Ellis,DA-2019,2026-07-13,21,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9034,CUST-2021,Uma Desrosiers,CA-2021,2026-07-01,33,Card fraud alert,High,Resolved,Card monitoring,1090.0,Client confirmed; charges reversed
+SE-9035,CUST-2021,Uma Desrosiers,CA-2021,2026-05-30,65,Card fraud alert,Medium,Resolved,Card monitoring,1400.0,Client confirmed; charges reversed
+SE-9036,CUST-2021,Uma Desrosiers,CA-2021,2026-05-15,80,Card fraud alert,Low,Resolved,Card monitoring,1390.0,Client confirmed; charges reversed
+SE-9037,CUST-2024,Ximena Haddad,DA-2024,2026-06-05,59,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9038,CUST-2026,Zane Haddad,DA-2026,2026-05-19,76,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9039,CUST-2027,Ana Nguyen,DA-2027,2026-07-31,3,New device login + payee added,High,Open,Mobile app,0,Device not recognised; payee additions frozen pending verification
+SE-9040,CUST-2028,Ben Ellis,CA-2028,2026-07-17,17,Card fraud alert,Medium,Open,Card monitoring,1250.0,Card blocked and reissued; disputed charges under review
+SE-9041,CUST-2028,Ben Ellis,CA-2028,2026-07-10,24,Card fraud alert,Medium,Resolved,Card monitoring,1020.0,Client confirmed; charges reversed
+SE-9042,CUST-2029,Chloe Ueda,DA-2029,2026-07-26,8,New device login + payee added,High,Open,Mobile app,0,Device not recognised; payee additions frozen pending verification
+SE-9044,CUST-2031,Emma Lavoie,NC-2031,2026-07-29,5,Remittance to new recipient,Medium,Open,International transfer,210.0,First transfer to this recipient - scam warning shown; held pending call-back
+SE-9045,CUST-2031,Emma Lavoie,DA-2031,2026-07-26,8,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9043,CUST-2031,Emma Lavoie,NC-2031,2026-05-26,69,Remittance to new recipient,Medium,Resolved,International transfer,220.0,First transfer to this recipient - scam warning shown; client confirmed recipient
+SE-9046,CUST-2032,Farid Jansen,DA-2032,2026-07-15,19,New device login + payee added,High,Open,Mobile app,0,Device not recognised; payee additions frozen pending verification
+SE-9047,CUST-2032,Farid Jansen,DA-2032,2026-05-21,74,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9048,CUST-2033,Gia Walsh,CA-2033,2026-07-25,9,Card fraud alert,High,Open,Card monitoring,1190.0,Card blocked and reissued; disputed charges under review
+SE-9049,CUST-2033,Gia Walsh,CA-2033,2026-06-26,38,Card fraud alert,Medium,Resolved,Card monitoring,970.0,Client confirmed; charges reversed
+SE-9050,CUST-2033,Gia Walsh,CA-2033,2026-06-01,63,Card fraud alert,Low,Resolved,Card monitoring,530.0,Client confirmed; charges reversed
+SE-9051,CUST-2034,Hugo Singh,CA-2034,2026-05-22,73,Card fraud alert,Medium,Resolved,Card monitoring,1220.0,Client confirmed; charges reversed
+SE-9052,CUST-2034,Hugo Singh,CA-2034,2026-05-17,78,Card fraud alert,Medium,Resolved,Card monitoring,590.0,Client confirmed; charges reversed
+SE-9053,CUST-2034,Hugo Singh,DA-2034,2026-05-13,82,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9054,CUST-2038,Liam Gill,DA-2038,2026-07-07,27,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9056,CUST-3001,Aarav Sharma,NC-3001,2026-07-08,26,Remittance to new recipient,Medium,Resolved,International transfer,180.0,First transfer to this recipient - scam warning shown; client confirmed recipient
+SE-9055,CUST-3001,Aarav Sharma,NC-3001,2026-05-18,77,Remittance to new recipient,Medium,Resolved,International transfer,270.0,First transfer to this recipient - scam warning shown; client confirmed recipient
+SE-9058,CUST-3002,Maria Santos,NC-3002,2026-07-24,10,Remittance to new recipient,Medium,Open,International transfer,160.0,First transfer to this recipient - scam warning shown; held pending call-back
+SE-9057,CUST-3002,Maria Santos,NC-3002,2026-05-18,77,Remittance to new recipient,Medium,Resolved,International transfer,140.0,First transfer to this recipient - scam warning shown; client confirmed recipient
+SE-9059,CUST-3003,Chinedu Okafor,NC-3003,2026-07-05,29,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9060,CUST-3003,Chinedu Okafor,NC-3003,2026-05-10,85,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9061,CUST-3005,Rafael Almeida,NC-3005,2026-07-13,21,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9062,CUST-3006,Olena Kovalenko,NC-3006,2026-07-28,6,New device login + payee added,High,Open,Mobile app,0,Device not recognised; payee additions frozen pending verification
+SE-9063,CUST-3006,Olena Kovalenko,NC-3006,2026-07-14,20,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9064,CUST-3007,Diego Hernandez,NC-3007,2026-07-16,18,Phishing text reported,Low,Resolved,Reported via app,0,Client reported a text impersonating the Bank (July phishing wave); no details shared
+SE-9065,CUST-3009,Minh Nguyen,NC-3009,2026-07-19,15,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9067,CUST-3011,Priyanka Iyer,NC-3011,2026-07-30,4,Remittance to new recipient,Medium,Open,International transfer,170.0,First transfer to this recipient - scam warning shown; held pending call-back
+SE-9066,CUST-3011,Priyanka Iyer,NC-3011,2026-05-24,71,Remittance to new recipient,Medium,Resolved,International transfer,170.0,First transfer to this recipient - scam warning shown; client confirmed recipient
+SE-9070,CUST-3012,Joseph Mendoza,NC-3012,2026-07-24,10,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device
+SE-9069,CUST-3012,Joseph Mendoza,NC-3012,2026-07-21,13,Remittance to new recipient,Medium,Open,International transfer,110.0,First transfer to this recipient - scam warning shown; held pending call-back
+SE-9068,CUST-3012,Joseph Mendoza,NC-3012,2026-05-17,78,Remittance to new recipient,Medium,Resolved,International transfer,140.0,First transfer to this recipient - scam warning shown; client confirmed recipient
+SE-9071,CUST-3013,Ngozi Adeyemi,NC-3013,2026-07-18,16,Remittance to new recipient,Medium,Resolved,International transfer,120.0,First transfer to this recipient - scam warning shown; client confirmed recipient
+SE-9072,CUST-3014,Jun Hao Lin,NC-3014,2026-06-07,57,Password reset,Low,Resolved,Online banking,0,Reset completed from a known device

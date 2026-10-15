@@ -1,0 +1,51 @@
+household_id,primary_customer_id,household_name,members,dependents,co_borrower_flag,gross_household_income_cad,life_stage,province,branch_id
+HH-1001,CUST-1001,Mehta household,3,1,N,272900,Established family,ON,BR-101
+HH-1002,CUST-1002,Castellanos household,4,2,N,299400,Young family,AB,BR-303
+HH-1003,CUST-1003,Park household,2,0,Y,263800,Pre-retirement,ON,BR-101
+HH-1004,CUST-1004,Karim household,1,0,N,238900,Couple / single,AB,BR-303
+HH-1005,CUST-1005,Larsen household,1,0,N,76800,Couple / single,QC,BR-202
+HH-1006,CUST-1006,Cardoso household,4,2,N,136700,Young family,ON,BR-101
+HH-1007,CUST-1007,Mehta household,3,1,Y,188900,Young family,AB,BR-303
+HH-1008,CUST-1008,Fitzgerald household,2,0,Y,258600,Couple / single,QC,BR-202
+HH-1009,CUST-1009,Guerrero household,2,0,Y,118900,Couple / single,ON,BR-101
+HH-1010,CUST-1010,Haddadi household,2,0,Y,408200,Pre-retirement,ON,BR-101
+HH-1011,CUST-1011,Lachance household,3,1,Y,90100,Established family,QC,BR-202
+HH-1012,CUST-1012,Bergeron household,2,0,Y,294700,Couple / single,QC,BR-202
+HH-1013,CUST-1013,Novak household,3,1,N,232100,Established family,AB,BR-303
+HH-1014,CUST-1014,Novak household,4,2,Y,249400,Established family,QC,BR-202
+HH-1015,CUST-1015,Iyer household,3,1,Y,370400,Young family,ON,BR-101
+HH-1016,CUST-1016,Thibault household,2,0,N,174200,Couple / single,AB,BR-303
+HH-1017,CUST-1017,Sokolov household,4,2,N,282400,Young family,AB,BR-303
+HH-1018,CUST-1018,Leclair household,2,0,Y,360700,Couple / single,ON,BR-101
+HH-1019,CUST-1019,Karim household,3,1,Y,196000,Young family,ON,BR-101
+HH-1020,CUST-1020,Petrov household,2,0,N,148300,Couple / single,AB,BR-303
+HH-1021,CUST-1021,Marchetti household,4,2,N,359000,Established family,QC,BR-202
+HH-1022,CUST-1022,Kowalski household,2,0,Y,261000,Couple / single,ON,BR-101
+HH-1023,CUST-1023,Benali household,3,1,N,305200,Young family,ON,BR-101
+HH-1024,CUST-1024,Siddiqui household,3,1,Y,778300,Established family,ON,BR-101
+HH-1025,CUST-1025,Thibault household,3,1,Y,195600,Young family,AB,BR-303
+HH-1026,CUST-1026,Silva household,2,0,Y,429100,Couple / single,QC,BR-202
+HH-1027,CUST-1027,Aziz household,3,1,Y,254400,Established family,AB,BR-303
+HH-1028,CUST-1028,Aziz household,3,1,N,194600,Young family,ON,BR-101
+HH-1029,CUST-1029,Haddadi household,4,2,N,199700,Young family,AB,BR-303
+HH-1030,CUST-1030,Solberg household,2,0,N,336300,Couple / single,QC,BR-202
+HH-1031,CUST-1031,Okonkwo household,4,2,Y,351400,Established family,AB,BR-303
+HH-1032,CUST-1032,Beaulieu household,4,2,Y,112400,Young family,QC,BR-202
+HH-1033,CUST-1033,Bergeron household,4,2,Y,216000,Established family,AB,BR-303
+HH-1034,CUST-1034,Sinclair household,3,1,Y,179200,Established family,QC,BR-202
+HH-1035,CUST-1035,Petrov household,4,2,N,110600,Young family,QC,BR-202
+HH-1036,CUST-1036,Cardoso household,3,1,N,231800,Established family,ON,BR-101
+HH-1037,CUST-1037,Sinclair household,1,0,N,282200,Couple / single,AB,BR-303
+HH-1038,CUST-1038,Castellanos household,1,0,N,493800,Pre-retirement,AB,BR-303
+HH-1039,CUST-1039,Rossi household,3,1,N,142500,Young family,ON,BR-101
+HH-1040,CUST-1040,Thibault household,2,0,Y,176500,Couple / single,ON,BR-101
+HH-1041,CUST-1041,Yusuf household,4,2,N,370100,Established family,QC,BR-202
+HH-1042,CUST-1042,Petrov household,3,1,N,64900,Established family,QC,BR-202
+HH-1043,CUST-1043,Ellsworth household,2,0,N,242800,Couple / single,QC,BR-202
+HH-1044,CUST-1044,Marchetti household,3,1,N,354700,Established family,QC,BR-202
+HH-1045,CUST-1045,Iyer household,1,0,N,513400,Couple / single,ON,BR-101
+HH-1046,CUST-1046,Kowalski household,2,0,Y,222200,Couple / single,QC,BR-202
+HH-1047,CUST-1047,Kowalski household,3,1,N,207600,Young family,AB,BR-303
+HH-1048,CUST-1048,Dufresne household,3,1,N,303600,Young family,AB,BR-303
+HH-1049,CUST-1049,Moreau household,3,1,N,90000,Established family,ON,BR-101
+HH-1050,CUST-1050,Park household,2,0,N,179500,Couple / single,ON,BR-101

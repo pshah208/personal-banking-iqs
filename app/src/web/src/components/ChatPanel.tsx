@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Citations, Markdown } from "./Markdown";
+import { useBrand } from "../useBrand";
 import type { ChatMessage, Suggestion } from "../types";
 
 const TICKER_MESSAGES = [
@@ -60,6 +61,9 @@ function CopyButton({ text }: { text: string }) {
 }
 
 interface Props {
+  id?: string;
+  hidden?: boolean;
+  onCollapse?: () => void;
   messages: ChatMessage[];
   busy: boolean;
   status: string;
@@ -102,8 +106,9 @@ export function SuggestionButton({ s, onSend, disabled }: {
 }
 
 export function ChatPanel({
-  messages, busy, status, suggestions, agentName, onSend, onStop,
+  id, hidden, onCollapse, messages, busy, status, suggestions, agentName, onSend, onStop,
 }: Props) {
+  const brand = useBrand();
   const [draft, setDraft] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
 
@@ -120,7 +125,7 @@ export function ChatPanel({
   }
 
   return (
-    <section className="chat-panel">
+    <section className="chat-panel" id={id} hidden={hidden}>
       <header className="chat-head">
         <div className="chat-brand">
           <span className="chat-mark" aria-hidden>◆</span>
@@ -132,12 +137,17 @@ export function ChatPanel({
           </div>
         </div>
         <span className="chat-agent" title="Foundry agent">{agentName}</span>
+        {onCollapse && (
+          <button type="button" className="chat-collapse" onClick={onCollapse} aria-label="Collapse chat" title="Collapse chat">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M6 3.5 10.5 8 6 12.5" /></svg>
+          </button>
+        )}
       </header>
 
       <div className="chat-body">
         {messages.length === 0 && (
           <div className="chat-empty">
-            <div className="empty-eyebrow">CFC Bank intelligence</div>
+            <div className="empty-eyebrow">{brand.short} intelligence</div>
             <h2 className="empty-title">What do you need<br />to decide?</h2>
             <p className="empty-sub">
               Grounded across the renewal book, the campaign's email and Teams
