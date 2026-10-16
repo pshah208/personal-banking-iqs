@@ -1,4 +1,4 @@
-# Mortgage Renewal Concierge — synthetic data + ingestion runbook
+# Personal Banking Concierge — synthetic data + ingestion runbook
 
 A complete, ready-to-load synthetic dataset and upload runbook for building a
 **Mortgage Renewal Concierge** agent in Azure AI Foundry, grounded across three

@@ -46,6 +46,7 @@ jobs:
           python data/fabric-iq/generate_cards_tables.py --check
           python data/fabric-iq/generate_books_tables.py --check
           python data/fabric-iq/generate_processor_tables.py --check
+          python data/generate_dashboard_snapshot.py --check
       - name: Card processor simulator (insights, guards, actions)
         working-directory: app/src/bff
         run: |
@@ -64,7 +65,6 @@ jobs:
           p.reset(); assert p.controls(aid)["card_status"] == "Active"
           print("processor simulator OK", o["kpis"])
           PY
-          python data/generate_dashboard_snapshot.py --check
       - name: Brand tooling (offline)
         run: |
           python tools/brand/fetch_brand.py --manifest-only --default cfc --exclusive
