@@ -65,6 +65,12 @@ BASE_TABLES = {
     "card_accounts": "card_accounts.csv",
     "card_spend_monthly": "card_spend_monthly.csv",
     "card_next_actions": "card_next_actions.csv",
+    # Card processor feed - simulated system of record (generate_processor_tables.py)
+    "proc_authorizations": "proc_authorizations.csv",
+    "proc_card_controls": "proc_card_controls.csv",
+    "proc_card_on_file": "proc_card_on_file.csv",
+    "proc_disputes": "proc_disputes.csv",
+    "proc_feed_files": "proc_feed_files.csv",
     "deposit_accounts": "deposit_accounts.csv",
     "deposit_flows_monthly": "deposit_flows_monthly.csv",
     "banking_next_actions": "banking_next_actions.csv",

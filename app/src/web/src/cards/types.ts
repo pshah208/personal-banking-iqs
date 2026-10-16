@@ -57,6 +57,10 @@ export interface CardRow {
   fraud_alerts_90d: number;
   top_play: Play | null;
   plays: number;
+  /** Card processor (system of record) signals - see processor.ts. */
+  processor_signals?: number;
+  processor_top?: string | null;
+  processor_new?: boolean;
 }
 
 export interface CardProduct {

@@ -1,0 +1,7 @@
+file_id,feed,description,format,records,received,status,warnings,landing
+AUTH-DAILY.2026-08-03,AUTH-DAILY,Authorisation extract,"ISO 8583-style, pipe-delimited",57,2026-08-03 05:12,Loaded,0,OneLake Files/processor/auth-daily/
+POSTED-TXN.2026-08-03,POSTED-TXN,Posted transactions,Fixed-width,56,2026-08-03 05:20,Loaded,0,OneLake Files/processor/posted-txn/
+NONMON.2026-08-03,NONMON,"Non-monetary maintenance (status, controls, address)",Fixed-width,7,2026-08-03 05:24,Loaded,0,OneLake Files/processor/nonmon/
+CHARGEBACK.2026-08-03,CHARGEBACK,Dispute lifecycle,CSV,15,2026-08-03 05:31,Loaded,0,OneLake Files/processor/chargeback/
+ACCT-UPDATER.2026-08-03,ACCT-UPDATER,Account Updater responses,CSV,125,2026-08-03 05:40,Loaded with warnings,2,OneLake Files/processor/acct-updater/
+FRAUD-SCORES.2026-08-03,FRAUD-SCORES,Real-time fraud scores (stream),JSON events,68,continuous,Loaded,0,OneLake Files/processor/fraud-scores/

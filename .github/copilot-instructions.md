@@ -58,6 +58,7 @@ For UI-only work without Azure, set `MOCK_MODE=true` in the BFF and skip the `VI
 - `docs/products/mortgage-iq/` — living documentation / product notes.
 - `deploy.ps1` — end-to-end orchestration entry point (`-Bank "<name>"` brands the deployment).
 - `tools/brand/` — `fetch_brand.py` (bank name → brand pack + `brands.json`) and `bank_profile.py` (deployed bank for Python scripts).
+- `app/src/bff/app/pb_processor.py` + `data/fabric-iq/generate_processor_tables.py` — simulated card processor (system of record) for the Cards book; see `docs/card-processor-simulator.md`. Servicing actions always need preview → policy guards → named human approval.
 - `.github/workflows/` — `deploy.yml` ("Deploy for a bank", workflow_dispatch) and `ci.yml`.
 
 ## Conventions

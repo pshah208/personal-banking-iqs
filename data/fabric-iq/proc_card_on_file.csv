@@ -1,0 +1,219 @@
+account_id,merchant_name,mcc,mcc_desc,amount_cad,cadence,first_billed,last_billed,status,account_updater
+CA-1003,Provincial Hydro,4900,Utilities,111.07,Monthly,2024-01-10,2026-05-28,Stopped,Y
+CA-1003,Aurora Mobile,4814,Telecom,84.84,Monthly,2025-11-28,2026-06-13,Stopped,Y
+CA-1003,StreamFlix,4899,Streaming,21.57,Monthly,2025-10-02,2026-07-21,Active,Y
+CA-1003,HomeShield Insurance,6300,Insurance,130.98,Monthly,2024-07-25,2026-07-29,Active,Y
+CA-1004,Aurora Mobile,4814,Telecom,77.99,Monthly,2024-05-24,2026-07-18,Active,Y
+CA-1004,CloudVault Storage,5818,Digital services,3.65,Monthly,2023-12-11,2026-07-12,Active,Y
+CA-1004,Provincial Hydro,4900,Utilities,104.92,Monthly,2025-08-03,2026-07-18,Active,Y
+CA-1004,HomeShield Insurance,6300,Insurance,121.41,Monthly,2025-12-10,2026-07-21,Active,Y
+CA-1005,DailyNews Digital,5994,News,15.38,Monthly,2024-12-04,2026-05-20,Stopped,N
+CA-1005,StreamFlix,4899,Streaming,21.92,Monthly,2024-08-06,2026-05-25,Stopped,N
+CA-1005,HomeShield Insurance,6300,Insurance,101.55,Monthly,2025-05-27,2026-07-18,Active,N
+CA-1005,Provincial Hydro,4900,Utilities,87.63,Monthly,2024-12-29,2026-07-30,Active,N
+CA-1005,FitLife Gyms,7997,Fitness clubs,62.08,Monthly,2024-04-01,2026-07-09,Active,N
+CA-1008,StreamFlix,4899,Streaming,18.74,Monthly,2025-01-27,2026-06-04,Stopped,Y
+CA-1008,Provincial Hydro,4900,Utilities,113.11,Monthly,2025-10-17,2026-07-17,Active,Y
+CA-1010,DailyNews Digital,5994,News,16.43,Monthly,2024-10-20,2026-07-06,Active,N
+CA-1010,Aurora Mobile,4814,Telecom,87.42,Monthly,2024-01-23,2026-07-17,Active,N
+CA-1010,StreamFlix,4899,Streaming,20.77,Monthly,2024-08-27,2026-07-25,Active,N
+CA-1010,HomeShield Insurance,6300,Insurance,118.73,Monthly,2025-07-15,2026-07-25,Active,N
+CA-1012,Provincial Hydro,4900,Utilities,105.36,Monthly,2023-09-30,2026-07-12,Active,Y
+CA-1012,HomeShield Insurance,6300,Insurance,102.1,Monthly,2025-05-15,2026-07-31,Active,Y
+CA-1014,FitLife Gyms,7997,Fitness clubs,54.97,Monthly,2023-09-04,2026-07-10,Active,N
+CA-1014,CloudVault Storage,5818,Digital services,3.84,Monthly,2024-12-16,2026-07-31,Active,N
+CA-1014,Aurora Mobile,4814,Telecom,92.49,Monthly,2024-04-18,2026-07-12,Active,N
+CA-1014,StreamFlix,4899,Streaming,18.41,Monthly,2023-12-24,2026-07-24,Active,N
+CA-1017,StreamFlix,4899,Streaming,21.96,Monthly,2024-10-19,2026-07-15,Active,N
+CA-1017,Aurora Mobile,4814,Telecom,93.85,Monthly,2023-12-23,2026-07-10,Active,N
+CA-1017,DailyNews Digital,5994,News,16.18,Monthly,2023-09-13,2026-07-17,Active,N
+CA-1019,Aurora Mobile,4814,Telecom,97.18,Monthly,2025-05-08,2026-07-13,Active,N
+CA-1019,FitLife Gyms,7997,Fitness clubs,58.35,Monthly,2025-10-18,2026-07-18,Active,N
+CA-1019,DailyNews Digital,5994,News,15.75,Monthly,2025-05-22,2026-07-20,Active,N
+CA-1019,Provincial Hydro,4900,Utilities,100.79,Monthly,2025-01-02,2026-07-30,Active,N
+CA-1020,CloudVault Storage,5818,Digital services,3.77,Monthly,2025-03-07,2026-07-11,Active,Y
+CA-1020,StreamFlix,4899,Streaming,18.3,Monthly,2024-01-11,2026-07-14,Active,Y
+CA-1020,HomeShield Insurance,6300,Insurance,121.33,Monthly,2024-06-01,2026-07-17,Active,Y
+CA-1025,Provincial Hydro,4900,Utilities,97.63,Monthly,2024-10-11,2026-07-30,Active,Y
+CA-1025,Aurora Mobile,4814,Telecom,91.66,Monthly,2023-10-09,2026-07-20,Active,Y
+CA-1025,StreamFlix,4899,Streaming,20.57,Monthly,2024-10-22,2026-07-26,Active,Y
+CA-1025,TuneBox Music,5815,Digital media,13.73,Monthly,2023-11-28,2026-07-21,Active,Y
+CA-1025,FitLife Gyms,7997,Fitness clubs,49.78,Monthly,2025-08-23,2026-07-13,Active,Y
+CA-1030,FitLife Gyms,7997,Fitness clubs,51.72,Monthly,2024-12-07,2026-07-29,Active,Y
+CA-1030,Provincial Hydro,4900,Utilities,111.68,Monthly,2024-02-11,2026-07-26,Active,Y
+CA-1030,Aurora Mobile,4814,Telecom,86.08,Monthly,2023-08-27,2026-08-02,Active,Y
+CA-1030,CloudVault Storage,5818,Digital services,4.64,Monthly,2025-12-30,2026-07-14,Active,Y
+CA-1030,DailyNews Digital,5994,News,19.15,Monthly,2025-08-30,2026-07-15,Active,Y
+CA-1031,StreamFlix,4899,Streaming,22.78,Monthly,2024-02-12,2026-07-17,Active,Y
+CA-1031,TuneBox Music,5815,Digital media,12.07,Monthly,2025-11-06,2026-07-22,Active,Y
+CA-1034,CloudVault Storage,5818,Digital services,4.14,Monthly,2025-05-17,2026-07-08,Active,Y
+CA-1034,Aurora Mobile,4814,Telecom,101.43,Monthly,2024-01-12,2026-07-28,Active,Y
+CA-1036,HomeShield Insurance,6300,Insurance,120.71,Monthly,2023-10-12,2026-07-27,Active,N
+CA-1036,CloudVault Storage,5818,Digital services,4.38,Monthly,2024-01-17,2026-07-19,Active,N
+CA-1036,Aurora Mobile,4814,Telecom,100.04,Monthly,2024-10-22,2026-07-27,Active,N
+CA-1036,StreamFlix,4899,Streaming,20.03,Monthly,2024-04-26,2026-07-31,Active,N
+CA-1036,Provincial Hydro,4900,Utilities,108.37,Monthly,2024-09-07,2026-07-13,Active,N
+CA-1038,CloudVault Storage,5818,Digital services,4.5,Monthly,2023-10-23,2026-07-19,Active,N
+CA-1038,Aurora Mobile,4814,Telecom,90.23,Monthly,2025-12-08,2026-07-08,Active,N
+CA-1038,TuneBox Music,5815,Digital media,11.14,Monthly,2023-10-05,2026-07-17,Active,N
+CA-1038,HomeShield Insurance,6300,Insurance,126.2,Monthly,2025-09-26,2026-07-24,Active,N
+CA-1038,Provincial Hydro,4900,Utilities,98.64,Monthly,2025-08-02,2026-07-23,Active,N
+CA-1041,DailyNews Digital,5994,News,18.52,Monthly,2024-02-11,2026-07-06,Active,N
+CA-1041,FitLife Gyms,7997,Fitness clubs,56.43,Monthly,2024-06-22,2026-07-15,Active,N
+CA-1041,StreamFlix,4899,Streaming,19.87,Monthly,2025-09-23,2026-07-24,Active,N
+CA-1041,Aurora Mobile,4814,Telecom,85.42,Monthly,2024-08-13,2026-08-01,Active,N
+CA-1041,TuneBox Music,5815,Digital media,12.76,Monthly,2024-05-31,2026-07-26,Active,N
+CA-1043,DailyNews Digital,5994,News,17.9,Monthly,2025-01-11,2026-07-07,Active,Y
+CA-1043,Provincial Hydro,4900,Utilities,98.28,Monthly,2025-04-10,2026-07-11,Active,Y
+CA-1044,HomeShield Insurance,6300,Insurance,111.87,Monthly,2024-07-19,2026-07-27,Active,Y
+CA-1044,Aurora Mobile,4814,Telecom,89.04,Monthly,2024-03-17,2026-07-15,Active,Y
+CA-1044,CloudVault Storage,5818,Digital services,4.04,Monthly,2025-12-10,2026-08-01,Active,Y
+CA-1044,FitLife Gyms,7997,Fitness clubs,54.75,Monthly,2025-08-17,2026-07-30,Active,Y
+CA-1044,StreamFlix,4899,Streaming,21.07,Monthly,2024-02-25,2026-07-11,Active,Y
+CA-1045,TuneBox Music,5815,Digital media,12.71,Monthly,2024-06-12,2026-07-06,Active,N
+CA-1045,HomeShield Insurance,6300,Insurance,122.96,Monthly,2023-11-28,2026-07-17,Active,N
+CA-1045,DailyNews Digital,5994,News,16.79,Monthly,2023-08-26,2026-07-09,Active,N
+CA-1045,Aurora Mobile,4814,Telecom,94.71,Monthly,2023-09-18,2026-07-21,Active,N
+CA-1045,StreamFlix,4899,Streaming,20.39,Monthly,2025-12-07,2026-07-24,Active,N
+CA-1046,CloudVault Storage,5818,Digital services,4.39,Monthly,2024-03-08,2026-07-24,Active,Y
+CA-1046,HomeShield Insurance,6300,Insurance,104.67,Monthly,2023-08-16,2026-07-28,Active,Y
+CA-1046,Aurora Mobile,4814,Telecom,96.57,Monthly,2024-05-07,2026-07-16,Active,Y
+CA-1049,Provincial Hydro,4900,Utilities,105.16,Monthly,2025-06-29,2026-07-07,Active,Y
+CA-1049,FitLife Gyms,7997,Fitness clubs,61.56,Monthly,2025-11-01,2026-07-20,Active,Y
+CA-2001,Provincial Hydro,4900,Utilities,98.81,Monthly,2023-12-31,2026-07-16,Active,Y
+CA-2001,FitLife Gyms,7997,Fitness clubs,50.08,Monthly,2025-06-24,2026-07-20,Active,Y
+CA-2001,Aurora Mobile,4814,Telecom,85.74,Monthly,2025-02-27,2026-07-23,Active,Y
+CA-2002,StreamFlix,4899,Streaming,21.74,Monthly,2025-01-11,2026-07-31,Active,N
+CA-2002,TuneBox Music,5815,Digital media,11.93,Monthly,2024-06-27,2026-07-13,Active,N
+CA-2003,StreamFlix,4899,Streaming,18.89,Monthly,2025-11-17,2026-07-10,Active,Y
+CA-2003,CloudVault Storage,5818,Digital services,3.82,Monthly,2023-09-14,2026-07-12,Active,Y
+CA-2003,HomeShield Insurance,6300,Insurance,129.17,Monthly,2024-08-27,2026-07-26,Active,Y
+CA-2004,TuneBox Music,5815,Digital media,13.06,Monthly,2025-03-16,2026-07-12,Active,Y
+CA-2004,CloudVault Storage,5818,Digital services,3.68,Monthly,2025-06-13,2026-07-14,Active,Y
+CA-2004,Provincial Hydro,4900,Utilities,104.21,Monthly,2023-08-22,2026-07-26,Active,Y
+CA-2004,DailyNews Digital,5994,News,18.72,Monthly,2024-08-28,2026-07-30,Active,Y
+CA-2005,Aurora Mobile,4814,Telecom,92.58,Monthly,2023-08-06,2026-07-30,Active,N
+CA-2005,TuneBox Music,5815,Digital media,13.68,Monthly,2025-11-19,2026-07-18,Active,N
+CA-2005,FitLife Gyms,7997,Fitness clubs,61.25,Monthly,2024-07-05,2026-07-09,Active,N
+CA-2005,CloudVault Storage,5818,Digital services,4.43,Monthly,2025-08-14,2026-07-30,Active,N
+CA-2005,HomeShield Insurance,6300,Insurance,116.97,Monthly,2025-09-07,2026-07-09,Active,N
+CA-2006,Provincial Hydro,4900,Utilities,94.83,Monthly,2025-03-23,2026-07-29,Active,N
+CA-2006,StreamFlix,4899,Streaming,17.23,Monthly,2025-08-02,2026-08-01,Active,N
+CA-2006,FitLife Gyms,7997,Fitness clubs,63.52,Monthly,2025-09-14,2026-07-30,Active,N
+CA-2007,FitLife Gyms,7997,Fitness clubs,60.91,Monthly,2023-10-27,2026-05-30,Stopped,N
+CA-2007,DailyNews Digital,5994,News,18.55,Monthly,2024-08-19,2026-07-23,Active,N
+CA-2007,StreamFlix,4899,Streaming,22.16,Monthly,2024-03-05,2026-07-06,Active,N
+CA-2008,DailyNews Digital,5994,News,14.8,Monthly,2023-10-22,2026-07-18,Active,Y
+CA-2008,FitLife Gyms,7997,Fitness clubs,54.2,Monthly,2025-10-25,2026-07-22,Active,Y
+CA-2008,CloudVault Storage,5818,Digital services,4.66,Monthly,2023-11-01,2026-07-10,Active,Y
+CA-2008,HomeShield Insurance,6300,Insurance,125.38,Monthly,2024-08-03,2026-08-01,Active,Y
+CA-2009,FitLife Gyms,7997,Fitness clubs,50.88,Monthly,2023-09-13,2026-07-28,Active,N
+CA-2009,Provincial Hydro,4900,Utilities,91.77,Monthly,2023-12-25,2026-07-28,Active,N
+CA-2009,TuneBox Music,5815,Digital media,14.12,Monthly,2024-02-18,2026-07-30,Active,N
+CA-2009,StreamFlix,4899,Streaming,21.85,Monthly,2024-06-18,2026-08-01,Active,N
+CA-2010,StreamFlix,4899,Streaming,19.45,Monthly,2025-09-04,2026-07-18,Active,Y
+CA-2010,Aurora Mobile,4814,Telecom,101.63,Monthly,2024-07-14,2026-07-15,Active,Y
+CA-2010,Provincial Hydro,4900,Utilities,111.18,Monthly,2025-02-21,2026-07-27,Active,Y
+CA-2010,TuneBox Music,5815,Digital media,14.05,Monthly,2025-10-09,2026-07-26,Active,Y
+CA-2010,DailyNews Digital,5994,News,17.61,Monthly,2025-05-21,2026-07-13,Active,Y
+CA-2011,CloudVault Storage,5818,Digital services,4.69,Monthly,2024-09-23,2026-07-20,Active,Y
+CA-2011,Aurora Mobile,4814,Telecom,89.2,Monthly,2024-05-07,2026-07-24,Active,Y
+CA-2011,StreamFlix,4899,Streaming,17.99,Monthly,2023-10-07,2026-07-29,Active,Y
+CA-2011,TuneBox Music,5815,Digital media,14.05,Monthly,2025-04-20,2026-07-21,Active,Y
+CA-2012,StreamFlix,4899,Streaming,17.51,Monthly,2024-11-18,2026-07-25,Active,N
+CA-2012,Provincial Hydro,4900,Utilities,94.79,Monthly,2025-08-30,2026-07-20,Active,N
+CA-2012,TuneBox Music,5815,Digital media,13.22,Monthly,2024-07-12,2026-07-10,Active,N
+CA-2012,CloudVault Storage,5818,Digital services,4.78,Monthly,2023-10-03,2026-08-02,Active,N
+CA-2012,HomeShield Insurance,6300,Insurance,116.29,Monthly,2025-01-09,2026-07-27,Active,N
+CA-2013,DailyNews Digital,5994,News,14.5,Monthly,2025-11-11,2026-07-06,Active,N
+CA-2013,StreamFlix,4899,Streaming,18.69,Monthly,2023-10-10,2026-07-07,Active,N
+CA-2014,StreamFlix,4899,Streaming,19.3,Monthly,2024-08-03,2026-07-30,Active,N
+CA-2014,FitLife Gyms,7997,Fitness clubs,51.11,Monthly,2024-08-08,2026-07-20,Active,N
+CA-2014,HomeShield Insurance,6300,Insurance,124.77,Monthly,2024-05-25,2026-07-16,Active,N
+CA-2014,CloudVault Storage,5818,Digital services,4.32,Monthly,2024-01-23,2026-07-19,Active,N
+CA-2014,TuneBox Music,5815,Digital media,11.43,Monthly,2025-12-14,2026-07-12,Active,N
+CA-2015,StreamFlix,4899,Streaming,19.78,Monthly,2025-05-17,2026-07-08,Active,Y
+CA-2015,DailyNews Digital,5994,News,16.0,Monthly,2025-07-29,2026-07-17,Active,Y
+CA-2015,TuneBox Music,5815,Digital media,12.44,Monthly,2024-07-20,2026-07-20,Active,Y
+CA-2016,CloudVault Storage,5818,Digital services,4.35,Monthly,2024-08-22,2026-06-19,Stopped,Y
+CA-2016,FitLife Gyms,7997,Fitness clubs,53.27,Monthly,2024-09-08,2026-06-01,Stopped,Y
+CA-2016,HomeShield Insurance,6300,Insurance,131.71,Monthly,2025-09-14,2026-07-30,Active,Y
+CA-2016,DailyNews Digital,5994,News,17.13,Monthly,2023-09-25,2026-07-07,Active,Y
+CA-2017,TuneBox Music,5815,Digital media,10.83,Monthly,2025-01-25,2026-07-14,Active,Y
+CA-2017,HomeShield Insurance,6300,Insurance,107.64,Monthly,2025-01-09,2026-07-15,Active,Y
+CA-2017,StreamFlix,4899,Streaming,21.14,Monthly,2023-11-04,2026-07-10,Active,Y
+CA-2017,Aurora Mobile,4814,Telecom,101.16,Monthly,2025-06-24,2026-07-07,Active,Y
+CA-2018,TuneBox Music,5815,Digital media,10.91,Monthly,2025-01-03,2026-07-16,Active,Y
+CA-2018,FitLife Gyms,7997,Fitness clubs,50.6,Monthly,2023-11-17,2026-07-27,Active,Y
+CA-2019,CloudVault Storage,5818,Digital services,4.7,Monthly,2025-06-21,2026-06-26,Stopped,Y
+CA-2019,DailyNews Digital,5994,News,16.01,Monthly,2023-08-05,2026-06-06,Stopped,Y
+CA-2019,FitLife Gyms,7997,Fitness clubs,50.47,Monthly,2023-08-17,2026-07-26,Active,Y
+CA-2019,Provincial Hydro,4900,Utilities,111.77,Monthly,2024-07-22,2026-07-08,Active,Y
+CA-2019,StreamFlix,4899,Streaming,22.06,Monthly,2024-07-17,2026-07-08,Active,Y
+CA-2020,TuneBox Music,5815,Digital media,12.73,Monthly,2024-01-21,2026-07-14,Active,N
+CA-2020,Provincial Hydro,4900,Utilities,102.55,Monthly,2024-02-27,2026-07-11,Active,N
+CA-2020,DailyNews Digital,5994,News,17.7,Monthly,2024-02-23,2026-07-17,Active,N
+CA-2021,StreamFlix,4899,Streaming,22.15,Monthly,2025-08-05,2026-07-26,Active,Y
+CA-2021,DailyNews Digital,5994,News,18.5,Monthly,2024-05-29,2026-07-23,Active,Y
+CA-2021,HomeShield Insurance,6300,Insurance,109.92,Monthly,2025-03-09,2026-07-28,Active,Y
+CA-2021,FitLife Gyms,7997,Fitness clubs,63.04,Monthly,2024-03-27,2026-07-16,Active,Y
+CA-2022,Aurora Mobile,4814,Telecom,94.41,Monthly,2024-08-25,2026-08-02,Active,N
+CA-2022,Provincial Hydro,4900,Utilities,92.49,Monthly,2024-06-04,2026-07-27,Active,N
+CA-2022,DailyNews Digital,5994,News,16.76,Monthly,2024-01-08,2026-07-16,Active,N
+CA-2022,CloudVault Storage,5818,Digital services,3.74,Monthly,2023-08-02,2026-07-25,Active,N
+CA-2023,CloudVault Storage,5818,Digital services,4.21,Monthly,2024-01-25,2026-07-14,Active,N
+CA-2023,DailyNews Digital,5994,News,18.68,Monthly,2024-11-24,2026-07-13,Active,N
+CA-2023,FitLife Gyms,7997,Fitness clubs,50.64,Monthly,2024-02-12,2026-07-28,Active,N
+CA-2024,Aurora Mobile,4814,Telecom,76.54,Monthly,2024-02-12,2026-05-28,Stopped,Y
+CA-2024,StreamFlix,4899,Streaming,21.78,Monthly,2025-03-08,2026-05-24,Stopped,Y
+CA-2024,TuneBox Music,5815,Digital media,11.92,Monthly,2026-01-10,2026-07-20,Active,Y
+CA-2024,DailyNews Digital,5994,News,16.51,Monthly,2024-08-17,2026-07-18,Active,Y
+CA-2024,FitLife Gyms,7997,Fitness clubs,63.19,Monthly,2024-07-09,2026-07-28,Active,Y
+CA-2025,TuneBox Music,5815,Digital media,13.32,Monthly,2025-06-17,2026-07-16,Active,Y
+CA-2025,CloudVault Storage,5818,Digital services,3.93,Monthly,2026-01-02,2026-07-20,Active,Y
+CA-2025,StreamFlix,4899,Streaming,19.5,Monthly,2025-06-18,2026-07-27,Active,Y
+CA-2026,HomeShield Insurance,6300,Insurance,122.24,Monthly,2025-12-10,2026-07-11,Active,N
+CA-2026,Provincial Hydro,4900,Utilities,93.82,Monthly,2025-03-20,2026-07-27,Active,N
+CA-2026,TuneBox Music,5815,Digital media,12.88,Monthly,2025-11-14,2026-07-06,Active,N
+CA-2027,HomeShield Insurance,6300,Insurance,113.26,Monthly,2023-12-02,2026-07-10,Active,Y
+CA-2027,Provincial Hydro,4900,Utilities,114.91,Monthly,2025-01-27,2026-07-31,Active,Y
+CA-2027,DailyNews Digital,5994,News,15.3,Monthly,2025-03-15,2026-07-16,Active,Y
+CA-2027,TuneBox Music,5815,Digital media,13.11,Monthly,2024-03-07,2026-07-30,Active,Y
+CA-2028,FitLife Gyms,7997,Fitness clubs,56.02,Monthly,2024-08-03,2026-07-07,Active,N
+CA-2028,TuneBox Music,5815,Digital media,13.0,Monthly,2024-12-07,2026-07-11,Active,N
+CA-2029,CloudVault Storage,5818,Digital services,4.19,Monthly,2024-07-16,2026-07-07,Active,N
+CA-2029,TuneBox Music,5815,Digital media,11.68,Monthly,2025-04-05,2026-07-13,Active,N
+CA-2030,DailyNews Digital,5994,News,15.41,Monthly,2024-07-09,2026-07-27,Active,Y
+CA-2030,FitLife Gyms,7997,Fitness clubs,64.28,Monthly,2024-09-28,2026-07-30,Active,Y
+CA-2030,CloudVault Storage,5818,Digital services,4.24,Monthly,2025-10-27,2026-07-07,Active,Y
+CA-2030,StreamFlix,4899,Streaming,17.15,Monthly,2026-01-10,2026-07-31,Active,Y
+CA-2031,Provincial Hydro,4900,Utilities,112.2,Monthly,2025-09-15,2026-07-09,Active,Y
+CA-2031,CloudVault Storage,5818,Digital services,4.53,Monthly,2025-01-03,2026-07-26,Active,Y
+CA-2031,Aurora Mobile,4814,Telecom,78.09,Monthly,2024-03-22,2026-07-11,Active,Y
+CA-2031,TuneBox Music,5815,Digital media,13.06,Monthly,2025-11-30,2026-07-10,Active,Y
+CA-2032,Provincial Hydro,4900,Utilities,102.53,Monthly,2024-07-17,2026-07-22,Active,N
+CA-2032,Aurora Mobile,4814,Telecom,89.23,Monthly,2026-01-04,2026-07-31,Active,N
+CA-2032,FitLife Gyms,7997,Fitness clubs,64.97,Monthly,2023-11-19,2026-07-26,Active,N
+CA-2032,DailyNews Digital,5994,News,15.26,Monthly,2024-07-03,2026-07-09,Active,N
+CA-2033,FitLife Gyms,7997,Fitness clubs,56.86,Monthly,2025-04-27,2026-07-21,Active,Y
+CA-2033,HomeShield Insurance,6300,Insurance,133.42,Monthly,2024-08-17,2026-07-27,Active,Y
+CA-2034,Provincial Hydro,4900,Utilities,106.18,Monthly,2024-10-23,2026-07-26,Active,N
+CA-2034,FitLife Gyms,7997,Fitness clubs,55.26,Monthly,2025-08-05,2026-07-17,Active,N
+CA-2034,DailyNews Digital,5994,News,16.62,Monthly,2023-11-23,2026-07-23,Active,N
+CA-2035,DailyNews Digital,5994,News,15.49,Monthly,2025-06-19,2026-07-29,Active,Y
+CA-2035,Aurora Mobile,4814,Telecom,86.26,Monthly,2024-12-26,2026-07-06,Active,Y
+CA-2035,StreamFlix,4899,Streaming,19.04,Monthly,2025-05-23,2026-07-13,Active,Y
+CA-2035,FitLife Gyms,7997,Fitness clubs,56.77,Monthly,2025-05-08,2026-07-30,Active,Y
+CA-2035,CloudVault Storage,5818,Digital services,3.74,Monthly,2025-12-31,2026-07-16,Active,Y
+CA-2036,FitLife Gyms,7997,Fitness clubs,49.76,Monthly,2025-11-11,2026-07-27,Active,Y
+CA-2036,Provincial Hydro,4900,Utilities,113.46,Monthly,2025-01-16,2026-07-24,Active,Y
+CA-2036,DailyNews Digital,5994,News,18.54,Monthly,2024-04-07,2026-07-17,Active,Y
+CA-2036,TuneBox Music,5815,Digital media,12.32,Monthly,2023-10-31,2026-07-11,Active,Y
+CA-2037,DailyNews Digital,5994,News,18.88,Monthly,2023-12-17,2026-07-16,Active,Y
+CA-2037,TuneBox Music,5815,Digital media,12.11,Monthly,2024-01-29,2026-08-02,Active,Y
+CA-2037,Provincial Hydro,4900,Utilities,109.12,Monthly,2024-03-19,2026-07-24,Active,Y
+CA-2037,FitLife Gyms,7997,Fitness clubs,56.8,Monthly,2024-07-12,2026-07-12,Active,Y
+CA-2037,HomeShield Insurance,6300,Insurance,124.9,Monthly,2025-08-06,2026-07-16,Active,Y
+CA-2038,Provincial Hydro,4900,Utilities,88.94,Monthly,2026-01-08,2026-08-02,Active,Y
+CA-2038,DailyNews Digital,5994,News,17.83,Monthly,2025-10-27,2026-07-26,Active,Y
+CA-2038,TuneBox Music,5815,Digital media,13.54,Monthly,2024-08-26,2026-07-18,Active,Y

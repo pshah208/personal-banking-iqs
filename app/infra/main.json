@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.42.1.51946",
-      "templateHash": "4238949035560135685"
+      "templateHash": "12210495939327595162"
     }
   },
   "parameters": {
@@ -101,6 +101,19 @@
       "defaultValue": "CFC Bank",
       "metadata": {
         "description": "Display name of the bank this deployment is branded as (see tools/brand/fetch_brand.py)."
+      }
+    },
+    "cardProcessor": {
+      "type": "string",
+      "defaultValue": "generic",
+      "allowedValues": [
+        "generic",
+        "tsys",
+        "fiserv",
+        "globalpayments"
+      ],
+      "metadata": {
+        "description": "Simulated card-processor profile shown in the Cards book (labels and API shape only)."
       }
     }
   },
@@ -349,6 +362,9 @@
           },
           "bankName": {
             "value": "[parameters('bankName')]"
+          },
+          "cardProcessor": {
+            "value": "[parameters('cardProcessor')]"
           }
         },
         "template": {
@@ -358,7 +374,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.42.1.51946",
-              "templateHash": "10526718847559044925"
+              "templateHash": "13736031958960181641"
             }
           },
           "parameters": {
@@ -422,6 +438,10 @@
             "bankName": {
               "type": "string",
               "defaultValue": "CFC Bank"
+            },
+            "cardProcessor": {
+              "type": "string",
+              "defaultValue": "generic"
             }
           },
           "variables": {
@@ -557,6 +577,10 @@
                         {
                           "name": "BANK_NAME",
                           "value": "[parameters('bankName')]"
+                        },
+                        {
+                          "name": "CARD_PROCESSOR",
+                          "value": "[parameters('cardProcessor')]"
                         },
                         {
                           "name": "AZURE_CLIENT_ID",

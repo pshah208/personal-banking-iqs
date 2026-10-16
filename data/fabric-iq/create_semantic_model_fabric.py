@@ -62,6 +62,10 @@ TABLES = [
     "card_accounts",
     "card_spend_monthly",
     "card_next_actions",
+    "proc_authorizations",
+    "proc_card_controls",
+    "proc_card_on_file",
+    "proc_disputes",
     "deposit_accounts",
     "deposit_flows_monthly",
     "banking_next_actions",
@@ -243,6 +247,22 @@ try:
         ("Card Plays Blocked",
          "CALCULATE(COUNTROWS(card_next_actions), card_next_actions[eligibility] <> \"Eligible\")", "0",
          "Card plays blocked by consent, suitability, express-consent or support-first rules."),
+        # --- Card processor feed (simulated system of record) ------------------ #
+        ("Auth Approval Rate Pct",
+         "DIVIDE(CALCULATE(COUNTROWS(proc_authorizations), proc_authorizations[decision] = \"Approved\"), COUNTROWS(proc_authorizations)) * 100",
+         "0.0", "Share of authorisation requests approved in the processor's 30-day extract."),
+        ("Declines At Limit",
+         "CALCULATE(COUNTROWS(proc_authorizations), proc_authorizations[response_text] = \"Insufficient funds / over limit\")", "0",
+         "Authorisations declined for insufficient credit (response 51) - a support signal, never a limit-increase cue (RP-020, RP-021)."),
+        ("Suspected Fraud Declines",
+         "CALCULATE(COUNTROWS(proc_authorizations), proc_authorizations[response_text] = \"Suspected fraud\")", "0",
+         "Authorisations declined as suspected fraud (response 59) (RP-022, RP-035)."),
+        ("Open Disputes",
+         "CALCULATE(COUNTROWS(proc_disputes), NOT(proc_disputes[stage] IN {\"Closed - client won\", \"Closed - merchant won\"}))", "0",
+         "Card disputes still open in the processor (RP-036)."),
+        ("Stopped Recurring Billers",
+         "CALCULATE(COUNTROWS(proc_card_on_file), proc_card_on_file[status] = \"Stopped\")", "0",
+         "Card-on-file merchants that stopped billing - a possible card switch (RP-036)."),
         # --- Product books: Everyday banking, Borrowing, Investing ------------ #
         ("Deposit Balances",
          "SUM(deposit_accounts[avg_chequing_balance]) + SUM(deposit_accounts[savings_balance])", "#,0",
@@ -323,6 +343,11 @@ try:
             ("card_spend_monthly", "account_id", "card_accounts", "account_id"),
             ("card_next_actions", "account_id", "card_accounts", "account_id"),
             ("card_accounts", "product_id", "card_products", "product_id"),
+            # Card processor feed joins the card star on account_id.
+            ("proc_authorizations", "account_id", "card_accounts", "account_id"),
+            ("proc_card_controls", "account_id", "card_accounts", "account_id"),
+            ("proc_card_on_file", "account_id", "card_accounts", "account_id"),
+            ("proc_disputes", "account_id", "card_accounts", "account_id"),
             # Product books: each its own star keyed by account_id. Accounts carry
             # customer_id but are NOT related to the renewal fact (card-only clients
             # CUST-20xx have no renewal).

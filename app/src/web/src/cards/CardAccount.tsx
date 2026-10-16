@@ -21,6 +21,7 @@ import {
   type CardAccountDetail, type CardDraft, type CardProduct, type Check, type IQLayer, type SpendMonth, type Verdict,
 } from "./types";
 import "./cards.css";
+import { ProcessorAccount } from "./Processor";
 
 /* ------------------------------------------------------------ shared atoms */
 export const Lock = () => (
@@ -549,6 +550,8 @@ export function CardAccount({ aid, shelf, split, onBack }: {
               </div>
             )}
           </section>
+
+          <ProcessorAccount aid={aid} />
 
           {step === 1 && (
             <section className="cd-step" aria-labelledby="cd-s1">

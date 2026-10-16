@@ -14,20 +14,22 @@ import { useChatSplit } from "../components/ChatSplit";
 import { Markdown } from "../components/Markdown";
 import { MissionPanel } from "../components/MissionPanel";
 import { BehaviourPill, CardAccount, IQBadge, Lock, PlayTag } from "./CardAccount";
+import { ProcessorPortfolio } from "./Processor";
 import {
   CAT_LABEL, OFFER_CATEGORIES, PLAY_META, cad, cadShort, isEligible, isIQLayer, isOwnBankOffer, monthLabel, normaliseMarket, safeUrl, slug, supportBand,
   type CardAccountDetail, type CardProduct, type CardRow, type CardsOverview, type IQLayer, type MarketData, type MarketOffer, type Play,
 } from "./types";
 import "./cards.css";
 
-type Flag = "Support-first" | "Linked mortgage" | "Fraud alert" | "Fee due ≤60d";
-const FILTERS: ("All" | Flag)[] = ["All", "Support-first", "Linked mortgage", "Fraud alert", "Fee due ≤60d"];
+type Flag = "Support-first" | "Linked mortgage" | "Fraud alert" | "Processor signal" | "Fee due ≤60d";
+const FILTERS: ("All" | Flag)[] = ["All", "Support-first", "Linked mortgage", "Fraud alert", "Processor signal", "Fee due ≤60d"];
 
 function flagsOf(r: CardRow): Flag[] {
   const f: Flag[] = [];
   if (supportBand(r.wellness_band) || r.behaviour === "Persistent debt") f.push("Support-first");
   if (r.linked_mortgage === "Y") f.push("Linked mortgage");
   if (r.fraud_alerts_90d > 0) f.push("Fraud alert");
+  if (r.processor_signals) f.push("Processor signal");
   if (r.annual_fee > 0 && r.fee_anniversary_days <= 60) f.push("Fee due ≤60d");
   return f;
 }
@@ -141,6 +143,13 @@ function IQStrip({ accounts, linked }: { accounts?: number; linked?: number }) {
             </button>
           </li>
         ))}
+        <li>
+          <button type="button" className="cd-iqtile cd-iqtile-sor" onClick={() => jumpTo("cd-sec-processor")}>
+            <span className="cd-iqtile-top"><span className="px-sor"><i aria-hidden />System of record</span><span className="cd-iqtile-go">Card processor <span aria-hidden>↓</span></span></span>
+            <b>What the card processor sees - authorisations, declines, billers on file and disputes, with approved servicing actions.</b>
+            <small className="cd-mono">proc_authorizations · proc_card_controls · proc_card_on_file · proc_disputes</small>
+          </button>
+        </li>
       </ul>
     </section>
   );
@@ -471,6 +480,8 @@ export function CardsView({ active, bankName }: { active: boolean; bankName: str
           </div>
         </section>
 
+        <ProcessorPortfolio active={active} onOpen={setOpenAid} />
+
         <section className="cd-context" aria-label="Market and branch context">
           <MarketPanel active={active} />
           <WorkIQPanel />
@@ -538,7 +549,11 @@ export function CardsView({ active, bankName }: { active: boolean; bankName: str
                         : <small>No fee</small>}
                     </span>
                     <span className="cd-c-flags">
-                      {fl.length ? fl.filter((f) => f !== "Fee due ≤60d").map((f) => <span key={f} className={`cd-flag cd-flag-${slug(f)}`}>{f}</span>) : null}
+                      {fl.length ? fl.filter((f) => f !== "Fee due ≤60d").map((f) => (
+                        <span key={f} className={`cd-flag cd-flag-${slug(f)}`}
+                              title={f === "Processor signal" ? r.processor_top ?? undefined : undefined}>
+                          {f === "Processor signal" && r.processor_new ? "New: processor signal" : f}
+                        </span>)) : null}
                       {!fl.filter((f) => f !== "Fee due ≤60d").length && <small className="cd-muted">—</small>}
                     </span>
                     <span className={`cd-c-play${ok ? "" : " cd-blocked"}`}>

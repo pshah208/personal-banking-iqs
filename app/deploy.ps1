@@ -48,6 +48,8 @@ param(
     [string]$FoundryAccountName,
     [string]$FoundryAgentName = 'mortgage-renewal-concierge',
     [string]$BankName,
+    [ValidateSet('generic', 'tsys', 'fiserv', 'globalpayments')]
+    [string]$CardProcessor = 'generic',
 
     [ValidateSet('infra', 'images', 'all')]
     [string]$Only = 'all',
@@ -139,6 +141,7 @@ then pass -AadClientId, -AadClientSecret and -AadApiScope.
                 foundryAccountName=$FoundryAccountName `
                 foundryAgentName=$FoundryAgentName `
                 bankName=$BankName `
+                cardProcessor=$CardProcessor `
             -o table
         if ($LASTEXITCODE -ne 0) { throw 'Bicep deployment failed.' }
         if ($WhatIf) { Write-Host "`nwhat-if only." -ForegroundColor Yellow; return }

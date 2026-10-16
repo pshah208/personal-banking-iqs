@@ -104,6 +104,7 @@ switcher, and `?bank=<id>` selects one in a shareable link.
 | `stages` | `brand` (preview only, no Azure access) → `preflight` → `core` → `core+app` / `app` |
 | `resource_group`, `location`, `app_location` | CAF-style default `rg-mtgrenewal-dev-eastus-001`; created if missing |
 | `include_fabric` | Fabric IQ needs a Fabric-enabled tenant and *Service principals can use Fabric APIs* turned on |
+| `card_processor` | Simulated card-processor profile in the Cards book: `generic`, `tsys`, `fiserv`, `globalpayments` (labels only - see [card-processor-simulator.md](card-processor-simulator.md)) |
 
 Jobs:
 

@@ -63,6 +63,10 @@ param mockMode bool = false
 @description('Display name of the bank this deployment is branded as (see tools/brand/fetch_brand.py).')
 param bankName string = 'CFC Bank'
 
+@description('Simulated card-processor profile shown in the Cards book (labels and API shape only).')
+@allowed([ 'generic', 'tsys', 'fiserv', 'globalpayments' ])
+param cardProcessor string = 'generic'
+
 var tags = union({
   workload: namePrefix
   solution: 'mortgage-renewal-concierge'
@@ -103,6 +107,7 @@ module apps 'modules/container-apps.bicep' = {
     foundryAgentName: foundryAgentName
     mockMode: mockMode
     bankName: bankName
+    cardProcessor: cardProcessor
   }
 }
 

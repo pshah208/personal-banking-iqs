@@ -45,6 +45,25 @@ jobs:
           python data/fabric-iq/generate_pb_tables.py --check
           python data/fabric-iq/generate_cards_tables.py --check
           python data/fabric-iq/generate_books_tables.py --check
+          python data/fabric-iq/generate_processor_tables.py --check
+      - name: Card processor simulator (insights, guards, actions)
+        working-directory: app/src/bff
+        run: |
+          python - <<'PY'
+          from app import evergreen, pb_processor as p
+          from app.processor_data import PROC
+          evergreen.track(PROC); evergreen.ensure_current()
+          o = p.overview()
+          assert o["kpis"]["unseen_by_book"] >= 1 and o["insights"], o["kpis"]
+          aid = next(i["account_id"] for i in o["insights"] if i["new_signal"])
+          assert p.run_action(aid, "temp_lock")["verdict"] == "ready"
+          assert "error" in p.run_action(aid, "temp_lock", execute=True)          # no approver
+          r = p.run_action(aid, "temp_lock", approver="ci", execute=True)
+          assert r["executed"] and r["controls"]["card_status"] == "Temporarily locked"
+          assert p.run_action(aid, "temp_lock")["verdict"] == "blocked"          # already locked
+          p.reset(); assert p.controls(aid)["card_status"] == "Active"
+          print("processor simulator OK", o["kpis"])
+          PY
           python data/generate_dashboard_snapshot.py --check
       - name: Brand tooling (offline)
         run: |

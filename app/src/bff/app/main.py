@@ -27,10 +27,11 @@ from .auth import User, current_user, exchange_obo
 from .config import settings
 from .iq import iq_catalogue
 from .offers import catalogue as offer_catalogue
-from . import evergreen, fabric_capacity, pb_books, pb_card_market, pb_cards, pb_customers, pb_missions, pb_scenarios, pb_world
+from . import evergreen, fabric_capacity, pb_books, pb_card_market, pb_cards, pb_customers, pb_missions, pb_processor, pb_scenarios, pb_world
 from .books_data import BOOKS
 from .cards_data import CARDS
 from .pb_data import PB
+from .processor_data import PROC
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -39,7 +40,7 @@ logger = logging.getLogger("bff")
 # Keep the synthetic snapshot on the current week (see evergreen.py). The bundles
 # and the one derived table that copies dates out of them are rewritten in place;
 # the module-level as-of constants are re-read after each shift.
-for _data in (PB, BOOKS, CARDS, pb_books._INV_ROWS):
+for _data in (PB, BOOKS, CARDS, PROC, pb_books._INV_ROWS):
     evergreen.track(_data)
 
 
@@ -397,7 +398,9 @@ async def cards_market(refresh: bool = False, cached: bool = False, user: User =
 
 @app.get("/api/cards/accounts")
 async def cards_accounts(user: User = Depends(current_user)) -> dict:
-    return pb_cards.accounts()
+    out = pb_cards.accounts()
+    pb_processor.annotate(out["accounts"])
+    return out
 
 
 @app.get("/api/cards/account/{aid}")
@@ -445,6 +448,53 @@ async def cards_review(aid: str, req: CardDraft, user: User = Depends(current_us
     logger.info("AUDIT card compliance review by %s for %s: %s", user.upn, aid, pb_cards.verdict(cks))
     return StreamingResponse(run_agent(user, pb_cards.review_prompt(aid, d, cks), None, settings.compliance_agent_name),
                              media_type="text/event-stream", headers=SSE_HEADERS)
+
+
+# Card processor - simulated system of record (pb_processor.py)
+class ProcessorAction(BaseModel):
+    action: str
+    reason: str = ""
+    execute: bool = False
+    confirm: bool = False
+
+
+@app.get("/api/cards/processor")
+async def cards_processor(user: User = Depends(current_user)) -> dict:
+    return pb_processor.overview()
+
+
+@app.get("/api/cards/account/{aid}/processor")
+async def cards_account_processor(aid: str, user: User = Depends(current_user)) -> dict:
+    d = pb_processor.account(aid)
+    if not d:
+        raise HTTPException(status_code=404, detail=f"Unknown card account {aid}")
+    return d
+
+
+@app.post("/api/cards/account/{aid}/processor/action")
+async def cards_processor_action(aid: str, req: ProcessorAction, user: User = Depends(current_user)) -> dict:
+    """Preview (execute=false) or execute a servicing action. Executing needs confirm=true;
+    the approver is the signed-in user, never a value supplied by the client."""
+    if aid not in pb_cards.ACC:
+        raise HTTPException(status_code=404, detail=aid)
+    if req.execute and not req.confirm:
+        raise HTTPException(status_code=400, detail="Executing an action needs explicit confirmation.")
+    approver = user.name or user.upn or "unknown"
+    try:
+        out = pb_processor.run_action(aid, req.action, reason=req.reason[:300], approver=approver, execute=req.execute)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e)) from e
+    if out.get("executed"):
+        logger.info("AUDIT card processor action %s on %s approved by %s ref %s", req.action, aid, approver,
+                    out["response"]["body"]["reference"])
+    return out
+
+
+@app.post("/api/cards/processor/reset")
+async def cards_processor_reset(user: User = Depends(current_user)) -> dict:
+    pb_processor.reset()
+    logger.info("AUDIT card processor simulator reset by %s", user.upn)
+    return {"reset": True}
 
 
 # --------------------------------------------------------------------------- #

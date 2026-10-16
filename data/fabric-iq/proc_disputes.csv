@@ -1,0 +1,16 @@
+dispute_id,account_id,auth_ids,merchant_name,amount_cad,reason_code,reason,stage,opened,response_due,provisional_credit,channel,owner
+DSP-16494,CA-1012,AUT-000243;AUT-000244,DIGITAL GOODS LTD,9.1,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-31,2026-08-30,Y,Contact centre,Card disputes team
+DSP-97519,CA-1020,AUT-000405;AUT-000406,DIGITAL GOODS LTD,6.63,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-26,2026-08-25,Y,Contact centre,Card disputes team
+DSP-20728,CA-1043,AUT-000778;AUT-000779,DIGITAL GOODS LTD,4.78,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-25,2026-08-24,Y,Contact centre,Card disputes team
+DSP-44746,CA-2012,AUT-001227;AUT-001228,DIGITAL GOODS LTD,7.31,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-28,2026-08-27,Y,Contact centre,Card disputes team
+DSP-20927,CA-2014,AUT-001312;AUT-001313,DIGITAL GOODS LTD,2.18,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-28,2026-08-27,Y,Contact centre,Card disputes team
+DSP-88464,CA-2017,AUT-001381;AUT-001382,DIGITAL GOODS LTD,7.37,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-30,2026-08-29,Y,Contact centre,Card disputes team
+DSP-25514,CA-2021,AUT-001512;AUT-001513,DIGITAL GOODS LTD,7.0,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-25,2026-08-24,Y,Contact centre,Card disputes team
+DSP-82718,CA-2028,AUT-001698;AUT-001699,DIGITAL GOODS LTD,4.73,10.4,Fraud - card-absent environment,Chargeback filed,2026-08-01,2026-08-31,Y,Contact centre,Card disputes team
+DSP-33972,CA-2033,AUT-001827;AUT-001828,DIGITAL GOODS LTD,6.59,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-26,2026-08-25,Y,Contact centre,Card disputes team
+DSP-12458,CA-2034,AUT-001843;AUT-001844,DIGITAL GOODS LTD,4.35,10.4,Fraud - card-absent environment,Chargeback filed,2026-07-26,2026-08-25,Y,Contact centre,Card disputes team
+DSP-49922,CA-2015,AUT-001325,FreshMart Grocery,111.42,13.1,Merchandise / services not received,Inquiry,2026-07-09,2026-08-07,N,Mobile app,Card disputes team
+DSP-91354,CA-1025,AUT-000417,TransCanada Fuel,71.39,12.6.1,Duplicate processing,Representment received,2026-07-16,2026-08-07,Y,Mobile app,Card disputes team
+DSP-48959,CA-1017,AUT-000342,ByteBox Electronics,74.75,13.3,Not as described,Chargeback filed,2026-07-23,2026-08-09,Y,Branch,Card disputes team
+DSP-70940,CA-1034,AUT-000564,Hardware Depot,93.13,13.7,Cancelled merchandise / services,Pre-arbitration,2026-07-29,2026-08-08,Y,Mobile app,Card disputes team
+DSP-43512,CA-2029,AUT-001710,TransCanada Fuel,47.17,12.6.1,Duplicate processing,Closed - client won,2026-07-01,,Y,Branch,Card disputes team

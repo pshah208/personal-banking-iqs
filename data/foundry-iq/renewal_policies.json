@@ -270,5 +270,21 @@
     "owner": "Chief Fraud Officer",
     "title": "Payroll and Direct-Deposit Changes - Verification Before Retention",
     "content": "SCOPE. Applies when a client's payroll or other recurring deposit stops, falls, or is redirected to another institution, and to any request to change direct-deposit details.\n\nRULE 1 - RULE OUT FRAUD FIRST. A payroll redirect in the same 30 days as a new-device login, a contact-detail change or a new payee is treated as possible account takeover or payroll-diversion fraud (RP-032), not as attrition. Verify with the client by the verified phone number on file before any retention or relationship outreach.\n\nRULE 2 - THEN UNDERSTAND THE REASON. Once fraud is ruled out, a payroll move is a relationship conversation (RP-018): new employer, fees (RP-023), a competitor offer, or financial strain (RP-012, RP-014). One relationship conversation replaces separate product calls.\n\nRULE 3 - NO PRESSURE. Never imply that keeping payroll with the Bank is a condition of a mortgage rate, renewal or other service unless it is a written, approved pricing condition (RP-002), and never use the client's deposit data in client copy beyond what the client already knows."
+  },
+  {
+    "id": "RP-035",
+    "title": "Card Controls, Locks and Reissue - Authority and Evidence",
+    "category": "approval_requirement",
+    "effective_date": "2026-09-01",
+    "owner": "Head of Fraud Management - Retail",
+    "content": "SCOPE. Applies to any change a colleague makes to a client's card through the card processor: temporary lock, unlock, block and reissue, and changes to e-commerce, international or contactless controls.\n\nRULE 1 - EVIDENCE. A lock or reissue must be backed by evidence in the system of record: a card-testing pattern (three or more card-not-present attempts under CAD 5 within an hour), a fraud decline, a fraud alert, or the client's own request. The evidence is referenced on the request.\n\nRULE 2 - HUMAN APPROVAL. Every change is approved by a named colleague before it is sent to the processor. Agents and automated tools may prepare and preview a request; they may never send one.\n\nRULE 3 - LEAST DISRUPTION. Prefer a temporary lock while the client is contacted; block and reissue when compromise is confirmed or test charges were approved. Recurring billers enrolled in the network account updater receive the new card details automatically.\n\nRULE 4 - CLIENT CONTACT. The client is told about the change through the app or a verified phone number (RP-022). Never ask for a PIN, passcode or full card number.\n\nRULE 5 - AUDIT. The request, the response reference, the approver and the evidence are retained for seven years."
+  },
+  {
+    "id": "RP-036",
+    "title": "Card Disputes, Chargebacks and Card-on-File Billers",
+    "category": "regulatory_reference",
+    "effective_date": "2026-09-01",
+    "owner": "Head of Card Operations",
+    "content": "SCOPE. Applies to disputed card transactions and to recurring merchants that bill a client's card (card-on-file).\n\nRULE 1 - OPEN PROMPTLY. A dispute for unauthorised card-not-present charges is opened as soon as the client or the fraud team confirms them, with provisional credit for the disputed amount while it is investigated, consistent with the zero-liability commitments in the Code of Conduct for the Credit and Debit Card Industry in Canada.\n\nRULE 2 - DEADLINES. Network response deadlines (typically 30 days for a chargeback response and 10 days at pre-arbitration) are tracked from the system of record; a dispute within 10 days of its deadline is escalated to the disputes team lead.\n\nRULE 3 - KEEP THE CLIENT INFORMED. The client is told when a dispute opens, when provisional credit is granted or reversed, and how it closes.\n\nRULE 4 - CARD-ON-FILE. Before a card expires or is reissued, billers on file are updated through the network account updater where the client is enrolled. A recurring biller that stops billing is a service signal (possible card switch) - outreach about it follows RP-011 consent and RP-019 suitability."
   }
 ]

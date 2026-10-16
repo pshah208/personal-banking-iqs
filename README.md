@@ -1,4 +1,4 @@
-# Personal Banking Concierge — synthetic data + ingestion runbook
+# Mortgage Renewal Concierge — synthetic data + ingestion runbook
 
 A complete, ready-to-load synthetic dataset and upload runbook for building a
 **Mortgage Renewal Concierge** agent in Azure AI Foundry, grounded across three
@@ -44,6 +44,10 @@ az login
 
 Full walkthrough, prerequisites and overrides (`-BankDomain`, `-BankShort`,
 `--logo`, `--primary`): **[docs/deploy-for-your-bank.md](docs/deploy-for-your-bank.md)**.
+
+The Cards book also includes a **simulated card processor** (system of record) with
+authorisations, declines, billers on file, disputes and human-approved servicing
+actions - see **[docs/card-processor-simulator.md](docs/card-processor-simulator.md)**.
 
 ---
 
