@@ -67,6 +67,10 @@ param bankName string = 'CFC Bank'
 @allowed([ 'generic', 'tsys', 'fiserv', 'globalpayments' ])
 param cardProcessor string = 'generic'
 
+@description('Simulated mortgage-servicing profile shown in the renewal book (labels and API shape only).')
+@allowed([ 'generic', 'msp', 'fis', 'inhouse' ])
+param mortgageServicer string = 'generic'
+
 @description('Eventhouse query URI for the live card-processor stream (deploy_realtime.py). Empty = live panel off.')
 param processorKqlUri string = ''
 
@@ -114,6 +118,7 @@ module apps 'modules/container-apps.bicep' = {
     mockMode: mockMode
     bankName: bankName
     cardProcessor: cardProcessor
+    mortgageServicer: mortgageServicer
     processorKqlUri: processorKqlUri
     processorKqlDb: processorKqlDb
   }

@@ -7,11 +7,12 @@
  */
 import { useEffect, useMemo, useState } from "react";
 import { apiGet } from "../api";
+import { ServicingPortfolio } from "./Servicing";
 import { WellnessPill } from "./WellnessView";
 import { TDS_GUIDE, cad, isEligible, type CustomerRow, type Flag, type Overview } from "./types";
 import "./customers.css";
 
-const FILTERS: ("All" | Flag)[] = ["All", "Support first", "Deposit flight", "Above TDS guideline", "Life event"];
+const FILTERS: ("All" | Flag)[] = ["All", "Support first", "Deposit flight", "Above TDS guideline", "Life event", "Servicing signal"];
 const FILTER_LABEL: Record<string, string> = { "Above TDS guideline": "Above TDS" };
 
 export const Lock = () => (
@@ -59,6 +60,8 @@ export function CustomersView({ active, onOpen }: { active: boolean; onOpen: (ci
           <span>{overview ? `eligible / blocked · ${blocked.consent ?? 0} consent · ${blocked.vulnerable ?? 0} RP-012` : " "}</span>
         </div>
       </section>
+
+      <ServicingPortfolio active={active} onOpen={onOpen} />
 
       <div className="cu-toolbar">
         <div className="cu-chips" role="group" aria-label="Filter customers">

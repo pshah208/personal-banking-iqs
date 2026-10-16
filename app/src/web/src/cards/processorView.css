@@ -220,3 +220,8 @@
 .cd-root .px-live-alert-inline { margin: 0; padding: 8px 10px; border-radius: 8px; background: var(--cd-protect-bg); color: var(--cd-protect-ink); font-size: 12px; }
 @media (max-width: 1280px) { .cd-root .px-live-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cd-root .px-live-grid { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { .cd-root .px-live-dot { animation: none; } }
+
+/* Embedding the system-of-record panels in other books (mortgage customers / workspace) */
+.cd-root.px-embed { display: block; flex: none; overflow: visible; background: transparent; min-height: 0; margin: 0 0 14px; }
+.cd-root.px-embed .px-ins-service { border-color: var(--line); }
+.cd-root .px-live-tag { background: #dcfce7; color: #166534; }

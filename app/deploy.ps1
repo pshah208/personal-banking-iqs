@@ -50,6 +50,8 @@ param(
     [string]$BankName,
     [ValidateSet('generic', 'tsys', 'fiserv', 'globalpayments')]
     [string]$CardProcessor = 'generic',
+    [ValidateSet('generic', 'msp', 'fis', 'inhouse')]
+    [string]$MortgageServicer = 'generic',
     # Live card-processor stream (data/fabric-iq/deploy_realtime.py writes both to .env.realtime).
     [string]$ProcessorKqlUri,
     [string]$ProcessorKqlDb,
@@ -131,7 +133,8 @@ Missing Entra parameters. Create the app registrations first:
 then pass -AadClientId, -AadClientSecret and -AadApiScope.
 '@
         }
-        if (-not $FoundryProjectEndpoint) {
+
+        if (-not $FoundryProjectEndpoint) {
             throw 'Foundry project endpoint unknown - run the root deploy.ps1 first, or pass -FoundryProjectEndpoint.'
         }
 
@@ -152,6 +155,7 @@ then pass -AadClientId, -AadClientSecret and -AadApiScope.
                 foundryAgentName=$FoundryAgentName `
                 bankName=$BankName `
                 cardProcessor=$CardProcessor `
+                mortgageServicer=$MortgageServicer `
                 processorKqlUri=$ProcessorKqlUri `
                 processorKqlDb=$ProcessorKqlDb `
             -o table

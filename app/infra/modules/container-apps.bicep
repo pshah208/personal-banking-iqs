@@ -32,6 +32,7 @@ param foundryAgentName string = 'mortgage-renewal-concierge'
 param mockMode bool = false
 param bankName string = 'CFC Bank'
 param cardProcessor string = 'generic'
+param mortgageServicer string = 'generic'
 param processorKqlUri string = ''
 param processorKqlDb string = ''
 
@@ -130,6 +131,7 @@ resource bff 'Microsoft.App/containerApps@2024-03-01' = {
             { name: 'MOCK_MODE', value: string(mockMode) }
             { name: 'BANK_NAME', value: bankName }
             { name: 'CARD_PROCESSOR', value: cardProcessor }
+            { name: 'MORTGAGE_SERVICER', value: mortgageServicer }
             { name: 'PROCESSOR_KQL_URI', value: processorKqlUri }
             { name: 'PROCESSOR_KQL_DB', value: processorKqlDb }
             { name: 'AZURE_CLIENT_ID', value: uami.properties.clientId }

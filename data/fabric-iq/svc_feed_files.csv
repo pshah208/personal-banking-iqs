@@ -1,0 +1,6 @@
+file_id,feed,description,format,records,received,status,warnings,landing
+PAD-DAILY.2026-08-03,PAD-DAILY,Pre-authorised debit results,CPA-005-style fixed width,50,2026-08-03 04:40,Loaded,0,OneLake Files/servicing/pad-daily/
+PAYOUT-REQ.2026-08-03,PAYOUT-REQ,Payout / discharge statement requests,CSV,5,2026-08-03 05:05,Loaded,0,OneLake Files/servicing/payout-req/
+BUREAU-TRIG.2026-08-03,BUREAU-TRIG,Credit-bureau trigger alerts,JSON,31,2026-08-03 05:15,Loaded with warnings,1,OneLake Files/servicing/bureau-trig/
+OFFER-EVENTS.2026-08-03,OFFER-EVENTS,Renewal offer delivery and portal views,JSON events,36,continuous,Loaded,0,OneLake Files/servicing/offer-events/
+SERVICING-MASTER.2026-08-03,SERVICING-MASTER,"Servicing master (balance, rate, payment, arrears)",Fixed width,50,2026-08-03 04:30,Loaded,0,OneLake Files/servicing/servicing-master/

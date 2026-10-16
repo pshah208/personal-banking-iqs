@@ -28,11 +28,12 @@ from .auth import User, current_user, exchange_obo
 from .config import settings
 from .iq import iq_catalogue
 from .offers import catalogue as offer_catalogue
-from . import evergreen, fabric_capacity, pb_books, pb_card_market, pb_cards, pb_customers, pb_missions, pb_processor, pb_scenarios, pb_stream, pb_world
+from . import evergreen, fabric_capacity, pb_books, pb_card_market, pb_cards, pb_customers, pb_missions, pb_processor, pb_scenarios, pb_servicing, pb_stream, pb_world
 from .books_data import BOOKS
 from .cards_data import CARDS
 from .pb_data import PB
 from .processor_data import PROC
+from .servicing_data import SVC
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -41,7 +42,7 @@ logger = logging.getLogger("bff")
 # Keep the synthetic snapshot on the current week (see evergreen.py). The bundles
 # and the one derived table that copies dates out of them are rewritten in place;
 # the module-level as-of constants are re-read after each shift.
-for _data in (PB, BOOKS, CARDS, PROC, pb_books._INV_ROWS):
+for _data in (PB, BOOKS, CARDS, PROC, SVC, pb_books._INV_ROWS):
     evergreen.track(_data)
 
 
@@ -290,9 +291,67 @@ async def pb_overview(user: User = Depends(current_user)) -> dict:
     return pb_customers.overview()
 
 
+# Systems of record (card processor, mortgage servicing) share one action contract.
+class ProcessorAction(BaseModel):
+    action: str
+    reason: str = ""
+    execute: bool = False
+    confirm: bool = False
+
+
 @app.get("/api/pb/customers")
 async def pb_customer_list(user: User = Depends(current_user)) -> dict:
-    return pb_customers.customers()
+    out = pb_customers.customers()
+    pb_servicing.annotate(out.get("customers", []))
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# Mortgage servicing - simulated system of record (pb_servicing.py on sor.py)
+# --------------------------------------------------------------------------- #
+@app.get("/api/mortgage/servicing")
+async def mortgage_servicing(user: User = Depends(current_user)) -> dict:
+    return pb_servicing.merge_live_overview(pb_servicing.overview(), await pb_stream.servicing_live())
+
+
+@app.get("/api/mortgage/servicing/live")
+async def mortgage_servicing_live(customer: str = "", user: User = Depends(current_user)) -> dict:
+    if customer and customer not in pb_servicing.REN:
+        raise HTTPException(status_code=404, detail=customer)
+    return await pb_stream.servicing_live(customer)
+
+
+@app.get("/api/mortgage/servicing/{cid}")
+async def mortgage_servicing_customer(cid: str, user: User = Depends(current_user)) -> dict:
+    d = pb_servicing.customer(cid)
+    if not d:
+        raise HTTPException(status_code=404, detail=f"No renewal for {cid}")
+    return pb_servicing.merge_live(d, await pb_stream.servicing_live())
+
+
+@app.post("/api/mortgage/servicing/{cid}/action")
+async def mortgage_servicing_action(cid: str, req: ProcessorAction, user: User = Depends(current_user)) -> dict:
+    """Preview or execute a servicing action; same contract as the card processor."""
+    if cid not in pb_servicing.REN:
+        raise HTTPException(status_code=404, detail=cid)
+    if req.execute and not req.confirm:
+        raise HTTPException(status_code=400, detail="Executing an action needs explicit confirmation.")
+    approver = user.name or user.upn or "unknown"
+    try:
+        out = pb_servicing.run_action(cid, req.action, reason=req.reason[:300], approver=approver, execute=req.execute)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e)) from e
+    if out.get("executed"):
+        logger.info("AUDIT mortgage servicing action %s on %s approved by %s ref %s", req.action, cid, approver,
+                    out["response"]["body"]["reference"])
+    return out
+
+
+@app.post("/api/mortgage/servicing/reset")
+async def mortgage_servicing_reset(user: User = Depends(current_user)) -> dict:
+    pb_servicing.reset()
+    logger.info("AUDIT mortgage servicing simulator reset by %s", user.upn)
+    return {"reset": True}
 
 
 @app.get("/api/pb/wellness")
@@ -452,13 +511,6 @@ async def cards_review(aid: str, req: CardDraft, user: User = Depends(current_us
 
 
 # Card processor - simulated system of record (pb_processor.py)
-class ProcessorAction(BaseModel):
-    action: str
-    reason: str = ""
-    execute: bool = False
-    confirm: bool = False
-
-
 @app.get("/api/cards/processor")
 async def cards_processor(user: User = Depends(current_user)) -> dict:
     return pb_processor.overview()

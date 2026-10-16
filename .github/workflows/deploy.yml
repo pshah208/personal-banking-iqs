@@ -72,6 +72,16 @@ on:
           - tsys
           - fiserv
           - globalpayments
+      mortgage_servicer:
+        description: "Simulated mortgage-servicing profile for the renewal book (labels only)"
+        required: false
+        default: generic
+        type: choice
+        options:
+          - generic
+          - msp
+          - fis
+          - inhouse
 
 permissions:
   contents: read
@@ -241,10 +251,11 @@ jobs:
           AAD_CLIENT_SECRET: ${{ secrets.AAD_CLIENT_SECRET }}
           AAD_API_SCOPE: ${{ secrets.AAD_API_SCOPE }}
           CARD_PROCESSOR: ${{ inputs.card_processor }}
+          MORTGAGE_SERVICER: ${{ inputs.mortgage_servicer }}
         shell: pwsh
         run: |
           if (-not ($env:AAD_CLIENT_ID -and $env:AAD_CLIENT_SECRET -and $env:AAD_API_SCOPE)) {
             throw 'Set the AAD_CLIENT_ID, AAD_CLIENT_SECRET and AAD_API_SCOPE secrets (python app/infra/provision_app_registrations.py prints them).'
           }
-          ./app/deploy.ps1 -ResourceGroup $env:RG -Location $env:APP_LOCATION -CardProcessor $env:CARD_PROCESSOR `
+          ./app/deploy.ps1 -ResourceGroup $env:RG -Location $env:APP_LOCATION -CardProcessor $env:CARD_PROCESSOR -MortgageServicer $env:MORTGAGE_SERVICER `
             -AadClientId $env:AAD_CLIENT_ID -AadClientSecret $env:AAD_CLIENT_SECRET -AadApiScope $env:AAD_API_SCOPE

@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.42.1.51946",
-      "templateHash": "13372511597521738012"
+      "templateHash": "15857408196058815330"
     }
   },
   "parameters": {
@@ -114,6 +114,19 @@
       ],
       "metadata": {
         "description": "Simulated card-processor profile shown in the Cards book (labels and API shape only)."
+      }
+    },
+    "mortgageServicer": {
+      "type": "string",
+      "defaultValue": "generic",
+      "allowedValues": [
+        "generic",
+        "msp",
+        "fis",
+        "inhouse"
+      ],
+      "metadata": {
+        "description": "Simulated mortgage-servicing profile shown in the renewal book (labels and API shape only)."
       }
     },
     "processorKqlUri": {
@@ -380,6 +393,9 @@
           "cardProcessor": {
             "value": "[parameters('cardProcessor')]"
           },
+          "mortgageServicer": {
+            "value": "[parameters('mortgageServicer')]"
+          },
           "processorKqlUri": {
             "value": "[parameters('processorKqlUri')]"
           },
@@ -394,7 +410,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.42.1.51946",
-              "templateHash": "10940430287999909403"
+              "templateHash": "7183567193029209860"
             }
           },
           "parameters": {
@@ -460,6 +476,10 @@
               "defaultValue": "CFC Bank"
             },
             "cardProcessor": {
+              "type": "string",
+              "defaultValue": "generic"
+            },
+            "mortgageServicer": {
               "type": "string",
               "defaultValue": "generic"
             },
@@ -609,6 +629,10 @@
                         {
                           "name": "CARD_PROCESSOR",
                           "value": "[parameters('cardProcessor')]"
+                        },
+                        {
+                          "name": "MORTGAGE_SERVICER",
+                          "value": "[parameters('mortgageServicer')]"
                         },
                         {
                           "name": "PROCESSOR_KQL_URI",

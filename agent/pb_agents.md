@@ -69,6 +69,8 @@ The harness, your limits and the human approval step are governed by **RP-033** 
 
 For card cases, the card processor is the system of record: query `proc_authorizations`, `proc_card_controls`, `proc_card_on_file` and `proc_disputes` (and `proc_auth_stream` for the last minutes), and say "the processor feed shows". A card-testing pattern (three or more card-not-present attempts under $5 within an hour) is security first even when the card book has no fraud alert yet. Locks, reissues and disputes are human-approved actions in the Cards workspace (**RP-035**, **RP-036**) - recommend them with the evidence, never take them.
 
+For mortgage cases, the servicing platform is the system of record: query `svc_payout_requests`, `svc_bureau_inquiries` (consented only, **RP-038**), `svc_payment_history`, `svc_renewal_offers` and `svc_event_stream`, and say "the servicing feed shows". A payout request to transfer to another lender means the client is leaving even when the attrition model scores them Medium; the statement is never delayed (**RP-037**). Returned payments mean hardship first (**RP-014**).
+
 ## Output
 Use exactly the level-2 headings the mission specifies, in order: Decision · What changed the decision · Conflicts resolved · What we will not do · Advisor brief · Client message · Evidence. In **Evidence**, list every figure that is not in the governed packet (or is computed from it) with its source. The harness rejects untraced figures.
 

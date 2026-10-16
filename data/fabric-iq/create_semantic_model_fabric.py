@@ -66,6 +66,10 @@ TABLES = [
     "proc_card_controls",
     "proc_card_on_file",
     "proc_disputes",
+    "svc_payment_history",
+    "svc_payout_requests",
+    "svc_bureau_inquiries",
+    "svc_renewal_offers",
     "deposit_accounts",
     "deposit_flows_monthly",
     "banking_next_actions",
@@ -89,12 +93,18 @@ TABLES = [
 # The live processor stream is a Lakehouse shortcut to the Eventhouse table
 # (OneLake availability, see deploy_realtime.py). Include it only when present.
 STREAM = "proc_auth_stream"
-try:
-    HAS_STREAM = bool(spark.catalog.tableExists(STREAM))  # noqa: F821 - notebook global
-except Exception:  # noqa: BLE001
-    HAS_STREAM = False
-if HAS_STREAM:
-    TABLES.append(STREAM)
+SVC_STREAM = "svc_event_stream"
+
+
+def _exists(name: str) -> bool:
+    try:
+        return bool(spark.catalog.tableExists(name))  # noqa: F821 - notebook global
+    except Exception:  # noqa: BLE001
+        return False
+
+
+HAS_STREAM, HAS_SVC_STREAM = _exists(STREAM), _exists(SVC_STREAM)
+TABLES += [t for t, ok in ((STREAM, HAS_STREAM), (SVC_STREAM, HAS_SVC_STREAM)) if ok]
 
 try:
     # ----------------------------------------------------------------------- #
@@ -273,6 +283,20 @@ try:
         ("Stopped Recurring Billers",
          "CALCULATE(COUNTROWS(proc_card_on_file), proc_card_on_file[status] = \"Stopped\")", "0",
          "Card-on-file merchants that stopped billing - a possible card switch (RP-036)."),
+        # --- Mortgage servicing feed (simulated system of record) -------------- #
+        ("Payout Requests", "COUNTROWS(svc_payout_requests)", "0",
+         "Payout / discharge statements requested by lawyers or other lenders - the client is leaving (RP-037)."),
+        ("Payout Balance At Risk", "SUM(svc_payout_requests[payout_amount_cad])", "#,0",
+         "Mortgage balance named on open payout requests (CAD)."),
+        ("Lender Inquiries Consented",
+         "CALCULATE(COUNTROWS(svc_bureau_inquiries), svc_bureau_inquiries[trigger_consent] = \"Y\")", "0",
+         "Hard inquiries by other lenders on clients who consented to bureau triggers (RP-038)."),
+        ("Returned Mortgage Payments",
+         "CALCULATE(COUNTROWS(svc_payment_history), svc_payment_history[status] = \"Returned - NSF\")", "0",
+         "Pre-authorised mortgage debits returned NSF in 12 months - hardship support first (RP-014)."),
+        ("Unopened Renewal Offers",
+         "CALCULATE(COUNTROWS(svc_renewal_offers), svc_renewal_offers[opened] = \"N\")", "0",
+         "Renewal offers sent but never opened."),
         # --- Product books: Everyday banking, Borrowing, Investing ------------ #
         ("Deposit Balances",
          "SUM(deposit_accounts[avg_chequing_balance]) + SUM(deposit_accounts[savings_balance])", "#,0",
@@ -374,8 +398,14 @@ try:
             ("security_events", "customer_id", "customer_security_posture", "customer_id"),
             ("security_next_actions", "account_id", "customer_security_posture", "account_id"),
             (STREAM, "account_id", "card_accounts", "account_id"),
+            # Mortgage servicing feed joins the renewal fact by customer.
+            ("svc_payment_history", "customer_id", FACT, "customer_id"),
+            ("svc_payout_requests", "customer_id", FACT, "customer_id"),
+            ("svc_bureau_inquiries", "customer_id", FACT, "customer_id"),
+            ("svc_renewal_offers", "customer_id", FACT, "customer_id"),
+            (SVC_STREAM, "customer_id", FACT, "customer_id"),
         ):
-            if from_table == STREAM and not HAS_STREAM:
+            if (from_table == STREAM and not HAS_STREAM) or (from_table == SVC_STREAM and not HAS_SVC_STREAM):
                 continue
             try:
                 tom.add_relationship(
@@ -400,6 +430,15 @@ try:
                 ("Live Card Testing Attempts 1h",
                  f"CALCULATE(COUNTROWS({STREAM}), {STREAM}[channel] = \"CNP\", {STREAM}[amount_cad] < 5, {STREAM}[event_ts] >= NOW() - 1/24)", "0",
                  "Card-not-present attempts under $5 in the last hour - three or more on one card is a card-testing pattern (RP-035)."),
+            ]
+        if HAS_SVC_STREAM:
+            MEASURES += [
+                ("Live Payout Requests 7d",
+                 f"CALCULATE(COUNTROWS({SVC_STREAM}), {SVC_STREAM}[event_type] = \"payout.requested\", {SVC_STREAM}[event_ts] >= NOW() - 7)", "0",
+                 "Payout requests streamed from the servicing platform in the last 7 days (RP-037)."),
+                ("Live Lender Inquiries 14d",
+                 f"CALCULATE(COUNTROWS({SVC_STREAM}), {SVC_STREAM}[event_type] = \"bureau.inquiry\", {SVC_STREAM}[trigger_consent] = \"Y\", {SVC_STREAM}[event_ts] >= NOW() - 14)", "0",
+                 "Consented bureau-trigger inquiries streamed in the last 14 days (RP-038)."),
             ]
         for name, dax, fmt, desc in MEASURES:
             if name in existing:

@@ -25,6 +25,7 @@ import {
   type Action, type Channel, type Check, type Customer360, type Draft, type Verdict,
 } from "./types";
 import "./customers.css";
+import { ServicingAccount } from "./Servicing";
 
 type Step = 1 | 2 | 3 | 4;
 const STEPS: { id: Step; label: string }[] = [
@@ -476,6 +477,8 @@ export function CustomerWorkspace({ cid, preferSupport, onBack, backLabel, split
               </div>
             )}
           </section>
+
+          <ServicingAccount cid={cid} />
 
           {step === 1 && (
             <section className="cu-step" aria-labelledby="cu-s1">

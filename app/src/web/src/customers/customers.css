@@ -592,3 +592,4 @@
 
 
 .cu-root .cu-review-body pre, .cu-root .cu-review-body pre code { color: var(--ink) !important; background: var(--bg) !important; font-family: var(--mono); }
+.cu-root .cu-flag-servicing { border-color: #d9d3f3; background: #f1effb; color: #5b4bb7; }

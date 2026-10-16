@@ -46,6 +46,7 @@ jobs:
           python data/fabric-iq/generate_cards_tables.py --check
           python data/fabric-iq/generate_books_tables.py --check
           python data/fabric-iq/generate_processor_tables.py --check
+          python data/fabric-iq/generate_servicing_tables.py --check
           python data/generate_dashboard_snapshot.py --check
       - name: Card processor simulator (insights, guards, actions)
         working-directory: app/src/bff
@@ -64,6 +65,20 @@ jobs:
           assert p.run_action(aid, "temp_lock")["verdict"] == "blocked"          # already locked
           p.reset(); assert p.controls(aid)["card_status"] == "Active"
           print("processor simulator OK", o["kpis"])
+          from app import pb_servicing as s
+          from app.pb_data import PB
+          from app.servicing_data import SVC
+          evergreen.track(PB); evergreen.track(SVC); evergreen._applied = 0; evergreen.ensure_current()
+          so = s.overview()
+          assert so["kpis"]["payout_requests"] >= 1 and so["kpis"]["unseen_by_book"] >= 1, so["kpis"]
+          cid = next(i["customer_id"] for i in so["insights"] if i["code"] == "PAYOUT_REQUESTED" and i["new_signal"])
+          r = s.run_action(cid, "route_payout_to_retention", approver="ci", execute=True)
+          assert r["executed"] and r["response"]["body"]["status"] == "RETENTION_REVIEW", r
+          assert s.run_action(cid, "route_payout_to_retention")["verdict"] == "blocked"          # already routed
+          v = next(c for c in s.REN if s.WELL[c]["wellness_band"] == "Vulnerable")
+          assert s.run_action(v, "send_retention_offer")["verdict"] == "blocked"                # RP-012 support first
+          s.reset(); assert s.state(cid)["payouts"][0]["status"] != "Retention review"
+          print("servicing simulator OK", so["kpis"])
           PY
       - name: Brand tooling (offline)
         run: |

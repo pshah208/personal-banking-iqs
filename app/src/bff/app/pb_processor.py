@@ -26,10 +26,10 @@ from __future__ import annotations
 import os
 import threading
 from collections import Counter, defaultdict
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timedelta
 from typing import Any
 
-from . import evergreen
+from . import evergreen, sor
 from .pb_cards import ACC
 from .processor_data import PROC
 
@@ -77,8 +77,7 @@ ORDER = {"Protect": 0, "Support": 1, "Service": 2, "Retain": 3, "Grow": 4}
 OPEN_STAGES = {"Inquiry", "Chargeback filed", "Representment received", "Pre-arbitration"}
 
 # Simulator state: controls changed by actions, new disputes, audit log, events.
-_lock = threading.Lock()
-_state: dict[str, Any] = {"controls": {}, "disputes": defaultdict(list), "log": defaultdict(list), "events": [], "seq": 0}
+_NEW_DISPUTES: dict[str, list[dict]] = defaultdict(list)   # disputes opened through the simulator
 
 
 def _num(v: Any) -> float:
@@ -106,11 +105,11 @@ def _support_first(a: dict) -> bool:
 
 def controls(aid: str) -> dict[str, Any]:
     base = CTRL[aid]
-    return {**base, **_state["controls"].get(aid, {})}
+    return {**base, **CARDS.overrides.get(aid, {})}
 
 
 def disputes(aid: str) -> list[dict]:
-    return DISPUTES[aid] + _state["disputes"][aid]
+    return DISPUTES[aid] + _NEW_DISPUTES[aid]
 
 
 # --------------------------------------------------------------------------- #
@@ -202,13 +201,10 @@ def insights(aid: str) -> list[dict[str, Any]]:
             policy="RP-022", play="Security check-in", actions=["enrol_alerts"])
 
     # Offer only the actions policy allows right now; record what has already been done.
-    done = defaultdict(list)
-    for entry in _state["log"][aid]:
-        done[entry["action"]].append(f"{entry['label']} · {entry['approver']} · {entry['reference']}")
     for i in out:
         cands = i["actions"]
-        i["actions"] = [x for x in cands if not any(g["status"] == "block" for g in _guards(aid, x))]
-        i["done"] = [d for x in cands for d in done[x]]
+        i["actions"] = CARDS.allowed(aid, cands)
+        i["done"] = CARDS.done(aid, cands)
     out.sort(key=lambda x: (ORDER[x["type"]], -x["value_cad"]))
     return out
 
@@ -289,7 +285,7 @@ def account(aid: str) -> dict[str, Any] | None:
         "card_on_file": COF[aid],
         "disputes": disputes(aid),
         "actions": [dict(ACTIONS[k], id=k) for k in ACTIONS],
-        "log": list(reversed(_state["log"][aid])),
+        "log": list(reversed(CARDS.log[aid])),
         "prompts": [
             {"label": "Explain the processor signals", "prompt": f"For card account {aid}, explain what the card processor feed shows that the "
              "monthly card tables do not: declines, card-not-present activity, card-on-file billers and disputes. Use the Fabric IQ proc_* tables "
@@ -344,76 +340,60 @@ def _request(aid: str, action: str, reason: str) -> dict[str, Any]:
             "body": body}
 
 
-def _guards(aid: str, action: str) -> list[dict[str, str]]:
-    ctl = controls(aid)
-    out = []
+class CardProcessor(sor.SystemOfRecord):
+    """The card processor plugged into the shared system-of-record framework (sor.py)."""
 
-    def g(rule, name, ok, detail):
-        out.append({"rule": rule, "name": name, "status": "pass" if ok else "block", "detail": detail})
+    system = "cards"
+    ref_prefix = "PRC"
+    actions = ACTIONS
 
-    g("RP-035", "Human approval", True, "A named colleague must approve before the request is sent.")
-    if action == "temp_lock":
-        g("RP-035", "Card is active", ctl["card_status"] == "Active", f"Card status is {ctl['card_status']}.")
-    if action == "unlock":
-        g("RP-035", "Card is locked (not blocked)", ctl["card_status"] == "Temporarily locked",
-          "Only a temporary lock can be lifted; a blocked card needs the reissued card." if ctl["card_status"] != "Temporarily locked" else "Temporary lock in place.")
-    if action == "reissue":
-        g("RP-035", "Evidence of compromise", bool(_card_testing(AUTHS[aid])) or int(ACC[aid]["fraud_alerts_90d"]) > 0,
-          "Card-testing pattern or fraud alert on record." if (_card_testing(AUTHS[aid]) or int(ACC[aid]["fraud_alerts_90d"])) else
-          "No compromise evidence - reissue needs a fraud signal or a client request.")
-        g("RP-035", "Not already reissued", ctl["card_status"] != "Blocked - reissued", f"Card status is {ctl['card_status']}.")
-    if action == "enrol_alerts":
-        g("RP-022", "Not already enrolled", ctl["alerts_enrolled"] != "Y", f"Alerts enrolled: {ctl['alerts_enrolled']}.")
-    if action == "account_updater_push":
-        active = [b for b in COF[aid] if b["status"] == "Active"]
-        g("RP-036", "Billers on file", bool(active), f"{len(active)} active card-on-file billers.")
-    if action == "open_dispute":
-        burst = [r for r in _card_testing(AUTHS[aid]) if r["decision"] == "Approved"]
-        disputed = {x for d in disputes(aid) for x in d["auth_ids"].split(";")}
-        fresh = [r for r in burst if r["auth_id"] not in disputed]
-        g("RP-036", "Undisputed fraudulent charges", bool(fresh),
-          f"{len(fresh)} approved test charge(s) not yet disputed." if fresh else "All approved test charges are already in a dispute.")
-    return out
+    def profile(self) -> dict[str, Any]:
+        return profile()
 
+    def exists(self, key: str) -> bool:
+        return key in ACC
 
-def _event(aid: str, kind: str, detail: str, ref: str) -> dict[str, Any]:
-    _state["seq"] += 1
-    e = {"id": f"EVT-{_state['seq']:05d}", "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "type": kind,
-         "account_id": aid, "detail": detail, "ref": ref, "source": profile()["name"]}
-    _state["events"].append(e)
-    return e
+    def request(self, key: str, action: str, reason: str) -> dict[str, Any]:
+        return _request(key, action, reason)
 
+    def guards(self, aid: str, action: str) -> list[dict[str, str]]:
+        ctl = controls(aid)
+        g = self.guard
+        out = []
+        if action == "temp_lock":
+            out.append(g("RP-035", "Card is active", ctl["card_status"] == "Active", f"Card status is {ctl['card_status']}."))
+        if action == "unlock":
+            out.append(g("RP-035", "Card is locked (not blocked)", ctl["card_status"] == "Temporarily locked",
+                         "Only a temporary lock can be lifted; a blocked card needs the reissued card."
+                         if ctl["card_status"] != "Temporarily locked" else "Temporary lock in place."))
+        if action == "reissue":
+            evidence = bool(_card_testing(AUTHS[aid])) or int(ACC[aid]["fraud_alerts_90d"]) > 0
+            out.append(g("RP-035", "Evidence of compromise", evidence,
+                         "Card-testing pattern or fraud alert on record." if evidence else
+                         "No compromise evidence - reissue needs a fraud signal or a client request."))
+            out.append(g("RP-035", "Not already reissued", ctl["card_status"] != "Blocked - reissued", f"Card status is {ctl['card_status']}."))
+        if action == "enrol_alerts":
+            out.append(g("RP-022", "Not already enrolled", ctl["alerts_enrolled"] != "Y", f"Alerts enrolled: {ctl['alerts_enrolled']}."))
+        if action == "account_updater_push":
+            active = [b for b in COF[aid] if b["status"] == "Active"]
+            out.append(g("RP-036", "Billers on file", bool(active), f"{len(active)} active card-on-file billers."))
+        if action == "open_dispute":
+            burst = [r for r in _card_testing(AUTHS[aid]) if r["decision"] == "Approved"]
+            disputed = {x for d in disputes(aid) for x in d["auth_ids"].split(";")}
+            fresh = [r for r in burst if r["auth_id"] not in disputed]
+            out.append(g("RP-036", "Undisputed fraudulent charges", bool(fresh),
+                         f"{len(fresh)} approved test charge(s) not yet disputed." if fresh else "All approved test charges are already in a dispute."))
+        return out
 
-def run_action(aid: str, action: str, *, reason: str = "", approver: str = "", execute: bool = False) -> dict[str, Any]:
-    """Preview (execute=False) or execute a servicing action against the simulated processor."""
-    if aid not in ACC:
-        raise KeyError(aid)
-    if action not in ACTIONS:
-        raise ValueError(f"unknown action '{action}'")
-    with _lock:
-        req = _request(aid, action, reason)
-        guards = _guards(aid, action)
-        blocked = any(x["status"] == "block" for x in guards)
-        result: dict[str, Any] = {"action": action, "label": ACTIONS[action]["label"], "effect": ACTIONS[action]["effect"],
-                                  "request": req, "guards": guards, "verdict": "blocked" if blocked else "ready", "executed": False}
-        if not execute:
-            return result
-        if blocked:
-            result["error"] = "Blocked by policy - nothing was sent."
-            return result
-        if not approver.strip():
-            result["error"] = "A named approver is required (RP-035)."
-            return result
-
-        ctl = _state["controls"].setdefault(aid, {})
-        ref = f"PRC-{aid[3:]}-{_state['seq'] + 1:05d}"
+    def apply(self, aid: str, action: str, req: dict[str, Any], approver: str) -> tuple[int, dict[str, Any], str, str]:
+        ctl = self.overrides[aid]
         if action == "temp_lock":
             ctl["card_status"] = "Temporarily locked"
-            body, ev = {"cardToken": req["url"].split("/")[-2], "status": "TEMP_LOCKED"}, ("card.status.changed", "Card temporarily locked")
-        elif action == "unlock":
+            return 200, {"cardToken": req["url"].split("/")[-2], "status": "TEMP_LOCKED"}, "card.status.changed", "Card temporarily locked"
+        if action == "unlock":
             ctl["card_status"] = "Active"
-            body, ev = {"status": "ACTIVE"}, ("card.status.changed", "Card unlocked")
-        elif action == "reissue":
+            return 200, {"status": "ACTIVE"}, "card.status.changed", "Card unlocked"
+        if action == "reissue":
             old = controls(aid)
             last4 = f"{(int(old['masked_pan'][-4:]) * 7 + 13) % 10000:04d}"
             exp = _as_of().replace(day=1) + timedelta(days=365 * 4)
@@ -421,36 +401,42 @@ def run_action(aid: str, action: str, *, reason: str = "", approver: str = "", e
                        new_card_expiry=f"{exp.year:04d}-{exp.month:02d}", account_updater_enrolled="Y")
             body = {"oldCardStatus": "BLOCKED", "newCard": {"maskedPan": ctl["new_masked_pan"], "expiry": ctl["new_card_expiry"],
                                                            "delivery": "EXPEDITED_2_DAYS"}, "accountUpdater": "QUEUED"}
-            ev = ("card.reissued", f"Card blocked and reissued ending {last4}; Account Updater queued")
-        elif action == "enrol_alerts":
+            return 200, body, "card.reissued", f"Card blocked and reissued ending {last4}; Account Updater queued"
+        if action == "enrol_alerts":
             ctl["alerts_enrolled"] = "Y"
-            body, ev = {"alerts": "ENROLLED", "channels": ["PUSH", "SMS"]}, ("card.alerts.enrolled", "Real-time alerts enrolled")
-        elif action == "account_updater_push":
+            return 200, {"alerts": "ENROLLED", "channels": ["PUSH", "SMS"]}, "card.alerts.enrolled", "Real-time alerts enrolled"
+        if action == "account_updater_push":
             ctl["account_updater_enrolled"] = "Y"
             n = len(req["body"]["merchants"])
-            body, ev = {"submitted": n, "status": "ACCEPTED"}, ("accountupdater.submitted", f"{n} billers sent updated card details")
-        else:
-            dsp = {"dispute_id": f"DSP-{(_state['seq'] + 1) * 7919 % 90000 + 10000}", "account_id": aid,
-                   "auth_ids": ";".join(req["body"]["authIds"]), "merchant_name": "Multiple (card testing)",
-                   "amount_cad": req["body"]["amount"], "reason_code": "10.4", "reason": "Fraud - card-absent environment",
-                   "stage": "Chargeback filed", "opened": _as_of().isoformat(),
-                   "response_due": (_as_of() + timedelta(days=30)).isoformat(), "provisional_credit": "Y",
-                   "channel": "Cards workspace", "owner": approver}
-            _state["disputes"][aid].append(dsp)
-            body, ev = {"disputeId": dsp["dispute_id"], "stage": "CHARGEBACK_FILED", "provisionalCredit": dsp["amount_cad"]}, \
-                ("dispute.created", f"Dispute {dsp['dispute_id']} filed for ${dsp['amount_cad']:,.2f}")
-        event = _event(aid, ev[0], ev[1], ref)
-        response = {"status": 200 if action != "open_dispute" else 201, "body": {"reference": ref, **body}}
-        entry = {"ts": event["ts"], "action": action, "label": ACTIONS[action]["label"], "approver": approver, "reason": reason,
-                 "reference": ref, "request": req, "response": response, "event": event}
-        _state["log"][aid].append(entry)
-        result.update(executed=True, response=response, event=event, controls=controls(aid))
-        return result
+            return 200, {"submitted": n, "status": "ACCEPTED"}, "accountupdater.submitted", f"{n} billers sent updated card details"
+        dsp = {"dispute_id": f"DSP-{(self._refs + 1) * 7919 % 90000 + 10000}", "account_id": aid,
+               "auth_ids": ";".join(req["body"]["authIds"]), "merchant_name": "Multiple (card testing)",
+               "amount_cad": req["body"]["amount"], "reason_code": "10.4", "reason": "Fraud - card-absent environment",
+               "stage": "Chargeback filed", "opened": _as_of().isoformat(),
+               "response_due": (_as_of() + timedelta(days=30)).isoformat(), "provisional_credit": "Y",
+               "channel": "Cards workspace", "owner": approver}
+        _NEW_DISPUTES[aid].append(dsp)
+        return 201, {"disputeId": dsp["dispute_id"], "stage": "CHARGEBACK_FILED", "provisionalCredit": dsp["amount_cad"]}, \
+            "dispute.created", f"Dispute {dsp['dispute_id']} filed for ${dsp['amount_cad']:,.2f}"
+
+    def on_reset(self) -> None:
+        _NEW_DISPUTES.clear()
+
+
+CARDS = CardProcessor()
+
+
+def run_action(aid: str, action: str, *, reason: str = "", approver: str = "", execute: bool = False) -> dict[str, Any]:
+    """Preview (execute=False) or execute a servicing action against the simulated processor."""
+    out = CARDS.run_action(aid, action, reason=reason, approver=approver, execute=execute)
+    if out["executed"]:
+        out["controls"] = controls(aid)
+    return out
 
 
 def events(n: int = 20) -> list[dict[str, Any]]:
     """Most recent simulator events, newest first, padded with the feed's own signals."""
-    live = list(reversed(_state["events"]))[:n]
+    live = sor.events(n, "cards")
     if len(live) >= n:
         return live
     feed = []
@@ -465,9 +451,4 @@ def events(n: int = 20) -> list[dict[str, Any]]:
 
 
 def reset() -> None:
-    with _lock:
-        _state["controls"].clear()
-        _state["disputes"].clear()
-        _state["log"].clear()
-        _state["events"].clear()
-        _state["seq"] = 0
+    CARDS.reset()

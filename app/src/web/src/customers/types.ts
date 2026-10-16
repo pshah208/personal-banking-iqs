@@ -2,7 +2,7 @@
 
 export type WellnessBand = "Thriving" | "Stable" | "Stretched" | "Vulnerable";
 export type ActionType = "Support" | "Retain" | "Deepen";
-export type Flag = "Support first" | "Deposit flight" | "Above TDS guideline" | "Life event";
+export type Flag = "Support first" | "Deposit flight" | "Above TDS guideline" | "Life event" | "Servicing signal";
 export type ConsentStatus = "Granted" | "Withdrawn" | "Not captured";
 export type Channel = "Email" | "SMS" | "Phone";
 export type Verdict = "pass" | "needs_approval" | "blocked";

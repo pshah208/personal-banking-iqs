@@ -71,6 +71,12 @@ BASE_TABLES = {
     "proc_card_on_file": "proc_card_on_file.csv",
     "proc_disputes": "proc_disputes.csv",
     "proc_feed_files": "proc_feed_files.csv",
+    # Mortgage servicing feed - simulated system of record (generate_servicing_tables.py)
+    "svc_payment_history": "svc_payment_history.csv",
+    "svc_payout_requests": "svc_payout_requests.csv",
+    "svc_bureau_inquiries": "svc_bureau_inquiries.csv",
+    "svc_renewal_offers": "svc_renewal_offers.csv",
+    "svc_feed_files": "svc_feed_files.csv",
     "deposit_accounts": "deposit_accounts.csv",
     "deposit_flows_monthly": "deposit_flows_monthly.csv",
     "banking_next_actions": "banking_next_actions.csv",

@@ -47,7 +47,9 @@ Full walkthrough, prerequisites and overrides (`-BankDomain`, `-BankShort`,
 
 The Cards book also includes a **simulated card processor** (system of record) with
 authorisations, declines, billers on file, disputes and human-approved servicing
-actions - see **[docs/card-processor-simulator.md](docs/card-processor-simulator.md)**.
+actions - see **[docs/card-processor-simulator.md](docs/card-processor-simulator.md)** - and the renewal book a
+**simulated mortgage servicing platform** (payout requests, bureau shopping signals, offers and rate holds, returned
+payments), both streamed live through Fabric Eventstream - see **[docs/systems-of-record.md](docs/systems-of-record.md)**.
 
 ---
 

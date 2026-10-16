@@ -1,0 +1,6 @@
+request_id,renewal_id,customer_id,requested_on,requested_by,purpose,payout_amount_cad,statement_due,status,prepayment_penalty_cad
+PO-34755,RNW-5002,CUST-1002,2026-08-02,Lakeshore Real Estate Law,Discharge - transfer to another lender,509400.0,2026-08-09,Received,0
+PO-15828,RNW-5007,CUST-1007,2026-07-30,Bellevue Notarial Services,Discharge - transfer to another lender,507300.0,2026-08-06,Statement issued,0
+PO-65880,RNW-5008,CUST-1008,2026-07-30,Lakeshore Real Estate Law,Discharge - transfer to another lender,516400.0,2026-08-06,Received,0
+PO-43584,RNW-5021,CUST-1021,2026-07-26,Côté & Lam Notaires,Discharge - transfer to another lender,462600.0,2026-08-02,Received,0
+PO-77278,RNW-5040,CUST-1040,2026-07-29,Lakeshore Real Estate Law,Discharge - transfer to another lender,340800.0,2026-08-05,Received,0
