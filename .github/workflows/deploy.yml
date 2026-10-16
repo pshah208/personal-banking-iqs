@@ -205,7 +205,7 @@ jobs:
           # Work IQ seeding writes into Microsoft 365 mailboxes and needs a
           # delegated sign-in for Teams messages - run it from a workstation.
           $skip = @('work-iq')
-          if ($env:INCLUDE_FABRIC -ne 'true') { $skip += 'fabric' }
+          if ($env:INCLUDE_FABRIC -ne 'true') { $skip += 'fabric', 'realtime' }
           ./deploy.ps1 -ResourceGroup $env:RG -Location $env:LOCATION -Skip $skip
 
   app:

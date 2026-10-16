@@ -21,3 +21,6 @@ azure-ai-agents==1.1.0
 # Only needed if you want the agent's SQL fallback instead of the semantic model.
 # Also requires the "ODBC Driver 18 for SQL Server" installed on the host.
 # pyodbc==5.2.0
+
+# Real-time card processor stream - data/fabric-iq/stream_processor_events.py
+azure-eventhub>=5.11

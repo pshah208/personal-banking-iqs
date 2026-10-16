@@ -86,6 +86,16 @@ TABLES = [
     "security_next_actions",
 ]
 
+# The live processor stream is a Lakehouse shortcut to the Eventhouse table
+# (OneLake availability, see deploy_realtime.py). Include it only when present.
+STREAM = "proc_auth_stream"
+try:
+    HAS_STREAM = bool(spark.catalog.tableExists(STREAM))  # noqa: F821 - notebook global
+except Exception:  # noqa: BLE001
+    HAS_STREAM = False
+if HAS_STREAM:
+    TABLES.append(STREAM)
+
 try:
     # ----------------------------------------------------------------------- #
     # 0. Dependency. Installed via subprocess rather than the %pip magic so the
@@ -363,7 +373,10 @@ try:
             ("insurance_next_actions", "account_id", "coverage_gaps", "account_id"),
             ("security_events", "customer_id", "customer_security_posture", "customer_id"),
             ("security_next_actions", "account_id", "customer_security_posture", "account_id"),
+            (STREAM, "account_id", "card_accounts", "account_id"),
         ):
+            if from_table == STREAM and not HAS_STREAM:
+                continue
             try:
                 tom.add_relationship(
                     from_table=from_table, from_column=from_col,
@@ -376,6 +389,18 @@ try:
                 log(f"= relationship {to_table} skipped: {exc}")
 
         existing = {m.Name for m in tom.all_measures()}
+        if HAS_STREAM:
+            MEASURES += [
+                ("Live Authorisations 24h",
+                 f"CALCULATE(COUNTROWS({STREAM}), {STREAM}[event_ts] >= NOW() - 1)", "0",
+                 "Authorisations streamed from the card processor (Eventstream -> Eventhouse) in the last 24 hours."),
+                ("Live Fraud Declines 24h",
+                 f"CALCULATE(COUNTROWS({STREAM}), {STREAM}[response_text] = \"Suspected fraud\", {STREAM}[event_ts] >= NOW() - 1)", "0",
+                 "Streamed authorisations declined as suspected fraud in the last 24 hours (RP-022, RP-035)."),
+                ("Live Card Testing Attempts 1h",
+                 f"CALCULATE(COUNTROWS({STREAM}), {STREAM}[channel] = \"CNP\", {STREAM}[amount_cad] < 5, {STREAM}[event_ts] >= NOW() - 1/24)", "0",
+                 "Card-not-present attempts under $5 in the last hour - three or more on one card is a card-testing pattern (RP-035)."),
+            ]
         for name, dax, fmt, desc in MEASURES:
             if name in existing:
                 log(f"= measure {name}")

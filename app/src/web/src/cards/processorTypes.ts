@@ -190,3 +190,32 @@ export const INSIGHT_LABEL: Record<string, string> = {
   CARD_TESTING: "Card testing", DECLINES_AT_LIMIT: "Declines at limit", BILLERS_STOPPED: "Billers stopped",
   EXPIRY_BILLERS: "Expiry with billers", FX_FEES: "FX fees", DISPUTE_DUE: "Dispute due", ALERTS_OFF: "Alerts off",
 };
+
+/** Live stream - Fabric Eventstream -> Eventhouse (pb_stream.py). */
+export interface LiveKpis {
+  events?: number; approved?: number; declined?: number; cnp?: number; cross_border?: number; fraud_declines?: number;
+  limit_declines?: number; amount_cad?: number; accounts?: number; last_event?: string; approval_rate?: number; cnp_share?: number;
+}
+
+export interface LiveAuth {
+  event_ts: string; auth_id: string; account_id: string; merchant_name: string; merchant_country: string; amount_cad: number;
+  pos_entry_mode: string; channel: string; response_code: string; response_text: string; decision: string; risk_score: number;
+  scenario: string; customer_name: string; product_name: string;
+}
+
+export interface LiveTesting {
+  account_id: string; attempts: number; approved: number; merchants: number; countries: string[] | string; first_seen: string;
+  last_seen: string; max_risk: number; customer_name: string; product_name: string; in_book: boolean;
+}
+
+export interface LiveStream {
+  connected: boolean;
+  reason?: string;
+  queried_at?: string;
+  source: { eventstream: string; eventhouse: string; database: string; table: string; uri: string };
+  kpis_15m?: LiveKpis;
+  kpis_24h?: LiveKpis;
+  card_testing?: LiveTesting[];
+  declines_at_limit?: { account_id: string; declines: number; amount_cad: number; last_seen: string; customer_name: string }[];
+  recent?: LiveAuth[];
+}

@@ -12,6 +12,7 @@ Endpoints
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 from datetime import date
@@ -27,7 +28,7 @@ from .auth import User, current_user, exchange_obo
 from .config import settings
 from .iq import iq_catalogue
 from .offers import catalogue as offer_catalogue
-from . import evergreen, fabric_capacity, pb_books, pb_card_market, pb_cards, pb_customers, pb_missions, pb_processor, pb_scenarios, pb_world
+from . import evergreen, fabric_capacity, pb_books, pb_card_market, pb_cards, pb_customers, pb_missions, pb_processor, pb_scenarios, pb_stream, pb_world
 from .books_data import BOOKS
 from .cards_data import CARDS
 from .pb_data import PB
@@ -461,6 +462,19 @@ class ProcessorAction(BaseModel):
 @app.get("/api/cards/processor")
 async def cards_processor(user: User = Depends(current_user)) -> dict:
     return pb_processor.overview()
+
+
+@app.get("/api/cards/processor/live")
+async def cards_processor_live(account: str = "", user: User = Depends(current_user)) -> dict:
+    """Live authorisations and insights from the Fabric Eventstream -> Eventhouse path (pb_stream.py)."""
+    if account and account not in pb_cards.ACC:
+        raise HTTPException(status_code=404, detail=account)
+    return await pb_stream.live(account)
+
+
+@app.on_event("startup")
+async def _stream_self_test() -> None:
+    asyncio.create_task(pb_stream.self_test())
 
 
 @app.get("/api/cards/account/{aid}/processor")

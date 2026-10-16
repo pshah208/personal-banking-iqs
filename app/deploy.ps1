@@ -50,6 +50,9 @@ param(
     [string]$BankName,
     [ValidateSet('generic', 'tsys', 'fiserv', 'globalpayments')]
     [string]$CardProcessor = 'generic',
+    # Live card-processor stream (data/fabric-iq/deploy_realtime.py writes both to .env.realtime).
+    [string]$ProcessorKqlUri,
+    [string]$ProcessorKqlDb,
 
     [ValidateSet('infra', 'images', 'all')]
     [string]$Only = 'all',
@@ -107,6 +110,13 @@ try {
         $BankName = (python (Join-Path $root '..\tools\brand\bank_profile.py') | ConvertFrom-Json).name
     }
     Write-Host "bank         : $BankName"
+    $rt = Join-Path $root '..\data\fabric-iq\.env.realtime'
+    if (-not $ProcessorKqlUri -and (Test-Path $rt)) {
+        $kv = @{}
+        Get-Content $rt | Where-Object { $_ -match '^[A-Z_]+=' } | ForEach-Object { $k, $v = $_ -split '=', 2; $kv[$k] = $v }
+        $ProcessorKqlUri = $kv['PROCESSOR_KQL_URI']; $ProcessorKqlDb = $kv['PROCESSOR_KQL_DB']
+    }
+    Write-Host "live stream  : $(if ($ProcessorKqlUri) { "$ProcessorKqlUri / $ProcessorKqlDb" } else { 'off' })"
     Write-Host "foundry      : $FoundryProjectEndpoint"
 
     # ------------------------------------------------------------- infra ---
@@ -142,6 +152,8 @@ then pass -AadClientId, -AadClientSecret and -AadApiScope.
                 foundryAgentName=$FoundryAgentName `
                 bankName=$BankName `
                 cardProcessor=$CardProcessor `
+                processorKqlUri=$ProcessorKqlUri `
+                processorKqlDb=$ProcessorKqlDb `
             -o table
         if ($LASTEXITCODE -ne 0) { throw 'Bicep deployment failed.' }
         if ($WhatIf) { Write-Host "`nwhat-if only." -ForegroundColor Yellow; return }

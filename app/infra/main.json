@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.42.1.51946",
-      "templateHash": "12210495939327595162"
+      "templateHash": "13372511597521738012"
     }
   },
   "parameters": {
@@ -114,6 +114,20 @@
       ],
       "metadata": {
         "description": "Simulated card-processor profile shown in the Cards book (labels and API shape only)."
+      }
+    },
+    "processorKqlUri": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Eventhouse query URI for the live card-processor stream (deploy_realtime.py). Empty = live panel off."
+      }
+    },
+    "processorKqlDb": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "KQL database holding the auth_stream table."
       }
     }
   },
@@ -365,6 +379,12 @@
           },
           "cardProcessor": {
             "value": "[parameters('cardProcessor')]"
+          },
+          "processorKqlUri": {
+            "value": "[parameters('processorKqlUri')]"
+          },
+          "processorKqlDb": {
+            "value": "[parameters('processorKqlDb')]"
           }
         },
         "template": {
@@ -374,7 +394,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.42.1.51946",
-              "templateHash": "13736031958960181641"
+              "templateHash": "10940430287999909403"
             }
           },
           "parameters": {
@@ -442,6 +462,14 @@
             "cardProcessor": {
               "type": "string",
               "defaultValue": "generic"
+            },
+            "processorKqlUri": {
+              "type": "string",
+              "defaultValue": ""
+            },
+            "processorKqlDb": {
+              "type": "string",
+              "defaultValue": ""
             }
           },
           "variables": {
@@ -581,6 +609,14 @@
                         {
                           "name": "CARD_PROCESSOR",
                           "value": "[parameters('cardProcessor')]"
+                        },
+                        {
+                          "name": "PROCESSOR_KQL_URI",
+                          "value": "[parameters('processorKqlUri')]"
+                        },
+                        {
+                          "name": "PROCESSOR_KQL_DB",
+                          "value": "[parameters('processorKqlDb')]"
                         },
                         {
                           "name": "AZURE_CLIENT_ID",

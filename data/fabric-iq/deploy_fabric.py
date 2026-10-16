@@ -137,8 +137,16 @@ class Api:
              data: bytes | None = None, headers: dict | None = None,
              params: dict | None = None, ok: tuple[int, ...] = (200, 201, 202)) -> Any:
         url = path if path.startswith("http") else f"{self.base}{path}"
-        r = requests.request(method, url, headers=self.h(headers),
-                             json=json_body, data=data, params=params, timeout=180)
+        for attempt in range(4):
+            try:
+                r = requests.request(method, url, headers=self.h(headers),
+                                     json=json_body, data=data, params=params, timeout=180)
+                break
+            except (requests.ConnectionError, requests.Timeout) as e:
+                if attempt == 3:
+                    raise
+                print(f"    retry {attempt + 1} after {e.__class__.__name__}")
+                time.sleep(3 * (attempt + 1))
         if r.status_code == 202 and "Location" in r.headers:
             return self._poll(r)
         if r.status_code not in ok:
@@ -341,7 +349,10 @@ def run_notebook(ws_id: str, nb_id: str) -> None:
         return
     for i in range(160):
         time.sleep(15)
-        s = requests.get(loc, headers=fab.h(), timeout=60)
+        try:
+            s = requests.get(loc, headers=fab.h(), timeout=60)
+        except (requests.ConnectionError, requests.Timeout):
+            continue  # transient network fault - the job keeps running, poll again
         if s.status_code != 200:
             continue
         st = s.json().get("status")

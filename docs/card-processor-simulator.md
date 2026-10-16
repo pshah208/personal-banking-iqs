@@ -73,6 +73,46 @@ It writes the CSVs and `app/src/bff/app/processor_data.py`. Dates use the same e
 7. Open a fraud dispute for the approved test charges.
 8. Block and reissue the card. Account Updater pushes the new card number to the billers on file.
 
+## Live stream - Fabric Eventstream → Eventhouse
+
+The daily files above are batch. Authorisations also stream in real time:
+
+```
+stream_processor_events.py  (the processor, simulated)
+   └─► Eventstream es_card_processor      custom endpoint, Event Hubs protocol
+         └─► Eventhouse eh_card_processor  KQL table auth_stream (JSON mapping auth_json)
+               ├─ KQL functions: LiveAuthKpis · CardTestingLive · DeclinesAtLimitLive · RecentAuths
+               ├─ OneLake availability → Lakehouse shortcut proc_auth_stream
+               │     └─ semantic model (Live Authorisations 24h, Live Fraud Declines 24h,
+               │        Live Card Testing Attempts 1h) → the agents' Fabric IQ tool
+               └─ BFF /api/cards/processor/live (managed identity, workspace Viewer)
+                     └─ Cards book: live panel (10 s refresh) + per-card live feed
+```
+
+Set up (idempotent) and stream:
+
+```powershell
+python data/fabric-iq/deploy_realtime.py                                   # or: .\deploy.ps1 -Only realtime
+python data/fabric-iq/deploy_realtime.py --grant-principal <BFF managed identity object id>
+python data/fabric-iq/stream_processor_events.py --replay --minutes 10 --rate 3          # background traffic
+python data/fabric-iq/stream_processor_events.py --scenario card-testing --account CA-2009
+python data/fabric-iq/stream_processor_events.py --scenario declines-at-limit --account CA-1010
+python data/fabric-iq/deploy_realtime.py --status
+```
+
+`deploy_realtime.py` writes `data/fabric-iq/.env.realtime`, which is git-ignored because it holds the Eventstream send key. `app\deploy.ps1` reads `PROCESSOR_KQL_URI` and `PROCESSOR_KQL_DB` from that file. To change the settings on a running app, update the BFF container app with `az containerapp update --set-env-vars PROCESSOR_KQL_URI=… PROCESSOR_KQL_DB=…`.
+
+After the first events arrive, re-run `deploy_fabric.py --only semantic-model` once. The model picks up the `proc_auth_stream` shortcut and its live measures automatically. Without the stream configured, the live panel shows "not connected" and everything else works as before.
+
+Live demo moment:
+
+1. Run the card-testing scenario for **CA-2009**, an account with no fraud alert in the card book.
+2. Within seconds it appears in the Cards live panel and in the card's own live feed, with an in-progress banner.
+3. Ask the concierge: *"Which cards show a card-testing pattern in the live stream in the last hour, and is any not flagged in the card book?"* It answers from `proc_auth_stream`, notes the missing fraud alert, and recommends a temporary lock under RP-035 with named approval.
+4. Lock the card in the workspace.
+
+Cost: the Eventhouse and the Eventstream consume Fabric capacity units while they run. Pause the capacity after a demo.
+
 ## Moving to a real processor
 
-Put API Management in front of the vendor's sandbox or production APIs and point `pb_processor._request` at it, keeping the preview, guards and approval steps. Land the vendor's daily files in `OneLake Files/processor/*`, using Data Factory or a shortcut. Stream fraud scores through Event Hubs into a Fabric Eventstream. The tables, insights and UI stay the same.
+Put API Management in front of the vendor's sandbox or production APIs and point `pb_processor._request` at it, keeping the preview, guards and approval steps. Land the vendor's daily files in `OneLake Files/processor/*`, using Data Factory or a shortcut. Point the vendor's authorisation or fraud-score webhook (or its Kafka / Event Hubs feed) at the same Eventstream source in place of `stream_processor_events.py`. The tables, KQL functions, insights and UI stay the same.

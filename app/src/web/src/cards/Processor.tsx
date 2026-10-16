@@ -16,7 +16,7 @@ import { apiGet, apiPost } from "../api";
 import { PlayTag } from "./CardAccount";
 import {
   ENTRY_LABEL, INSIGHT_LABEL,
-  type ActionResult, type Authorization, type ProcessorAccount as Detail, type ProcessorInsight, type ProcessorOverview,
+  type ActionResult, type Authorization, type LiveStream, type ProcessorAccount as Detail, type ProcessorInsight, type ProcessorOverview,
 } from "./processorTypes";
 import { cad, cadShort } from "./types";
 import "./processorView.css";
@@ -29,6 +29,100 @@ function SimBadge({ name }: { name: string }) {
 
 function InsightTag({ t }: { t: ProcessorInsight["type"] }) {
   return t === "Service" ? <span className="px-tag px-tag-service">Service</span> : <PlayTag t={t} />;
+}
+
+/* ------------------------------------------------------------- live stream */
+const ago = (iso?: string) => {
+  if (!iso) return "";
+  const s = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 1000));
+  return s < 60 ? `${s}s ago` : s < 3600 ? `${Math.round(s / 60)} min ago` : `${Math.round(s / 3600)} h ago`;
+};
+
+function useLive(active: boolean, account = "") {
+  const [live, setLive] = useState<LiveStream | null>(null);
+  useEffect(() => {
+    if (!active) return;
+    let stop = false;
+    const tick = () => apiGet<LiveStream>(`/api/cards/processor/live${account ? `?account=${encodeURIComponent(account)}` : ""}`)
+      .then((r) => { if (!stop) setLive(r); }).catch(() => undefined);
+    tick();
+    const h = window.setInterval(tick, 10000);
+    return () => { stop = true; window.clearInterval(h); };
+  }, [active, account]);
+  return live;
+}
+
+function LivePanel({ active, onOpen }: { active: boolean; onOpen: (aid: string) => void }) {
+  const live = useLive(active);
+  if (!live) return null;
+  if (!live.connected) {
+    return (
+      <div className="px-live px-live-off" role="note">
+        <b>Live stream not connected</b>
+        <span>Fabric Eventstream <code>{live.source.eventstream}</code> → Eventhouse <code>{live.source.eventhouse}</code>.
+          Run <code>data/fabric-iq/deploy_realtime.py</code> and set <code>PROCESSOR_KQL_URI</code> / <code>PROCESSOR_KQL_DB</code> on the BFF.</span>
+        {live.reason && <small>{live.reason}</small>}
+      </div>
+    );
+  }
+  const k = live.kpis_15m ?? {};
+  const d = live.kpis_24h ?? {};
+  return (
+    <div className="px-live" aria-label="Live processor stream">
+      <div className="px-live-head">
+        <span className="px-live-dot" aria-hidden /><b>Live · Fabric Eventstream → Eventhouse</b>
+        <code>{live.source.eventstream} → {live.source.database}.{live.source.table}</code>
+        <small>last event {ago(k.last_event || d.last_event)} · refreshed {ago(live.queried_at)}</small>
+      </div>
+      <div className="px-live-kpis">
+        <div><b>{k.events ?? 0}</b><small>authorisations · 15 min</small></div>
+        <div><b>{k.events ? `${k.approval_rate}%` : "–"}</b><small>approved · 15 min</small></div>
+        <div><b>{k.events ? `${k.cnp_share}%` : "–"}</b><small>card not present</small></div>
+        <div className={d.fraud_declines ? "px-hot" : ""}><b>{d.fraud_declines ?? 0}</b><small>fraud declines · 24 h</small></div>
+        <div><b>{d.limit_declines ?? 0}</b><small>declined at limit · 24 h</small></div>
+        <div><b>{d.events ?? 0}</b><small>events · 24 h · {d.accounts ?? 0} cards</small></div>
+      </div>
+      <div className="px-live-grid">
+        <div>
+          <h4>Card testing detected (KQL · CardTestingLive)</h4>
+          {!live.card_testing?.length && <p className="cd-muted">No pattern in the last hour.</p>}
+          <ul className="px-live-alerts">
+            {live.card_testing?.map((t) => (
+              <li key={t.account_id}>
+                <button type="button" onClick={() => onOpen(t.account_id)}>
+                  <b>{t.customer_name || t.account_id}</b>
+                  <span>{t.attempts} attempts under $5 · {t.approved} approved · {t.merchants} merchants · {Array.isArray(t.countries) ? t.countries.join(", ") : t.countries}</span>
+                  <small>{t.account_id} · last {ago(t.last_seen)} · max risk {t.max_risk}</small>
+                </button>
+              </li>
+            ))}
+          </ul>
+          {!!live.declines_at_limit?.length && <>
+            <h4>Declined at the limit (DeclinesAtLimitLive)</h4>
+            <ul className="px-live-alerts px-live-support">
+              {live.declines_at_limit.map((x) => (
+                <li key={x.account_id}><button type="button" onClick={() => onOpen(x.account_id)}>
+                  <b>{x.customer_name || x.account_id}</b><span>{x.declines} declines · {cad(x.amount_cad, 0)} · support, never a limit increase</span>
+                  <small>{x.account_id} · last {ago(x.last_seen)}</small></button></li>
+              ))}
+            </ul>
+          </>}
+        </div>
+        <div>
+          <h4>Latest authorisations</h4>
+          <ul className="px-live-feed">
+            {live.recent?.map((r) => (
+              <li key={r.auth_id} className={r.decision === "Declined" ? "px-live-declined" : ""}>
+                <small>{ago(r.event_ts)}</small>
+                <span><b>{r.customer_name || r.account_id}</b> · {r.merchant_name} ({r.merchant_country}) · {cad(r.amount_cad, 2)}</span>
+                <code>{r.response_code} {r.decision}</code>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 /* --------------------------------------------------------------- portfolio */
@@ -89,6 +183,8 @@ export function ProcessorPortfolio({ active, onOpen }: { active: boolean; onOpen
           <li><b>Fabric IQ</b><small>proc_* tables joined to card_accounts</small></li>
           <li><b>Cards book &amp; agents</b><small>insights · human-approved actions · audit</small></li>
         </ol>
+
+        <LivePanel active={active} onOpen={onOpen} />
 
         <div className="px-feeds" aria-label="Files delivered by the processor">
           {data.feeds.map((f) => (
@@ -182,6 +278,7 @@ export function ProcessorAccount({ aid }: { aid: string }) {
   const [approved, setApproved] = useState(false);
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState<ActionResult | null>(null);
+  const live = useLive(open, aid);
 
   const load = useCallback(() => {
     apiGet<Detail>(`/api/cards/account/${aid}/processor`).then((r) => { setD(r); setError(""); }).catch((e) => setError(String(e)));
@@ -211,6 +308,7 @@ export function ProcessorAccount({ aid }: { aid: string }) {
   };
 
   const c = d?.controls;
+  const liveTesting = live?.card_testing?.find((t) => t.account_id === aid);
   return (
     <section className={`cd-360 px-account${open ? "" : " cd-360-closed"}`} aria-label="Card processor">
       <button type="button" className="cd-360-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
@@ -265,6 +363,33 @@ export function ProcessorAccount({ aid }: { aid: string }) {
               </article>
             ))}
           </div>
+
+          {live?.connected && (
+            <div className="px-live px-live-acc">
+              <div className="px-live-head">
+                <span className="px-live-dot" aria-hidden /><b>Live stream for this card</b>
+                <code>{live.source.eventstream} → {live.source.table}</code>
+                <small>refreshed {ago(live.queried_at)}</small>
+              </div>
+              {liveTesting && (
+                <p className="px-live-alert-inline">
+                  <b>Card testing in progress:</b> {liveTesting.attempts} attempts under $5 in the last hour, {liveTesting.approved} approved,
+                  max risk {liveTesting.max_risk}. Lock the card now, then reissue (RP-035).
+                </p>
+              )}
+              {!live.recent?.length ? <p className="cd-muted">No live authorisations for this card yet.</p> : (
+                <ul className="px-live-feed">
+                  {live.recent.slice(0, 8).map((r) => (
+                    <li key={r.auth_id} className={r.decision === "Declined" ? "px-live-declined" : ""}>
+                      <small>{ago(r.event_ts)}</small>
+                      <span>{r.merchant_name} ({r.merchant_country}) · {cad(r.amount_cad, 2)} · {r.channel}</span>
+                      <code>{r.response_code} {r.decision} · risk {r.risk_score}</code>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
 
           {preview && (
             <div className="px-dialog" role="group" aria-label={`Approve: ${preview.label}`}>

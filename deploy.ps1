@@ -51,7 +51,7 @@
     Bicep stage created.
 
 .PARAMETER Only
-    Run a single stage: brand | bicep | fabric | foundry-iq | work-iq | agent.
+    Run a single stage: brand | bicep | fabric | realtime | foundry-iq | work-iq | agent.
 
 .PARAMETER Skip
     Stages to leave out of a full run, e.g. -Skip fabric,work-iq (CI uses this).
@@ -84,9 +84,9 @@ param(
     [string]$ParametersFile = 'infra/main.parameters.greenfield.json',
     [string]$PrincipalId,
     [string]$FabricCapacity,
-    [ValidateSet('brand', 'bicep', 'fabric', 'foundry-iq', 'work-iq', 'agent')]
+    [ValidateSet('brand', 'bicep', 'fabric', 'realtime', 'foundry-iq', 'work-iq', 'agent')]
     [string]$Only,
-    [ValidateSet('bicep', 'fabric', 'foundry-iq', 'work-iq', 'agent')]
+    [ValidateSet('bicep', 'fabric', 'realtime', 'foundry-iq', 'work-iq', 'agent')]
     [string[]]$Skip = @(),
     [switch]$SkipWorkIq,
     [switch]$WhatIf
@@ -263,6 +263,15 @@ try {
             $env:FABRIC_SEMANTIC_MODEL = 'sm_mortgage_renewals'
             Write-Host "  FABRIC_WORKSPACE_ID = $ws"
         }
+    }
+
+    # ---------------------------------------------------------- 2b realtime ----
+    if (& $run 'realtime') {
+        Write-Stage '2b' 'Real-time card processor - Eventstream -> Eventhouse -> insights'
+        Invoke-Step 'deploy_realtime.py' { python data/fabric-iq/deploy_realtime.py }
+        Write-Host '   Stream events with: python data/fabric-iq/stream_processor_events.py --replay --minutes 10' -ForegroundColor Yellow
+        Write-Host '   Let the web app read the stream: deploy_realtime.py --grant-principal <BFF managed identity object id>,' -ForegroundColor Yellow
+        Write-Host '   then app\deploy.ps1 picks PROCESSOR_KQL_URI / PROCESSOR_KQL_DB up from data/fabric-iq/.env.realtime.' -ForegroundColor Yellow
     }
 
     # ------------------------------------------------------- 3 foundry-iq ----

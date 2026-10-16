@@ -67,6 +67,12 @@ param bankName string = 'CFC Bank'
 @allowed([ 'generic', 'tsys', 'fiserv', 'globalpayments' ])
 param cardProcessor string = 'generic'
 
+@description('Eventhouse query URI for the live card-processor stream (deploy_realtime.py). Empty = live panel off.')
+param processorKqlUri string = ''
+
+@description('KQL database holding the auth_stream table.')
+param processorKqlDb string = ''
+
 var tags = union({
   workload: namePrefix
   solution: 'mortgage-renewal-concierge'
@@ -108,6 +114,8 @@ module apps 'modules/container-apps.bicep' = {
     mockMode: mockMode
     bankName: bankName
     cardProcessor: cardProcessor
+    processorKqlUri: processorKqlUri
+    processorKqlDb: processorKqlDb
   }
 }
 
